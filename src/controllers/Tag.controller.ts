@@ -7,7 +7,7 @@ export class TagController {
 
     public async create(req: Request, res: Response): Promise<any> {
 
-        let body = {
+        let body : any = {
             name: req.body.name,
             color: req.body.color,
             createById: req.user.id
@@ -23,6 +23,8 @@ export class TagController {
                     }),
                 createById: yup.string().required('CreateById is required')
             })
+
+            body = await schema.validate(body);
         } catch (error: any) {
             return res.status(400).json({ message: error.message });
         }

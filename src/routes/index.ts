@@ -11,6 +11,9 @@ import Tag from './tag.routes';
 import Category from './category.routes';
 import Post from './post.routes';
 
+// PAGE
+import Page from './pages/Pages.routes';
+
 const router = Router();
 
 router.use('/auth', Login)
@@ -23,6 +26,8 @@ router.use('/api/v1/subscrible', Subscrible)
 router.use('/api/v1/tag', Tag)
 router.use('/api/v1/category', Category)
 router.use('/api/v1/post', Post)
+
+router.use(Page)
 
 
 export default router;
