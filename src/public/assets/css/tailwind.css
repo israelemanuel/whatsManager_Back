@@ -524,8 +524,8 @@
   .transform {
     transform: var(--tw-rotate-x) var(--tw-rotate-y) var(--tw-rotate-z) var(--tw-skew-x) var(--tw-skew-y);
   }
-  .bg-purple-50 {
-    background-color: var(--color-purple-50);
+  .bg-purple-500 {
+    background-color: var(--color-purple-500);
   }
   .p-2 {
     padding: calc(var(--spacing) * 2);

@@ -3,12 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "prod:server": "set \"NODE_ENV=production\" && set \"PRODUCTION_LOCAL=true\" && ts-node-dev --inspect --transpile-only --ignore-watch node_modules src/app.ts",
+    "prod:server": "set \"NODE_ENV=production\" && set \"PRODUCTION_LOCAL=true\" && ts-node-dev --inspect --transpile-only --ignore-watch node_modules  src/app.ts",
     "scss": "node compile-scss.js",
     "scss:watch": "sass --watch src/public/assets/scss/style.scss src/public/assets/css/style.css",
-    "taiwind:watch":  "npx tailwindcss -i src/public/assets/css/output.css -o src/public/assets/css/tailwind.css --watch",
-    "taiwind:build":  "npx tailwindcss -i src/public/assets/css/output.css -o src/public/assets/css/tailwind.css",
-    "start:dev": "npm-run-all --parallel scss:watch taiwind:watch prod:server"
+    "taiwind:watch": "npx tailwindcss -i src/public/assets/css/output.css -o src/public/assets/css/tailwind.css --watch",
+    "taiwind:build": "npx tailwindcss -i src/public/assets/css/output.css -o src/public/assets/css/tailwind.css",
+    "start:dev": "npm-run-all --parallel  scss:watch taiwind:watch prod:server"
   },
   "keywords": [],
   "author": "",
