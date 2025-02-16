@@ -7,7 +7,9 @@ import { StartAllWhatsappSession } from './services/BotServices/StartAllWhasappS
 const port = process.env.PORT || 3000;
 
 server.listen(port, async () => {
-    
+
+    console.log(`Server is running on http://localhost:${port}`);
+    /*
     const subscribes = await Subscribe.find();
     const allPromises: any[] = [];
     
@@ -25,4 +27,5 @@ server.listen(port, async () => {
         console.log(`Server is running on http://localhost:${port}`);
 
     }
+        */
 });

@@ -5,7 +5,6 @@ const Schema = mongoose.Schema;
 export interface ISession {
     login: string;
     password: string;
-    subscribs?: string[];
     createdAt?: Date;
     updatedAt?: Date;
 }
@@ -19,8 +18,7 @@ const sessionSchema = new Schema({
     password: {
         type: String,
         required: true
-    },
-    subscribs: { type: [Schema.Types.ObjectId], ref: 'Subscribe', default: [] }
+    }
 }, {
     timestamps: true
 })

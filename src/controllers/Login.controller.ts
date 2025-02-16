@@ -29,16 +29,8 @@ export class LoginController {
 
         try {
 
-            //BUSCAR O ASSINANTE PELO DOMINIO
-            const subscriber = await Subscribe.findOne({ subdomain: req.host });
-            if (!subscriber) {
-                return res.status(400).json({ message: 'Subscriber not found' });
-            }
-
-
             const session = await Session.findOne({
                 login: body.login,
-                subscribs: { $in: [subscriber._id] }
             });
 
             if (!session) {
@@ -53,16 +45,20 @@ export class LoginController {
             //GERAR TOKEN
             const token = generateToken({
                 sessionId: session._id.toString(),
-                subscribeId: (subscriber._id as any).toString()
             });
-            
+
             const next = {
                 token: token,
                 user: session,
-                subscriberId: subscriber._id
             }
 
-            return res.status(200).json(next);
+            return res.status(200).json({
+                token: token,
+                user: {
+                    _id: session._id,
+                    login: session.login
+                }
+            });
 
         } catch (error: any) {
             return res.status(400).json({ message: error.message });
@@ -74,7 +70,6 @@ export class LoginController {
         let body: ISession = {
             login: req.body.login,
             password: req.body.password,
-            subscribs: [],
         }
 
         try {
@@ -90,23 +85,13 @@ export class LoginController {
 
         try {
 
-            //BUSCAR SUBSCRIBER PELO DOMINIO
-
-            const subscriber = await Subscribe.findOne({ subdomain: req.host });
-            if (!subscriber) {
-                return res.status(400).json({ message: 'Subscriber not found' });
-            }
-
             //VERIFICAR SE LOGIN JA EXISTE
             const loginExists = await Session.findOne({ login: body.login });
             if (loginExists) {
                 return res.status(400).json({ message: 'Login already exists' });
             }
 
-            body.subscribs?.push(subscriber._id as string);
-
             body.password = bcrypt.hashSync(body.password, 10);
-
             const session = new Session(body);
             await session.save();
 
