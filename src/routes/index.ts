@@ -14,6 +14,9 @@ import Post from './post.routes';
 // PAGE
 import Page from './pages/Pages.routes';
 
+//TEMPLATE
+ import templete from './templete.routes';
+
 const router = Router();
 
 router.use('/auth', Login)
@@ -26,6 +29,10 @@ router.use('/api/v1/subscrible', Subscrible)
 router.use('/api/v1/tag', Tag)
 router.use('/api/v1/category', Category)
 router.use('/api/v1/post', Post)
+
+
+//TEMPLATE
+router.use('/api/v1/templete', templete)
 
 router.use(Page)
 

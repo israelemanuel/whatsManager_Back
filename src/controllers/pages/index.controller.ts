@@ -17,8 +17,6 @@ export class PageController {
 
         const html = ejs.render(template, { header, footer, tags });
 
-
-
         return res.send(html);
 
 
