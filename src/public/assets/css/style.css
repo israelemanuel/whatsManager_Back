@@ -1,8 +1,329 @@
-body {
-  background-color: red;
+html {
+  color-scheme: light;
+  --mat-sys-background: #f2f2f2;
+  --mat-sys-on-background: #1f1f1f;
+  --mat-sys-background-dim: #bcbcbc;
+  --mat-sys-background-bright: #ffffff;
+  --mat-sys-primary: #2445FF;
+  --mat-sys-on-primary: #ffffff;
+  --mat-sys-dim: #1e38c9;
+  --mat-sys-primary-bright: #405cf9;
+  --mat-sys-secondary: #4B5CBF;
+  --mat-sys-on-secondary: #ffffff;
+  --mat-sys-secondary-dim: #3d4a98;
+  --mat-sys-secondary-bright: #5e72e1;
+  --mat-sys-tertiary: #FFCB24;
+  --mat-sys-on-tertiary: #1d1d1d;
+  --mat-sys-tertiary-dim: #dab539;
+  --mat-sys-tertiary-bright: #ffd858;
+  --mat-sys-error: #cc3300;
+  --mat-sys-on-error: #ffffff;
+  --mat-sys-error-dim: #661900;
+  --mat-sys-error-bright: #e63900;
+  --mat-sys-surface: #E0E5FF;
+  --mat-sys-on-surface: #1d1d1d;
+  --mat-sys-surface-dim: #b8bcd1;
+  --mat-sys-surface-bright: #f9faff;
 }
-body .content {
-  color: red;
+
+.dark-mode {
+  color-scheme: dark;
+  --mat-sys-background: #1f1f1f;
+  --mat-sys-on-background: #f2f2f2;
+  --mat-sys-background-dim: #0d0d0d;
+  --mat-sys-background-bright: #313131;
+  --mat-sys-primary: #2445FF;
+  --mat-sys-on-primary: #ffffff;
+  --mat-sys-dim: #1e38c9;
+  --mat-sys-bright: #405cf9;
+  --mat-sys-secondary: #5e72e1;
+  --mat-sys-on-secondary: #ffffff;
+  --mat-sys-secondary-dim: #3d4a98;
+  --mat-sys-secondary-bright: #4B5CBF;
+  --mat-sys-tertiary: #ffd858;
+  --mat-sys-on-tertiary: #1d1d1d;
+  --mat-sys-tertiary-dim: #dab539;
+  --mat-sys-tertiary-bright: #FFCB24;
+  --mat-sys-error: #e63900;
+  --mat-sys-on-error: #ffffff;
+  --mat-sys-error-dim: #661900;
+  --mat-sys-error-bright: #cc3300;
+  --mat-sys-surface: #1d1d1d;
+  --mat-sys-on-surface: #E0E5FF;
+  --mat-sys-surface-dim: #000000;
+  --mat-sys-surface-bright: #343434;
+}
+
+.high-contrast {
+  color-scheme: dark;
+  --mat-sys-background: #000000;
+  --mat-sys-on-background: #ffff00;
+  --mat-sys-background-dim: #757575;
+  --mat-sys-background-bright: #ffffff;
+  --mat-sys-primary: #00ff00;
+  --mat-sys-on-primary: #000000;
+  --mat-sys-dim: #00cc00;
+  --mat-sys-bright: #33ff33;
+  --mat-sys-secondary: #ff00ff;
+  --mat-sys-on-secondary: #000000;
+  --mat-sys-secondary-dim: #cc00cc;
+  --mat-sys-secondary-bright: #ff33ff;
+  --mat-sys-tertiary: #00ffff;
+  --mat-sys-on-tertiary: #000000;
+  --mat-sys-tertiary-dim: #00cccc;
+  --mat-sys-tertiary-bright: #33ffff;
+  --mat-sys-error: #ff0000;
+  --mat-sys-on-error: #ffffff;
+  --mat-sys-error-dim: #cc0000;
+  --mat-sys-error-bright: #ff3333;
+  --mat-sys-surface: #000000;
+  --mat-sys-on-surface: #ffff00;
+  --mat-sys-surface-dim: #7f7f7f;
+  --mat-sys-surface-bright: #ffffff;
+}
+
+:root {
+  --main-curve: 1rem;
+  --main-padding: 1rem;
+  --main-gap: 1rem;
+  --double-padding: 2rem;
+  --double-gap: 2rem;
+  --main-border: 1px solid var(--) --main-transition: all .6s cubic-bezier(0.075, 0.82, 0.165, 1);
+  --main-transition: all .6s cubic-bezier(0.075, 0.82, 0.165, 1);
+  --default-scale: 1.05;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Nunito, sans-serif;
+}
+body .material-symbols-rounded {
+  color: var(--neumorphic-color);
+  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+h5 {
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+h6 {
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.commonButton {
+  width: max-content;
+  padding: 4px var(--main-padding);
+  border-radius: var(--main-curve);
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  transition: var(--main-transition);
+  box-sizing: border-box;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+}
+.commonButton.primary {
+  background-color: var(--mat-sys-primary);
+  color: var(--mat-sys-on-primary);
+}
+.commonButton.secondary {
+  background-color: var(--mat-sys-secondary);
+  color: var(--mat-sys-on-secondary);
+}
+.commonButton.tertiary {
+  background-color: var(--mat-sys-tertiary);
+  color: var(--mat-sys-on-tertiary);
+}
+.commonButton.primary:active::after, .commonButton.secondary:active::after, .commonButton.tertiary:active::after {
+  background-color: var(--mat-sys-surface-bright);
+}
+.commonButton.overPrimary {
+  background-color: var(--mat-sys-on-primary);
+  color: var(--mat-sys-primary);
+}
+.commonButton.overPrimary:active::after {
+  background-color: var(--mat-sys-primary-bright);
+}
+.commonButton.overSecondary {
+  background-color: var(--mat-sys-on-secondary);
+  color: var(--mat-sys-secondary);
+}
+.commonButton.overSecondary:active::after {
+  background-color: var(--mat-sys-secconday-bright);
+}
+.commonButton.overTertiary {
+  background-color: var(--mat-sys-on-tertiary);
+  color: var(--mat-sys-tertiary);
+}
+.commonButton.overTertiary:active::after {
+  background-color: var(--mat-sys-tertiary-bright);
+}
+.commonButton.primary:hover, .commonButton.secondary:hover, .commonButton.tertiary:hover, .commonButton.overPrimary:hover, .commonButton.overSecondary:hover, .commonButton.overTertiary:hover {
+  transform: scale(var(--default-scale));
+}
+.commonButton.primary:active, .commonButton.secondary:active, .commonButton.tertiary:active, .commonButton.overPrimary:active, .commonButton.overSecondary:active, .commonButton.overTertiary:active {
+  position: relative;
+  transform: translateY(4px);
+}
+.commonButton.primary:active::after, .commonButton.secondary:active::after, .commonButton.tertiary:active::after, .commonButton.overPrimary:active::after, .commonButton.overSecondary:active::after, .commonButton.overTertiary:active::after {
+  content: "";
+  position: absolute;
+  transform-origin: center;
+  border-radius: 9999px;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  animation: grow 0.6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+  opacity: 0.2;
+}
+@keyframes grow {
+  from {
+    scale: 0;
+  }
+  to {
+    scale: 1.5;
+  }
+}
+
+.commonCard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--main-curve);
+  transition: var(--main-transition);
+}
+.commonCard.small {
+  height: 64px;
+}
+.commonCard.big {
+  height: 200px;
+}
+.commonCard.large {
+  height: 320px;
+}
+.commonCard.neutral {
+  background-color: var(--mat-sys-surface-dim);
+  color: var(--mat-sys-on-surface);
+}
+.commonCard.primary {
+  background-color: var(--mat-sys-primary);
+  color: var(--mat-sys-on-primary);
+}
+.commonCard.secondary {
+  background-color: var(--mat-sys-secondary);
+  color: var(--mat-sys-on-secondary);
+}
+.commonCard.tertiary {
+  background-color: var(--mat-sys-tertiary);
+  color: var(--mat-sys-on-tertiary);
+}
+.commonCard.error {
+  background-color: var(--mat-sys-error);
+  color: var(--mat-sys-on-error);
+}
+.commonCard.pointable {
+  cursor: pointer;
+  user-select: none;
+}
+.commonCard.pointable:active {
+  position: relative;
+  transform: translateY(4px);
+  overflow: hidden;
+}
+.commonCard.pointable:active::after {
+  content: "";
+  position: absolute;
+  transform-origin: center;
+  border-radius: 9999px;
+  height: 100%;
+  width: 100%;
+  aspect-ratio: 1/1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  animation: grow 0.6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+  opacity: 0.2;
+  background-color: var(--mat-sys-surface-bright);
+}
+.commonCard:hover {
+  transform: scale(var(--default-scale));
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--mat-sys-on-surface);
+  position: relative;
+  overflow: hidden;
+}
+.title:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: var(--mat-sys-surface);
+  top: 0;
+  left: 0;
+  position: absolute;
+  transform-origin: right;
+  animation: reveal 0.6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+  animation-delay: 0.6s;
+}
+@keyframes reveal {
+  0% {
+    transform: translateX(0);
+  }
+  98% {
+    transform: translateX(100%);
+    opacity: 100%;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0%;
+  }
+}
+
+.divider {
+  height: 8px;
+  width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */

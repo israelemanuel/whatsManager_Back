@@ -1,13 +1,52 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/tailwind.css">
     <title>Document</title>
-</head>
-<body>
-    
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body style="background-color: var(--mat-sys-surface)">
+    <div class="w-full h-full box-border overflow-x-hidden">
+        <div class="w-full h-max flex flex-col overflow-y-auto overflow-x-hidden box-border">
+            <div class="w-full h-[48px] flex flex-row justify-end bg-[var(--mat-sys-primary)]">
+                <div class="flex flex-row gap-6 items-center px-4 box-border text-[var(--mat-sys-on-primary)]">
+                    <span>Acessibilidade</span>
+                    <button id="toggle-dark-mode">Modo Noturno</button>
+                    <button id="toggle-high-contrast">Alto Contraste</button>
+                    <span>Mapa do Site</span>
+                    <div class="flex flex-row gap-2">
+                        <span>A+</span>
+                        <span>A</span>
+                        <span>A-</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="w-full h-[48px] flex flext-row justify-between px-4 text-[var(--mat-sys-on-background)]">
+                <h1 class="flex flex-col justify-center items-start leading-5">
+                    <span style="font-size: 1.0rem;">Prefeitura de</span>
+                    <span>Santo Antônio do Tauá</span>
+                </h1>
+
+                <ul class="flex flex-row gap-4 items-center">
+                    <li><span>Serviços Digitais</span></li>
+                    <li><span>Secretarias</span></li>
+                    <li><span>Turismo</span></li>
+                    <li><span>Notícias</span></li>
+                    <li><span>Transparência</span></li>
+                    <li><span>Diário Oficial</span></li>
+                    <li><span>Diário Menus</span></li>
+                </ul>
+            </div>
