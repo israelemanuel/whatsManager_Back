@@ -12,6 +12,7 @@ export class PageController {
 
         const header = fs.readFileSync(path.resolve(__dirname, '../../views/header.ejs'), 'utf-8');
         const footer = fs.readFileSync(path.resolve(__dirname, '../../views/footer.ejs'), 'utf-8');
+        const news = fs.readFileSync(path.resolve(__dirname, '../../views/news.ejs'), 'utf-8');
 
         const tags = await Tag.find();
 
@@ -49,13 +50,16 @@ export class PageController {
             { type: 2, title: 'Notícia 2', description: 'Descrição da notícia 2', image: '/path/to/image2.jpg', date: '2025-02-16' },
             { type: 3, title: 'Notícia 3', description: 'Descrição da notícia 3', image: '/path/to/image3.jpg', date: '2025-02-15' },
             { type: 4, title: 'Notícia 4', description: 'Descrição da notícia 4', image: '/path/to/image4.jpg', date: '2025-02-14' },
+            { type: 4, title: 'Notícia 4', description: 'Descrição da notícia 4', image: '/path/to/image4.jpg', date: '2025-02-14' },
+            { type: 4, title: 'Notícia 4', description: 'Descrição da notícia 4', image: '/path/to/image4.jpg', date: '2025-02-14' },
+            { type: 4, title: 'Notícia 4', description: 'Descrição da notícia 4', image: '/path/to/image4.jpg', date: '2025-02-14' },
         ];
 
 
 
 
-
-        const html = ejs.render(template, { header, footer, tags, banner, highlightServices, lstPersonas, lstSecretaries, lstNews });
+        
+        const html = ejs.render(template, { header, news, footer, tags, banner, highlightServices, lstPersonas, lstSecretaries, lstNews });
 
         return res.send(html);
 
