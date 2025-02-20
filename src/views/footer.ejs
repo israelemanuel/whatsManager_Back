@@ -40,9 +40,11 @@
 
     // Função para remover a classe 'show' do mat-menu
     function hideMenu() {
+        const body = document.getElementById('innerBody');
         const matMenus = document.querySelectorAll('.mat-menu');
         matMenus.forEach(matMenu => {
             matMenu.classList.remove('show');
+            body.classList.toggle('overflow-y-auto');
         });
     }
 
