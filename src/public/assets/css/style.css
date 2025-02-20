@@ -4,6 +4,8 @@ html {
   --mat-sys-on-background: #1f1f1f;
   --mat-sys-background-dim: #bcbcbc;
   --mat-sys-background-bright: #ffffff;
+  --mat-sys-background-translucent: #f2f2f231;
+  --mat-sys-background-on-translucent: #1f1f1f2f;
   --mat-sys-primary: #2445FF;
   --mat-sys-on-primary: #ffffff;
   --mat-sys-dim: #1e38c9;
@@ -156,6 +158,9 @@ h6 {
   cursor: pointer;
   user-select: none;
 }
+.commonButton.transparent {
+  background-color: transparent;
+}
 .commonButton.primary {
   background-color: var(--mat-sys-primary);
   color: var(--mat-sys-on-primary);
@@ -192,14 +197,14 @@ h6 {
 .commonButton.overTertiary:active::after {
   background-color: var(--mat-sys-tertiary-bright);
 }
-.commonButton.primary:hover, .commonButton.secondary:hover, .commonButton.tertiary:hover, .commonButton.overPrimary:hover, .commonButton.overSecondary:hover, .commonButton.overTertiary:hover {
+.commonButton.transparent:hover, .commonButton.primary:hover, .commonButton.secondary:hover, .commonButton.tertiary:hover, .commonButton.overPrimary:hover, .commonButton.overSecondary:hover, .commonButton.overTertiary:hover {
   transform: scale(var(--default-scale));
 }
-.commonButton.primary:active, .commonButton.secondary:active, .commonButton.tertiary:active, .commonButton.overPrimary:active, .commonButton.overSecondary:active, .commonButton.overTertiary:active {
+.commonButton.transparent:active, .commonButton.primary:active, .commonButton.secondary:active, .commonButton.tertiary:active, .commonButton.overPrimary:active, .commonButton.overSecondary:active, .commonButton.overTertiary:active {
   position: relative;
   transform: translateY(4px);
 }
-.commonButton.primary:active::after, .commonButton.secondary:active::after, .commonButton.tertiary:active::after, .commonButton.overPrimary:active::after, .commonButton.overSecondary:active::after, .commonButton.overTertiary:active::after {
+.commonButton.transparent:active::after, .commonButton.primary:active::after, .commonButton.secondary:active::after, .commonButton.tertiary:active::after, .commonButton.overPrimary:active::after, .commonButton.overSecondary:active::after, .commonButton.overTertiary:active::after {
   content: "";
   position: absolute;
   transform-origin: center;
@@ -218,6 +223,39 @@ h6 {
   to {
     scale: 1.5;
   }
+}
+
+.iconButton {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  cursor: pointer;
+  user-select: none;
+  transition: var(--main-transition);
+  overflow: hidden;
+  position: relative;
+}
+.iconButton:hover {
+  transform: scale(var(--default-scale));
+}
+.iconButton:active {
+  position: relative;
+}
+.iconButton:active::after {
+  content: "";
+  position: absolute;
+  transform-origin: center;
+  border-radius: 9999px;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  animation: grow 0.6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+  opacity: 0.2;
+  background-color: var(--mat-sys-primary-bright);
 }
 
 .commonCard {
@@ -287,6 +325,13 @@ h6 {
   transform: scale(var(--default-scale));
 }
 
+.search {
+  background-color: var(--mat-sys-surface);
+  overflow: hidden;
+  border-radius: var(--main-curve);
+  box-shadow: 5px 5px 5px var(--mat-sys-background-on-translucent), -5px -5px 5px var(--mat-sys-background-translucent);
+}
+
 .title {
   display: flex;
   flex-direction: column;
@@ -324,6 +369,89 @@ h6 {
 .divider {
   height: 8px;
   width: 100%;
+}
+
+.mat-menu {
+  position: fixed;
+  flex-direction: column;
+  top: 0;
+  left: calc(-300px - 0.8rem);
+  height: 100%;
+  padding: 1rem;
+  margin: 0.8rem;
+  box-sizing: border-box;
+  width: 300px;
+  border-radius: 2rem;
+  z-index: 50;
+  background-color: var(--mat-sys-surface);
+  max-height: calc(100% - 24px);
+  box-shadow: 5px 5px 5px var(--mat-sys-background-on-translucent), -5px -5px 5px var(--mat-sys-background-translucent);
+  transition: var(--main-transition);
+}
+.mat-menu.show {
+  transform: translateX(calc(300px + 0.8rem));
+}
+.mat-menu .mat-menu-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: calc(var(--main-gap) / 2);
+}
+.mat-menu .mat-menu-content li {
+  width: 100%;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  transition: var(--main-transition);
+  overflow: hidden;
+  border-radius: var(--main-curve);
+  background-color: rgba(0, 0, 0, 0.2);
+  font-weight: bold;
+  position: relative;
+  overflow: hidden;
+}
+.mat-menu .mat-menu-content li:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.mat-menu .mat-menu-content li:active {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.mat-menu .mat-menu-content li:active::after {
+  content: "";
+  background-color: var(--mat-sys-primary-bright);
+  position: absolute;
+  transform-origin: center;
+  border-radius: 9999px;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  animation: grow 0.6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+  opacity: 0.2;
+  filter: blur(20px);
+}
+
+.backdrop {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(10px);
+  z-index: 40;
+  user-select: none;
+  pointer-events: none;
+  opacity: 0;
+  transition: var(--main-transition);
+}
+
+body:has(.mat-menu.show) .backdrop {
+  opacity: 1;
+  pointer-events: all;
 }
 
 /*# sourceMappingURL=style.css.map */

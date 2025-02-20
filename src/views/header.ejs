@@ -18,35 +18,132 @@
 </head>
 
 <body style="background-color: var(--mat-sys-surface)">
-    <div class="w-full h-full box-border overflow-x-hidden">
-        <div class="w-full h-max flex flex-col overflow-y-auto overflow-x-hidden box-border">
-            <div class="w-full h-[48px] flex flex-row justify-end bg-[var(--mat-sys-primary)]">
+    <div class="w-full h-full box-border overflow-x-hidden" id="innerBody">
+        <div class="w-full h-max flex flex-col overflow-y-hidden overflow-x-hidden box-border">
+
+            <div class="flex md:hidden flex-row justify-between w-full h-[48px] bg-[var(--mat-sys-primary)]">
+                <div class="flex flex-row items-center box-border text-[var(--mat-sys-on-primary)]">
+                    <button class="iconButton" id="toggle-dark-mode" aria-label="Modo Noturno">
+                        <span class="material-symbols-rounded">
+                            mode_night
+                        </span>
+                    </button>
+                    <button class="iconButton" id="toggle-high-contrast" aria-label="Alto Contraste">
+                        <span class="material-symbols-rounded">
+                            contrast
+                        </span>
+                    </button>
+                    <button class="iconButton" aria-label="Hub">
+                        <span class="material-symbols-rounded">
+                            hub
+                        </span>
+                    </button>
+                </div>
+
+                <div class="flex flex-row h-full text-[var(--mat-sys-on-primary)]">
+                    <button class="iconButton" id="underscore" aria-label="Sublinhar">
+                        <span class="material-symbols-rounded">
+                            format_underlined
+                        </span>
+                    </button>
+
+                    <button class="iconButton" id="decrease-font" aria-label="Diminuir Fonte">
+                        <span class="material-symbols-rounded">
+                            text_decrease
+                        </span>
+                    </button>
+                    <button class="iconButton" id="default-font" aria-label="Fonte Padrão">
+                        <span class="material-symbols-rounded">
+                            text_format
+                        </span>
+                    </button>
+                    <button class="iconButton" id="increase-font" aria-label="Aumentar Fonte">
+                        <span class="material-symbols-rounded">
+                            text_increase
+                        </span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="hidden md:flex flex-row justify-end w-full h-[48px] bg-[var(--mat-sys-primary)]">
                 <div class="flex flex-row gap-6 items-center px-4 box-border text-[var(--mat-sys-on-primary)]">
-                    <span>Acessibilidade</span>
-                    <button id="toggle-dark-mode">Modo Noturno</button>
-                    <button id="toggle-high-contrast">Alto Contraste</button>
-                    <span>Mapa do Site</span>
-                    <div class="flex flex-row gap-2">
-                        <span>A+</span>
-                        <span>A</span>
-                        <span>A-</span>
+                    <button class="commonButton transparent text-[var(--mat-sys-on-primary)]" id="toggle-dark-mode" aria-label="Modo Noturno">Modo
+                        Noturno</button>
+                    <button class="commonButton transparent text-[var(--mat-sys-on-primary)]"
+                        id="toggle-high-contrast" aria-label="Alto Contraste">Alto Contraste</button>
+                    <button class="commonButton transparent text-[var(--mat-sys-on-primary)]" aria-label="Mapa do Site">Mapa do Site</button>
+                    <div class="flex flex-row h-full">
+                        <span class="iconButton" id="underscore" aria-label="Sublinhar">
+                            <span class="material-symbols-rounded">
+                                format_underlined
+                            </span>
+                        </span>
+    
+                        <span class="iconButton" id="decrease-font" aria-label="Diminuir Fonte">
+                            <span class="material-symbols-rounded">
+                                text_decrease
+                            </span>
+                        </span>
+                        <span class="iconButton" id="default-font" aria-label="Fonte Padrão">
+                            <span class="material-symbols-rounded">
+                                text_format
+                            </span>
+                        </span>
+                        <span class="iconButton" id="increase-font" aria-label="Aumentar Fonte">
+                            <span class="material-symbols-rounded">
+                                text_increase
+                            </span>
+                        </span>
                     </div>
                 </div>
             </div>
 
-            <div class="w-full h-[48px] flex flext-row justify-between px-4 text-[var(--mat-sys-on-background)]">
+            <div
+                class="hidden xl:flex flext-row justify-between w-full h-[56px] px-4 text-[var(--mat-sys-on-background)]">
                 <h1 class="flex flex-col justify-center items-start leading-5">
                     <span style="font-size: 1.0rem;">Prefeitura de</span>
                     <span>Santo Antônio do Tauá</span>
                 </h1>
 
-                <ul class="flex flex-row gap-4 items-center">
-                    <li><span>Serviços Digitais</span></li>
-                    <li><span>Secretarias</span></li>
-                    <li><span>Turismo</span></li>
-                    <li><span>Notícias</span></li>
-                    <li><span>Transparência</span></li>
-                    <li><span>Diário Oficial</span></li>
-                    <li><span>Diário Menus</span></li>
+                <ul class="flex flex-row gap-4 items-center" aria-label="Menu Principal">
+                    <li><span aria-label="Serviços Digitais">Serviços Digitais</span></li>
+                    <li><span aria-label="Secretarias">Secretarias</span></li>
+                    <li><span aria-label="Turismo">Turismo</span></li>
+                    <li><span aria-label="Notícias">Notícias</span></li>
+                    <li><span aria-label="Transparência">Transparência</span></li>
+                    <li><span aria-label="Diário Oficial">Diário Oficial</span></li>
+                    <li><span aria-label="Diário Menus">Diário Menus</span></li>
                 </ul>
             </div>
+
+            <div
+                class="relative flex xl:hidden flext-row items-center justify-between w-full h-[56px] md:px-4 text-[var(--mat-sys-on-background)]">
+                <div class="iconButton" aria-label="Menu" id="menu">
+                    <span class="material-symbols-rounded" style="font-size: 2.0rem;">menu</span>
+                </div>
+
+                <div class="w-[48px] h-[48px] flex items-center justify-center opacity-0"></div>
+
+                <div class="absolute top-0 left-0 flex flex-row w-full h-full items-center justify-center"
+                    style="transform: scale(0.8);">
+                    <div class="flex flex-col justify-center items-center leading-5 font-bold" style="font-size: 1.5rem;">
+                        <span style="font-size: 1.0rem;">Prefeitura de</span>
+                        <span>Santo Antônio do Tauá</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="mat-menu flex md:hidden">
+                <ul class="mat-menu-content" aria-label="Menu Mobile">
+                    <li><span aria-label="Serviços Digitais">Serviços Digitais</span></li>
+                    <li><span aria-label="Secretarias">Secretarias</span></li>
+                    <li><span aria-label="Turismo">Turismo</span></li>
+                    <li><span aria-label="Notícias">Notícias</span></li>
+                    <li><span aria-label="Transparência">Transparência</span></li>
+                    <li><span aria-label="Diário Oficial">Diário Oficial</span></li>
+                    <li><span aria-label="Diário Menus">Diário Menus</span></li>
+                </ul>
+            </div>
+
+            <div class="backdrop" id="closeMenu"></div>

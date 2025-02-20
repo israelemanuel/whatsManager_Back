@@ -1,140 +1,165 @@
 <%- header%>
 
-    <div class="w-full h-[600px] md:h-[60dvh] flex items-center justify-center bg-no-repeat bg-cover bg-center" style="background-image: url('<%= banner.imageUrl %>')">
-        <div class="search relative w-[80%] md:w-[60dvw] h-[48px] flex flex-row bg-white overflow-hidden rounded-xl">
-            <input type="text" class="w-full h-[48px] p-4 box-border outline-none border-none"
-                placeholder="Pesquisar...">
-            <div
-                class="absolute right-0 top-0 h-[48px] aspect-square rounded-xl flex items-center justify-center bg-[var(--mat-sys-primary)] text-[var(--mat-sys-on-primary)]">
-                <span class="material-symbols-rounded">
-                    search
-                </span>
+<div class="w-full h-[600px] md:h-[60dvh] flex items-center justify-center bg-no-repeat bg-cover bg-center" style="background-image: url('<%= banner.imageUrl %>')">
+    <div class="search relative w-[80%] md:w-[60dvw] h-[48px] flex flex-row overflow-hidden">
+        <input type="text" class="w-full h-[48px] p-4 box-border outline-none border-none text-[var(--mat-sys-on-surface)]"
+            placeholder="Pesquisar...">
+        <div
+            class="absolute right-0 top-0 h-[48px] aspect-square flex items-center justify-center bg-[var(--mat-sys-primary)] text-[var(--mat-sys-on-primary)]">
+            <span class="material-symbols-rounded" aria-label="Pesquisar">
+                search
+            </span>
+        </div>
+    </div>
+</div>
+
+<div class="w-full flex justify-center">
+    <div class="w-full xl:w-[80dvw] flex flex-col p-4 gap-4 box-border">
+        <div class="flex flex-row gap-2">
+            <div class="indicador w-[4px] h-full bg-[var(--mat-sys-tertiary)]"></div>
+            <h2 class="title">
+                <span style="font-size: 1.0rem;">O que eu</span>
+                <span class="font-bold" style="font-size: 1.5rem;">Preciso?</span>
+            </h2>
+        </div>
+
+        <div class="w-full grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-4">
+            <% for (let item of highlightServices) { %>
+                <div class="commonCard small secondary pointable" aria-label="<%= item.name %>">
+                    <span class="font-bold text-center"><%= item.name %></span>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+<div class="w-full flex justify-center">
+    <div class="w-full xl:w-[80dvw] flex flex-col p-4 gap-4 box-border">
+        <div class="flex flex-row gap-2">
+            <div class="indicador w-[4px] h-full bg-[var(--mat-sys-tertiary)]"></div>
+            <h2 class="title">
+                <span class="font-bold" style="font-size: 1.5rem;">Programas Sociais?</span>
+            </h2>
+        </div>
+
+        <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="commonCard big neutral pointable" aria-label="Reparo de Lâmpadas">
+                <span>Reparo de Lâmpadas</span>
+            </div>
+            <div class="commonCard big neutral pointable" aria-label="Reparo de Buracos">
+                <span>Reparo de Buracos</span>
+            </div>
+            <div class="commonCard big neutral pointable" aria-label="Remoção de Entulho">
+                <span>Remoção de Entulho</span>
             </div>
         </div>
     </div>
+</div>
 
-    
-
-    <div class="w-full flex justify-center">
-        <div class="w-full xl:w-[80dvw] flex flex-col p-4 gap-4 box-border">
-            <div class="flex flex-row gap-2">
-                <div class="indicador w-[4px] h-full bg-[var(--mat-sys-tertiary)]"></div>
-                <h2 class="title">
-                    <span style="font-size: 1.0rem;">O que eu</span>
-                    <span class="font-bold" style="font-size: 1.5rem;">Preciso?</span>
-                </h2>
-            </div>
-
-            <div class="w-full grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-4">
-                <% for (let item of highlightServices) {%>
-                    <div class="commonCard small secondary pointable">
-                        <span class="font-bold"><%= item.name %></span>
-                    </div>
-                <% } %>
-            </div>
+<div class="w-full flex justify-center">
+    <div class="w-full xl:w-[80dvw] flex flex-col p-4 gap-4 box-border">
+        <div class="flex flex-row gap-2">
+            <div class="indicador w-[4px] h-full bg-[var(--mat-sys-tertiary)]"></div>
+            <h2 class="title">
+                <span class="font-bold" style="font-size: 1.5rem;">Serviços por perfil?</span>
+            </h2>
         </div>
-    </div>
 
-    <div class="w-full flex justify-center">
-        <div class="w-full xl:w-[80dvw] flex flex-col p-4 gap-4 box-border">
-            <div class="flex flex-row gap-2">
-                <div class="indicador w-[4px] h-full bg-[var(--mat-sys-tertiary)]"></div>
-                <h2 class="title">
-                    <span class="font-bold" style="font-size: 1.5rem;">Programas Sociais?</span>
-                </h2>
-            </div>
-
-            <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="commonCard big neutral pointable">
-                    <span>Reparo de Lâmpadas</span>
-                </div>
-                <div class="commonCard big neutral pointable">
-                    <span>Reparo de Buracos</span>
-                </div>
-                <div class="commonCard big neutral pointable">
-                    <span>Remoção de Entulho</span>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="w-full flex justify-center">
-        <div class="w-full xl:w-[80dvw] flex flex-col p-4 gap-4 box-border">
-            <div class="flex flex-row gap-2">
-                <div class="indicador w-[4px] h-full bg-[var(--mat-sys-tertiary)]"></div>
-                <h2 class="title">
-                    <span class="font-bold" style="font-size: 1.5rem;">Serviços por perfil?</span>
-                </h2>
-            </div>
-
-            <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-4">
-                <% for (let item of lstPersonas) { %>
-                    <div class="commonCard large neutral primary">
-                      <div class="w-[64px] aspect-square flex items-center justify-center pt-6">
+        <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-4">
+            <% for (let item of lstPersonas) { %>
+                <div class="commonCard large neutral primary" aria-label="<%= item.name %>">
+                    <div class="w-[64px] aspect-square flex items-center justify-center pt-6">
                         <span style="font-size: 4.6rem;" class="material-symbols-rounded">
-                          <%= item.icon %>
+                            <%= item.icon %>
                         </span>
-                      </div>
-                      <div class="flex flex-col w-full items-center justify-center">
+                    </div>
+                    <div class="flex flex-col w-full items-center justify-center">
                         <span style="font-size: 1.5rem;"><%= item.name %></span>
                         <span class="text-center" style="font-size: 1.0;"><%= item.description %></span>
-                      </div>
-                      <div class="divider"></div>
-                      <button type="button" class="commonButton tertiary">
+                    </div>
+                    <div class="divider"></div>
+                    <button type="button" class="commonButton tertiary" aria-label="Acesse os Serviços de <%= item.name %>">
                         <span class="font-bold">Acesse os Serviços</span>
-                      </button>
-                    </div>
-                  <% } %>
-            </div>
+                    </button>
+                </div>
+            <% } %>
         </div>
     </div>
+</div>
 
-    <div class="w-full flex justify-center">
-        <div class="w-full xl:w-[80dvw] flex flex-col p-4 gap-4 box-border">
-            <div class="flex flex-row gap-2">
-                <div class="indicador w-[4px] h-full bg-[var(--mat-sys-tertiary)]"></div>
-                <h2 class="title">
-                    <span class="font-bold" style="font-size: 1.5rem;">Secretarias</span>
-                </h2>
-            </div>
+<div class="w-full flex justify-center">
+    <div class="w-full xl:w-[80dvw] flex flex-col p-4 gap-4 box-border">
+        <div class="flex flex-row gap-2">
+            <div class="indicador w-[4px] h-full bg-[var(--mat-sys-tertiary)]"></div>
+            <h2 class="title">
+                <span class="font-bold" style="font-size: 1.5rem;">Secretarias</span>
+            </h2>
+        </div>
 
-            <div class="w-full grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-4">
-                <% for(let item of lstSecretaries) { %>
-                    <div class="commonCard small secondary pointable">
-                        <span><%= item.name %></span>
-                    </div>
-                <% } %>
-            </div>
+        <div class="w-full grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-4">
+            <% for (let item of lstSecretaries) { %>
+                <div class="commonCard small secondary pointable" aria-label="<%= item.name %>">
+                    <span><%= item.name %></span>
+                </div>
+            <% } %>
         </div>
     </div>
+</div>
 
-    <div class="w-full flex justify-center">
-        <div class="w-full xl:w-[80dvw] flex flex-col p-4 gap-4 box-border">
-            <div class="flex flex-row gap-2">
-                <div class="indicador w-[4px] h-full bg-[var(--mat-sys-tertiary)]"></div>
-                <h2 class="title">
-                    <span class="font-bold" style="font-size: 1.5rem;">Notícias</span>
-                </h2>
-            </div>
+<div class="w-full flex justify-center">
+    <div class="w-full xl:w-[80dvw] flex flex-col p-4 gap-4 box-border">
+        <div class="flex flex-row gap-2">
+            <div class="indicador w-[4px] h-full bg-[var(--mat-sys-tertiary)]"></div>
+            <h2 class="title">
+                <span class="font-bold" style="font-size: 1.5rem;">Notícias</span>
+            </h2>
+        </div>
 
-            <div class="w-full grid md:grid-cols-2 xl:grid-cols-4 gap-4">
-                <% lstNews.forEach(function(item) { %>
-                    <% if (item.type==1) { %>
-                        <div class="col-span-1 xl:col-span-4 h-[300px] bg-red-500 p-4 rounded-2xl box-border">
-                            <h3>
-                                <%= item.title %>
-                            </h3>
-                            <p>
-                                <%= item.description %>
-                            </p>
-                            <img src="<%= item.image %>" alt="<%= item.title %>" class="w-full h-auto">
-                            <p>
-                                <%= item.date %>
-                            </p>
-                        </div>
-                        <% } else if (item.type==2) { %>
-                            <div class="col-span-1 xl:col-span-2 h-[300px] bg-green-500 p-4 rounded-2xl box-border">
+        <div class="w-full grid md:grid-cols-2 xl:grid-cols-4 gap-4">
+            <% lstNews.forEach(function(item) { %>
+                <% if (item.type == 1) { %>
+                    <div class="col-span-1 xl:col-span-4 h-[300px] bg-red-500 p-4 rounded-2xl box-border" aria-label="<%= item.title %>">
+                        <h3>
+                            <%= item.title %>
+                        </h3>
+                        <p>
+                            <%= item.description %>
+                        </p>
+                        <img src="<%= item.image %>" alt="<%= item.title %>" class="w-full h-auto">
+                        <p>
+                            <%= item.date %>
+                        </p>
+                    </div>
+                <% } else if (item.type == 2) { %>
+                    <div class="col-span-1 xl:col-span-2 h-[300px] bg-green-500 p-4 rounded-2xl box-border" aria-label="<%= item.title %>">
+                        <h3>
+                            <%= item.title %>
+                        </h3>
+                        <p>
+                            <%= item.description %>
+                        </p>
+                        <img src="<%= item.image %>" alt="<%= item.title %>" class="w-full h-auto">
+                        <p>
+                            <%= item.date %>
+                        </p>
+                    </div>
+                <% } else if (item.type == 3) { %>
+                    <div class="col-span-1 h-[300px] bg-[var(--mat-sys-primary)] p-4 rounded-2xl box-border" aria-label="<%= item.title %>">
+                        <h3>
+                            <%= item.title %>
+                        </h3>
+                        <p>
+                            <%= item.description %>
+                        </p>
+                        <img src="<%= item.image %>" alt="<%= item.title %>" class="w-full h-auto">
+                        <p>
+                            <%= item.date %>
+                        </p>
+                    </div>
+                <% } else if (item.type == 4) { %>
+                    <div class="relative col-span-1 h-[300px] box-border" aria-label="<%= item.title %>">
+                        <div class="w-full h-full flex flex-col">
+                            <div class="w-full h-full flex-grow-1 bg-purple-400 p-4 rounded-2xl box-border mb-4">
                                 <h3>
                                     <%= item.title %>
                                 </h3>
@@ -146,51 +171,18 @@
                                     <%= item.date %>
                                 </p>
                             </div>
-                            <% } else if (item.type==3) { %>
-                                <div class="col-span-1 h-[300px] bg-[var(--mat-sys-primary)] p-4 rounded-2xl box-border">
-                                    <h3>
-                                        <%= item.title %>
-                                    </h3>
-                                    <p>
-                                        <%= item.description %>
-                                    </p>
-                                    <img src="<%= item.image %>" alt="<%= item.title %>" class="w-full h-auto">
-                                    <p>
-                                        <%= item.date %>
-                                    </p>
-                                </div>
-                                <% } else if (item.type==4) { %>
-                                    <div class="relative col-span-1 h-[300px] box-border">
-                                        <div class="w-full h-full flex flex-col">
-                                            <div
-                                                class="w-full h-full flex-grow-1 bg-purple-400 p-4 rounded-2xl box-border mb-4">
-                                                <h3>
-                                                    <%= item.title %>
-                                                </h3>
-                                                <p>
-                                                    <%= item.description %>
-                                                </p>
-                                                <img src="<%= item.image %>" alt="<%= item.title %>"
-                                                    class="w-full h-auto">
-                                                <p>
-                                                    <%= item.date %>
-                                                </p>
-                                            </div>
-                                            <div
-                                                class="w-full h-[48px] flex-grow-1 bg-purple-400 p-4 rounded-2xl box-border">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <% } else { %>
-                                        <div class="col-span-1 h-[300px] bg-gray-400 p-4 rounded-2xl">
-                                            <p>Tipo desconhecido</p>
-                                        </div>
-                                        <% } %>
-                                            <% }) %>
-            </div>
+                            <div class="w-full h-[48px] flex-grow-1 bg-purple-400 p-4 rounded-2xl box-border">
+                            </div>
+                        </div>
+                    </div>
+                <% } else { %>
+                    <div class="col-span-1 h-[300px] bg-gray-400 p-4 rounded-2xl" aria-label="Tipo desconhecido">
+                        <p>Tipo desconhecido</p>
+                    </div>
+                <% } %>
+            <% }) %>
         </div>
     </div>
+</div>
 
-
-
-    <%- footer%>
+<%- footer%>
