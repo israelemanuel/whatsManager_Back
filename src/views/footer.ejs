@@ -44,8 +44,8 @@
         const matMenus = document.querySelectorAll('.mat-menu');
         matMenus.forEach(matMenu => {
             matMenu.classList.remove('show');
-            body.classList.toggle('overflow-y-auto');
         });
+        body.classList.remove('overflow-hidden');
     }
 
     // Função para ajustar o tamanho da fonte
@@ -53,7 +53,11 @@
         const rootElement = document.documentElement;
         const defaultFontSize = 100; // Tamanho padrão da fonte em porcentagem
         let currentFontSize = parseInt(rootElement.style.fontSize) || defaultFontSize;
-        currentFontSize += increment;
+        if (increment === 100) {
+            currentFontSize = defaultFontSize;
+        } else {
+            currentFontSize += increment;
+        }
         rootElement.style.fontSize = currentFontSize + "%";
     }
 
@@ -83,9 +87,9 @@
         const menuButton = document.getElementById('menu');
         const closeMenuButton = document.getElementById('closeMenu');
 
-        increaseFontBtns.forEach(btn => btn.addEventListener('click', () => adjustFontSize(10)));
-        defaultFontBtns.forEach(btn => btn.addEventListener('click', () => adjustFontSize(0)));
-        decreaseFontBtns.forEach(btn => btn.addEventListener('click', () => adjustFontSize(-10)));
+        increaseFontBtns.forEach(btn => btn.addEventListener('click', () => adjustFontSize(25)));
+        defaultFontBtns.forEach(btn => btn.addEventListener('click', () => adjustFontSize(100)));
+        decreaseFontBtns.forEach(btn => btn.addEventListener('click', () => adjustFontSize(-25)));
         addUnderlineBtns.forEach(btn => btn.addEventListener('click', toggleUnderline));
 
         if (menuButton) {
