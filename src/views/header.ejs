@@ -21,7 +21,7 @@
     <div class="w-full h-full box-border overflow-x-hidden" id="innerBody">
         <div class="w-full h-max flex flex-col overflow-y-hidden overflow-x-hidden box-border">
 
-            <div class="flex md:hidden flex-row justify-between w-full h-[48px] bg-[var(--mat-sys-primary)]">
+            <div class="flex md:hidden flex-row justify-between w-full min-h-[48px] bg-[var(--mat-sys-primary)]">
                 <div class="flex flex-row items-center box-border text-[var(--mat-sys-on-primary)]">
                     <button class="iconButton" id="toggle-dark-mode" aria-label="Modo Noturno">
                         <span class="material-symbols-rounded">
@@ -40,7 +40,7 @@
                     </button>
                 </div>
 
-                <div class="flex flex-row h-full text-[var(--mat-sys-on-primary)]">
+                <div class="flex flex-row h-full items-center text-[var(--mat-sys-on-primary)]">
                     <button class="iconButton" id="underscore" aria-label="Sublinhar">
                         <span class="material-symbols-rounded">
                             format_underlined
@@ -65,14 +65,14 @@
                 </div>
             </div>
 
-            <div class="hidden md:flex flex-row justify-end w-full h-[48px] bg-[var(--mat-sys-primary)]">
+            <div class="hidden md:flex flex-row justify-end w-full min-h-[48px] bg-[var(--mat-sys-primary)]">
                 <div class="flex flex-row gap-6 items-center px-4 box-border text-[var(--mat-sys-on-primary)]">
                     <button class="commonButton transparent text-[var(--mat-sys-on-primary)]" id="toggle-dark-mode" aria-label="Modo Noturno">Modo
                         Noturno</button>
                     <button class="commonButton transparent text-[var(--mat-sys-on-primary)]"
                         id="toggle-high-contrast" aria-label="Alto Contraste">Alto Contraste</button>
                     <button class="commonButton transparent text-[var(--mat-sys-on-primary)]" aria-label="Mapa do Site">Mapa do Site</button>
-                    <div class="flex flex-row h-full">
+                    <div class="flex flex-row h-full items-center">
                         <span class="iconButton" id="underscore" aria-label="Sublinhar">
                             <span class="material-symbols-rounded">
                                 format_underlined
@@ -99,7 +99,7 @@
             </div>
 
             <div
-                class="hidden xl:flex flext-row justify-between w-full h-[56px] px-4 text-[var(--mat-sys-on-background)]">
+                class="hidden xl:flex flext-row justify-between w-full min-h-[56px] px-4 text-[var(--mat-sys-on-background)]">
                 <h1 class="flex flex-col justify-center items-start leading-5">
                     <span style="font-size: 1.0rem;">Prefeitura de</span>
                     <span>Santo Antônio do Tauá</span>
@@ -117,7 +117,7 @@
             </div>
 
             <div
-                class="relative flex xl:hidden flext-row items-center justify-between w-full h-[56px] md:px-4 text-[var(--mat-sys-on-background)]">
+                class="relative flex xl:hidden flext-row items-center justify-between w-full min-h-[56px] md:px-4 text-[var(--mat-sys-on-background)]">
                 <div class="iconButton" aria-label="Menu" id="menu">
                     <span class="material-symbols-rounded" style="font-size: 2.0rem;">menu</span>
                 </div>

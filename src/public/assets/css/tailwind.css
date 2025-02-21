@@ -593,6 +593,15 @@
   .h-max {
     height: max-content;
   }
+  .min-h-\[48px\] {
+    min-height: 48px;
+  }
+  .min-h-\[56px\] {
+    min-height: 56px;
+  }
+  .min-h-\[300px\] {
+    min-height: 300px;
+  }
   .w-\[48px\] {
     width: 48px;
   }

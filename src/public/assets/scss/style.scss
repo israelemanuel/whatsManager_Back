@@ -334,7 +334,7 @@ h6 {
     transition: var(--main-transition);
 
     &.small {
-        height: 64px;
+        min-height: 64px;
     }
 
     &.medium{
@@ -342,11 +342,11 @@ h6 {
     }
 
     &.big {
-        height: 200px;
+        min-height: 200px;
     }
 
     &.large {
-        height: 320px;
+        min-height: 320px;
     }
 
     &.instagram{
@@ -356,7 +356,7 @@ h6 {
     }
 
     &.facebook{
-        background: linear-gradient(45deg, oklch(0.56 0.20 257.25 / 1), oklch(0.47 0.23 268.89 / 1))
+        background: linear-gradient(180deg, oklch(0.56 0.20 257.25 / 1), oklch(0.47 0.23 268.89 / 1))
     }
 
     &.neutral {

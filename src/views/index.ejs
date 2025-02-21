@@ -2,12 +2,12 @@
 
     <div class="w-full h-[600px] md:h-[60dvh] flex items-center justify-center bg-no-repeat bg-cover bg-center"
         style="background-image: url('<%= banner.imageUrl %>')">
-        <div class="search relative w-[80%] md:w-[60dvw] h-[48px] flex flex-row overflow-hidden">
+        <div class="search relative w-[80%] md:w-[60dvw] min-h-[48px] flex flex-row overflow-hidden">
             <input type="text"
-                class="w-full h-[48px] p-4 box-border outline-none border-none text-[var(--mat-sys-on-surface)]"
+                class="w-full min-h-[48px] p-4 box-border outline-none border-none text-[var(--mat-sys-on-surface)]"
                 placeholder="Pesquisar...">
             <div
-                class="absolute right-0 top-0 h-[48px] aspect-square flex items-center justify-center bg-[var(--mat-sys-primary)] text-[var(--mat-sys-on-primary)]">
+                class="absolute right-0 top-0 h-full aspect-square flex items-center justify-center bg-[var(--mat-sys-primary)] text-[var(--mat-sys-on-primary)]">
                 <span class="material-symbols-rounded" aria-label="Pesquisar">
                     search
                 </span>
@@ -71,7 +71,7 @@
 
             <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-4">
                 <% for (let item of lstPersonas) { %>
-                    <div class="commonCard large neutral primary" aria-label="<%= item.name %>">
+                    <div class="commonCard large neutral primary p-4 box-border" aria-label="<%= item.name %>">
                         <div class="w-[64px] aspect-square flex items-center justify-center pt-6">
                             <span style="font-size: 4.6rem;" class="material-symbols-rounded">
                                 <%= item.icon %>
@@ -131,7 +131,7 @@
                 <% if (lstNews.length==1){ %>
                     <% lstNews.forEach(function(item) { %>
                         <% if (item.type==1) { %>
-                            <div class="col-span-1 xl:col-span-4 h-[300px] bg-red-500 p-4 rounded-2xl box-border"
+                            <div class="col-span-1 xl:col-span-4 min-h-[300px] bg-red-500 p-4 rounded-2xl box-border"
                                 aria-label="<%= item.title %>">
                                 <h3>
                                     <%= item.title %>
@@ -145,7 +145,7 @@
                                 </p>
                             </div>
                             <% } else { %>
-                                <div class="col-span-1 h-[300px] bg-gray-400 p-4 rounded-2xl"
+                                <div class="col-span-1 min-h-[300px] bg-gray-400 p-4 rounded-2xl"
                                     aria-label="Tipo desconhecido">
                                     <p>Tipo desconhecido</p>
                                 </div>
@@ -156,7 +156,7 @@
                                             <% if (lstNews.length==2){ %>
                                                 <% lstNews.forEach(function(item) { %>
                                                     <% if (item.type==1) { %>
-                                                        <div class="col-span-1 xl:col-span-4 h-[300px] bg-red-500 p-4 rounded-2xl box-border"
+                                                        <div class="col-span-1 xl:col-span-4 min-h-[300px] bg-red-500 p-4 rounded-2xl box-border"
                                                             aria-label="<%= item.title %>">
                                                             <h3>
                                                                 <%= item.title %>
@@ -171,7 +171,7 @@
                                                             </p>
                                                         </div>
                                                         <% } else if (item.type==2) { %>
-                                                            <div class="col-span-1 xl:col-span-4 h-[300px] bg-green-500 p-4 rounded-2xl box-border"
+                                                            <div class="col-span-1 xl:col-span-4 min-h-[300px] bg-green-500 p-4 rounded-2xl box-border"
                                                                 aria-label="<%= item.title %>">
                                                                 <h3>
                                                                     <%= item.title %>
@@ -186,7 +186,7 @@
                                                                 </p>
                                                             </div>
                                                             <% } else { %>
-                                                                <div class="col-span-1 h-[300px] bg-gray-400 p-4 rounded-2xl"
+                                                                <div class="col-span-1 min-h-[300px] bg-gray-400 p-4 rounded-2xl"
                                                                     aria-label="Tipo desconhecido">
                                                                     <p>Tipo desconhecido</p>
                                                                 </div>
@@ -197,7 +197,7 @@
                                                                             <% if (lstNews.length==3){ %>
                                                                                 <% lstNews.forEach(function(item) { %>
                                                                                     <% if (item.type==1) { %>
-                                                                                        <div class="col-span-1 xl:col-span-4 h-[300px] bg-red-500 p-4 rounded-2xl box-border"
+                                                                                        <div class="col-span-1 xl:col-span-4 min-h-[300px] bg-red-500 p-4 rounded-2xl box-border"
                                                                                             aria-label="<%= item.title %>">
                                                                                             <h3>
                                                                                                 <%= item.title %>
@@ -213,7 +213,7 @@
                                                                                             </p>
                                                                                         </div>
                                                                                         <% } else if (item.type==2) { %>
-                                                                                            <div class="col-span-1 xl:col-span-2 h-[300px] bg-green-500 p-4 rounded-2xl box-border"
+                                                                                            <div class="col-span-1 xl:col-span-2 min-h-[300px] bg-green-500 p-4 rounded-2xl box-border"
                                                                                                 aria-label="<%= item.title %>">
                                                                                                 <h3>
                                                                                                     <%= item.title %>
@@ -231,7 +231,7 @@
                                                                                             </div>
                                                                                             <% } else if (item.type==3)
                                                                                                 { %>
-                                                                                                <div class="col-span-1 xl:col-span-2 h-[300px] bg-[var(--mat-sys-primary)] p-4 rounded-2xl box-border"
+                                                                                                <div class="col-span-1 xl:col-span-2 min-h-[300px] bg-[var(--mat-sys-primary)] p-4 rounded-2xl box-border"
                                                                                                     aria-label="<%= item.title %>">
                                                                                                     <h3>
                                                                                                         <%= item.title
@@ -249,7 +249,7 @@
                                                                                                     </p>
                                                                                                 </div>
                                                                                                 <% } else { %>
-                                                                                                    <div class="col-span-1 h-[300px] bg-gray-400 p-4 rounded-2xl"
+                                                                                                    <div class="col-span-1 min-h-[300px] bg-gray-400 p-4 rounded-2xl"
                                                                                                         aria-label="Tipo desconhecido">
                                                                                                         <p>Tipo
                                                                                                             desconhecido
@@ -269,7 +269,7 @@
                                                                                                                             (item.type==1)
                                                                                                                             {
                                                                                                                             %>
-                                                                                                                            <div class="col-span-1 xl:col-span-4 h-[300px] bg-red-500 p-4 rounded-2xl box-border"
+                                                                                                                            <div class="col-span-1 xl:col-span-4 min-h-[300px] bg-red-500 p-4 rounded-2xl box-border"
                                                                                                                                 aria-label="<%= item.title %>">
                                                                                                                                 <h3>
                                                                                                                                     <%= item.title
@@ -292,7 +292,7 @@
                                                                                                                                 (item.type==2)
                                                                                                                                 {
                                                                                                                                 %>
-                                                                                                                                <div class="col-span-1 xl:col-span-2 h-[300px] bg-green-500 p-4 rounded-2xl box-border"
+                                                                                                                                <div class="col-span-1 xl:col-span-2 min-h-[300px] bg-green-500 p-4 rounded-2xl box-border"
                                                                                                                                     aria-label="<%= item.title %>">
                                                                                                                                     <h3>
                                                                                                                                         <%= item.title
@@ -315,7 +315,7 @@
                                                                                                                                     (item.type==3)
                                                                                                                                     {
                                                                                                                                     %>
-                                                                                                                                    <div class="col-span-1 h-[300px] bg-[var(--mat-sys-primary)] p-4 rounded-2xl box-border"
+                                                                                                                                    <div class="col-span-1 min-h-[300px] bg-[var(--mat-sys-primary)] p-4 rounded-2xl box-border"
                                                                                                                                         aria-label="<%= item.title %>">
                                                                                                                                         <h3>
                                                                                                                                             <%= item.title
@@ -338,7 +338,7 @@
                                                                                                                                         (item.type==4)
                                                                                                                                         {
                                                                                                                                         %>
-                                                                                                                                        <div class="relative col-span-1 h-[300px] box-border"
+                                                                                                                                        <div class="relative col-span-1 min-h-[300px] box-border"
                                                                                                                                             aria-label="<%= item.title %>">
                                                                                                                                             <div
                                                                                                                                                 class="w-full h-full flex flex-col">
@@ -365,7 +365,7 @@
                                                                                                                                         <% } else
                                                                                                                                             {
                                                                                                                                             %>
-                                                                                                                                            <div class="col-span-1 h-[300px] bg-gray-400 p-4 rounded-2xl"
+                                                                                                                                            <div class="col-span-1 min-h-[300px] bg-gray-400 p-4 rounded-2xl"
                                                                                                                                                 aria-label="Tipo desconhecido">
                                                                                                                                                 <p>Tipo
                                                                                                                                                     desconhecido
@@ -398,7 +398,7 @@
                                                                                                                                                                             (item.type==1)
                                                                                                                                                                             {
                                                                                                                                                                             %>
-                                                                                                                                                                            <div class="col-span-1 xl:col-span-4 h-[300px] bg-red-500 p-4 rounded-2xl box-border"
+                                                                                                                                                                            <div class="col-span-1 xl:col-span-4 min-h-[300px] bg-red-500 p-4 rounded-2xl box-border"
                                                                                                                                                                                 aria-label="<%= item.title %>">
                                                                                                                                                                                 <h3>
                                                                                                                                                                                     <%= item.title
@@ -421,7 +421,7 @@
                                                                                                                                                                                 (item.type==2)
                                                                                                                                                                                 {
                                                                                                                                                                                 %>
-                                                                                                                                                                                <div class="col-span-1 xl:col-span-2 h-[300px] bg-green-500 p-4 rounded-2xl box-border"
+                                                                                                                                                                                <div class="col-span-1 xl:col-span-2 min-h-[300px] bg-green-500 p-4 rounded-2xl box-border"
                                                                                                                                                                                     aria-label="<%= item.title %>">
                                                                                                                                                                                     <h3>
                                                                                                                                                                                         <%= item.title
@@ -444,7 +444,7 @@
                                                                                                                                                                                     (item.type==3)
                                                                                                                                                                                     {
                                                                                                                                                                                     %>
-                                                                                                                                                                                    <div class="col-span-1 h-[300px] bg-[var(--mat-sys-primary)] p-4 rounded-2xl box-border"
+                                                                                                                                                                                    <div class="col-span-1 min-h-[300px] bg-[var(--mat-sys-primary)] p-4 rounded-2xl box-border"
                                                                                                                                                                                         aria-label="<%= item.title %>">
                                                                                                                                                                                         <h3>
                                                                                                                                                                                             <%= item.title
@@ -467,7 +467,7 @@
                                                                                                                                                                                         (item.type==4)
                                                                                                                                                                                         {
                                                                                                                                                                                         %>
-                                                                                                                                                                                        <div class="relative col-span-1 h-[300px] box-border"
+                                                                                                                                                                                        <div class="relative col-span-1 min-h-[300px] box-border"
                                                                                                                                                                                             aria-label="<%= item.title %>">
                                                                                                                                                                                             <div
                                                                                                                                                                                                 class="w-full h-full flex flex-col">
@@ -494,7 +494,7 @@
                                                                                                                                                                                         <% } else
                                                                                                                                                                                             {
                                                                                                                                                                                             %>
-                                                                                                                                                                                            <div class="col-span-1 h-[300px] bg-gray-400 p-4 rounded-2xl"
+                                                                                                                                                                                            <div class="col-span-1 min-h-[300px] bg-gray-400 p-4 rounded-2xl"
                                                                                                                                                                                                 aria-label="Tipo desconhecido">
                                                                                                                                                                                                 <p>Tipo
                                                                                                                                                                                                     desconhecido
@@ -549,12 +549,12 @@
             </div>
 
             <div class="w-full flex items-center justify-center">
-                <div class="search on-sys-surface relative w-[80%] md:w-[50dvw] h-[48px] flex flex-row overflow-hidden">
+                <div class="search on-sys-surface relative w-[80%] md:w-[50dvw] min-h-[48px] flex flex-row overflow-hidden">
                     <input type="text"
-                        class="w-full h-[48px] p-4 box-border outline-none border-none text-[var(--mat-sys-on-surface)]"
+                        class="w-full min-h-[48px] p-4 box-border outline-none border-none text-[var(--mat-sys-on-surface)]"
                         placeholder="Pesquisar...">
                     <div
-                        class="absolute right-0 top-0 h-[48px] aspect-square flex items-center justify-center bg-[var(--mat-sys-primary)] text-[var(--mat-sys-on-primary)]">
+                        class="absolute right-0 top-0 h-full aspect-square flex items-center justify-center bg-[var(--mat-sys-primary)] text-[var(--mat-sys-on-primary)]">
                         <span class="material-symbols-rounded" aria-label="Pesquisar">
                             search
                         </span>
@@ -579,8 +579,8 @@
                     </div>
                     <% } %>
 
-                        <div class="commonCard neutral medium pointable col-span-1" aria-label="Facebook">
-                            <span>Mostrar todos os resultados</span>
+                        <div class="commonCard neutral medium pointable col-span-1 p-4" aria-label="Facebook">
+                            <span style="text-align: center;">Mostrar todos os resultados</span>
                         </div>
 
             </div>
