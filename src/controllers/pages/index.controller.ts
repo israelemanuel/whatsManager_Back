@@ -55,11 +55,18 @@ export class PageController {
             { type: 4, title: 'Notícia 4', description: 'Descrição da notícia 4', image: '/path/to/image4.jpg', date: '2025-02-14' },
         ];
 
+        const lstAdresses = [
+            { name: 'SEMOB', address: 'Av. Almirante Barroso, 832', phone: '(91) 4006-3600' },
+            { name: 'SEURB', address: 'Av. Almirante Barroso, 832', phone: '(91) 4006-3600' },
+            { name: 'SESMA', address: 'Av. Almirante Barroso, 832', phone: '(91) 4006-3600' },
+            { name: 'SEMMA', address: 'Av. Almirante Barroso, 832', phone: '(91) 4006-3600' },
+        ]
+
 
 
 
         
-        const html = ejs.render(template, { header, news, footer, tags, banner, highlightServices, lstPersonas, lstSecretaries, lstNews });
+        const html = ejs.render(template, { header, news, footer, tags, banner, highlightServices, lstPersonas, lstSecretaries, lstNews, lstAdresses });
 
         return res.send(html);
 

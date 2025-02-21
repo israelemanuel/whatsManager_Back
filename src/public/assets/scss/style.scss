@@ -337,12 +337,26 @@ h6 {
         height: 64px;
     }
 
+    &.medium{
+        min-height: 128px;
+    }
+
     &.big {
         height: 200px;
     }
 
     &.large {
         height: 320px;
+    }
+
+    &.instagram{
+        background: linear-gradient(45deg, 
+        oklch(0.54 0.21 269 / 1), oklch(0.53 0.20 279 / 1), oklch(0.50 0.19 308.56 / 1), oklch(0.56 0.19 350.40 / 1), oklch(0.60 0.21 6.78 / 1), oklch(0.63 0.25 28.28 / 1)
+        );
+    }
+
+    &.facebook{
+        background: linear-gradient(45deg, oklch(0.56 0.20 257.25 / 1), oklch(0.47 0.23 268.89 / 1))
     }
 
     &.neutral {
@@ -415,6 +429,11 @@ h6 {
     overflow: hidden;
     border-radius: var(--main-curve);
     box-shadow: 5px 5px 5px var(--mat-sys-background-on-translucent), -5px -5px 5px var(--mat-sys-background-translucent);
+    
+
+    &.on-sys-surface{
+        background-color: var(--mat-sys-background-bright);
+    }
 
 }
 

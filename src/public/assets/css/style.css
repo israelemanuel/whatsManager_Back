@@ -270,11 +270,20 @@ h6 {
 .commonCard.small {
   height: 64px;
 }
+.commonCard.medium {
+  min-height: 128px;
+}
 .commonCard.big {
   height: 200px;
 }
 .commonCard.large {
   height: 320px;
+}
+.commonCard.instagram {
+  background: linear-gradient(45deg, oklch(54% 0.21 269deg), oklch(53% 0.2 279deg), oklch(50% 0.19 308.56deg), oklch(56% 0.19 350.4deg), oklch(60% 0.21 6.78deg), oklch(63% 0.25 28.28deg));
+}
+.commonCard.facebook {
+  background: linear-gradient(45deg, oklch(56% 0.2 257.25deg), oklch(47% 0.23 268.89deg));
 }
 .commonCard.neutral {
   background-color: var(--mat-sys-surface-dim);
@@ -330,6 +339,9 @@ h6 {
   overflow: hidden;
   border-radius: var(--main-curve);
   box-shadow: 5px 5px 5px var(--mat-sys-background-on-translucent), -5px -5px 5px var(--mat-sys-background-translucent);
+}
+.search.on-sys-surface {
+  background-color: var(--mat-sys-background-bright);
 }
 
 .title {
