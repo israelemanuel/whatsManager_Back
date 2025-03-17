@@ -1,4 +1,4 @@
-import { initWASocket } from "../../libs/wbot";
+import { initWASocket, getWbot } from "../../libs/wbot";
 import WhatsappSession from "../../models/WhatsappSession";
 import WhatsappListener from "./WhatsappListener";
 

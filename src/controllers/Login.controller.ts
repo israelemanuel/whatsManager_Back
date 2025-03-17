@@ -7,6 +7,7 @@ import bcrypt from 'bcrypt';
 import * as yup from 'yup';
 import { generateToken } from '../libs/jwt';
 import Subscribe from '../models/Subscribe';
+import Domain, { IDomain } from '../models/Domain';
 
 export class LoginController {
     public async login(req: Request, res: Response): Promise<any> {

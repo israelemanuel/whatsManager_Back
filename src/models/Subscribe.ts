@@ -14,5 +14,5 @@ const SubscribeSchema: Schema = new Schema({
     timestamps: true,
 })
 
-const Subscribe = mongoose.model<ISubscribe>('Subscrible', SubscribeSchema);
+const Subscribe = mongoose.model<ISubscribe>('Subscribe', SubscribeSchema);
 export default Subscribe;

@@ -11,6 +11,10 @@ const loginController = new LoginController()
 
 // router.use(ensureAuthenticated);
 
+
+
+router.get('/login', loginController.login)
+
 router.post('/login', loginController.login)
 router.post('/register', loginController.register)
 
