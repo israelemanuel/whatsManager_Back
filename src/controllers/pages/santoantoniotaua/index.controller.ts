@@ -3,8 +3,8 @@ import { Request, Response } from 'express';
 import ejs from 'ejs';
 import fs from 'fs';
 import path from 'path';
-import Tag from './../../models/Tag';
-import Domain from '../../models/Domain';
+import Tag from './../../../models/Tag';
+import Domain from '../../../models/Domain';
 
 export class PageController {
 
@@ -25,16 +25,16 @@ export class PageController {
             }
 
 
-            const template = fs.readFileSync(path.resolve(__dirname, '../../', 'views', findDomain?.folder, 'index.ejs'), 'utf-8');
+            const template = fs.readFileSync(path.resolve(__dirname, '../../../', 'views', findDomain?.folder, 'index.ejs'), 'utf-8');
 
-            const header = fs.readFileSync(path.resolve(__dirname, '../../', 'views', findDomain?.folder, 'header.ejs'), 'utf-8');
-            const footer = fs.readFileSync(path.resolve(__dirname, '../../', 'views', findDomain?.folder, 'footer.ejs'), 'utf-8');
-            const news = fs.readFileSync(path.resolve(__dirname, '../../', 'views', findDomain?.folder, 'news.ejs'), 'utf-8');
+            const header = fs.readFileSync(path.resolve(__dirname, '../../../', 'views', findDomain?.folder, 'header.ejs'), 'utf-8');
+            const footer = fs.readFileSync(path.resolve(__dirname, '../../../', 'views', findDomain?.folder, 'footer.ejs'), 'utf-8');
+            const news = fs.readFileSync(path.resolve(__dirname, '../../../', 'views', findDomain?.folder, 'news.ejs'), 'utf-8');
 
             const tags = await Tag.find();
 
             const banner = {
-                imageUrl: '/assets/images/igreja.jpeg',
+                imageUrl: '/assets/images/santoantoniotaua/igreja.jpeg',
 
             };
 
@@ -86,7 +86,7 @@ export class PageController {
             const html = ejs.render(template, { header, news, footer, tags, banner, highlightServices, lstPersonas, lstSecretaries, lstNews, lstAdresses });
 
             return res.send(html);
-        } catch (error) {
+        } catch (error : any) {
             return res.status(500).send(error.message);
         }
 

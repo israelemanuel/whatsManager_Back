@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/tailwind.css">
-    <title>Site 1</title>
+    <title>ConnectFy</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -100,10 +100,13 @@
 
             <div
                 class="hidden xl:flex flext-row justify-between w-full min-h-[56px] px-4 text-[var(--mat-sys-on-background)]">
-                <h1 class="flex flex-col justify-center items-start leading-5">
-                    <span style="font-size: 1.0rem;">Prefeitura de</span>
-                    <span>Santo Antônio do Tauá</span>
+                <h1 class="hidden flex flex-col justify-center items-start leading-5">
+                    Connectfy
                 </h1>
+
+                <div class="min-h-[48px] min-w-[120px] bg-center bg-no-repeat bg-cover" style="background-image: url('<%= logo.imageUrl %>')">
+                    hello
+                </div>
 
                 <ul class="flex flex-row gap-4 items-center" aria-label="Menu Principal">
                     <li><span class="commonButton transparent" aria-label="Serviços Digitais">Serviços Digitais</span></li>
