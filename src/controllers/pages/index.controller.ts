@@ -1,10 +1,9 @@
-
 import { Request, Response } from 'express';
 import ejs from 'ejs';
 import fs from 'fs';
 import path from 'path';
-import Tag from './../../../models/Tag';
-import Domain from '../../../models/Domain';
+import Tag from './../../models/Tag';
+import Domain from '../../models/Domain';
 
 export class PageController {
 
@@ -25,18 +24,32 @@ export class PageController {
             }
 
 
-            const template = fs.readFileSync(path.resolve(__dirname, '../../../', 'views', findDomain?.folder, 'index.ejs'), 'utf-8');
+            const template = fs.readFileSync(path.resolve(__dirname, '../../', 'views', findDomain?.folder, 'index.ejs'), 'utf-8');
 
-            const header = fs.readFileSync(path.resolve(__dirname, '../../../', 'views', findDomain?.folder, 'header.ejs'), 'utf-8');
-            const footer = fs.readFileSync(path.resolve(__dirname, '../../../', 'views', findDomain?.folder, 'footer.ejs'), 'utf-8');
-            const news = fs.readFileSync(path.resolve(__dirname, '../../../', 'views', findDomain?.folder, 'news.ejs'), 'utf-8');
+            const headerhtml = fs.readFileSync(path.resolve(__dirname, '../../', 'views', findDomain?.folder, 'header.ejs'), 'utf-8');
+            const footer = fs.readFileSync(path.resolve(__dirname, '../../', 'views', findDomain?.folder, 'footer.ejs'), 'utf-8');
+            const news = fs.readFileSync(path.resolve(__dirname, '../../', 'views', findDomain?.folder, 'news.ejs'), 'utf-8');
 
             const tags = await Tag.find();
 
             const banner = {
-                imageUrl: '/assets/images/santoantoniotaua/igreja.jpeg',
+                imageUrl: '/images/stars2.svg',
 
             };
+
+            const bannerAsset = {
+                confidentMen: '/images/confident_men.png',
+            };
+
+            const bannerAsset2 = {
+                iconLogo: '/images/logo.svg',
+            }
+
+            const logo = {
+                imageUrl: '/images/connectfy-logo.svg',
+                alt: 'Logo',
+                title: 'Logo'
+            }
 
             const highlightServices = [
                 { name: 'Reparo de Lâmpadas' },
@@ -81,12 +94,12 @@ export class PageController {
 
 
 
+            const header = ejs.render(headerhtml, { ...tags, banner, logo });
 
-
-            const html = ejs.render(template, { header, news, footer, tags, banner, highlightServices, lstPersonas, lstSecretaries, lstNews, lstAdresses });
+            const html = ejs.render(template, { header, news, footer, tags, banner, bannerAsset, bannerAsset2,  logo, highlightServices, lstPersonas, lstSecretaries, lstNews, lstAdresses });
 
             return res.send(html);
-        } catch (error : any) {
+        } catch (error: any) {
             return res.status(500).send(error.message);
         }
 

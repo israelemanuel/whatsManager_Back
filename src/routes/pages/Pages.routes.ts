@@ -1,7 +1,7 @@
 
 import { Router } from "express";
 import ensureAuthenticated from "./../../middlewares/ensureAuthenticated";
-import { PageController } from "../../controllers/pages/connectfy/index.controller";
+import { PageController } from "../../controllers/pages/index.controller";
 
 
 const router = Router();

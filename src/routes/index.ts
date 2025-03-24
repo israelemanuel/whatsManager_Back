@@ -12,7 +12,9 @@ import Category from './category.routes';
 import Post from './post.routes';
 
 // PAGE
+import Assets from './pages/assets.routes';
 import Page from './pages/Pages.routes';
+
 
 //TEMPLATE
  import templete from './templete.routes';
@@ -34,7 +36,7 @@ router.use('/api/v1/post', Post)
 //TEMPLATE
 router.use('/api/v1/templete', templete)
 
-router.use(Page)
+router.use(Page,Assets)
 
 
 export default router;
