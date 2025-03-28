@@ -84,17 +84,17 @@
 
             <div class="hidden xl:flex flex-col gap-4 w-full h-full max-w-[100%]  2xl:max-w-[80dvw]">
                 <div class="relative grid grid-cols-4 w-full h-full gap-4">
-                    <div class="slideDown cardAdvantages" style="animation-delay: 10s;"></div>
-                    <div class="slideDown cardAdvantages" style="animation-delay: 6s;"></div>
-                    <div class="slideDown cardAdvantages" style="animation-delay: 4s;"></div>
-                    <div class="slideDown cardAdvantages" style="animation-delay: 0s;"></div>
+                    <div class="slideDown cardAdvantages" style="animation-range: 80vh cover 85vh !important;"></div>
+                    <div class="slideDown cardAdvantages" style="animation-range: 70vh cover 75vh !important;"></div>
+                    <div class="slideDown cardAdvantages" style="animation-range: 60vh cover 65vh !important;"></div>
+                    <div class="slideDown cardAdvantages" style="animation-range: 50vh cover 55vh !important;"></div>
                 </div>
 
                 <div class="relative grid grid-cols-4 w-full h-full gap-4">
-                    <div class="slideUp cardAdvantages" style="animation-delay: 10s;"></div>
-                    <div class="slideUp cardAdvantages" style="animation-delay: 6s;"></div>
-                    <div class="slideUp cardAdvantages" style="animation-delay: 4s;"></div>
-                    <div class="slideUp cardAdvantages" style="animation-delay: 0s;"></div>
+                    <div class="slideUp cardAdvantages" style="animation-range: 80vh cover 85vh !important;"></div>
+                    <div class="slideUp cardAdvantages" style="animation-range: 70vh cover 75vh !important;"></div>
+                    <div class="slideUp cardAdvantages" style="animation-range: 60vh cover 65vh !important;"></div>
+                    <div class="slideUp cardAdvantages" style="animation-range: 50vh cover 55vh !important;"></div>
                 </div>
             </div>
 
@@ -139,7 +139,7 @@
     <section id="freelancers"
         class="freelancers relative w-full h-[80dvh] flex flex-col items-center justify-center p-4 bg-[var(--mat-sys-primary-bright-variant)]">
         <div
-            class="fadeInAndScale relative rounded-4xl lg:rounded-full w-full 2xl:w-[80%] min-h-[55dvh] h-[60%] bg-[var(--mat-sys-primary-dim)]">
+            class="fadeInAndScale relative rounded-4xl lg:rounded-full w-full 2xl:w-[80%] min-h-[55dvh] h-[60%] bg-[var(--mat-sys-primary-dim)] opacity-0">
             <div
                 class="hidden lg:flex absolute lg:right-[10dvw] top-[5%] bottom-0 rounded-3xl bg-[var(--mat-sys-secondary)] scale-100 lg:scale-125 pointer-events-none max-h-[90%] aspect-[calc(3/4)] 2xl:aspect-[calc(7/9)]">
                 <div class="absolute top-0 right-0 rounded-3xl w-max p-6 bg-[var(--mat-sys-complementar)]"
@@ -174,7 +174,7 @@
 
     <section id="ourproducts">
         <div class="ourproducts flex flex-col justify-center items-center gap-4 pt-[110px] pb-[86px] px-4">
-            <div class="slideUp flex flex-col text-center text-[var(--mat-sys-secondary)] opacity-0">
+            <div class="slideUp flex flex-col text-center text-[var(--mat-sys-on-surface)] opacity-0">
                 <h2>Nossos Produtos</h2>
                 <span>Estamos trabalhando para atender você ainda mais!</span>
             </div>
@@ -217,7 +217,7 @@
             <div class="slideRight w-full flex items-center justify-center opacity-0">
                 <div class="xl:w-[80dvw] bg-[var(--mat-sys-primary-dim)] rounded-2xl h-max overflow-hidden">
                     <div class="grid grid-cols-1 xl:grid-cols-2">
-                        <div class="hidden relative w-full h-full lx:flex flex-auto items-center justify-center ">
+                        <div class="hidden relative w-full h-full xl:flex flex-auto items-center justify-center ">
                             <div
                                 class="relative xl:absolute xl:right-[10%] bg-[var(--mat-sys-primary)] rounded-2xl aspect-video w-[100%] scale-100">
                             </div>
@@ -253,7 +253,7 @@
 
     <section id="beloved">
         <div class="beloved flex flex-col justify-center items-center gap-4 pt-[110px] pb-[86px] px-4">
-            <div class="fadeInAndScale flex flex-col text-center text-[var(--mat-sys-secondary)] opacity-0">
+            <div class="fadeInAndScale flex flex-col text-center text-[var(--mat-sys-on-surface)] opacity-0">
                 <h2>Amado por equipes de todos os tamanhos</h2>
             </div>
 
@@ -284,7 +284,7 @@
 
     <section id="faq">
         <div class="beloved flex flex-col justify-center items-center gap-4 pt-[110px] pb-[86px] px-4">
-            <div class="fadeInAndScale flex flex-col text-center text-[var(--mat-sys-secondary)] opacity-0">
+            <div class="fadeInAndScale flex flex-col text-center text-[var(--mat-sys-on-surface)] opacity-0">
                 <h2>Alguma dúvida? Conte com a gente</h2>
                 <span>Nossa central de perguntas frequentes foi desenhada para prover a você<br> respostas sobre as
                     dúvidas mais comuns</span>
@@ -292,9 +292,11 @@
 
             <div class="w-full 2xl:w-[80dvw] max-w-[1920px] flex flex-col gap-4">
                 <template x-for="(item, index) in lstFaq" :key="index">
-                    <div class="w-full min-h-[56px] rounded-2xl flex flex-col p-4 cursor-pointer transition-all"
+                    <div class="w-full min-h-[56px] rounded-2xl flex flex-col p-4 cursor-pointer transition-all text-[var(--mat-sys-on-background)]"
                         :class="item.toggle ? 'gap-2' : 'gap-0'"
-                        style="border: var(--main-border);" @click="item.toggle = !item.toggle">
+                        style="border: 1px solid var(--mat-sys-on-surface); "
+                        @click="item.toggle = !item.toggle">
+                        
                         <span :class="item.toggle ? 'text-[1rem]' : 'text-[1.6rem]'"
                         style="transition: all .6s cubic-bezier(0.075, 0.82, 0.165, 1);" 
                         x-text="item.title"></span>
@@ -304,15 +306,10 @@
                             style="transition: all .6s cubic-bezier(0.075, 0.82, 0.165, 1);">
                             <span x-text="item.description"></span>
                         </div>
-
                     </div>
                 </template>
-
             </div>
         </div>
     </section>
-
-
-
-
+    
     <%- footer%>

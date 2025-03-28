@@ -606,22 +606,22 @@ body:has(.mat-menu.show) .backdrop {
 .advantages .slideDown {
   animation: slideDown 2s linear forwards;
   animation-timeline: --innerView;
-  animation-range: 40vh cover 80vh;
+  animation-range: 55vh cover 80vh;
 }
 .advantages .slideUp {
   animation: slideUp 2s linear forwards;
   animation-timeline: --innerView;
-  animation-range: 40vh cover 80vh;
+  animation-range: 55vh cover 80vh;
 }
 .advantages .disapear {
   animation: disapear 1s linear forwards;
   animation-timeline: --innerView;
-  animation-range: 40vh cover 75vh;
+  animation-range: 50vh cover 82vh;
 }
 .advantages .appear {
   animation: appear 0.1s linear forwards;
   animation-timeline: --innerView;
-  animation-range: 40vh cover 80vh;
+  animation-range: 55vh cover 80vh;
 }
 
 .freelancers .fadeInAndScale {

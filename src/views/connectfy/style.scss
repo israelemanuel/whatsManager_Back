@@ -761,25 +761,25 @@ body:has(.mat-menu.show) {
     .slideDown {
         animation: slideDown 2s linear forwards;
         animation-timeline: --innerView;
-        animation-range: 40vh cover 80vh;
+        animation-range: 55vh cover 80vh;
     }
 
     .slideUp {
         animation: slideUp 2s linear forwards;
         animation-timeline: --innerView;
-        animation-range: 40vh cover 80vh;
+        animation-range: 55vh cover 80vh;
     }
 
     .disapear {
         animation: disapear 1s linear forwards;
         animation-timeline: --innerView;
-        animation-range: 40vh cover 75vh;
+        animation-range: 50vh cover 82vh;
     }
 
     .appear {
         animation: appear .1s linear forwards;
         animation-timeline: --innerView;
-        animation-range: 40vh cover 80vh;
+        animation-range: 55vh cover 80vh;
 
     }
 }
