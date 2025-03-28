@@ -73,5 +73,5 @@ function loadUserPreferences() {
 // Inicializar as funções ao carregar a página
 document.addEventListener('DOMContentLoaded', function () {
     loadUserPreferences();
-    addEventListeners();
+    
 });

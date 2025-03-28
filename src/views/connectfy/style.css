@@ -2,17 +2,18 @@
 html {
   color-scheme: light;
   --color-scheme: light;
-  --mat-sys-background: hsl(0, 0%, 95%);
+  --mat-sys-background: hsl(0, 0%, 100%);
   --mat-sys-on-background: #1f1f1f;
   --mat-sys-background-dim: #bcbcbc;
   --mat-sys-background-bright: #ffffff;
   --mat-sys-background-translucent: #f2f2f231;
   --mat-sys-background-on-translucent: #1f1f1f2f;
   --mat-sys-primary: #096F77;
-  --mat-sys-dim: #9BC5C8;
+  --mat-sys-primary-dim: #9BC5C8;
   --mat-sys-primary-bright: #E1FDF8;
+  --mat-sys-primary-bright-variant: #F0F6F7;
   --mat-sys-on-primary: #ffffff;
-  --mat-sys-on-dim: #565656;
+  --mat-sys-on-primary-dim: #565656;
   --mat-sys-on-primary-bright: #113638;
   --mat-sys-secondary: #113638;
   --mat-sys-secondary-dim: #0c2729;
@@ -34,6 +35,8 @@ html {
   --mat-sys-surface-dim: #8DC3B9;
   --mat-sys-surface-bright: #8BF0F7;
   --mat-sys-on-surface: var(--mat-sys-secondary);
+  --mat-sys-complementar: #FFEADF;
+  --mat-sys-on-complementar: #916a55;
 }
 
 .dark-mode {
@@ -46,12 +49,13 @@ html {
   --mat-sys-background-translucent: #32323231;
   --mat-sys-background-on-translucent: #ffffff2f;
   --mat-sys-primary: #096F77;
-  --mat-sys-dim: #9BC5C8;
-  --mat-sys-primary-bright: #E1FDF8;
+  --mat-sys-primary-dim: #9BC5C8;
+  --mat-sys-primary-bright: #a2b6b2;
+  --mat-sys-primary-bright-variant: #2b302f;
   --mat-sys-on-primary: #ffffff;
-  --mat-sys-on-dim: #565656;
+  --mat-sys-on-primary-dim: #565656;
   --mat-sys-on-primary-bright: #113638;
-  --mat-sys-secondary: #113638;
+  --mat-sys-secondary: #184d50;
   --mat-sys-secondary-dim: #0c2729;
   --mat-sys-secondary-bright: #164548;
   --mat-sys-on-secondary: #ffffff;
@@ -70,7 +74,7 @@ html {
   --mat-sys-surface: hsl(184, 29%, 20%);
   --mat-sys-surface-dim: hsl(169, 31%, 36%);
   --mat-sys-surface-bright: hsl(184, 87%, 56%);
-  --mat-sys-on-surface: var(--mat-sys-secondary);
+  --mat-sys-on-surface: #319ca2;
 }
 
 .high-contrast {
@@ -107,7 +111,7 @@ html {
   --main-gap: 1rem;
   --double-padding: 2rem;
   --double-gap: 2rem;
-  --main-border: 1px solid var(--) --main-transition: all .6s cubic-bezier(0.075, 0.82, 0.165, 1);
+  --main-border: 1px solid var(--mat-sys-secondary);
   --main-transition: all .6s cubic-bezier(0.075, 0.82, 0.165, 1);
   --default-scale: 1.05;
 }
@@ -127,15 +131,15 @@ body .material-symbols-rounded {
 
 h1,
 .highlight {
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: clamp(2rem, 10vw, 3.5rem);
   font-weight: 600;
   margin: 0;
 }
 
 h2,
 .subtitle {
-  font-size: 1rem;
-  font-weight: regular;
+  font-size: clamp(2rem, 10vw, 3.5rem);
+  font-weight: 600;
   margin: 0;
 }
 
@@ -554,22 +558,190 @@ body:has(.mat-menu.show) .backdrop {
   pointer-events: all;
 }
 
-.slideDown {
-  animation: slideDown 0.6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+.cardAdvantages {
+  width: 100%;
+  border-radius: calc(1.6 * var(--main-curve));
+  background-color: var(--mat-sys-primary-bright);
+  opacity: 0;
+  transition: var(--main-transition);
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.37);
+  -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.37);
+  -moz-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.37);
+}
+@media (max-width: 640px) {
+  .cardAdvantages {
+    max-width: 80dvw;
+  }
+}
+@media (min-width: 1280px) {
+  .cardAdvantages:hover {
+    position: relative;
+    scale: 1.1;
+    z-index: 10;
+    box-shadow: 1px 9px 15px 1px rgba(0, 0, 0, 0.37);
+    -webkit-box-shadow: 1px 9px 15px 1px rgba(0, 0, 0, 0.37);
+    -moz-box-shadow: 1px 9px 15px 1px rgba(0, 0, 0, 0.37);
+  }
+}
+
+.titleAdvantages {
+  text-align: center;
+  width: 100%;
+  opacity: 0;
+}
+
+#innerBody {
+  overflow-y: scroll;
+  height: 100dvh;
+  scroll-timeline-name: --innerView;
+  position: relative;
+}
+
+.bannerfadeAndScale {
+  animation: fadeAndScale 0.6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+  animation-timeline: --innerView;
+  animation-range: 0vh 100vh;
+}
+
+.advantages .slideDown {
+  animation: slideDown 2s linear forwards;
+  animation-timeline: --innerView;
+  animation-range: 40vh cover 80vh;
+}
+.advantages .slideUp {
+  animation: slideUp 2s linear forwards;
+  animation-timeline: --innerView;
+  animation-range: 40vh cover 80vh;
+}
+.advantages .disapear {
+  animation: disapear 1s linear forwards;
+  animation-timeline: --innerView;
+  animation-range: 40vh cover 75vh;
+}
+.advantages .appear {
+  animation: appear 0.1s linear forwards;
+  animation-timeline: --innerView;
+  animation-range: 40vh cover 80vh;
+}
+
+.freelancers .fadeInAndScale {
+  animation: fadeInAndScale 0.6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+  animation-timeline: --innerView;
+  animation-range: 120vh cover 250vh;
+}
+
+.ourproducts .slideUp {
+  animation: slideUp 2s linear forwards;
+  animation-timeline: --innerView;
+  animation-range: 260vh cover 300vh;
+}
+.ourproducts .slideRight {
+  animation: slideRight 1s linear forwards;
+  animation-timeline: --innerView;
+  animation-range: 280vh cover 350vh;
+}
+.ourproducts .slideLeft {
+  animation: slideLeft 1s linear forwards;
+  animation-timeline: --innerView;
+  animation-range: 280vh cover 330vh;
+}
+
+.beloved .fadeInAndScale {
+  animation: fadeInAndScale 0.6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+  animation-timeline: --innerView;
+  animation-range: 410vh cover 440vh;
+}
+.beloved .slideDown {
+  animation: slideDown 2s linear forwards;
+  animation-timeline: --innerView;
+  animation-range: 430vh cover 460vh;
+}
+.beloved .slideUp {
+  animation: slideUp 2s linear forwards;
+  animation-timeline: --innerView;
+  animation-range: 430vh cover 460vh;
 }
 
 @keyframes slideDown {
   from {
     transform: translateY(-48px);
+    opacity: 0;
   }
   to {
     transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(48px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes disapear {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 @keyframes pulse {
   75%, 100% {
     transform: scale(2);
     opacity: 0;
+  }
+}
+@keyframes fadeAndScale {
+  0% {
+    opacity: 1;
+    scale: 1;
+  }
+  100% {
+    opacity: 0;
+    scale: 2;
+  }
+}
+@keyframes fadeInAndScale {
+  0% {
+    opacity: 0;
+    scale: 0;
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}
+@keyframes slideRight {
+  from {
+    transform: translateX(-100%) scale(0.2);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+  }
+}
+@keyframes slideLeft {
+  from {
+    transform: translateX(100%) scale(0.2);
+    pacity: 0;
+  }
+  to {
+    transform: translateX(0) scale(1);
+    opacity: 1;
   }
 }
 .scaleInLeft {

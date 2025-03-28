@@ -23,8 +23,8 @@
     <script src="/scripts/alpine.script.js"></script>
 </head>
 
-<body class="overflow-hidden" style="background-color: var(--mat-sys-background)" x-data="geral">
-    <div class="w-full h-full box-border overflow-x-hidden " id="innerBody">
+<body style="background-color: var(--mat-sys-background)" x-data="geral">
+    <div class="w-full h-full box-border overflow-x-hidden scroll-smooth" id="innerBody">
         <div class="w-full h-max flex flex-col overflow-y-hidden overflow-x-hidden box-border">
             <div :class="{'slideDown fixed bg-[var(--mat-sys-surface)]': isScrolled, 'absolute bg-transparent backdrop-blur-xs': !isScrolled}"
                 class="w-full flex flex-col transition-all z-50">

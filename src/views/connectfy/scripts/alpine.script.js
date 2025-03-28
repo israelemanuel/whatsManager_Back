@@ -5,6 +5,32 @@ document.addEventListener('alpine:init', () => {
         isScrolled: false,
         theme: 'light',
 
+
+        lstFaq: [
+            {
+                title: 'O que é o connectDesk?',
+                description: 'O connectDesk é uma plataforma inovadora que transforma o atendimento ao cliente, permitindo que equipes de qualquer organização se conectem de forma ágil e personalizada, oferecendo soluções rápidas e eficientes, aumentando a produtividade e melhorando a experiência do cliente com tecnologia inteligente e integração simplificada.',
+                toggle: false
+            },
+            {
+                title: 'O que é o connectDesk?',
+                description: 'O connectDesk é uma plataforma inovadora que transforma o atendimento ao cliente, permitindo que equipes de qualquer organização se conectem de forma ágil e personalizada, oferecendo soluções rápidas e eficientes, aumentando a produtividade e melhorando a experiência do cliente com tecnologia inteligente e integração simplificada.',
+                toggle: false
+            },
+            {
+                title: 'O que é o connectDesk?',
+                description: 'O connectDesk é uma plataforma inovadora que transforma o atendimento ao cliente, permitindo que equipes de qualquer organização se conectem de forma ágil e personalizada, oferecendo soluções rápidas e eficientes, aumentando a produtividade e melhorando a experiência do cliente com tecnologia inteligente e integração simplificada.',
+                toggle: false
+            },
+            {
+                title: 'O que é o connectDesk?',
+                description: 'O connectDesk é uma plataforma inovadora que transforma o atendimento ao cliente, permitindo que equipes de qualquer organização se conectem de forma ágil e personalizada, oferecendo soluções rápidas e eficientes, aumentando a produtividade e melhorando a experiência do cliente com tecnologia inteligente e integração simplificada.',
+                toggle: false
+            },
+        ],
+
+
+
         toggleAcessibility() {
             this.acessibility = !this.acessibility
         },
@@ -41,14 +67,14 @@ document.addEventListener('alpine:init', () => {
                     distinct()
                 )
                 .subscribe((scrollTop) => {
-                    this.isScrolled = scrollTop > 200;
+                    this.isScrolled = scrollTop > 64;
                 })
         },
 
         init() {
             console.log('init');
             this.loadColorScheme();
-
+            this.controllScroll();
 
         }
 
