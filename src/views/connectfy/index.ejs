@@ -10,8 +10,8 @@
 
                 <div class="scaleInLeft flex flex-col p-4 items-center justify-center text-[var(--mat-sys-on-surface)]"
                     style="flex: 1;">
-                    <span class="highlight w-full text-center md:text-left">Conecte-se ao novo <br> cenário
-                        profissional</span>
+                    <h2 class="highlight w-full text-center md:text-left">Conecte-se ao novo <br> cenário
+                        profissional</h2>
                     <span class="w-full text-center md:text-left">Gestão Eficiente, Liberdade de
                         Trabalho</span>
                 </div>
@@ -75,8 +75,8 @@
             class="absolute flex flex-col gap-4 w-full h-full items-center pt-[210px] pb-[110px] xl:px-4 z-10 max-w-[1920px]">
 
             <div class="absolute top-0 h-[240px] z-0 w-full flex flex-col items-center justify-center p-4">
-                <span class="slideUp titleAdvantages font-bold text-[var(--mat-sys-on-surface)]"
-                    style="font-size: 2.4rem; animation-delay: 1.2s;">O melhor Lugar para você</span>
+                <h2 class="slideUp titleAdvantages font-bold text-[var(--mat-sys-on-surface)]"
+                    style="font-size: 2.4rem; animation-delay: 1.2s;">O melhor Lugar para você</h2>
                 <span class="slideUp titleAdvantages text-[var(--mat-sys-on-primary-dim)]"
                     style="font-size: 1rem; animation-delay: 3s;">Confira vantagens para prestadores e para tomadores de
                     serviços</span>
@@ -269,7 +269,8 @@
             <div class="slideUp w-full 2xl:w-[80dvw] 2xl:max-w-[1920px] pt-8 opacity-0">
                 <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-4 w-full">
 
-                    <div class="col-span-1 md:col-span-2 lg:col-span-1 hoverCard w-full min-h-[350px] bg-[var(--mat-sys-secondary)] rounded-3xl p-4 flex flex-col justify-between">
+                    <div
+                        class="col-span-1 md:col-span-2 lg:col-span-1 hoverCard w-full min-h-[350px] bg-[var(--mat-sys-secondary)] rounded-3xl p-4 flex flex-col justify-between">
                         <div class="flex flex-col justify-between text-[var(--mat-sys-surface-bright)] gap-4">
 
                             <div class="flex flex-col">
@@ -311,7 +312,8 @@
                         </div>
                     </div>
 
-                    <div class="col-span-1 md:col-span-2 lg:col-span-1 hoverCard w-full min-h-[350px] bg-[var(--mat-sys-secondary)] rounded-3xl p-4 flex flex-col justify-between items-center">
+                    <div
+                        class="col-span-1 md:col-span-2 lg:col-span-1 hoverCard w-full min-h-[350px] bg-[var(--mat-sys-secondary)] rounded-3xl p-4 flex flex-col justify-between items-center">
                         <div class="flex flex-col justify-between text-[var(--mat-sys-surface-bright)] gap-4">
 
                             <div class="flex flex-col">
@@ -329,7 +331,8 @@
 
                     <!-- segunda linha -->
 
-                    <div class="col-span-1 md:col-span-2 lg:col-span-1 hoverCard w-full min-h-[350px] bg-[var(--mat-sys-secondary)] rounded-3xl p-4 flex flex-col justify-between">
+                    <div
+                        class="col-span-1 md:col-span-2 lg:col-span-1 hoverCard w-full min-h-[350px] bg-[var(--mat-sys-secondary)] rounded-3xl p-4 flex flex-col justify-between">
                         <div class="flex flex-col justify-between text-[var(--mat-sys-surface-bright)] gap-4">
 
                             <div class="flex flex-col">
@@ -371,7 +374,8 @@
                         </div>
                     </div>
 
-                    <div class="col-span-1 md:col-span-2 lg:col-span-1 hoverCard w-full min-h-[350px] bg-[var(--mat-sys-secondary)] rounded-3xl p-4 flex flex-col justify-between">
+                    <div
+                        class="col-span-1 md:col-span-2 lg:col-span-1 hoverCard w-full min-h-[350px] bg-[var(--mat-sys-secondary)] rounded-3xl p-4 flex flex-col justify-between">
                         <div class="flex flex-col justify-between text-[var(--mat-sys-surface-bright)] gap-4">
 
                             <div class="flex flex-col">
@@ -387,7 +391,7 @@
                         <img class="h-[48px] w-full" src="<%= partners[0].file %>" alt="<%= partners[0].fileName %>">
                     </div>
 
-                    
+
                 </div>
             </div>
         </div>
@@ -419,5 +423,168 @@
             </div>
         </div>
     </section>
+
+    <template x-if="showAboutUs">
+        <section id="AboutUs">
+            <div class="fixed flex items-center justify-center top-0 left-0 w-full h-full backdrop-blur-2xl z-50"
+                @click="toggleAboutUs()">
+                <div class="m-6 absolute top-0 bottom-0 w-full xl:max-w-[80dvw] rounded-3xl overflow-hidden"
+                    style="background: linear-gradient(0deg, var(--mat-sys-surface), transparent); border: 1px solid var(--mat-sys-primary-dim)">
+
+                    <div
+                        class="relative w-full h-full flex flex-col text-[var(--mat-sys-on-background)] overflow-hidden">
+                        <div class="relative w-full p-6 flex flex-row items-center justify-between">
+                            <h3>Sobre Nós</h3>
+
+                            <div @click="toggleAboutUs()" class="iconButton transparent">
+                                <span class="material-symbols-rounded">
+                                    close
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="w-full h-full overflow-y-scroll flex flex-col gap-4 pl-6 pb-6">
+                            <div>
+                                <h4>Sobre a Empresa</h4>
+                                <span>A ConnectFy emergiu da visão pioneira de sua fundadora que identificou o potencial
+                                    desperdiçado de talentos restritos por barreiras físicas e limitações tradicionais
+                                    de
+                                    trabalho. Inspirada pela transformação global forçada pela pandemia do COVID-19, que
+                                    remodelou a cultura do trabalho remoto, nossa empresa foi concebida para
+                                    revolucionar a
+                                    maneira como prestadores de serviço e empresas se conectam. ConnectFy oferece
+                                    soluções
+                                    SaaS inovadoras, facilitando a gestão eficiente de freelancers e profissionais
+                                    autônomos, sem intermediários, através de plataformas que promovem a transparência,
+                                    a
+                                    meritocracia e uma gestão autônoma que valoriza a flexibilidade e a qualidade.
+                                    Nossas ferramentas avançadas permitem não apenas a simplificação do faturamento, mas
+                                    também a criação de um ambiente onde o desempenho de cada profissional é claramente
+                                    medido e reconhecido. A ConnectFy não é apenas uma empresa; é um movimento onde
+                                    todos
+                                    têm a liberdade de trabalhar como, onde e quando desejarem, apoiados por uma
+                                    tecnologia
+                                    que celebra a diversidade de habilidades e contribuições individuais. Nós
+                                    continuamos a
+                                    expandir nossa visão, sempre com o foco em tornar o mercado de trabalho global mais
+                                    acessível, justo e interconectado, transformando como os talentos ao redor do mundo
+                                    alcançam seu verdadeiro potencial.
+                                </span>
+                            </div>
+
+                            <div class="flex flex-col gap-4">
+                                <h4>Missão e Visão</h4>
+                                <span>
+                                    <strong>Missão:</strong> Revolucionar a forma como empresas e profissionais se
+                                    conectam, oferecendo
+                                    soluções de software inovadoras que facilitam a gestão de talentos remotamente.
+                                    Nosso
+                                    compromisso é eliminar barreiras físicas e culturais, proporcionando uma plataforma
+                                    que
+                                    integra eficientemente freelancers e organizações, garantindo uma administração
+                                    transparente e eficaz para todos os envolvidos.
+                                </span>
+
+                                <span>
+                                    <strong>Visão:</strong> Ser líder global em soluções SaaS para gestão de freelancers
+                                    e profissionais
+                                    autônomos, transformando o mercado de trabalho para refletir um mundo onde a
+                                    flexibilidade, a inclusão e a eficiência são a norma. Nosso objetivo é criar um
+                                    ambiente
+                                    onde cada talento possa ser plenamente reconhecido e valorizado, independentemente
+                                    de
+                                    onde trabalhem ou quais desafios enfrentem.
+                                </span>
+                            </div>
+
+                            <div class="relative w-full flex flex-col gap-4">
+                                <h4>Serviços e Diferenciais</h4>
+
+                                <div class="flex flex-row flex-nowrap gap-4 overflow-x-auto overflow-y-hidden">
+                                    <div
+                                        class="p-4 bg-[var(--mat-sys-primary-bright)] text-[var(--mat-sys-on-primary-bright)] rounded-2xl aspect-video h-[200px]">
+                                        <strong>1. Acessibilidade:</strong> Removemos barreiras físicas, permitindo que
+                                        talentos com
+                                        diferentes necessidades e preferências encontrem oportunidades justas e
+                                        adequadas.
+                                    </div>
+
+                                    <div
+                                        class="p-4 bg-[var(--mat-sys-primary-bright)] text-[var(--mat-sys-on-primary-bright)] rounded-2xl aspect-video h-[200px]">
+                                        <strong>2. Flexibilidade:</strong> Nossa tecnologia apoia um estilo de trabalho
+                                        que valoriza a
+                                        liberdade de escolha, permitindo que profissionais trabalhem quando e onde forem
+                                        mais produtivos.
+                                    </div>
+
+                                    <div
+                                        class="p-4 bg-[var(--mat-sys-primary-bright)] text-[var(--mat-sys-on-primary-bright)] rounded-2xl aspect-video h-[200px]">
+                                        <strong>3. Transparência Total:</strong> Garantimos transparência tanto para
+                                        contratantes quanto para
+                                        freelancers, com avaliações justas e meritocráticas feitas direto por quem
+                                        consome os
+                                        serviços, baseadas na qualidade do trabalho entregue.
+                                    </div>
+
+                                    <div
+                                        class="p-4 bg-[var(--mat-sys-primary-bright)] text-[var(--mat-sys-on-primary-bright)] rounded-2xl aspect-video h-[200px]">
+                                        <strong>4. Custo-Eficiência:</strong> Reduzimos custos operacionais para
+                                        empresas, eliminando a
+                                        necessidade de gestão manual e promovendo eficiências através de automação.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="relative w-full flex flex-col gap-4">
+                                <h4>Público-Alvo</h4>
+
+                                <div class="flex flex-row flex-nowrap gap-4 overflow-x-auto overflow-y-hidden">
+                                    <div
+                                        class="p-4 bg-[var(--mat-sys-primary-bright)] text-[var(--mat-sys-on-primary-bright)] rounded-2xl aspect-video h-[200px]">
+                                        <strong>Empresas Inovadoras: </strong>Organizações que buscam modernizar suas
+                                        operações e estão abertas a integrar freelancers e profissionais autônomos em
+                                        suas equipes.
+
+                                    </div>
+
+                                    <div
+                                        class="p-4 bg-[var(--mat-sys-primary-bright)] text-[var(--mat-sys-on-primary-bright)] rounded-2xl aspect-video h-[200px]">
+                                        <strong>Profissionais Autônomos e Freelancers: </strong>Indivíduos que procuram
+                                        flexibilidade e oportunidades de trabalho remoto, que valorizam a transparência
+                                        e desejam ser reconhecidos por seu mérito.
+                                    </div>
+
+                                    <div
+                                        class="p-4 bg-[var(--mat-sys-primary-bright)] text-[var(--mat-sys-on-primary-bright)] rounded-2xl aspect-video h-[200px]">
+                                        <strong>Gestores de RH: </strong> Profissionais de recursos humanos que
+                                        necessitam de soluções eficientes para gerenciar talentos à distância e otimizar
+                                        a operação de suas equipes.
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                            <div>
+                                <h4>Missão e Visão</h4>
+                                <span>
+                                    Na ConnectFy, a privacidade e a segurança dos dados dos nossos usuários são
+                                    prioridades. Estamos comprometidos em proteger as informações pessoais e comerciais
+                                    de todos os nossos usuários, garantindo conformidade com as leis de proteção de
+                                    dados aplicáveis. Implementamos políticas rigorosas de segurança de dados para
+                                    assegurar que todas as informações sejam tratadas com o mais alto nível de
+                                    confidencialidade e integridade.
+                                </span>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </template>
 
     <%- footer%>

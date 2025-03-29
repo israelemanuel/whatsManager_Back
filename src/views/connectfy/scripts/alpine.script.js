@@ -4,6 +4,7 @@ document.addEventListener('alpine:init', () => {
         acessibility: false,
         isScrolled: false,
         theme: 'light',
+        showAboutUs: false,
 
 
         lstFaq: [
@@ -42,6 +43,10 @@ document.addEventListener('alpine:init', () => {
             else{
                 this.theme = 'light'
             }
+        },
+
+        toggleAboutUs(){
+            this.showAboutUs = !this.showAboutUs
         },
 
         checkColorScheme(){
