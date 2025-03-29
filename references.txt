@@ -1,0 +1,11 @@
+Animation Documentation
+https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline
+
+Frameworks Js
+https://ejs.co/
+https://alpinejs.dev/start-here
+
+Frameworks Css
+https://tailwindcss.com/
+https://sass-lang.com/
+

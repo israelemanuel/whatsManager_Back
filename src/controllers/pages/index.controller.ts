@@ -23,9 +23,7 @@ export class PageController {
                 return res.status(404).send('Domain not found');
             }
 
-
             const template = fs.readFileSync(path.resolve(__dirname, '../../', 'views', findDomain?.folder, 'index.ejs'), 'utf-8');
-
             const headerhtml = fs.readFileSync(path.resolve(__dirname, '../../', 'views', findDomain?.folder, 'header.ejs'), 'utf-8');
             const footer = fs.readFileSync(path.resolve(__dirname, '../../', 'views', findDomain?.folder, 'footer.ejs'), 'utf-8');
             const news = fs.readFileSync(path.resolve(__dirname, '../../', 'views', findDomain?.folder, 'news.ejs'), 'utf-8');
@@ -55,11 +53,24 @@ export class PageController {
                 imageUrl: '/images/cheerfull.png',
             }
 
-
+            const partners = [
+                {
+                    file: '/images/govsolutions_logo.svg',
+                    fileName: 'Govsolutions',
+                },
+                {
+                    file: '/images/crontabil_logo.png',
+                    fileName: 'Crontabil',
+                },
+                {
+                    file: '/images/lotagovrh_logo.png',
+                    fileName: 'LotaGovRH',
+                }
+            ]
 
             const header = ejs.render(headerhtml, { ...tags, banner, logo });
 
-            const html = ejs.render(template, { header, news, footer, tags, banner, bannerAsset, bannerAsset2, paralaxAsset, logo });
+            const html = ejs.render(template, { header, news, footer, tags, banner,partners, bannerAsset, bannerAsset2, paralaxAsset, logo });
 
             return res.send(html);
         } catch (error: any) {

@@ -565,24 +565,28 @@ body:has(.mat-menu.show) .backdrop {
   opacity: 0;
   transition: var(--main-transition);
   border: 1px solid var(--mat-sys-primary-dim);
-  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.37);
-  -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.37);
-  -moz-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.37);
 }
 @media (max-width: 640px) {
   .cardAdvantages {
     max-width: 80dvw;
   }
 }
-@media (min-width: 1280px) {
-  .cardAdvantages:hover {
-    position: relative;
-    scale: 1.1;
-    z-index: 10;
-    box-shadow: 1px 9px 15px 1px rgba(0, 0, 0, 0.37);
-    -webkit-box-shadow: 1px 9px 15px 1px rgba(0, 0, 0, 0.37);
-    -moz-box-shadow: 1px 9px 15px 1px rgba(0, 0, 0, 0.37);
-  }
+
+.hoverCard {
+  position: relative;
+  z-index: 0 !important;
+  transition: var(--main-transition);
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.37);
+  -webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.37);
+  -moz-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.37);
+}
+.hoverCard:hover {
+  position: relative;
+  scale: 1.1;
+  z-index: 10 !important;
+  box-shadow: 1px 9px 15px 1px rgba(0, 0, 0, 0.37);
+  -webkit-box-shadow: 1px 9px 15px 1px rgba(0, 0, 0, 0.37);
+  -moz-box-shadow: 1px 9px 15px 1px rgba(0, 0, 0, 0.37);
 }
 
 .titleAdvantages {

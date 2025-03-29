@@ -17,7 +17,7 @@ html {
     --mat-sys-on-primary: #ffffff;
     --mat-sys-on-primary-dim: #565656;
     --mat-sys-on-primary-bright: #113638;
-    
+
 
     --mat-sys-secondary: #113638;
     --mat-sys-secondary-dim: #0c2729;
@@ -714,9 +714,6 @@ body:has(.mat-menu.show) {
     opacity: 0;
     transition: var(--main-transition);
     border: 1px solid var(--mat-sys-primary-dim);
-    box-shadow: 0px -0px 0px -0px rgba(0, 0, 0, 0.37);
-    -webkit-box-shadow: 0px -0px 0px -0px rgba(0, 0, 0, 0.37);
-    -moz-box-shadow: 0px -0px 0px -0px rgba(0, 0, 0, 0.37);
 
 
 
@@ -724,17 +721,28 @@ body:has(.mat-menu.show) {
         max-width: 80dvw;
     }
 
-    @media(min-width: 1280px) {
-        &:hover {
-            position: relative;
-            scale: 1.10;
-            z-index: 10;
 
-            box-shadow: 1px 9px 15px 1px rgba(0, 0, 0, 0.37);
-            -webkit-box-shadow: 1px 9px 15px 1px rgba(0, 0, 0, 0.37);
-            -moz-box-shadow: 1px 9px 15px 1px rgba(0, 0, 0, 0.37);
-        }
+}
+
+.hoverCard {
+    position: relative;
+    z-index: 0 !important;
+    transition: var(--main-transition);
+    box-shadow: 0px -0px 0px -0px rgba(0, 0, 0, 0.37);
+    -webkit-box-shadow: 0px -0px 0px -0px rgba(0, 0, 0, 0.37);
+    -moz-box-shadow: 0px -0px 0px -0px rgba(0, 0, 0, 0.37);
+
+
+    &:hover {
+        position: relative;
+        scale: 1.10;
+        z-index: 10 !important;
+
+        box-shadow: 1px 9px 15px 1px rgba(0, 0, 0, 0.37);
+        -webkit-box-shadow: 1px 9px 15px 1px rgba(0, 0, 0, 0.37);
+        -moz-box-shadow: 1px 9px 15px 1px rgba(0, 0, 0, 0.37);
     }
+
 }
 
 .titleAdvantages {
@@ -785,7 +793,7 @@ body:has(.mat-menu.show) {
     }
 }
 
-.freelancers{
+.freelancers {
     .fadeInAndScale {
         animation: fadeInAndScale .6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
         animation-timeline: --innerView;
@@ -793,7 +801,7 @@ body:has(.mat-menu.show) {
     }
 }
 
-.ourproducts{
+.ourproducts {
 
     .slideUp {
         animation: slideUp 2s linear forwards;
@@ -814,7 +822,7 @@ body:has(.mat-menu.show) {
     }
 }
 
-.beloved{
+.beloved {
 
     .fadeInAndScale {
         animation: fadeInAndScale .6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
@@ -931,7 +939,7 @@ body:has(.mat-menu.show) {
     }
 }
 
-@keyframes slideLeft{
+@keyframes slideLeft {
     from {
         transform: translateX(100%) scale(0.2);
         pacity: 0;
