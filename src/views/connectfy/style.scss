@@ -90,6 +90,7 @@ html {
         --mat-sys-surface-dim: hsl(169, 31%, 36%);
         --mat-sys-surface-bright: hsl(184, 87%, 56%);
         --mat-sys-on-surface: #ffffff;
+        
     }
 }
 
@@ -880,6 +881,20 @@ body:has(.mat-menu.show) {
         animation: slideUp 2s linear forwards;
         animation-timeline: --innerView;
         animation-range: 430vh cover 460vh;
+    }
+}
+
+.faq{
+    .fadeInAndScale {
+        animation: fadeInAndScale .6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+        animation-timeline: --innerView;
+        animation-range: 690vh cover 720vh;
+    }
+
+    .slideUp {
+        animation: slideUp 2s linear forwards;
+        animation-timeline: --innerView;
+        animation-range: 98% cover 100%;
     }
 }
 

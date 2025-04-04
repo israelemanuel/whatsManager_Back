@@ -108,7 +108,7 @@
                                 mode_night
                             </span>
                         </button> -->
-                        <button class="iconButton" id="toggle-high-contrast" aria-label="Alto Contraste">
+                        <button @click="toggleHighContrast()" class="iconButton" id="toggle-high-contrast" aria-label="Alto Contraste">
                             <span class="material-symbols-rounded">
                                 contrast
                             </span>
@@ -121,23 +121,23 @@
                     </div>
 
                     <div class="flex flex-row h-full items-center text-[var(--mat-sys-on-primary)]">
-                        <button class="iconButton" id="underscore" aria-label="Sublinhar">
+                        <button class="iconButton" @click="toggleUnderline()" id="underscore" aria-label="Sublinhar">
                             <span class="material-symbols-rounded">
                                 format_underlined
                             </span>
                         </button>
 
-                        <button class="iconButton" id="decrease-font" aria-label="Diminuir Fonte">
+                        <button @click="adjustFontSize(-25)" class="iconButton" id="decrease-font" aria-label="Diminuir Fonte">
                             <span class="material-symbols-rounded">
                                 text_decrease
                             </span>
                         </button>
-                        <button class="iconButton" id="default-font" aria-label="Fonte Padrão">
+                        <button @click="adjustFontSize(100)" class="iconButton" id="default-font" aria-label="Fonte Padrão">
                             <span class="material-symbols-rounded">
                                 text_format
                             </span>
                         </button>
-                        <button class="iconButton" id="increase-font" aria-label="Aumentar Fonte">
+                        <button @click="adjustFontSize(25)" class="iconButton" id="increase-font" aria-label="Aumentar Fonte">
                             <span class="material-symbols-rounded">
                                 text_increase
                             </span>
@@ -165,7 +165,7 @@
             </div>
 
             
-            <div class="mat-menu flex xl:hidden" :class="{'show' : toggleMobileMenu}">
+            <div class="mat-menu flex flex-col justify-between xl:hidden" :class="{'show' : toggleMobileMenu}">
                 <ul class="mat-menu-content" aria-label="Menu Mobile">
                     <li><a @click="toggleMenu()" <%= (page == 'index' ? 'href=#inicio' : 'href=/') %>  class="commonButton " aria-label="Início">Início</a></li>
                     <li><a @click="toggleMenu()" href="#freelancers" class="commonButton " aria-label="Quero Trabalhar">Quero Trabalhar</a></li>
@@ -175,6 +175,15 @@
                     <li><a @click="toggleMenu()" href="about" class="commonButton " aria-label="Sobre Nós">Sobre Nós</a></li>
                     <li><a @click="toggleMenu()" href="#faq" class="commonButton " aria-label="Faq">Faq</a></li>
                 </ul>
+
+                <div class="w-full flex flex-col items-center">
+                    <span @click="toggleAcessibility(); toggleMenu()" aria-label="Acessibilidade" class="w-full commonButton primary" >
+                        <span class="material-symbols-rounded">
+                            settings_accessibility
+                        </span>
+                        Acessibilidade
+                    </span>
+                </div>
             </div>
 
             <template x-if="toggleMobileMenu">

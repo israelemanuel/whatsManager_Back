@@ -198,11 +198,11 @@
             class="fadeInAndScale relative rounded-4xl lg:rounded-full w-full 2xl:w-[80%] min-h-[55dvh] h-[60%] bg-[var(--mat-sys-primary-dim)] opacity-0">
             <div
                 class="hidden lg:flex absolute lg:right-[10dvw] top-[5%] bottom-0 rounded-3xl bg-[var(--mat-sys-secondary)] scale-100 lg:scale-125 pointer-events-none max-h-[90%] aspect-[calc(3/4)] 2xl:aspect-[calc(7/9)]">
-                <div class="absolute top-0 right-0 rounded-3xl w-max p-6 bg-[var(--mat-sys-complementar)]"
+                <div class="absolute top-0 right-0 rounded-3xl w-max p-6 bg-[var(--mat-sys-complementar)] text-[var(--mat-sys-on-complementary)] dark:bg-[var(--mat-sys-tertiary)] dark:text-[var(--mat-sys-on-tertiary)]"
                     style="transform: translate(30% , -30%);">
                     <span class="font-bold" style="font-size: 1rem;">Eu faço o meu <br> horário</span>
                 </div>
-                <div class="absolute bottom-0 left-0 rounded-3xl w-max p-6 bg-[var(--mat-sys-complementar)]"
+                <div class="absolute bottom-0 left-0 rounded-3xl w-max p-6 bg-[var(--mat-sys-complementar)] text-[var(--mat-sys-on-complementary)] dark:bg-[var(--mat-sys-tertiary)] dark:text-[var(--mat-sys-on-tertiary)]"
                     style="transform: translate(-30% , 30%);">
                     <span class="font-bold" style="font-size: 1rem;">Eu trabalho de <br> qualquer lugar</span>
                 </div>
@@ -243,14 +243,12 @@
                             <h2 class="text-center text-[var(--mat-sys-primary)]">Alcance novos <br> patamares!</h2>
                             <div class="w-full flex items-center justify-center">
                                 <div class="flex flex-col w-max items-center justify-center">
-                                    <div class="p-6 rounded-2xl bg-[var(--mat-sys-primary)] text-[var(--mat-sys-tertiary)] max-w-[min(440px,_60%)]"
-                                        style="transform: translate(-30%, 0px);">
+                                    <div class="p-6 rounded-2xl bg-[var(--mat-sys-primary)] text-[var(--mat-sys-tertiary)] max-w-[min(440px,_80%) md:max-w-[min(440px,_60%)] -translate-x-[16px] md:-translate-x-[30%]">
                                         <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                                             Lorem Ipsum has been the industry's standard dummy text ever since</span>
                                     </div>
 
-                                    <div class="p-6 rounded-2xl text-[var(--mat-sys-primary)] bg-[var(--mat-sys-tertiary)] max-w-[min(440px,_60%)]"
-                                        style="transform: translate(30%, -16px);">
+                                    <div class="p-6 rounded-2xl text-[var(--mat-sys-primary)] bg-[var(--mat-sys-tertiary)] max-w-[min(440px,_80%) md:max-w-[min(440px,_60%)] translate-x-[16px] md:translate-x-[30%] -translate-y-[16px]">
                                         <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                                             Lorem Ipsum has been the industry's standard dummy text ever since</span>
                                     </div>
@@ -284,14 +282,12 @@
                             <h2 class="text-center text-[var(--mat-sys-secondary)]">Alcance novos <br> patamares!</h2>
                             <div class="w-full flex items-center justify-center">
                                 <div class="flex flex-col w-max items-center justify-center">
-                                    <div class="p-6 rounded-2xl bg-[var(--mat-sys-primary)] text-[var(--mat-sys-tertiary)] max-w-[min(440px,_60%)]"
-                                        style="transform: translate(-30%, 0px);">
+                                    <div class="p-6 rounded-2xl bg-[var(--mat-sys-primary)] text-[var(--mat-sys-tertiary)] max-w-[min(440px,_80%) md:max-w-[min(440px,_60%)] -translate-x-[16px] md:-translate-x-[30%]">
                                         <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                                             Lorem Ipsum has been the industry's standard dummy text ever since</span>
                                     </div>
 
-                                    <div class="p-6 rounded-2xl text-[var(--mat-sys-primary)] bg-[var(--mat-sys-tertiary)] max-w-[min(440px,_60%)]"
-                                        style="transform: translate(30%, -16px);">
+                                    <div class="p-6 rounded-2xl text-[var(--mat-sys-primary)] bg-[var(--mat-sys-tertiary)] max-w-[min(440px,_80%) md:max-w-[min(440px,_60%)] translate-x-[16px] md:translate-x-[30%] -translate-y-[16px]">
                                         <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                                             Lorem Ipsum has been the industry's standard dummy text ever since</span>
                                     </div>
@@ -704,7 +700,7 @@
     </section>
 
     <section id="faq">
-        <div class="beloved flex flex-col justify-center items-center gap-4 pt-[110px] pb-[86px] px-4">
+        <div class="faq relative flex flex-col justify-center items-center gap-4 pt-[110px] pb-[86px] px-4">
             <div class="fadeInAndScale flex flex-col text-center text-[var(--mat-sys-on-surface)] opacity-0">
                 <h2>Alguma dúvida? Conte com a gente</h2>
                 <span>Nossa central de perguntas frequentes foi desenhada para prover a você<br> respostas sobre as
@@ -726,6 +722,14 @@
                         </div>
                     </div>
                 </template>
+            </div>
+
+            <div class="slideUp absolute bottom-0 right-0 opacity-0 p-6">
+                <a href="#inicio" class="iconButton primary" >
+                    <span class="material-symbols-rounded">
+                        arrow_upward
+                    </span>
+                </a>
             </div>
         </div>
     </section>

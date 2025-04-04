@@ -699,6 +699,17 @@ body:has(.mat-menu.show) .backdrop {
   animation-range: 430vh cover 460vh;
 }
 
+.faq .fadeInAndScale {
+  animation: fadeInAndScale 0.6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+  animation-timeline: --innerView;
+  animation-range: 690vh cover 720vh;
+}
+.faq .slideUp {
+  animation: slideUp 2s linear forwards;
+  animation-timeline: --innerView;
+  animation-range: 98% cover 100%;
+}
+
 @keyframes slideDown {
   from {
     transform: translateY(-48px);
