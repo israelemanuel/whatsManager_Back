@@ -39,44 +39,45 @@ html {
   --mat-sys-on-complementar: #916a55;
 }
 
-.dark-mode {
-  color-scheme: dark;
-  --color-scheme: dark;
-  --mat-sys-background: #1f1f1f;
-  --mat-sys-on-background: #f2f2f2;
-  --mat-sys-background-dim: #0d0d0d;
-  --mat-sys-background-bright: #313131;
-  --mat-sys-background-translucent: #32323231;
-  --mat-sys-background-on-translucent: #ffffff2f;
-  --mat-sys-primary: #096F77;
-  --mat-sys-primary-dim: #9BC5C8;
-  --mat-sys-primary-bright: #a2b6b2;
-  --mat-sys-primary-bright-variant: #2b302f;
-  --mat-sys-on-primary: #ffffff;
-  --mat-sys-on-primary-dim: #565656;
-  --mat-sys-on-primary-bright: #113638;
-  --mat-sys-secondary: #184d50;
-  --mat-sys-secondary-dim: #0c2729;
-  --mat-sys-secondary-bright: #164548;
-  --mat-sys-on-secondary: #ffffff;
-  --mat-sys-on-secondary-dim: #ffffff;
-  --mat-sys-on-secondary-bright: #8BF0F7;
-  --mat-sys-tertiary: #8BF0F7;
-  --mat-sys-tertiary-dim: #8DC3B9;
-  --mat-sys-tertiary-bright: #C7FFE9;
-  --mat-sys-on-tertiary: #1f1f1f;
-  --mat-sys-on-tertiary-dim: #565656;
-  --mat-sys-on-tertiary-bright: #1f1f1f;
-  --mat-sys-error: #cc3300;
-  --mat-sys-on-error: #ffffff;
-  --mat-sys-error-dim: #661900;
-  --mat-sys-error-bright: #e63900;
-  --mat-sys-surface: hsl(184, 29%, 20%);
-  --mat-sys-surface-dim: hsl(169, 31%, 36%);
-  --mat-sys-surface-bright: hsl(184, 87%, 56%);
-  --mat-sys-on-surface: #319ca2;
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+    --color-scheme: dark;
+    --mat-sys-background: #1f1f1f;
+    --mat-sys-on-background: #f2f2f2;
+    --mat-sys-background-dim: #0d0d0d;
+    --mat-sys-background-bright: #313131;
+    --mat-sys-background-translucent: #32323231;
+    --mat-sys-background-on-translucent: #ffffff2f;
+    --mat-sys-primary: #096F77;
+    --mat-sys-primary-dim: #9BC5C8;
+    --mat-sys-primary-bright: #a2b6b2;
+    --mat-sys-primary-bright-variant: #2b302f;
+    --mat-sys-on-primary: #ffffff;
+    --mat-sys-on-primary-dim: #565656;
+    --mat-sys-on-primary-bright: #113638;
+    --mat-sys-secondary: #184d50;
+    --mat-sys-secondary-dim: #0c2729;
+    --mat-sys-secondary-bright: #164548;
+    --mat-sys-on-secondary: #ffffff;
+    --mat-sys-on-secondary-dim: #ffffff;
+    --mat-sys-on-secondary-bright: #8BF0F7;
+    --mat-sys-tertiary: #8BF0F7;
+    --mat-sys-tertiary-dim: #8DC3B9;
+    --mat-sys-tertiary-bright: #C7FFE9;
+    --mat-sys-on-tertiary: #1f1f1f;
+    --mat-sys-on-tertiary-dim: #565656;
+    --mat-sys-on-tertiary-bright: #1f1f1f;
+    --mat-sys-error: #cc3300;
+    --mat-sys-on-error: #ffffff;
+    --mat-sys-error-dim: #661900;
+    --mat-sys-error-bright: #e63900;
+    --mat-sys-surface: hsl(184, 29%, 20%);
+    --mat-sys-surface-dim: hsl(169, 31%, 36%);
+    --mat-sys-surface-bright: hsl(184, 87%, 56%);
+    --mat-sys-on-surface: #ffffff;
+  }
 }
-
 .high-contrast {
   color-scheme: dark;
   --mat-sys-background: #000000;
@@ -588,6 +589,14 @@ body:has(.mat-menu.show) .backdrop {
   opacity: 0;
   transition: var(--main-transition);
   border: 1px solid var(--mat-sys-primary-dim);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: var(--mat-sys-on-primary-bright);
 }
 @media (max-width: 640px) {
   .cardAdvantages {

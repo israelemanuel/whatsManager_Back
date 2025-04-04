@@ -5,6 +5,7 @@ document.addEventListener('alpine:init', () => {
         isScrolled: false,
         theme: 'light',
         showAboutUs: false,
+        toggleMobileMenu: false,
 
 
         lstFaq: [
@@ -30,36 +31,16 @@ document.addEventListener('alpine:init', () => {
             },
         ],
 
-
+        toggleMenu(){
+            this.toggleMobileMenu = !this.toggleMobileMenu
+        },
 
         toggleAcessibility() {
             this.acessibility = !this.acessibility
         },
 
-        loadColorScheme(){
-            if(localStorage.getItem('darkMode') === 'enabled'){
-                this.theme = 'dark'
-            }
-            else{
-                this.theme = 'light'
-            }
-        },
-
         toggleAboutUs(){
             this.showAboutUs = !this.showAboutUs
-        },
-
-        checkColorScheme(){
-
-            if(this.theme === 'light'){
-                this.theme = 'dark'
-            }
-            else{
-                this.theme = 'light'
-            }
-            
-            console.log(this.theme);
-            
         },
 
         controllScroll() {
@@ -78,7 +59,6 @@ document.addEventListener('alpine:init', () => {
 
         init() {
             console.log('init');
-            this.loadColorScheme();
             this.controllScroll();
 
         }

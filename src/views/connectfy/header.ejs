@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/style.css">
 
 
-    <title>ConnectFy</title>
+    <title><%=title%> Connect-Fy</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,9 +31,9 @@
                 <template x-if="acessibility">
                     <div class="hidden md:flex flex-row justify-end w-full min-h-[64px] bg-[var(--mat-sys-primary)]">
                         <div class="flex flex-row gap-6 items-center px-4 box-border text-[var(--mat-sys-on-primary)]">
-                            <button class="commonButton transparent text-[var(--mat-sys-on-primary)]"
+                            <!-- <button class="commonButton transparent text-[var(--mat-sys-on-primary)]"
                                 @click="toggleDarkMode(), checkColorScheme()" aria-label="Modo Noturno">Modo
-                                Noturno</button>
+                                Noturno</button> -->
                             <button class="commonButton transparent text-[var(--mat-sys-on-primary)]"
                                 @click="toggleHighContrast()" aria-label="Alto Contraste">Alto Contraste</button>
                             <button class="commonButton transparent text-[var(--mat-sys-on-primary)]"
@@ -71,7 +71,7 @@
                         ConnectFy
                     </h1>
 
-                    <span :class="{'invert': theme == 'dark'}" class="bg-contain bg-no-repeat bg-center"
+                    <span class="bg-contain bg-no-repeat bg-center dark:invert-100"
                         style="width: 160px; height: 72px; background-image: url('<%= logo.imageUrl %>')"></span>
 
                     <div class="flex flex-row gap-4 h-[56px] items-center">
@@ -85,13 +85,14 @@
 
                     <div class="absolute h-full w-full flex justify-center pointer-events-none">
                         <ul class="flex flex-row gap-4 items-center text-[var(--mat-sys-on-background)] pointer-events-auto"
-                            aria-label="Menu Principal">
-                            <li><a href="#inicio" class="commonButton transparent" aria-label="Início">Início</a></li>
+                            aria-label="Menu Principal">                       
+                            <li><a  <%= (page == 'index' ? 'href=#inicio' : 'href=/') %>  class="commonButton transparent" aria-label="Início">Início</a></li>
+                  
                             <li><a href="#freelancers" class="commonButton transparent" aria-label="Quero Trabalhar">Quero Trabalhar</a></li>
                             <li><a href="#clients" class="commonButton transparent" aria-label="Clientes">Clientes</a></li>
                             <li><a href="#ourproducts" class="commonButton transparent" aria-label="Produtos">Produtos</a></li>
                             <li><a href="#beloved" class="commonButton transparent" aria-label="Depoimentos">Depoimentos</a></li>
-                            <li><a @click="toggleAboutUs()" class="commonButton transparent" aria-label="Sobre Nós">Sobre Nós</a></li>
+                            <li><a href="about" class="commonButton transparent" aria-label="Sobre Nós">Sobre Nós</a></li>
                             <li><a href="#faq" class="commonButton transparent" aria-label="Faq">Faq</a></li>
                         </ul>
                     </div>
@@ -102,11 +103,11 @@
             <template x-if="acessibility">
                 <div class="flex md:hidden flex-row justify-between w-full min-h-[48px] bg-[var(--mat-sys-primary)]">
                     <div class="flex flex-row items-center box-border text-[var(--mat-sys-on-primary)]">
-                        <button class="iconButton" id="toggle-dark-mode" aria-label="Modo Noturno">
+                        <!-- <button class="iconButton" id="toggle-dark-mode" aria-label="Modo Noturno">
                             <span class="material-symbols-rounded">
                                 mode_night
                             </span>
-                        </button>
+                        </button> -->
                         <button class="iconButton" id="toggle-high-contrast" aria-label="Alto Contraste">
                             <span class="material-symbols-rounded">
                                 contrast
@@ -147,7 +148,7 @@
 
             <div
                 class="relative flex xl:hidden flext-row items-center justify-between w-full min-h-[56px] md:px-4 text-[var(--mat-sys-on-background)]">
-                <div class="iconButton" aria-label="Menu" id="menu">
+                <div class="iconButton" aria-label="Menu" @click="toggleMenu()" >
                     <span class="material-symbols-rounded" style="font-size: 2.0rem;">menu</span>
                 </div>
 
@@ -157,25 +158,26 @@
                     style="transform: scale(0.8);">
                     <div class="flex flex-col justify-center items-center leading-5 font-bold"
                         style="font-size: 1.5rem;">
-                        <span style="font-size: 1.0rem;">Prefeitura de</span>
-                        <span>Santo Antônio do Tauá</span>
+                        <span>ConnectFy</span>
                     </div>
                 </div>
 
             </div>
 
-            <div class="mat-menu flex xl:hidden">
+            
+            <div class="mat-menu flex xl:hidden" :class="{'show' : toggleMobileMenu}">
                 <ul class="mat-menu-content" aria-label="Menu Mobile">
-                    <li><span aria-label="Serviços Digitais">Serviços Digitais</span></li>
-                    <li><span aria-label="Secretarias">Secretarias</span></li>
-                    <li><span aria-label="Turismo">Turismo</span></li>
-                    <li><span aria-label="Notícias">Notícias</span></li>
-                    <li><span aria-label="Transparência">Transparência</span></li>
-                    <li><span aria-label="Diário Oficial">Diário Oficial</span></li>
-                    <li><span aria-label="Diário Menus">Diário Menus</span></li>
+                    <li><a @click="toggleMenu()" <%= (page == 'index' ? 'href=#inicio' : 'href=/') %>  class="commonButton " aria-label="Início">Início</a></li>
+                    <li><a @click="toggleMenu()" href="#freelancers" class="commonButton " aria-label="Quero Trabalhar">Quero Trabalhar</a></li>
+                    <li><a @click="toggleMenu()" href="#clients" class="commonButton " aria-label="Clientes">Clientes</a></li>
+                    <li><a @click="toggleMenu()" href="#ourproducts" class="commonButton " aria-label="Produtos">Produtos</a></li>
+                    <li><a @click="toggleMenu()" href="#beloved" class="commonButton " aria-label="Depoimentos">Depoimentos</a></li>
+                    <li><a @click="toggleMenu()" href="about" class="commonButton " aria-label="Sobre Nós">Sobre Nós</a></li>
+                    <li><a @click="toggleMenu()" href="#faq" class="commonButton " aria-label="Faq">Faq</a></li>
                 </ul>
             </div>
 
-            <template>
-                <div class="backdrop" id="closeMenu"></div>
+            <template x-if="toggleMobileMenu">
+                <div class="backdrop" id="closeMenu" @click="toggleMenu()"></div>
             </template>
+        </template>

@@ -36,7 +36,7 @@ router.use('/api/v1/post', Post)
 //TEMPLATE
 router.use('/api/v1/templete', templete)
 
-router.use(Page,Assets)
+router.use(Assets,Page)
 
 
 export default router;
