@@ -23,7 +23,7 @@
                             <div class="relative w-full rounded-2xl bg-[var(--mat-sys-secondary)]"
                                 style="aspect-ratio: 12/16;">
                                 <img class="absolute bottom-0 left-0 right-0 scale-125 origin-bottom aspect-square z-10"
-                                    src="<%= bannerAsset.confidentMen %>" alt="">
+                                    src="<%= resposta.bannerAsset.confidentMen %>" alt="">
                             </div>
                             <div
                                 class="h-max w-full flex items-center justify-center rounded-2xl bg-[var(--mat-sys-primary-bright)] text-[var(--mat-sys-on-primary-bright)] p-4">
@@ -38,10 +38,10 @@
                                 class="relative w-[60%] aspect-square rounded-2xl bg-[var(--mat-sys-tertiary-bright)] flex items-center justify-center">
                                 <div class="relative w-[80%] aspect-square flex items-center justify-center">
                                     <img class="absolute top-0 left-0 right-0 bottom-0 w-full aspect-square"
-                                        src="<%= bannerAsset2.iconLogo %>" alt="">
+                                        src="<%= resposta.bannerAsset2.iconLogo %>" alt="">
                                     <img class="absolute top-[20px] left-0 right-0 bottom-0 w-full"
                                         style="animation: pulse 4s cubic-bezier(0.075, 0.82, 0.165, 1) infinite;"
-                                        src="<%= bannerAsset2.iconLogo %>" alt="">
+                                        src="<%= resposta.bannerAsset2.iconLogo %>" alt="">
 
                                 </div>
                             </div>
@@ -64,7 +64,7 @@
 
         <div :class="{'bg-blend-color-burn opacity-20': theme == 'dark', 'opacity-80': theme == 'light'}"
             class="absolute top-0 left-0 w-full h-full bg-left-top z-0 invert "
-            style="background-image: url('<%= banner.imageUrl %>'); background-size: 100px;">
+            style="background-image: url('<%= resposta.banner.imageUrl %>'); background-size: 100px;">
         </div>
     </section>
 
@@ -218,12 +218,25 @@
     </section>
 
     <section id="clients">
-        <div class="w-full h-[60dvh] flex flex-col items-center justify-center bg-cover bg-center bg-no-repeat bg-fixed"
-            style="background-image: url('<%= paralaxAsset.imageUrl %>');">
-            <h2 class="text-center text-[var(--mat-sys-tertiary)]">Clientes que confiam em nossas soluções</h2>
-            <span class="text-center" style="color: white">de todos os lugares e de todos os tamanhos</span>
-            <div>
+        <div class="w-full h-[60dvh] flex flex-col gap-6 items-center justify-center bg-cover bg-center bg-no-repeat bg-fixed"
+            style="background-image: url('<%= resposta.paralaxAsset.imageUrl %>');">
+            <div class="flex flex-col gap-2">
+                <h2 class="text-center text-[var(--mat-sys-tertiary)]">Clientes que confiam em nossas soluções</h2>
+                <span class="text-center" style="color: white">de todos os lugares e de todos os tamanhos</span>
+            </div>
 
+
+            <div class="slider" style="
+            --width: 200px;
+            --height: 72px;
+            --quantity: 6;
+            ">
+                <div class="list">
+                    <% resposta.lstComents.forEach((item, index)=> {%>
+                        <div class="item w-full h-full p-4 bg-center bg-contain bg-no-repeat"
+                            style="background-image: url('<%= item.logo %>'); --position: <%= index + 1%>"></div>
+                        <% }); %>
+                </div>
             </div>
         </div>
     </section>
@@ -243,12 +256,14 @@
                             <h2 class="text-center text-[var(--mat-sys-primary)]">Alcance novos <br> patamares!</h2>
                             <div class="w-full flex items-center justify-center">
                                 <div class="flex flex-col w-max items-center justify-center">
-                                    <div class="p-6 rounded-2xl bg-[var(--mat-sys-primary)] text-[var(--mat-sys-tertiary)] max-w-[min(440px,_80%) md:max-w-[min(440px,_60%)] -translate-x-[16px] md:-translate-x-[30%]">
+                                    <div
+                                        class="p-6 rounded-2xl bg-[var(--mat-sys-primary)] text-[var(--mat-sys-tertiary)] max-w-[min(440px,_80%) md:max-w-[min(440px,_60%)] -translate-x-[16px] md:-translate-x-[30%]">
                                         <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                                             Lorem Ipsum has been the industry's standard dummy text ever since</span>
                                     </div>
 
-                                    <div class="p-6 rounded-2xl text-[var(--mat-sys-primary)] bg-[var(--mat-sys-tertiary)] max-w-[min(440px,_80%) md:max-w-[min(440px,_60%)] translate-x-[16px] md:translate-x-[30%] -translate-y-[16px]">
+                                    <div
+                                        class="p-6 rounded-2xl text-[var(--mat-sys-primary)] bg-[var(--mat-sys-tertiary)] max-w-[min(440px,_80%) md:max-w-[min(440px,_60%)] translate-x-[16px] md:translate-x-[30%] -translate-y-[16px]">
                                         <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                                             Lorem Ipsum has been the industry's standard dummy text ever since</span>
                                     </div>
@@ -282,12 +297,14 @@
                             <h2 class="text-center text-[var(--mat-sys-secondary)]">Alcance novos <br> patamares!</h2>
                             <div class="w-full flex items-center justify-center">
                                 <div class="flex flex-col w-max items-center justify-center">
-                                    <div class="p-6 rounded-2xl bg-[var(--mat-sys-primary)] text-[var(--mat-sys-tertiary)] max-w-[min(440px,_80%) md:max-w-[min(440px,_60%)] -translate-x-[16px] md:-translate-x-[30%]">
+                                    <div
+                                        class="p-6 rounded-2xl bg-[var(--mat-sys-primary)] text-[var(--mat-sys-tertiary)] max-w-[min(440px,_80%) md:max-w-[min(440px,_60%)] -translate-x-[16px] md:-translate-x-[30%]">
                                         <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                                             Lorem Ipsum has been the industry's standard dummy text ever since</span>
                                     </div>
 
-                                    <div class="p-6 rounded-2xl text-[var(--mat-sys-primary)] bg-[var(--mat-sys-tertiary)] max-w-[min(440px,_80%) md:max-w-[min(440px,_60%)] translate-x-[16px] md:translate-x-[30%] -translate-y-[16px]">
+                                    <div
+                                        class="p-6 rounded-2xl text-[var(--mat-sys-primary)] bg-[var(--mat-sys-tertiary)] max-w-[min(440px,_80%) md:max-w-[min(440px,_60%)] translate-x-[16px] md:translate-x-[30%] -translate-y-[16px]">
                                         <span>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                                             Lorem Ipsum has been the industry's standard dummy text ever since</span>
                                     </div>
@@ -311,387 +328,77 @@
             </div>
 
             <div class="slideUp w-full 2xl:w-[80dvw] 2xl:max-w-[1920px] pt-8 opacity-0">
-                <div class="hidden lg:grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 gap-4 w-full">
-                    <div
-                        class="hoverCard col-span-1 md:col-span-2 lg:col-span-1 w-full min-h-[350px] bg-[var(--mat-sys-secondary)] text-[var(--mat-sys-surface-bright)] rounded-3xl p-4 flex flex-col justify-between">
-                        <div class="flex flex-col justify-between gap-4">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 w-full">
+                    <% resposta.lstComents.forEach(item=> {%>
+                        <% if(item.style==1) {%>
+                            <div
+                                class="hoverCard col-span-1 md:col-span-2 w-full min-h-[350px] rounded-3xl p-4 flex flex-col justify-between lg:col-span-1 bg-[var(--mat-sys-secondary)] text-[var(--mat-sys-surface-bright)]">
+                                <div class="flex flex-col justify-between gap-4 h-full">
 
-                            <div class="flex flex-col">
-                                <span style="font-size: 0.8rem;">Diretor Executivo</span>
-                                <span>Heraldo Ferreira</span>
+                                    <div class="flex flex-col">
+                                        <span style="font-size: 0.8rem;">
+                                            <%= item.role %>
+                                        </span>
+                                        <span>
+                                            <%= item.name %>
+                                        </span>
+                                    </div>
+
+                                    <span class="flex flex-col w-full h-full items-center justify-center">
+                                        <%= item.comment %>
+                                    </span>
+                                </div>
+                                <div class="w-[200px] p-4 bg-center min-h-[48px] bg-contain bg-no-repeat"
+                                    style="background-image: url('<%= item.logo %>')"></div>
+
                             </div>
+                            <% } else if(item.style==2) {%>
+                                <div
+                                    class="hoverCard col-span-1 md:col-span-2 w-full min-h-[350px] rounded-3xl p-4 flex flex-col justify-between lg:col-span-2 bg-[var(--mat-sys-secondary)] text-[var(--mat-sys-surface-bright)] lg:bg-[var(--mat-sys-tertiary)] lg:text-[var(--mat-sys-secondary)]">
+                                    <div class="hidden lg:flex flex-col justify-between items-end gap-4 h-full">
 
-                            <span>A possibilidade de treinar nossos clientes e funcionários através de módulos de
-                                treinamento online fornecidos pela ConnectFy foi um verdadeiro diferencial. A redução
-                                dos custos com treinamentos in loco foi substancial.</span>
-                        </div>
+                                        <span class="flex flex-col w-full h-full items-center justify-center">
+                                            <%= item.comment %>
+                                        </span>
 
-                        <img class="h-[48px] w-full" src="<%= partners[0].file %>" alt="<%= partners[0].fileName %>">
-                    </div>
+                                        <div class="w-full flex flex-row justify-between">
+                                            <div class="flex flex-col">
+                                                <span style="font-size: 0.8rem;">
+                                                    <%= item.role %>
+                                                </span>
+                                                <span>
+                                                    <%= item.name %>
+                                                </span>
+                                            </div>
 
-                    <div class="hoverCard col-span-1 md:col-span-2 lg:col-span-2 w-full min-h-[400px] bg-[var(--mat-sys-primary-bright)] text-[var(--mat-sys-on-primary-bright)] rounded-3xl p-4 border border-[var(--mat-sys-primary-dim)]"
-                        style="border: 1px solid var(--mat-sys-primary-dim);">
+                                            <div class="invert p-4 w-[200px] bg-center min-h-[48px] bg-contain bg-no-repeat"
+                                                style="background-image: url('<%= item.logo %>')"></div>
+                                        </div>
+                                    </div>
 
-                        <div class="h-full flex flex-col justify-between">
+                                    <div class="flex lg:hidden flex-col justify-between gap-4 h-full">
 
-                            <div class="flex items-center justify-center h-full w-full">
-                                <span>A possibilidade de treinar nossos clientes e funcionários através de módulos de
-                                    treinamento online fornecidos pela ConnectFy foi um verdadeiro diferencial. A
-                                    redução
-                                    dos custos com treinamentos in loco foi substancial.</span>
-                            </div>
+                                        <div class="flex flex-col">
+                                            <span style="font-size: 0.8rem;">
+                                                <%= item.role %>
+                                            </span>
+                                            <span>
+                                                <%= item.name %>
+                                            </span>
+                                        </div>
+
+                                        <span class="flex flex-col w-full h-full items-center justify-center">
+                                            <%= item.comment %>
+                                        </span>
+                                        <div class="w-[200px] p-4 bg-center min-h-[48px] bg-contain bg-no-repeat"
+                                            style="background-image: url('<%= item.logo %>')"></div>
+                                    </div>
 
 
-                            <div class="flex flex-row w-full justify-between -full">
-                                <div class="flex flex-col w-max">
-                                    <span class="text-nowrap" style="font-size: 0.8rem;">Diretor Executivo</span>
-                                    <span class="text-nowrap">Heraldo Ferreira</span>
                                 </div>
 
-                                <img class="h-[48px] w-max" src="<%= partners[1].file %>"
-                                    alt="<%= partners[0].fileName %>">
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div
-                        class="hoverCard col-span-2 lg:col-span-1 w-full min-h-[350px] bg-[var(--mat-sys-secondary)] text-[var(--mat-sys-surface-bright)] rounded-3xl p-4 flex flex-col justify-between items-center">
-                        <div class="flex flex-col justify-between  gap-4">
-
-                            <div class="flex flex-col">
-                                <span style="font-size: 0.8rem;">Diretor Executivo</span>
-                                <span>Heraldo Ferreira</span>
-                            </div>
-
-                            <span>A possibilidade de treinar nossos clientes e funcionários através de módulos de
-                                treinamento online fornecidos pela ConnectFy foi um verdadeiro diferencial. A redução
-                                dos custos com treinamentos in loco foi substancial.</span>
-                        </div>
-
-                        <img class="h-[48px] w-max" src="<%= partners[2].file %>" alt="<%= partners[2].fileName %>">
-                    </div>
-
-                    <!-- segunda linha -->
-
-                    <div
-                        class="hoverCard col-span-1 md:col-span-2 lg:col-span-1 w-full min-h-[350px] bg-[var(--mat-sys-secondary)] text-[var(--mat-sys-surface-bright)] rounded-3xl p-4 flex flex-col justify-between">
-                        <div class="flex flex-col justify-between  gap-4">
-
-                            <div class="flex flex-col">
-                                <span style="font-size: 0.8rem;">Diretor Executivo</span>
-                                <span>Heraldo Ferreira</span>
-                            </div>
-
-                            <span>A possibilidade de treinar nossos clientes e funcionários através de módulos de
-                                treinamento online fornecidos pela ConnectFy foi um verdadeiro diferencial. A redução
-                                dos custos com treinamentos in loco foi substancial.</span>
-                        </div>
-
-                        <img class="h-[48px] w-full" src="<%= partners[0].file %>" alt="<%= partners[0].fileName %>">
-                    </div>
-
-                    <div
-                        class="hoverCard col-span-1 md:col-span-2 lg:col-span-2 w-full min-h-[400px] bg-[var(--mat-sys-primary-bright)] text-[var(--mat-sys-on-primary-bright)] rounded-3xl p-4 border border-[var(--mat-sys-primary-dim)]">
-
-                        <div class="h-full flex flex-col justify-between ">
-
-                            <div class="flex items-center justify-center h-full w-full">
-                                <span>A possibilidade de treinar nossos clientes e funcionários através de módulos de
-                                    treinamento online fornecidos pela ConnectFy foi um verdadeiro diferencial. A
-                                    redução
-                                    dos custos com treinamentos in loco foi substancial.</span>
-                            </div>
-
-
-                            <div class="flex flex-row w-full justify-between -full">
-                                <div class="flex flex-col w-max">
-                                    <span class="text-nowrap" style="font-size: 0.8rem;">Diretor Executivo</span>
-                                    <span class="text-nowrap">Heraldo Ferreira</span>
-                                </div>
-
-                                <img class="h-[48px] w-max" src="<%= partners[1].file %>"
-                                    alt="<%= partners[0].fileName %>">
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div
-                        class="hoverCard col-span-1 md:col-span-2 lg:col-span-1 w-full min-h-[350px] bg-[var(--mat-sys-secondary)] text-[var(--mat-sys-surface-bright)] rounded-3xl p-4 flex flex-col justify-between">
-                        <div class="flex flex-col justify-between  gap-4">
-
-                            <div class="flex flex-col">
-                                <span style="font-size: 0.8rem;">Diretor Executivo</span>
-                                <span>Heraldo Ferreira</span>
-                            </div>
-
-                            <span>A possibilidade de treinar nossos clientes e funcionários através de módulos de
-                                treinamento online fornecidos pela ConnectFy foi um verdadeiro diferencial. A redução
-                                dos custos com treinamentos in loco foi substancial.</span>
-                        </div>
-
-                        <img class="h-[48px] w-full" src="<%= partners[0].file %>" alt="<%= partners[0].fileName %>">
-                    </div>
-                </div>
-
-
-                <div class="hidden md:grid lg:hidden grid-cols-1 md:grid-cols-2 gap-4 w-full">
-                    <div
-                        class="hoverCard col-span-1 w-full min-h-[350px] bg-[var(--mat-sys-secondary)] text-[var(--mat-sys-surface-bright)] rounded-3xl p-4 flex flex-col justify-between">
-                        <div class="flex flex-col justify-between gap-4">
-
-                            <div class="flex flex-col">
-                                <span style="font-size: 0.8rem;">Diretor Executivo</span>
-                                <span>Heraldo Ferreira</span>
-                            </div>
-
-                            <span>A possibilidade de treinar nossos clientes e funcionários através de módulos de
-                                treinamento online fornecidos pela ConnectFy foi um verdadeiro diferencial. A redução
-                                dos custos com treinamentos in loco foi substancial.</span>
-                        </div>
-
-                        <img class="h-[48px] w-full" src="<%= partners[0].file %>" alt="<%= partners[0].fileName %>">
-                    </div>
-
-                    <div
-                        class="hoverCard col-span-1 w-full min-h-[400px] bg-[var(--mat-sys-primary-bright)] text-[var(--mat-sys-on-primary-bright)] rounded-3xl p-4 border border-[var(--mat-sys-primary-dim)]">
-
-                        <div class="h-full flex flex-col justify-between ">
-
-                            <div class="flex items-center justify-center h-full w-full">
-                                <span>A possibilidade de treinar nossos clientes e funcionários através de módulos de
-                                    treinamento online fornecidos pela ConnectFy foi um verdadeiro diferencial. A
-                                    redução
-                                    dos custos com treinamentos in loco foi substancial.</span>
-                            </div>
-
-
-                            <div class="flex flex-row w-full justify-between -full">
-                                <div class="flex flex-col w-max">
-                                    <span class="text-nowrap" style="font-size: 0.8rem;">Diretor Executivo</span>
-                                    <span class="text-nowrap">Heraldo Ferreira</span>
-                                </div>
-
-                                <img class="h-[48px] w-max" src="<%= partners[1].file %>"
-                                    alt="<%= partners[0].fileName %>">
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- second linha -->
-
-                    <div class="hoverCard col-span-1 w-full min-h-[400px] bg-[var(--mat-sys-primary-bright)] text-[var(--mat-sys-on-primary-bright)] rounded-3xl p-4 border border-[var(--mat-sys-primary-dim)]"
-                        style="border: 1px solid var(--mat-sys-primary-dim);">
-
-                        <div class="h-full flex flex-col justify-between">
-
-                            <div class="flex items-center justify-center h-full w-full">
-                                <span>A possibilidade de treinar nossos clientes e funcionários através de módulos de
-                                    treinamento online fornecidos pela ConnectFy foi um verdadeiro diferencial. A
-                                    redução
-                                    dos custos com treinamentos in loco foi substancial.</span>
-                            </div>
-
-
-                            <div class="flex flex-row w-full justify-between -full">
-                                <div class="flex flex-col w-max">
-                                    <span class="text-nowrap" style="font-size: 0.8rem;">Diretor Executivo</span>
-                                    <span class="text-nowrap">Heraldo Ferreira</span>
-                                </div>
-
-                                <img class="h-[48px] w-max" src="<%= partners[1].file %>"
-                                    alt="<%= partners[0].fileName %>">
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <div
-                        class="hoverCard col-span-1 w-full min-h-[350px] bg-[var(--mat-sys-secondary)] text-[var(--mat-sys-surface-bright)] rounded-3xl p-4 flex flex-col justify-between items-center">
-                        <div class="flex flex-col justify-between  gap-4">
-
-                            <div class="flex flex-col">
-                                <span style="font-size: 0.8rem;">Diretor Executivo</span>
-                                <span>Heraldo Ferreira</span>
-                            </div>
-
-                            <span>A possibilidade de treinar nossos clientes e funcionários através de módulos de
-                                treinamento online fornecidos pela ConnectFy foi um verdadeiro diferencial. A redução
-                                dos custos com treinamentos in loco foi substancial.</span>
-                        </div>
-
-                        <img class="h-[48px] w-max" src="<%= partners[2].file %>" alt="<%= partners[2].fileName %>">
-                    </div>
-
-                    <!-- third linha -->
-
-
-
-                    <div
-                        class="hoverCard col-span-1 w-full min-h-[350px] bg-[var(--mat-sys-secondary)] text-[var(--mat-sys-surface-bright)] rounded-3xl p-4 flex flex-col justify-between">
-                        <div class="flex flex-col justify-between  gap-4">
-
-                            <div class="flex flex-col">
-                                <span style="font-size: 0.8rem;">Diretor Executivo</span>
-                                <span>Heraldo Ferreira</span>
-                            </div>
-
-                            <span>A possibilidade de treinar nossos clientes e funcionários através de módulos de
-                                treinamento online fornecidos pela ConnectFy foi um verdadeiro diferencial. A redução
-                                dos custos com treinamentos in loco foi substancial.</span>
-                        </div>
-
-                        <img class="h-[48px] w-full" src="<%= partners[0].file %>" alt="<%= partners[0].fileName %>">
-                    </div>
-
-                    <div
-                        class="hoverCard col-span-1 w-full min-h-[350px] bg-[var(--mat-sys-primary-bright)] text-[var(--mat-sys-on-primary-bright)] rounded-3xl p-4 flex flex-col justify-between border border-[var(--mat-sys-primary-dim)]">
-                        <div class="flex flex-col justify-between  gap-4">
-
-                            <div class="flex flex-col">
-                                <span style="font-size: 0.8rem;">Diretor Executivo</span>
-                                <span>Heraldo Ferreira</span>
-                            </div>
-
-                            <span>A possibilidade de treinar nossos clientes e funcionários através de módulos de
-                                treinamento online fornecidos pela ConnectFy foi um verdadeiro diferencial. A redução
-                                dos custos com treinamentos in loco foi substancial.</span>
-                        </div>
-
-                        <img class="h-[48px] w-full" src="<%= partners[0].file %>" alt="<%= partners[0].fileName %>">
-                    </div>
-                </div>
-
-                <div class="grid md:hidden grid-cols-1 md:grid-cols-2 gap-4 w-full">
-                    <div
-                        class="hoverCard col-span-1 w-full min-h-[350px] bg-[var(--mat-sys-secondary)] text-[var(--mat-sys-surface-bright)] rounded-3xl p-4 flex flex-col justify-between">
-                        <div class="flex flex-col justify-between gap-4">
-
-                            <div class="flex flex-col">
-                                <span style="font-size: 0.8rem;">Diretor Executivo</span>
-                                <span>Heraldo Ferreira</span>
-                            </div>
-
-                            <span>A possibilidade de treinar nossos clientes e funcionários através de módulos de
-                                treinamento online fornecidos pela ConnectFy foi um verdadeiro diferencial. A redução
-                                dos custos com treinamentos in loco foi substancial.</span>
-                        </div>
-
-                        <img class="h-[48px] w-full" src="<%= partners[0].file %>" alt="<%= partners[0].fileName %>">
-                    </div>
-
-                    <div
-                        class="hoverCard col-span-1 w-full min-h-[400px] bg-[var(--mat-sys-primary-bright)] text-[var(--mat-sys-on-primary-bright)] rounded-3xl p-4 border border-[var(--mat-sys-primary-dim)]">
-
-                        <div class="h-full flex flex-col justify-between ">
-
-                            <div class="flex items-center justify-center h-full w-full">
-                                <span>A possibilidade de treinar nossos clientes e funcionários através de módulos de
-                                    treinamento online fornecidos pela ConnectFy foi um verdadeiro diferencial. A
-                                    redução
-                                    dos custos com treinamentos in loco foi substancial.</span>
-                            </div>
-
-
-                            <div class="flex flex-row w-full justify-between -full">
-                                <div class="flex flex-col w-max">
-                                    <span class="text-nowrap" style="font-size: 0.8rem;">Diretor Executivo</span>
-                                    <span class="text-nowrap">Heraldo Ferreira</span>
-                                </div>
-
-                                <img class="h-[48px] w-max" src="<%= partners[1].file %>"
-                                    alt="<%= partners[0].fileName %>">
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- second linha -->
-
-
-
-                    <div
-                        class="hoverCard col-span-1 w-full min-h-[350px] bg-[var(--mat-sys-secondary)] text-[var(--mat-sys-surface-bright)] rounded-3xl p-4 flex flex-col justify-between items-center">
-                        <div class="flex flex-col justify-between  gap-4">
-
-                            <div class="flex flex-col">
-                                <span style="font-size: 0.8rem;">Diretor Executivo</span>
-                                <span>Heraldo Ferreira</span>
-                            </div>
-
-                            <span>A possibilidade de treinar nossos clientes e funcionários através de módulos de
-                                treinamento online fornecidos pela ConnectFy foi um verdadeiro diferencial. A redução
-                                dos custos com treinamentos in loco foi substancial.</span>
-                        </div>
-
-                        <img class="h-[48px] w-max" src="<%= partners[2].file %>" alt="<%= partners[2].fileName %>">
-                    </div>
-
-                    <div class="hoverCard col-span-1 w-full min-h-[400px] bg-[var(--mat-sys-primary-bright)] text-[var(--mat-sys-on-primary-bright)] rounded-3xl p-4 border border-[var(--mat-sys-primary-dim)]"
-                        style="border: 1px solid var(--mat-sys-primary-dim);">
-
-                        <div class="h-full flex flex-col justify-between">
-
-                            <div class="flex items-center justify-center h-full w-full">
-                                <span>A possibilidade de treinar nossos clientes e funcionários através de módulos de
-                                    treinamento online fornecidos pela ConnectFy foi um verdadeiro diferencial. A
-                                    redução
-                                    dos custos com treinamentos in loco foi substancial.</span>
-                            </div>
-
-
-                            <div class="flex flex-row w-full justify-between -full">
-                                <div class="flex flex-col w-max">
-                                    <span class="text-nowrap" style="font-size: 0.8rem;">Diretor Executivo</span>
-                                    <span class="text-nowrap">Heraldo Ferreira</span>
-                                </div>
-
-                                <img class="h-[48px] w-max" src="<%= partners[1].file %>"
-                                    alt="<%= partners[0].fileName %>">
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- third linha -->
-
-
-
-                    <div
-                        class="hoverCard col-span-1 w-full min-h-[350px] bg-[var(--mat-sys-secondary)] text-[var(--mat-sys-surface-bright)] rounded-3xl p-4 flex flex-col justify-between">
-                        <div class="flex flex-col justify-between  gap-4">
-
-                            <div class="flex flex-col">
-                                <span style="font-size: 0.8rem;">Diretor Executivo</span>
-                                <span>Heraldo Ferreira</span>
-                            </div>
-
-                            <span>A possibilidade de treinar nossos clientes e funcionários através de módulos de
-                                treinamento online fornecidos pela ConnectFy foi um verdadeiro diferencial. A redução
-                                dos custos com treinamentos in loco foi substancial.</span>
-                        </div>
-
-                        <img class="h-[48px] w-full" src="<%= partners[0].file %>" alt="<%= partners[0].fileName %>">
-                    </div>
-
-                    <div
-                        class="hoverCard col-span-1 w-full min-h-[350px] bg-[var(--mat-sys-primary-bright)] text-[var(--mat-sys-on-primary-bright)] rounded-3xl p-4 flex flex-col justify-between border border-[var(--mat-sys-primary-dim)]">
-                        <div class="flex flex-col justify-between  gap-4">
-
-                            <div class="flex flex-col">
-                                <span style="font-size: 0.8rem;">Diretor Executivo</span>
-                                <span>Heraldo Ferreira</span>
-                            </div>
-
-                            <span>A possibilidade de treinar nossos clientes e funcionários através de módulos de
-                                treinamento online fornecidos pela ConnectFy foi um verdadeiro diferencial. A redução
-                                dos custos com treinamentos in loco foi substancial.</span>
-                        </div>
-
-                        <img class="h-[48px] w-full" src="<%= partners[0].file %>" alt="<%= partners[0].fileName %>">
-                    </div>
+                                <% }%>
+                                    <% }); %>
                 </div>
 
 
@@ -709,15 +416,17 @@
 
             <div class="w-full 2xl:w-[80dvw] max-w-[1920px] flex flex-col gap-4">
                 <template x-for="(item, index) in lstFaq" :key="index">
-                    <div class="w-full min-h-[56px] rounded-2xl flex flex-col p-4 cursor-pointer transition-all text-[var(--mat-sys-on-background)]"
-                        :class="item.toggle ? 'gap-2' : 'gap-0'" style="border: 1px solid var(--mat-sys-on-surface); "
+                    <div class="w-full rounded-2xl flex flex-col p-4 cursor-pointer transition-all text-[var(--mat-sys-on-background)]"
+                        :class="item.toggle ? 'gap-2 h-[100%]' : 'gap-0 h-[72px]'"
+                        style="border: 1px solid var(--mat-sys-on-surface); transition: all .6s cubic-bezier(0.075, 0.82, 0.165, 1);"
                         @click="item.toggle = !item.toggle">
 
                         <span :class="item.toggle ? 'text-[1rem]' : 'text-[1.6rem]'"
                             style="transition: all .6s cubic-bezier(0.075, 0.82, 0.165, 1);" x-text="item.title"></span>
 
-                        <div :class="item.toggle ? 'h-[200px]' : 'h-[0px]'" class="overflow-hidden w-full max-h-max"
-                            style="transition: all .6s cubic-bezier(0.075, 0.82, 0.165, 1);">
+                        <div :class="item.toggle ? 'h-[100%]' : 'h-[0%]'"
+                            style="transition: all .6s cubic-bezier(0.075, 0.82, 0.165, 1);"
+                            class="overflow-hidden w-full">
                             <span x-text="item.description"></span>
                         </div>
                     </div>
@@ -725,7 +434,7 @@
             </div>
 
             <div class="slideUp absolute bottom-0 right-0 opacity-0 p-6">
-                <a href="#inicio" class="iconButton primary" >
+                <a href="#inicio" class="iconButton primary">
                     <span class="material-symbols-rounded">
                         arrow_upward
                     </span>

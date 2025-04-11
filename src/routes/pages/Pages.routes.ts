@@ -9,7 +9,7 @@ const router = Router();
 
 const pageController = new PageController();
 
-router.get("/", pageController.index);
+router.get("/", pageController.page);
 router.get("/:page", pageController.page);
 //router.get("/:folder/:page", pageController.assets);
 

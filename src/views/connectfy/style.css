@@ -643,73 +643,120 @@ body:has(.mat-menu.show) .backdrop {
 .advantages .slideDown {
   animation: slideDown 2s linear forwards;
   animation-timeline: --innerView;
-  animation-range: 55vh cover 80vh;
+  animation-range: 55dvh cover 80dvh;
 }
 .advantages .slideUp {
   animation: slideUp 2s linear forwards;
   animation-timeline: --innerView;
-  animation-range: 55vh cover 80vh;
+  animation-range: 55dvh cover 80dvh;
 }
 .advantages .disapear {
   animation: disapear 1s linear forwards;
   animation-timeline: --innerView;
-  animation-range: 50vh cover 82vh;
+  animation-range: 50dvh cover 82dvh;
 }
 .advantages .appear {
   animation: appear 0.1s linear forwards;
   animation-timeline: --innerView;
-  animation-range: 55vh cover 80vh;
+  animation-range: 55dvh cover 80dvh;
 }
 
 .freelancers .fadeInAndScale {
   animation: fadeInAndScale 0.6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
   animation-timeline: --innerView;
-  animation-range: 120vh cover 250vh;
+  animation-range: 120dvh cover 250dvh;
 }
 
 .ourproducts .slideUp {
   animation: slideUp 2s linear forwards;
   animation-timeline: --innerView;
-  animation-range: 260vh cover 300vh;
+  animation-range: 260dvh cover 300dvh;
 }
 .ourproducts .slideRight {
   animation: slideRight 1s linear forwards;
   animation-timeline: --innerView;
-  animation-range: 280vh cover 350vh;
+  animation-range: 280dvh cover 350dvh;
 }
 .ourproducts .slideLeft {
   animation: slideLeft 1s linear forwards;
   animation-timeline: --innerView;
-  animation-range: 280vh cover 330vh;
+  animation-range: 280dvh cover 330dvh;
 }
 
 .beloved .fadeInAndScale {
   animation: fadeInAndScale 0.6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
   animation-timeline: --innerView;
-  animation-range: 410vh cover 440vh;
+  animation-range: 410dvh cover 440dvh;
+}
+@media (min-width: 641px) and (max-width: 768px) {
+  .beloved .fadeInAndScale {
+    animation-range: 410dvh cover 460dvh;
+  }
+}
+@media (max-width: 640px) {
+  .beloved .fadeInAndScale {
+    animation-range: 440dvh cover 470dvh;
+  }
 }
 .beloved .slideDown {
   animation: slideDown 2s linear forwards;
   animation-timeline: --innerView;
-  animation-range: 430vh cover 460vh;
+  animation-range: 430dvh cover 460dvh;
 }
 .beloved .slideUp {
   animation: slideUp 2s linear forwards;
   animation-timeline: --innerView;
-  animation-range: 430vh cover 460vh;
+  animation-range: 430dvh cover 460dvh;
 }
 
 .faq .fadeInAndScale {
   animation: fadeInAndScale 0.6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
   animation-timeline: --innerView;
-  animation-range: 690vh cover 720vh;
+  animation-range: 510dvh cover 570dvh;
 }
 .faq .slideUp {
-  animation: slideUp 2s linear forwards;
+  animation: slideUp 0.6s linear forwards;
   animation-timeline: --innerView;
   animation-range: 98% cover 100%;
 }
 
+.slider {
+  width: 100%;
+  height: var(--height);
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, #000 20% 80%, transparent);
+}
+.slider:hover .item {
+  animation-play-state: paused !important;
+}
+.slider .list {
+  display: flex;
+  width: 100%;
+  min-width: calc(var(--width) * var(--quantity));
+  position: relative;
+}
+.slider .list .item {
+  width: var(--width);
+  height: var(--height);
+  position: absolute;
+  left: 100%;
+  transition: var(--main-transition);
+  animation: autorun 10s linear infinite;
+  animation-delay: calc(10s / var(--quantity) * (var(--position) - 1));
+  transform: scale(1);
+}
+.slider .list .item:hover {
+  transform: scale(1.2);
+}
+
+@keyframes autorun {
+  from {
+    left: 100%;
+  }
+  100% {
+    left: calc(var(--width) * -1);
+  }
+}
 @keyframes slideDown {
   from {
     transform: translateY(-48px);

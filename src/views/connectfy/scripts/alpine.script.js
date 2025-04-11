@@ -31,6 +31,7 @@ document.addEventListener('alpine:init', () => {
             },
         ],
 
+        
         toggleMenu(){
             this.toggleMobileMenu = !this.toggleMobileMenu
         },

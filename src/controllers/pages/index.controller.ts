@@ -9,84 +9,14 @@ import Pages from '../../models/Pages';
 
 export class PageController {
 
-    public async index(req: Request, res: Response): Promise<any> {
-
-        try {
-
-            const host = req.get('host');
-
-            // host sem a porta
-            const hostWithoutPort = host?.split(':')[0];
-
-
-            const findDomain = await Domain.findOne({ domain: hostWithoutPort }).exec();
-
-            if (!findDomain) {
-                const notFoundTemplate = fs.readFileSync(path.resolve(__dirname, '../../', 'views', '404.ejs'), 'utf-8');
-                return res.status(404).send(ejs.render(notFoundTemplate));
-            }
-
-            const template = fs.readFileSync(path.resolve(__dirname, '../../', 'views', findDomain?.folder, 'index.ejs'), 'utf-8');
-            const headerhtml = fs.readFileSync(path.resolve(__dirname, '../../', 'views', findDomain?.folder, 'header.ejs'), 'utf-8');
-            const footer = fs.readFileSync(path.resolve(__dirname, '../../', 'views', findDomain?.folder, 'footer.ejs'), 'utf-8');
-            const news = fs.readFileSync(path.resolve(__dirname, '../../', 'views', findDomain?.folder, 'news.ejs'), 'utf-8');
-
-            const tags = await Tag.find();
-
-            const banner = {
-                imageUrl: '/images/stars2.svg',
-
-            };
-
-            const bannerAsset = {
-                confidentMen: '/images/confident_men.png',
-            };
-
-            const bannerAsset2 = {
-                iconLogo: '/images/logo.svg',
-            }
-
-            const logo = {
-                imageUrl: '/images/connectfy-logo.svg',
-                alt: 'Logo',
-                title: 'Logo'
-            }
-
-            const paralaxAsset = {
-                imageUrl: '/images/cheerfull.png',
-            }
-
-            const partners = [
-                {
-                    file: '/images/govsolutions_logo.svg',
-                    fileName: 'Govsolutions',
-                },
-                {
-                    file: '/images/crontabil_logo.png',
-                    fileName: 'Crontabil',
-                },
-                {
-                    file: '/images/lotagovrh_logo.png',
-                    fileName: 'LotaGovRH',
-                }
-            ]
-
-            const header = ejs.render(headerhtml, { ...tags, banner, logo, title : "" , page: 'index'});
-
-            const html = ejs.render(template, { header, news, footer, tags, banner, partners, bannerAsset, bannerAsset2, paralaxAsset, logo });
-
-            return res.send(html);
-        } catch (error: any) {
-            return res.status(500).send(error.message);
-        }
-
-
-    }
-
     public async page(req: Request, res: Response): Promise<any> {
 
-        let params = {
-            page: req.params.page,
+        let params: any = {
+            page: req.params.page || 'index',
+            query: req.query,
+            body: req.body,
+            headers: req.headers,
+            params: req.params,
         }
 
         try {
@@ -94,7 +24,7 @@ export class PageController {
                 page: yup.string().required(),
             })
 
-            params = await schema.validate(params, { stripUnknown: true });
+            params = await schema.validate(params);
 
         } catch (error) {
             return res.status(400).send('Page not found');
@@ -106,10 +36,24 @@ export class PageController {
 
             const findDomain = await Domain.findOne({ domain: hostWithoutPort }).exec();
 
+            let resposta: any = {};
 
             if (!findDomain) {
                 const notFoundTemplate = fs.readFileSync(path.resolve(__dirname, '../../', 'views', '404.ejs'), 'utf-8');
                 return res.status(404).send(ejs.render(notFoundTemplate));
+            }
+
+            const PageService = path.resolve(__dirname, '../../', 'pageService', `${findDomain?.folder}`, `${params.page}Service.ts`);
+            //verificar se o arquivo existe
+            const isFileExisteService = fs.existsSync(PageService);
+            if (isFileExisteService) {
+                const pageServiceModule = await import(PageService);
+                const pageService = pageServiceModule.default;
+                if (typeof pageService.execute === 'function') {
+                    resposta = await pageService.execute(params);
+                } else {
+                    throw new Error(`O método 'execute' não foi encontrado no serviço ${params.page}Service.`);
+                }
             }
 
             const headerHtml = fs.readFileSync(
@@ -123,15 +67,7 @@ export class PageController {
             );
 
 
-            const banner = {
-                imageUrl: '/images/about-banner.svg',
-            };
 
-            const logo = {
-                imageUrl: '/images/connectfy-logo.svg',
-                alt: 'Logo',
-                title: 'Logo',
-            };
 
             const findPage = await Pages.findOne({ name: params.page }).exec();
             if (!findPage) {
@@ -140,49 +76,43 @@ export class PageController {
                     'utf-8'
                 );
 
-                const header = ejs.render(headerHtml, { banner, logo });
-                const footer = ejs.render(footerHtml, { banner, logo });
+                const header = ejs.render(headerHtml, { resposta });
+                const footer = ejs.render(footerHtml, { resposta });
 
-                const notFoundHtml = ejs.render(notFoundTemplate, { header, footer, banner, logo });
+                const notFoundHtml = ejs.render(notFoundTemplate, { header, footer, resposta });
                 return res.status(404).send(notFoundHtml);
             }
 
-            const header = ejs.render(headerHtml, { banner, logo, title : findPage.title, description: findPage.description, page: params.page });
-            const footer = ejs.render(footerHtml, { banner, logo, title : findPage.title, description: findPage.description });
+            const header = ejs.render(headerHtml, { resposta, title: findPage.title, description: findPage.description });
+            const footer = ejs.render(footerHtml, { resposta, title: findPage.title, description: findPage.description });
 
 
             //VOU VERIFICAR SE O ARQUIVO EXISTE
-            const isFileExiste = fs.existsSync(path.resolve(__dirname, '../../', 'views', findDomain?.folder, `page-${params.page}.ejs`));
 
-            //como fazer insert no banco
-            // const pages = new Pages({
-            //     name: 'about',
-            //     title: 'Sobre Nós',
-            //     description: 'Sobre Nós',
-            // });
-
-            // await pages.save();
-
-
-            //FAZ AS COISAS ANTES DISSO
-            if (!isFileExiste) {
+            if (fs.existsSync(path.resolve(__dirname, '../../', 'views', findDomain?.folder, `page-${params.page}.ejs`))) {
+                params.page = `page-${params.page}`;
+            } else if (fs.existsSync(path.resolve(__dirname, '../../', 'views', findDomain?.folder, `${params.page}.ejs`))) {
+                params.page = `${params.page}`;
+            } else {
                 //LER ARQUIVO NOTFOUND
                 const notFoundTemplate = fs.readFileSync(
                     path.resolve(__dirname, '../../', 'views', findDomain?.folder, '404.ejs'),
                     'utf-8'
                 );
 
-                const notFoundHtml = ejs.render(notFoundTemplate, { header, footer, banner, logo });
+                const notFoundHtml = ejs.render(notFoundTemplate, { header, footer, resposta });
                 return res.status(404).send(notFoundHtml);
             }
 
+
+
             //ler arquivo
             const template = fs.readFileSync(
-                path.resolve(__dirname, '../../', 'views', findDomain?.folder, `page-${params.page}.ejs`),
+                path.resolve(__dirname, '../../', 'views', findDomain?.folder, `${params.page}.ejs`),
                 'utf-8'
             );
 
-            const html = ejs.render(template, { header, footer, banner, logo });
+            const html = ejs.render(template, { header, footer, resposta });
 
             return res.send(html);
         } catch (error: any) {
