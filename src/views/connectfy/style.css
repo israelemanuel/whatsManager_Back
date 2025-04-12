@@ -907,14 +907,35 @@ body:has(.mat-menu.show) .backdrop {
   position: absolute;
   animation: morphRotate 1s linear forwards;
   animation-timeline: --innerView;
-  animation-range: 160dvh cover 260dvh;
+  animation-range: 140dvh cover 260dvh;
   transform-origin: center;
 }
 .begining .antiRotate {
   animation: antiRotate 1s linear backwards;
   animation-timeline: --innerView;
-  animation-range: 160dvh cover 260dvh;
+  animation-range: 140dvh cover 260dvh;
   transform-origin: center;
+}
+.begining .antiRotate .show1 {
+  opacity: 1 !important;
+  animation: opacity 1s linear forwards;
+  animation-timeline: --innerView;
+  animation-range: 140dvh cover 180dvh;
+  z-index: 1;
+}
+.begining .antiRotate .show2 {
+  opacity: 0;
+  animation: opacity 1s linear forwards;
+  animation-timeline: --innerView;
+  animation-range: 180dvh cover 220dvh;
+  z-index: 2;
+}
+.begining .antiRotate .show3 {
+  opacity: 0;
+  animation: opacity 1s linear forwards;
+  animation-timeline: --innerView;
+  animation-range: 220dvh cover 260dvh;
+  z-index: 3;
 }
 @keyframes morphRotate {
   0% {
@@ -922,22 +943,25 @@ body:has(.mat-menu.show) .backdrop {
     border-radius: 2rem;
     top: 0;
   }
-  100% {
+  50% {
     transform: rotate(360deg);
+    top: calc(50% - var(--block-reference) / 2);
+  }
+  100% {
+    transform: rotate(720deg);
     border-radius: 50%;
     top: calc(100% - var(--block-reference));
   }
 }
-@keyframes antiRotate {
+@keyframes opacity {
   0% {
-    transform: rotate(0deg);
-    border-radius: 2rem;
-    top: 0;
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
   }
   100% {
-    transform: rotate(-360deg);
-    border-radius: 50%;
-    top: calc(100% - var(--block-reference));
+    opacity: 1;
   }
 }
 

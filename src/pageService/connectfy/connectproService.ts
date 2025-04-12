@@ -24,7 +24,7 @@ class ConnectProService {
             imageUrl: '/images/candidatese.jpg',
         }
 
-        const connectPro3Step = {
+        const connectPro3Setp = {
             imageUrl: '/images/notificado.jpg',
         }
 
@@ -192,7 +192,7 @@ class ConnectProService {
             lstAdvantagesConnectPro,
             connectPro1Setp,
             connectPro2Setp,
-            connectPro3Step,
+            connectPro3Setp,
             ...page,
             title: 'About Us',
             description: 'This is the about us page.',

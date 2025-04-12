@@ -4,14 +4,13 @@
       <div class="relative w-full h-full flex items-center justify-center bg-[var(--mat-sys-surface)]">
          <div class="relative w-full max-w-[2560px] h-full">
             <div class="absolute hidden lg:block w-[100dvw] max-w-[2560px] h-full bg-[var(--mat-sys-primary-dim)]">
-               <div class="absolute top-0 left-0 w-full h-full bg-no-repeat bg-cover opacity-30"
-                  style="background-image: url('<%= resposta.connectProBanner.imageUrl%>');
+               <div class="absolute top-0 left-0 w-full h-full bg-no-repeat bg-cover opacity-30" style="background-image: url('<%= resposta.connectProBanner.imageUrl%>');
                   background-position: -50% 30%;
                   background-size: 80%;"></div>
             </div>
-      
+
             <div
-            class="absolute right-0 top-0 flex h-full w-full lg:max-w-max 2xl:max-w-[50%] p-6 items-center justify-center bg-[var(--mat-sys-surface)] z-10">
+               class="absolute right-0 top-0 flex h-full w-full lg:max-w-max 2xl:max-w-[50%] p-6 items-center justify-center bg-[var(--mat-sys-surface)] z-10">
                <div
                   class="flex flex-col items-center justify-end rounded-3xl bg-[var(--mat-sys-tertiary)] text-[var(--mat-sys-secondary)] aspect-square p-6 hover:scale-90 lg:hover:scale-105 transition-all z-10 scale-75 lg:scale-100">
                   <span class="h-full flex items-center justify-center text-4xl font-bold">
@@ -20,8 +19,9 @@
                   <div class="commonButton secondary justify-center" style="width: 100% !important;"><span>Seja
                         ConnectPRO</span></div>
                </div>
-      
-               <div class="lg:hidden flex absolute top-0 left-0 w-full h-full bg-center bg-no-repeat bg-cover opacity-30"
+
+               <div
+                  class="lg:hidden flex absolute top-0 left-0 w-full h-full bg-center bg-no-repeat bg-cover opacity-30"
                   style="background-image: url('<%= resposta.connectProBanner.imageUrl%>')"></div>
             </div>
          </div>
@@ -38,7 +38,7 @@
             <% resposta.lstAdvantages.forEach((item, index)=> {%>
                <div class="item">
                   <div class="background" style="background-image: url('<%= item.image %>')"></div>
-                  <div class="content">
+                  <div class="content text-white">
                      <span style="font-size: 0.8rem;">
                         <%= item.title %>
                      </span>
@@ -66,7 +66,17 @@
                <div class="relative h-[1800px] hidden xl:flex flex-col items-center">
                   <div
                      class="morphRotate flex items-center justify-center w-[var(--block-reference)] aspect-square rounded-3xl bg-[var(--mat-sys-secondary)] overflow-hidden">
-                     <div class="antiRotate w-[var(--block-reference)] bg-center bg-cover aspect-square bg-no-repeat" style="background-image: url('<%= resposta.connectPro1Setp.imageUrl %>'); scale: 1.4;"></div>
+                     <div class="antiRotate flex items-center justify-center">
+                        <div
+                           class="absolute show1 w-[var(--block-reference)] bg-center bg-cover aspect-square bg-no-repeat"
+                           style="background-image: url('<%= resposta.connectPro1Setp.imageUrl %>'); scale: 1.4;"></div>
+                        <div
+                           class="absolute show2 w-[var(--block-reference)] bg-center bg-cover aspect-square bg-no-repeat"
+                           style="background-image: url('<%= resposta.connectPro2Setp.imageUrl %>'); scale: 1.4;"></div>
+                        <div
+                           class="absolute show3 w-[var(--block-reference)] bg-center bg-cover aspect-square bg-no-repeat"
+                           style="background-image: url('<%= resposta.connectPro3Setp.imageUrl %>'); scale: 1.4;"></div>
+                     </div>
                   </div>
                </div>
                <div class="h-[1920px] grid grid-rows-3">
@@ -128,7 +138,8 @@
             <h2>O que dizem os ConnectPro's</h2>
          </div>
          <!-- style="background: linear-gradient(45deg, transparent, var(--mat-sys-primary))" -->
-         <div class="quoteArea relative w-full h-[80dvh] flex flex-col items-center justify-center overflow-hidden" style="border-top: var(--secondary-border); border-bottom: var(--secondary-border)">
+         <div class="quoteArea relative w-full h-[80dvh] flex flex-col items-center justify-center overflow-hidden"
+            style="border-top: var(--secondary-border); border-bottom: var(--secondary-border)">
             <div class="absolute top-0 left-0 w-full h-full z-10 flex items-center justify-center">
                <div class="max-w-[80dvw]">
                   <div class="flex flex-col w-full">
