@@ -1,5 +1,184 @@
 <%- header%>
 
-   <div class="w-full"></div>
+   <section class="relative w-full flex flex-col lg:flex-row h-[80dvh] max-h-[1360px] items-center overflow-hidden">
+      <div class="relative w-full h-full flex items-center justify-center bg-[var(--mat-sys-surface)]">
+         <div class="relative w-full max-w-[2560px] h-full">
+            <div class="absolute hidden lg:block w-[100dvw] max-w-[2560px] h-full bg-[var(--mat-sys-primary-dim)]">
+               <div class="absolute top-0 left-0 w-full h-full bg-no-repeat bg-cover opacity-30"
+                  style="background-image: url('<%= resposta.connectProBanner.imageUrl%>');
+                  background-position: -50% 30%;
+                  background-size: 80%;"></div>
+            </div>
+      
+            <div
+            class="absolute right-0 top-0 flex h-full w-full lg:max-w-max 2xl:max-w-[50%] p-6 items-center justify-center bg-[var(--mat-sys-surface)] z-10">
+               <div
+                  class="flex flex-col items-center justify-end rounded-3xl bg-[var(--mat-sys-tertiary)] text-[var(--mat-sys-secondary)] aspect-square p-6 hover:scale-90 lg:hover:scale-105 transition-all z-10 scale-75 lg:scale-100">
+                  <span class="h-full flex items-center justify-center text-4xl font-bold">
+                     <h2 class="text-center">Encontre a<br> oportunidade<br> ideal</h2>
+                  </span>
+                  <div class="commonButton secondary justify-center" style="width: 100% !important;"><span>Seja
+                        ConnectPRO</span></div>
+               </div>
+      
+               <div class="lg:hidden flex absolute top-0 left-0 w-full h-full bg-center bg-no-repeat bg-cover opacity-30"
+                  style="background-image: url('<%= resposta.connectProBanner.imageUrl%>')"></div>
+            </div>
+         </div>
+      </div>
+   </section>
 
-<%- footer%>
+   <section class="w-full flex flex-col">
+      <div class="w-full flex flex-col pt-[56px] pb-[56px]">
+         <div class="w-full text-center ">
+            <h2>Descubra a vantagens de trabalhar como freelancer</h2>
+         </div>
+
+         <div class="flex-row-scroll">
+            <% resposta.lstAdvantages.forEach((item, index)=> {%>
+               <div class="item">
+                  <div class="background" style="background-image: url('<%= item.image %>')"></div>
+                  <div class="content">
+                     <span style="font-size: 0.8rem;">
+                        <%= item.title %>
+                     </span>
+                     <span style="font-size: 1.4rem;">
+                        <%= item.subtitle %>
+                     </span>
+                     <span style="font-size: 1.0rem;">
+                        <%= item.description %>
+                     </span>
+                  </div>
+               </div>
+               <% }); %>
+         </div>
+      </div>
+   </section>
+
+   <section class="begining w-full flex flex-col">
+      <div class="flex flex-col pt-[56px] pb-[56px]">
+         <div class="w-full text-center">
+            <h2>Como começo?</h2>
+         </div>
+         <div class="w-full flex flex-col items-center justify-center">
+            <div class="relative grid gird-cols-1 xl:grid-cols-2 gap-4 w-[80dvw] items-center">
+
+               <div class="relative h-[1800px] hidden xl:flex flex-col items-center">
+                  <div
+                     class="morphRotate flex items-center justify-center w-[var(--block-reference)] aspect-square rounded-3xl bg-[var(--mat-sys-secondary)] overflow-hidden">
+                     <div class="antiRotate w-[var(--block-reference)] bg-center bg-cover aspect-square bg-no-repeat" style="background-image: url('<%= resposta.connectPro1Setp.imageUrl %>'); scale: 1.4;"></div>
+                  </div>
+               </div>
+               <div class="h-[1920px] grid grid-rows-3">
+                  <div class="flex flex-col items-start justify-center">
+                     <span style="font-size: 2.4rem;">1</span>
+                     <span style="font-size: 1.8rem;">Cadastre-se e complete o seu perfil</span>
+                     <span>Selecione suas especialidades e conte-nos mais sobre sua experiência. Não importa se você
+                        nunca
+                        foi freelancer.</span>
+                  </div>
+                  <div class="flex flex-col items-start justify-center">
+                     <span style="font-size: 2.4rem;">2</span>
+                     <span style="font-size: 1.8rem;">Candidate-se</span>
+                     <span>Várias empresas de várias áreas oferecem oportunidades de trabalho remoto, escolha uma e
+                        candidate-se a vaga.</span>
+                  </div>
+                  <div class="flex flex-col items-start justify-center">
+                     <span style="font-size: 2.4rem;">3</span>
+                     <span style="font-size: 1.8rem;">Acompanhe suas propostas</span>
+                     <span>Quando uma empresa se interessar pelo seu perfil ou pre-aprova-lo para uma vaga, você será
+                        acionado por e-mail ou whats app.</span>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <section class="w-full flex flex-col">
+      <div class="flex flex-col pt-[56px] pb-[56px]">
+         <div class="w-full text-center">
+            <h2>Vantagens de ser ConnectPRO?</h2>
+         </div>
+
+         <div class="flex-row-scroll">
+            <% resposta.lstAdvantagesConnectPro.forEach((item, index)=> {%>
+               <div class="item large">
+                  <div class="background" style="background-image: url('<%= item.image %>')"></div>
+                  <div class="content">
+                     <span style="font-size: 0.8rem;">
+                        <%= item.title %>
+                     </span>
+                     <span style="font-size: 1.4rem;">
+                        <%= item.subtitle %>
+                     </span>
+                     <span style="font-size: 1.0rem;">
+                        <%= item.description %>
+                     </span>
+                  </div>
+               </div>
+               <% }); %>
+         </div>
+      </div>
+   </section>
+
+   <section class="w-full flex flex-col gap-4">
+      <div class="flex flex-col gap-4 pt-[56px] pb-[56px]">
+         <div class="w-full text-center">
+            <h2>O que dizem os ConnectPro's</h2>
+         </div>
+         <!-- style="background: linear-gradient(45deg, transparent, var(--mat-sys-primary))" -->
+         <div class="quoteArea relative w-full h-[80dvh] flex flex-col items-center justify-center overflow-hidden" style="border-top: var(--secondary-border); border-bottom: var(--secondary-border)">
+            <div class="absolute top-0 left-0 w-full h-full z-10 flex items-center justify-center">
+               <div class="max-w-[80dvw]">
+                  <div class="flex flex-col w-full">
+                     <span style="font-size: 1.8rem">Com valores cobrados em moeda local!</span>
+                     <span style="font-size: 2.4rem">Pague sempre na sua moeda. Esqueça o IOF e as variações<br> do
+                        câmbio!
+                        Não tenha surpresas no final do mês.</span>
+                  </div>
+
+                  <div class="flex flex-col">
+                     <span style="font-size: 1.0rem">Diversidade de Projetos</span>
+                     <span style="font-size: 1.4rem;">Denis Henry</span>
+                  </div>
+               </div>
+            </div>
+
+            <div class="absolute top-0 left-0 w-full h-full moving-spheres z-1"
+               style="filter: blur(100px); opacity: 0.6;">
+               <div class="sphere red"></div>
+               <div class="sphere blue"></div>
+               <div class="sphere yellow"></div>
+               <div class="sphere green"></div>
+            </div>
+         </div>
+      </div>
+
+   </section>
+
+
+   <section class="w-full flex flex-col ">
+      <div class="flex flex-col gap-4 w-full items-center pt-[56px] pb-[56px]">
+         <div class="flex flex-col gap-4 w-full items-center text-center max-w-[80dvw]">
+            <h2>Clientes ConnectFY são Clientes ConnectPRO</h2>
+            <span>Empresas que já usam nossas ferramentas</span>
+         </div>
+
+         <div class="slider themed-light" style="
+               --width: 200px;
+               --height: 72px;
+               --quantity: 6;
+               ">
+            <div class="list ">
+               <% resposta.lstComents.forEach((item, index)=> {%>
+                  <div class="item w-full h-full p-4 bg-center bg-contain bg-no-repeat"
+                     style="background-image: url('<%= item.logo %>'); --position: <%= index + 1%>"></div>
+                  <% }); %>
+            </div>
+         </div>
+      </div>
+
+   </section>
+
+   <%- footer%>

@@ -17,13 +17,6 @@ class GeneralService {
             logo,
         }
     }
-
-
-
-
-
-
-
 }
 
 export default new GeneralService();

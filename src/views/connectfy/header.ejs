@@ -88,7 +88,7 @@
                             aria-label="Menu Principal">                       
                             <li><a  <%= (resposta.page == 'index' ? 'href=#inicio' : 'href=/') %>  class="commonButton transparent" aria-label="Início">Início</a></li>
                   
-                            <li><a href="#freelancers" class="commonButton transparent" aria-label="Quero Trabalhar">Quero Trabalhar</a></li>
+                            <li><a href="connectpro" class="commonButton transparent" aria-label="Quero ser ConnectPRO">Quero ser ConnectPRO</a></li>
                             <li><a href="#clients" class="commonButton transparent" aria-label="Clientes">Clientes</a></li>
                             <li><a href="#ourproducts" class="commonButton transparent" aria-label="Produtos">Produtos</a></li>
                             <li><a href="#beloved" class="commonButton transparent" aria-label="Depoimentos">Depoimentos</a></li>
@@ -171,7 +171,7 @@
             <div class="mat-menu flex flex-col justify-between xl:hidden" :class="{'show' : toggleMobileMenu}">
                 <ul class="mat-menu-content" aria-label="Menu Mobile">
                     <li><a @click="toggleMenu()" <%= (resposta.page == 'index' ? 'href=#inicio' : 'href=/') %>  class="commonButton " aria-label="Início">Início</a></li>
-                    <li><a @click="toggleMenu()" href="#freelancers" class="commonButton " aria-label="Quero Trabalhar">Quero Trabalhar</a></li>
+                    <li><a @click="toggleMenu()" href="connectpro" class="commonButton " aria-label="Quero ser ConnectPRO">Quero ser ConnectPRO</a></li>
                     <li><a @click="toggleMenu()" href="#clients" class="commonButton " aria-label="Clientes">Clientes</a></li>
                     <li><a @click="toggleMenu()" href="#ourproducts" class="commonButton " aria-label="Produtos">Produtos</a></li>
                     <li><a @click="toggleMenu()" href="#beloved" class="commonButton " aria-label="Depoimentos">Depoimentos</a></li>
