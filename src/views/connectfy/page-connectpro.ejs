@@ -114,7 +114,11 @@
          <div class="flex-row-scroll">
             <% resposta.lstAdvantagesConnectPro.forEach((item, index)=> {%>
                <div class="item large">
-                  <div class="background" style="background-image: url('<%= item.image %>')"></div>
+                  <div class="background" style="background-image: url('<%= item.image %>')">
+                     <div class="absolute bottom-0 left-0 p-4 box-border" style="z-index: 5; font-size: 1.6rem;">
+                        <span style="text-shadow: 0px 0px 4px rgba(0,0,0,0.4);" class="font-bold text-white"> <%= item.title %></span>
+                     </div>
+                  </div>
                   <div class="content">
                      <span style="font-size: 0.8rem;">
                         <%= item.title %>

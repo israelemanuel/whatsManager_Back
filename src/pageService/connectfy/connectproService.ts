@@ -77,76 +77,76 @@ class ConnectProService {
                 fileName: 'Crontabil',
                 style: 1,
             },
-        ]  
+        ]
 
         const lstAdvantages = [
-            {   
+            {
                 title: 'Horários Flexíveis',
                 subtitle: 'Defina seu próprio horário',
                 image: '/images/economy_time_money.jpg',
                 description: 'Adeus ao horário das 9 às 18h! Como freelancer, você escolhe quando trabalhar. Organize seu tempo de acordo com suas necessidades e preferências, equilibrando trabalho e vida pessoal.'
             },
-            {   
+            {
                 title: 'Qualidade de Vida e Equilíbrio Emocional',
                 subtitle: 'Mais tempo para o que mais Importa e menos estresse',
                 image: '/images/flexible_time.png',
                 description: 'Trabalhar como freelancer permite uma melhor qualidade de vida. Mais tempo com a família, menos estresse e a liberdade de organizar seu espaço de trabalho e sua rotina de forma mais saudável e equilibrada promovendo a  saúde mental e bem-estar.'
             },
-            {   
+            {
                 title: 'Diversidade de Projetos',
                 subtitle: 'Novos Desafios, Novas Oportunidades',
                 image: '/images/estability_security.jpg',
                 description: 'Freelancers têm a oportunidade de trabalhar em diversos projetos, conhecendo diferentes empresas e desafios. Isso amplia seu portfólio, enriquece sua experiência e mantém o trabalho interessante.'
             },
-            {   
+            {
                 title: 'Autonomia e Independência',
                 subtitle: 'Seja Seu Próprio Chefe',
                 image: '/images/economy_time_money.jpg',
                 description: 'Como freelancer, você tem a autonomia para escolher seus projetos e clientes. Essa independência permite que você direcione sua carreira da maneira que achar melhor, sem estar preso a uma única empresa.'
             },
-            {   
+            {
                 title: 'Networking Global',
                 subtitle: 'Conecte-se com Profissionais do Mundo Todo',
                 image: '/images/flexible_time.png',
                 description: 'Trabalhe para empresas ao redor do mundo sem sair de casa. Ampliar seu networking global abre portas para novas oportunidades e colaborações internacionais.'
             },
-            {   
+            {
                 title: 'Crescimento Profissional',
                 subtitle: 'Evolua Continuamente',
                 image: '/images/estability_security.jpg',
                 description: 'Freelancers estão sempre em constante aprendizado, adaptando-se a novos projetos e demandas. Essa evolução contínua é fundamental para o crescimento profissional e a aquisição de novas habilidades.'
             },
-            {   
+            {
                 title: 'Variedade de Experiências',
                 subtitle: 'Trabalhe com Diversos Profissionais',
                 image: '/images/economy_time_money.jpg',
                 description: 'Como freelancer, você terá a chance de colaborar com diferentes equipes e profissionais. Essa variedade enriquece suas habilidades interpessoais e expande seu conhecimento em várias áreas.'
             },
-            {   
+            {
                 title: 'Equilíbrio Pessoal e Profissional',
                 subtitle: 'A Vida que Você Merece',
                 image: '/images/flexible_time.png',
                 description: 'Ser freelancer proporciona um equilíbrio entre vida pessoal e profissional. Trabalhe quando estiver mais produtivo, tire um tempo para relaxar quando precisar e aproveite mais a vida.'
             },
-            {   
+            {
                 title: 'Inovação e Criatividade',
                 subtitle: 'Liberte sua Criatividade',
                 image: '/images/estability_security.jpg',
                 description: 'Trabalhar como freelancer permite explorar sua criatividade sem as restrições de uma empresa tradicional. Desenvolva soluções inovadoras e traga novas ideias para cada projeto.'
             },
-            {   
+            {
                 title: 'Estabilidade e Segurança',
                 subtitle: 'Diversifique suas Fontes de Renda',
                 image: '/images/economy_time_money.jpg',
                 description: 'Como freelancer, você não depende de um único empregador. Essa diversificação de clientes traz mais estabilidade e segurança financeira, diminuindo os riscos associados a perder um único emprego.'
             },
-            {   
+            {
                 title: 'Foco em Resultados',
                 subtitle: 'Seja Avaliado pelo Seu Trabalho',
                 image: '/images/estability_security.jpg',
                 description: 'Freelancers são valorizados pelos resultados que entregam. Isso motiva a busca constante pela excelência e o reconhecimento profissional, baseando-se no desempenho real.'
             },
-            {   
+            {
                 title: 'Desenvolvimento Pessoal',
                 subtitle: 'Cresça com Cada Projeto',
                 image: '/images/estability_security.jpg',
@@ -154,33 +154,36 @@ class ConnectProService {
             },
         ],
 
-        lstAdvantagesConnectPro = [
-            {   
-                title: 'Acesso a rede de empresas',
-                image: '/images/economy_time_money.jpg',
-                description: ''
-            },
-            {   
-                title: 'Área de treinamentos diversos',
-                image: '/images/economy_time_money.jpg',
-                description: ''
-            },
-            {   
-                title: 'Blog / Fórum',
-                image: '/images/economy_time_money.jpg',
-                description: ''
-            },
-            {   
-                title: 'Módulo de financeiro gratuito (Em Breve)',
-                image: '/images/economy_time_money.jpg',
-                description: ''
-            },
-            {   
-                title: 'Contabilidade Online (Em Breve)',
-                image: '/images/economy_time_money.jpg',
-                description: ''
-            },
-        ]
+            lstAdvantagesConnectPro = [
+                {
+                    title: 'Acesso a rede de empresas',
+                    image: '/images/acessoaRedeDeEmpresas.png',
+                    description: ''
+                },
+                {
+                    title: 'Área de treinamentos diversos',
+                    image: '/images/economy_time_money.jpg',
+                    description: ''
+                },
+                {
+                    title: 'Blog / Fórum',
+                    image: '/images/economy_time_money.jpg',
+                    description: ''
+                },
+                {
+                    title: 'Módulo de financeiro gratuito (Em Breve)',
+                    image: '/images/economy_time_money.jpg',
+                    description: ''
+                },
+                {
+                    title: 'Contabilidade Online (Em Breve)',
+                    image: '/images/economy_time_money.jpg',
+                    description: ''
+                },
+            ]
+
+
+
 
         return {
             logo: generalService.logo,
