@@ -623,6 +623,9 @@
   .h-\[100dvh\] {
     height: 100dvh;
   }
+  .h-\[200dvh\] {
+    height: 200dvh;
+  }
   .h-\[200px\] {
     height: 200px;
   }
