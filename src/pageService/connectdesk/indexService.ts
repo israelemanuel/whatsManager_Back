@@ -2,9 +2,9 @@ import GeneralService from './generalService';
 
 class IndexService {
 
-   public async execute(params : any): Promise<any> {
+    public async execute(params: any): Promise<any> {
 
-    const generalService = GeneralService.init();
+        const generalService = GeneralService.init();
 
 
         console.log('IndexService', params);
@@ -26,65 +26,71 @@ class IndexService {
             imageUrl: '/images/cheerfull.png',
         }
 
-        const lstComents = [
-            {
-                name: 'John Doe',
-                comment: 'A possibilidade de treinar nossos clientes e funcionários através de módulos de treinamento online fornecidos pela ConnectFy foi um verdadeiro diferencial. A redução dos custos com treinamentos in loco foi substancial.',
-                role: 'Diretor Executivo',
-                logo: '/images/govsolutions_preferencial.png',
-                fileName: 'Govsolutions',
-                style: 1,
-            },
-            {
-                name: 'John Doe',
-                comment: 'A meritocracia implementada pela ConnectFy nos permitiu premiar os trabalhadores mais dedicados. Agora, temos uma equipe motivada e focada em entregar resultados excepcionais.',
-                role: 'Gerente de Suporte',
-                logo: '/images/estoqgov_preferencial.png',
-                fileName: 'EstoqGOV',
-                style: 2,
-            },
-            {
-                name: 'John Doe',
-                comment: 'A liberdade de trabalhar remotamente, proporcionada pela ConnectFy, melhorou a qualidade de vida de nossos funcionários e freelancers, refletindo-se na qualidade dos serviços prestados.',
-                role: 'CEO e Fundador',
-                logo: '/images/nutrigov_preferencial.png',
-                fileName: 'NutriGOV',
-                style: 1,
-            },
-            {
-                name: 'John Doe',
-                comment: 'A central de ajuda personalizada que a ConnectFy oferece, tornou nosso atendimento ao cliente mais eficiente e alinhado com nossa identidade visual, o que fortaleceu nossa marca.',
-                role: 'Gerente de Marketing',
-                logo: '/images/lotagovrh_preferencial.png',
-                fileName: 'LotaGOVRH',
-                style: 1,
-            },
-            {
-                name: 'John Doe',
-                comment: 'A gestão dos pagamentos por serviços prestados na ConnectFy é incrivelmente eficiente. Ela facilita nosso trabalho e garante que todos sejam pagos de maneira justa e assertiva.',
-                role: 'Gerente Financeiro',
-                logo: '/images/etransporte_preferencial.png',
-                fileName: 'eTransporte',
-                style: 2,
-            },
-            {
-                name: 'John Doe',
-                comment: 'A integração de ferramentas como a emissão de notas fiscais e a centralização de documentos na plataforma ConnectFy facilitou imensamente nosso trabalho. Agora, tudo está em um só lugar e podemos focar em oferecer um serviço contábil de excelência sem perder tempo com burocracias.',
-                role: 'Diretor Executivo',
-                logo: '/images/crontabil_preferencial.png',
-                fileName: 'Crontabil',
-                style: 1,
-            },
-        ]     
-        
+        const lstProblems = [
+            { id: 1, nome: "Atendimento" },
+            { id: 2, nome: "Suporte" },
+            { id: 3, nome: "Documentação" },
+            { id: 4, nome: "Base de conhecimento" },
+            { id: 5, nome: "Autoatendimento" },
+            { id: 6, nome: "Treinamento" },
+            { id: 7, nome: "Produtividade" },
+            { id: 8, nome: "Informação" },
+            { id: 9, nome: "Eficiência" },
+            { id: 10, nome: "Chat" },
+            { id: 11, nome: "Colaboração" },
+            { id: 12, nome: "Processos" },
+            { id: 13, nome: "Gestão" },
+            { id: 14, nome: "Capacitação" },
+            { id: 15, nome: "Resposta rápida" },
+            { id: 16, nome: "Relatórios" },
+            { id: 17, nome: "SLA" },
+            { id: 18, nome: "Monitoramento" },
+            { id: 19, nome: "Indicadores" },
+            { id: 20, nome: "Priorização" },
+            { id: 21, nome: "Experiência do cliente" },
+            { id: 22, nome: "Satisfação" },
+            { id: 23, nome: "Reputação" },
+            { id: 24, nome: "Escalabilidade" },
+            { id: 25, nome: "Crescimento" },
+            { id: 26, nome: "Chatbot" },
+            { id: 27, nome: "Encaminhamento" },
+            { id: 28, nome: "Histórico" },
+            { id: 29, nome: "Prazos" },
+            { id: 30, nome: "Setores" },
+            { id: 31, nome: "Transparência" },
+            { id: 32, nome: "Acesso online" },
+            { id: 33, nome: "Equipe remota" },
+        ];
 
-        return{
+        const lstSolutions = [
+            {
+                id: 1, nome: "Atendimento",
+                image: '/images/atendimento.png',
+            },
+            {
+                id: 2, nome: "Suporte",
+                image: '/images/atendimento.png',
+            },
+            {
+                id: 4, nome: "Base de conhecimento",
+                image: '/images/atendimento.png',
+            },
+            {
+                id: 6, nome: "Treinamento",
+                image: '/images/atendimento.png',
+            },
+
+        ];
+
+
+        return {
             logo: generalService.logo,
             banner,
             bannerAsset,
             bannerAsset2,
             paralaxAsset,
-            lstComents,
+            lstProblems,
+            lstSolutions,
             title: 'Connectfy',
             description: 'This is the about us page.',
             content: '<p>Welcome to our website!</p>',
