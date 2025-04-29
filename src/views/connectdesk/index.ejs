@@ -4,17 +4,16 @@
         <div class="bannerCanvas">
             <div class="motionBanner">
                 <div class="flex items-center justify-center w-full h-full">
-                    <div
-                        class="enterModal absolute flex flex-col items-center justify-center opacity-0 enterBackground w-[60%] aspect-[16/9] rounded-3xl bg-center bg-no-repeat bg-contain z-10 shadow-2xl">
-                        <div class="flex flex-col gap-4 items-center">
-                            <span class="text-[32px]">Veja o que o ConnectDesk pode fazer por...</span>
+                    <div class="enterModal">
+                        <div class="flex flex-col gap-4 items-center justify-center min-h-[70dvh] md:min-h-fit">
+                            <span class="text-[18px] md:text-[32px]">Veja o que o ConnectDesk pode fazer por...</span>
                             <span class="text-[64px]">Você</span>
                             <span class="commonButton primary">Comece Agora!</span>
                         </div>
                     </div>
                     <div class="enterBackground absolute opacity-0 w-[80%] aspect-[21/9] rounded-3xl bg-center bg-no-repeat bg-contain"
                         style="background-image: url('<%= resposta.banner.imageUrl %>');"></div>
-                    <span class="resizeDownWhileScroll">Conheça o Connect Desk</span>
+                    <span class="resizeDownWhileScroll">Conheça o ConnectDesk</span>
                 </div>
             </div>
         </div>
@@ -24,12 +23,12 @@
         <div
             class="problemsWeSolve bg-[var(--mat-sys-background)] relative min-h-[80dvh] py-[64px] w-full flex flex-col z-10 box-border">
             <div class="w-full flex items-center justify-center">
-                <span class="text-[4rem]">Problemas que Resolvemos</span>
+                <span class="text-[2rem] md:text-[4rem] p-4 text-center">Problemas que Resolvemos</span>
             </div>
 
             <div class="w-full flex items-center justify-center">
                 <div class="slider"
-                    style="--width: 200px;--height: 88px;--quantity: 33;--time: 1s;--max-height: 300px;width: 100%;">
+                    style="--width: 200px;--height: 88px;--quantity: 33;--time: 1s;--max-height: 300px; width: 100%;">
                     <div class="list" #listStyle>
                         <% resposta.lstProblems.forEach((item, index)=> {%>
                             <div class="item w-full h-full p-4 bg-center bg-contain bg-no-repeat"
@@ -45,16 +44,33 @@
                 </div>
             </div>
 
-            <div class="flex-row-scroll">
-                <% resposta.lstSolutions.forEach((item, index)=> {%>
-                   <div class="item gigantic">
-                      <div class="background" style="background-image: url('<%= item.image %>')"></div>
-                      <div class="absolute w-full flex z-10">
-                        <span><%= item.nome %></span>
-                      </div>
-                   </div>
-                   <% }); %>
-             </div>
+            <div class="flex-row-scroll px-8 pb-8 pt-4">
+                <% resposta.lstSolutions.forEach((item, index)=> { %>
+                    <div class="item gigantic shadow-lg">
+                        <div class="background" style="background-image: url('<%- item.image %>')"
+                            aria-label="<%- item.nome %>"></div>
+                        <div class="w-full h-full overflow-auto">
+                            <div
+                                class="relative md:absolute top-0 left-0 p-6 text-[18px] md:text-[32px] font-bold z-10">
+                                <span><%- item.nome %></span></div>
+
+                            <div
+                                class="relative md:absolute bottom-0 left-0 p-6 flex flex-col gap-4 w-full z-10 xl:max-w-[60%]">
+                                <% if (Array.isArray(item.list)) { %>
+                                    <% item.list.forEach((itemList, indexList)=> { %>
+                                        <div>
+                                            <span><%- itemList.title %></span>
+                                            <span><%- itemList.paragraph %></span>
+                                        </div>
+                                        <% }); %>
+                                            <% } else { %>
+                                                <div><span>Sem informações disponíveis</span></div>
+                                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    <% }); %>
+            </div>
         </div>
     </section>
 

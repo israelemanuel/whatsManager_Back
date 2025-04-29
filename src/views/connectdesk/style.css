@@ -702,6 +702,11 @@ body:has(.mat-menu.show) .backdrop {
   transform: scale(3.5);
   font-weight: 700;
 }
+@media (max-width: 640px) {
+  .slider .list .item .resizeTimeline {
+    transform: scale(2);
+  }
+}
 @keyframes autorun {
   0% {
     top: 100%;
@@ -758,13 +763,12 @@ body:has(.mat-menu.show) .backdrop {
 
 .flex-row-scroll {
   --padding-scroll-new: 16px;
-  --height-max: 460px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  overflow-x: auto;
+  overflow-x: scroll;
   overflow-y: hidden;
-  gap: 1rem;
+  gap: 24px;
   align-items: center;
   height: calc(var(--height-max) + 3rem);
   padding-left: 1rem;
@@ -772,12 +776,11 @@ body:has(.mat-menu.show) .backdrop {
   margin-top: 1rem;
   margin-bottom: 1rem;
   scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
 }
 .flex-row-scroll .item {
   position: relative;
   min-width: calc(var(--height-max) - 100px);
-  min-height: var(--height-max);
-  padding: var(--padding-scroll-new);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -785,38 +788,67 @@ body:has(.mat-menu.show) .backdrop {
   transition: all 0.2s;
   overflow: hidden;
   z-index: 10;
+  scroll-snap-align: center;
 }
 @media (max-width: 640px) {
   .flex-row-scroll .item {
     min-width: 80dvw;
-    min-height: var(--height-max);
   }
-}
-.flex-row-scroll .item .background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  border-radius: 1.5rem;
-  transition: all 0.2s;
-  z-index: 1;
 }
 .flex-row-scroll .item.gigantic {
   min-width: 70dvw;
-  min-height: var(--height-max);
+  aspect-ratio: 18/9;
+  overflow: hidden;
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .flex-row-scroll .item.gigantic {
+    min-width: 70dvw;
+    aspect-ratio: 12/9;
+  }
+}
+@media (min-width: 641px) and (max-width: 768px) {
+  .flex-row-scroll .item.gigantic {
+    min-width: 80dvw;
+    aspect-ratio: 4/3;
+  }
 }
 @media (max-width: 640px) {
   .flex-row-scroll .item.gigantic {
     min-width: 90dvw;
-    min-height: var(--height-max);
+    aspect-ratio: 9/12;
+  }
+}
+@media (max-width: 425px) {
+  .flex-row-scroll .item.gigantic {
+    min-width: 90dvw;
+    aspect-ratio: 9/16;
   }
 }
 .flex-row-scroll .item.gigantic:hover {
-  transform: scale(1);
+  transform: scale(1.02);
+}
+.flex-row-scroll .item .background {
+  position: absolute;
+  aspect-ratio: 4/3;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: all 0.2s;
+  z-index: 1;
+  mask-image: linear-gradient(to right, transparent, #000 50%);
+}
+@media (max-width: 1280px) {
+  .flex-row-scroll .item .background {
+    opacity: 0.6;
+  }
+}
+@media (max-width: 640px) {
+  .flex-row-scroll .item .background {
+    aspect-ratio: 3/4;
+  }
 }
 .flex-row-scroll::-webkit-scrollbar {
   height: calc(var(--padding-scroll-new) * 0.33);
@@ -852,8 +884,8 @@ body:has(.mat-menu.show) .backdrop {
   position: fixed;
   top: 0;
   left: 0;
-  max-width: calc(100dvw - var(--main-padding));
   width: 100%;
+  max-width: 99%;
   height: calc(var(--heightCanvas) / 2);
   background-color: var(--mat-sys-background);
   pointer-events: none;
@@ -863,10 +895,20 @@ body:has(.mat-menu.show) .backdrop {
 .bannerCanvas .motionBanner .resizeDownWhileScroll {
   transition: var(--main-transition);
   text-wrap: nowrap;
+  transform-origin: 30% 50%;
   animation: scaleDown 2s linear reverse;
   animation-timeline: --innerView;
   animation-range: 0vh cover calc(var(--heightCanvas) * 0.3);
   pointer-events: none;
+  font-size: min(64px, 10vh);
+  opacity: 0;
+}
+@media (max-width: 768px) {
+  .bannerCanvas .motionBanner .resizeDownWhileScroll {
+    text-wrap: wrap;
+    text-align: center;
+    font-size: min(48px, 10vh);
+  }
 }
 .bannerCanvas .motionBanner .enterBackground {
   animation: enterBackground 2s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
@@ -875,7 +917,23 @@ body:has(.mat-menu.show) .backdrop {
   pointer-events: none;
 }
 .bannerCanvas .motionBanner .enterModal {
-  min-width: 768px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  min-width: 60%;
+  max-width: 80%;
+  aspect-ratio: 16/9;
+  border-radius: 1.5rem;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 10;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.37);
+  padding: min(1rem, 10dvw);
+  text-align: center;
   animation: enterModal 2s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
   animation-timeline: --innerView;
   animation-range: calc(var(--heightCanvas) * 0.3) cover calc(var(--heightCanvas) * 0.4);
@@ -887,13 +945,24 @@ body:has(.mat-menu.show) .backdrop {
     box-shadow: inset 2px 2px 1px var(--mat-sys-background-on-translucent), inset -2px -2px 4px rgba(255, 255, 255, 0.2);
   }
 }
+@media (max-width: 640px) {
+  .bannerCanvas .motionBanner .enterModal {
+    max-width: 90%;
+  }
+}
 @keyframes scaleDown {
   0% {
-    font-size: 1920px;
+    transform: scale(60);
+    transform-origin: 50%;
     opacity: 0;
   }
+  80% {
+    transform: scale(30);
+    transform-origin: 50%;
+  }
   100% {
-    font-size: 64px;
+    transform: scale(1);
+    transform-origin: 50%;
     opacity: 1;
   }
 }
@@ -907,6 +976,18 @@ body:has(.mat-menu.show) .backdrop {
     opacity: 1;
   }
 }
+@media (max-width: 640px) {
+  @keyframes enterBackground {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(3);
+      opacity: 1;
+    }
+  }
+}
 @keyframes enterModal {
   0% {
     transform: translateY(100%);
@@ -918,6 +999,11 @@ body:has(.mat-menu.show) .backdrop {
     opacity: 1;
     backdrop-filter: blur(48px);
   }
+}
+
+.problemsWeSolve {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.37);
+  filter: brightness(0.98);
 }
 
 /*# sourceMappingURL=style.css.map */
