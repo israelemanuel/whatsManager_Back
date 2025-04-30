@@ -1006,4 +1006,96 @@ body:has(.mat-menu.show) .backdrop {
   filter: brightness(0.98);
 }
 
+#meetHelpdesk {
+  --padding-scroll-new: 16px;
+}
+#meetHelpdesk .scroll-products {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  gap: 24px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: var(--main-padding);
+}
+#meetHelpdesk .scroll-products .item {
+  position: relative;
+  height: 680px !important;
+  min-width: 372px !important;
+  padding: var(--main-padding);
+  border-radius: calc(var(--main-curve) + var(--main-padding));
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.37);
+  background-color: var(--mat-sys-background);
+  scroll-snap-align: center;
+  height: 500px; /* Added height */
+  min-width: 300px; /* Added min-width */
+  border-radius: 1.5rem; /* Added border-radius */
+  padding: var(--main-padding); /* Added padding */
+  transition: var(--main-transition); /* Added transition */
+}
+#meetHelpdesk .scroll-products .item:hover {
+  transform: scale(1.02);
+}
+#meetHelpdesk .scroll-products::-webkit-scrollbar {
+  height: calc(var(--padding-scroll-new) * 0.33);
+}
+#meetHelpdesk .scroll-products::-webkit-scrollbar-track {
+  background: transparent;
+  margin-left: calc(260px + 1rem);
+  margin-right: calc(260px + 1rem);
+}
+@media (max-width: 640px) {
+  #meetHelpdesk .scroll-products::-webkit-scrollbar-track {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+#meetHelpdesk .scroll-products::-webkit-scrollbar-thumb {
+  background: var(--mat-sys-primary);
+  border-radius: 8px;
+}
+#meetHelpdesk .scroll-products::-webkit-scrollbar-thumb:hover {
+  background: var(--mat-sys-tertiary);
+}
+#meetHelpdesk .fullInformation {
+  width: 100dvw;
+  height: 100dvh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(20px);
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+  animation: slideUp 0.6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+@keyframes slideUp {
+  0% {
+    transform: translateY(20dvh);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slideDown {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(10%);
+    opacity: 0;
+  }
+}
+#meetHelpdesk .slide-down {
+  animation: slideDown 0.6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
 /*# sourceMappingURL=style.css.map */

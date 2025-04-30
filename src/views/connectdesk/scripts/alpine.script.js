@@ -31,6 +31,41 @@ document.addEventListener('alpine:init', () => {
             },
         ],
 
+        lstProducts: [
+            {
+                id: 1,
+                nome: "Base de conhecimento",
+                image: '/images/laptop-overlays.jpg',
+                logo: '/images/knowledgment.png',
+                description: "Organize, instrua e facilite o acesso à informação em qualquer lugar.",
+                show: false,
+            },
+            {
+                id: 2,
+                nome: "Treinamento",
+                image: '/images/student-studing.jpg',
+                logo: '/images/training.png',
+                description: "A versão Pro do ConnectDesk oferece funcionalidades avançadas para empresas que buscam otimizar ainda mais seu atendimento.",
+                show: false,
+            },
+            {
+                id: 3,
+                nome: "Atendimento",
+                image: '/images/woman-tablet.jpg',
+                logo: '/images/tickets.png',
+                description: "A solução Enterprise é ideal para grandes empresas que precisam de uma plataforma robusta e escalável para gerenciar seu atendimento.",
+                show: false,
+            },
+            {
+                id: 4,
+                nome: "Chat",
+                image: '/images/girl-standing-texting.jpg',
+                logo: '/images/chat.png',
+                description: "O ConnectDesk Chatbot é uma ferramenta de inteligência artificial que automatiza o atendimento ao cliente, respondendo perguntas frequentes e direcionando os usuários para as informações corretas.",
+                show: false,
+            },
+        ],
+
         
         toggleMenu(){
             this.toggleMobileMenu = !this.toggleMobileMenu
@@ -66,11 +101,5 @@ document.addEventListener('alpine:init', () => {
 
     }))
 
-    Alpine.data('carro', () => ({
-        carros: [
-            { marca: 'Chevrolet', modelo: 'Onix', preco: 'R$} 60.000,00' },
-            { marca: 'Fiat', modelo: 'Argo', preco: 'R$} 65.000,00' },
-            { marca: 'Ford', modelo: 'Ka', preco: 'R$} 55.000,00' },
-        ]
-    }))
+    
 });
