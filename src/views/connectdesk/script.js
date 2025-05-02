@@ -1,3 +1,5 @@
+const { log } = require("console");
+
 function toggleDarkMode() {
     document.body.classList.toggle('dark-mode');
     const isDarkMode = document.body.classList.contains('dark-mode');
@@ -73,5 +75,5 @@ function loadUserPreferences() {
 // Inicializar as funções ao carregar a página
 document.addEventListener('DOMContentLoaded', function () {
     loadUserPreferences();
-    
 });
+

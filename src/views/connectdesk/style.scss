@@ -1052,8 +1052,8 @@ body:has(.mat-menu.show) {
 
     &::-webkit-scrollbar-track {
         background: transparent; // Fundo do track transparente
-        margin-left: calc(260px + 1rem);
-        margin-right: calc(260px + 1rem);
+        margin-left: calc(20dvw + 1rem);
+        margin-right: calc(20dvw + 1rem);
 
         @media(max-width: 640px) {
             margin-left: calc(1rem);
@@ -1214,7 +1214,6 @@ body:has(.mat-menu.show) {
         }
     }
 }
-
 .problemsWeSolve {
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.37);
     filter: brightness(0.98);
@@ -1262,8 +1261,8 @@ body:has(.mat-menu.show) {
     
         &::-webkit-scrollbar-track {
             background: transparent; // Fundo do track transparente
-            margin-left: calc(260px + 1rem);
-            margin-right: calc(260px + 1rem);
+            margin-left: calc(30dvw + 1rem);
+            margin-right: calc(30dvw + 1rem);
     
             @media(max-width: 640px) {
                 margin-left: calc(1rem);
@@ -1327,4 +1326,21 @@ body:has(.mat-menu.show) {
         animation: slideDown 0.6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
     }
     
+}
+
+#otherResources{
+    --custom-columns: 25% 50% 25%; /* Added missing semicolon */
+
+    .tiltCard {
+        position: relative;
+        transform-style: preserve-3d;
+        transition: all 0.2s ease-out;
+        perspective: 1000px; // Define a profundidade 3D
+        border-radius: 1.5rem;
+        overflow: hidden;
+        box-shadow: 0px 10px 20px rgba(0,0,0,0.2);    
+        &:hover {
+            box-shadow: 0px 15px 30px rgba(0,0,0,0.4);
+        }
+    }
 }

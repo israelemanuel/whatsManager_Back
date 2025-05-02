@@ -45,6 +45,7 @@
             </div>
 
             <div class="flex-row-scroll px-8 pb-8 pt-4">
+                <div class="min-w-[30dvw]"></div>
                 <% resposta.lstSolutions.forEach((item, index)=> { %>
                     <div class="item gigantic shadow-lg">
                         <div class="background" style="background-image: url('<%- item.image %>')"
@@ -85,7 +86,8 @@
             <div class="scroll-products">
                 <div class="min-w-[30dvw]"></div>
                 <template x-for="(item, index) in lstProducts" :key="index">
-                    <div class="item bg-center bg-no-repeat bg-cover" :style="'background-image: url(' + item.image + ')'">
+                    <div class="item bg-center bg-no-repeat bg-cover"
+                        :style="'background-image: url(' + item.image + ')'">
                         <div class="flex flex-col gap-4">
                             <div class="flex flex-row items-center gap-4">
                                 <div
@@ -97,7 +99,7 @@
                             </div>
                             <span x-text="item.description"></span>
                         </div>
-        
+
                         <div class="absolute bottom-[var(--main-padding)] right-[var(--main-padding)]">
                             <div class="iconButton primary" @click="item.show = !item.show">
                                 <span class="aspect-square flex items-center justify-center">
@@ -110,20 +112,18 @@
                     </div>
                 </template>
             </div>
-        
+
             <!-- Exibe informações completas se "show" for true -->
             <template x-for="(item, index) in lstProducts" :key="'info-' + index">
-                <div 
-                    x-show="item.show" 
-                    x-transition:leave="slide-down" 
-                    x-transition:leave-start="opacity-100 translate-y-0" 
-                    x-transition:leave-end="opacity-0 translate-y-10"
-                    class="fullInformation">
+                <div x-show="item.show" x-transition:leave="slide-down"
+                    x-transition:leave-start="opacity-100 translate-y-0"
+                    x-transition:leave-end="opacity-0 translate-y-10" class="fullInformation">
                     <div
                         class="w-[90%] lg:w-[70dvw] h-max flex flex-col rounded-[var(--main-curve)] bg-[var(--mat-sys-background)] shadow-lg my-[20dvh]">
                         <div class="relative w-full aspect-[4/3] md:aspect-[16/9] lg:aspect-[21/9] rounded-t-[var(--main-curve)] bg-center bg-no-repeat bg-cover"
                             :style="'background-image: url(' + item.image + ')'">
-                            <div class="absolute top-[calc(var(--main-padding))] right-[calc(var(--main-padding))] z-50">
+                            <div
+                                class="absolute top-[calc(var(--main-padding))] right-[calc(var(--main-padding))] z-50">
                                 <div class="iconButton primary" @click="item.show = false">
                                     <span class="material-symbols-rounded">
                                         close
@@ -139,6 +139,90 @@
                 </div>
             </template>
         </div>
+    </section>
+
+    <section id="otherResources">
+        <div
+            class="bg-[var(--mat-sys-background)] relative min-h-[80dvh] py-[64px] w-full flex flex-col z-10 box-border">
+
+            <div class="w-full flex justify-center">
+                <div class="hidden lg:block max-w-[75dvw] w-full h-full">
+                    <div class="w-full h-full grid grid-cols-[var(--custom-columns)] gap-4">
+                        <div class="grid grid-rows-3 col-span-1 gap-4">
+                            <div class="flex items-center justify-center bg-[var(--mat-sys-background-bright)] rescaleHover tiltCard rounded-3xl aspect-square"
+                                @mousemove="tiltEffect($event, $el)" @mouseleave="resetTilt($el)">
+                                <div class="flex flex-col items-center">
+                                    <span>Base de Conhecimento</span>
+                                    <span style="font-size: 2.4rem;">ILimitada</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-center bg-[var(--mat-sys-tertiary)] rescaleHover tiltCard rounded-3xl aspect-square"
+                                @mousemove="tiltEffect($event, $el)" @mouseleave="resetTilt($el)">
+                                <div class="flex flex-col items-center text-black">
+                                    <span style="font-size: 2.4rem;">100%</span>
+                                    <span style="font-size: 2.4rem;">ILimitada</span>
+                                </div>
+                            </div>
+                            <div class="flex items-center bg-[var(--mat-sys-background-bright)] rescaleHover tiltCard rounded-3xl aspect-square"
+                                @mousemove="tiltEffect($event, $el)" @mouseleave="resetTilt($el)">
+                                <div class="flex flex-col items-center justify-center self-start p-4 w-full overflow-hidden">
+                                    <span class="text-center" style="font-size: 1.4rem;">100% de suporte a dispositivos móveis</span>
+                                    <div class="relative flex items-center justify-center w-full bottom-0 h-full">
+                                        <div class="h-[70%] aspect-square bg-no-repeat bg-contain bg-center" style="background-image: url('<%= resposta.otherResources[2].image %>'); transform: translateY(16%);"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 grid-rows-3 gap-4">
+                            <div class="col-span-2 bg-[#74AA9c] rescaleHover tiltCard rounded-3xl"
+                                @mousemove="tiltEffect($event, $el)" @mouseleave="resetTilt($el)">
+                                <div class="flex flex-col lg:flex-row items-center justify-center p-4 h-full w-full">
+                                    <span class="text-center text-white" style="font-size: 1.4rem;"><%= resposta.otherResources[3].title%></span>
+
+                                    <div class="relative flex items-center justify-center w-full h-full">
+                                        <div class="h-[70%] aspect-square bg-no-repeat bg-contain bg-center" style="background-image: url('<%= resposta.otherResources[3].image %>'); transform: translateX(20%)"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 grid-rows-2 col-span-2 row-span-2 gap-4">
+                                <div class="row-span-2 flex flex-col bg-[var(--mat-sys-background-bright)] rescaleHover tiltCard rounded-3xl"
+                                    @mousemove="tiltEffect($event, $el)" @mouseleave="resetTilt($el)">
+                                </div>
+                                <div class="flex flex-col bg-[var(--mat-sys-background-bright)] rescaleHover tiltCard rounded-3xl"
+                                    @mousemove="tiltEffect($event, $el)" @mouseleave="resetTilt($el)">
+                                </div>
+                                <div class="flex flex-col bg-[var(--mat-sys-secondary)] rescaleHover tiltCard rounded-3xl"
+                                    @mousemove="tiltEffect($event, $el)" @mouseleave="resetTilt($el)">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid grid-rows-3 col-span-1 gap-4">
+                            <div class="row-span-2 flex flex-col bg-[var(--mat-sys-background-bright)] rescaleHover tiltCard rounded-3xl"
+                                @mousemove="tiltEffect($event, $el)" @mouseleave="resetTilt($el)">
+                            </div>
+                            <div class="flex flex-col bg-[var(--mat-sys-primary-dim)] rescaleHover tiltCard rounded-3xl"
+                                @mousemove="tiltEffect($event, $el)" @mouseleave="resetTilt($el)">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="block lg:hidden w-full h-max grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 grid-rows-auto gap-4"
+                    style="padding-left: min(1.5rem, 20dvw); padding-right: min(1.5rem, 20dvw);">
+                    <div class="bg-red-500 col-span-1 rounded-3xl aspect-square sm:aspect-square"></div>
+                    <div class="bg-red-500 col-span-1 rounded-3xl aspect-square sm:aspect-square"></div>
+                    <div class="bg-red-500 col-span-1 rounded-3xl aspect-square sm:aspect-square"></div>
+                    <div class="bg-red-500 col-span-1 rounded-3xl aspect-[9/16] sm:aspect-square"></div>
+                    <div class="bg-red-500 col-span-1 rounded-3xl aspect-[9/16] sm:aspect-square"></div>
+                    <div class="bg-red-500 col-span-1 rounded-3xl aspect-square sm:aspect-square"></div>
+                    <div class="bg-red-500 col-span-1 rounded-3xl aspect-square sm:aspect-square"></div>
+                    <div class="bg-red-500 col-span-1 rounded-3xl aspect-[9/16] sm:aspect-square"></div>
+                    <!-- <div class="bg-red-500 col-span-1 rounded-3xl aspect-square md:aspect-square"></div> -->
+                </div>
+            </div>
+
+        </div>
+
     </section>
 
     <%- footer%>

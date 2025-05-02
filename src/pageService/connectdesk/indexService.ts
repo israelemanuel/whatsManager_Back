@@ -26,6 +26,31 @@ class IndexService {
             imageUrl: '/images/cheerfull.png',
         }
 
+        const otherResources = [
+            {
+                id: 1,
+                title: "Base de Conhecimento",
+                subtitle: "Ilimitada"
+            },
+
+            {
+                id: 2,
+                title: "100% RealTime",
+            },
+
+            {
+                id: 3,
+                title: "100% de suporte a dispositivos móveis",
+                image: "/images/store.png"
+            },
+
+            {
+                id: 4,
+                title: "Suporte para integração com a API do ChatGPT",
+                image: "/images/gpt_logo.svg"
+            }
+        ]
+
         const lstProblems = [
             { id: 1, nome: "Atendimento" },
             { id: 2, nome: "Suporte" },
@@ -196,6 +221,7 @@ class IndexService {
             paralaxAsset,
             lstProblems,
             lstSolutions,
+            otherResources,
             title: 'Connectfy',
             description: 'This is the about us page.',
             content: '<p>Welcome to our website!</p>',
