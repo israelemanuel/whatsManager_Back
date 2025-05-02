@@ -71,14 +71,15 @@
                             </div>
                         </div>
                     </div>
-                    <% }); %>
+                <% }); %>
+
+                <div class="min-w-[30dvw]"></div>
             </div>
         </div>
     </section>
 
     <section id="meetHelpdesk">
-        <div
-            class="bg-[var(--mat-sys-background)] relative min-h-[80dvh] py-[64px] w-full flex flex-col z-10 box-border">
+        <div class="bg-[var(--mat-sys-background)] relative min-h-[80dvh] py-[64px] w-full flex flex-col box-border">
             <div class="w-full flex items-center justify-center">
                 <span class="text-[2rem] md:text-[4rem] p-4 text-center">Conheça o ConnectDesk</span>
             </div>
@@ -165,9 +166,14 @@
                             </div>
                             <div class="flex items-center bg-[var(--mat-sys-background-bright)] rescaleHover tiltCard rounded-3xl"
                                 @mousemove="tiltEffect($event, $el)" @mouseleave="resetTilt($el)">
-                                <div class="flex flex-col items-center justify-center self-start p-4 w-full overflow-hidden">
-                                    <span class="text-center" style="font-size: 1.4rem;"><%= resposta.otherResources[2].title %></span>
-                                    <div class="w-full absolute bottom-0 aspect-square bg-no-repeat bg-contain bg-center" style="background-image: url('<%= resposta.otherResources[2].image %>'); transform: translateY(calc(64px * 1.5));"></div>
+                                <div
+                                    class="flex flex-col items-center justify-center self-start p-4 w-full overflow-hidden">
+                                    <span class="text-center" style="font-size: 1.4rem;">
+                                        <%= resposta.otherResources[2].title %>
+                                    </span>
+                                    <div class="w-full absolute bottom-0 aspect-square bg-no-repeat bg-contain bg-center"
+                                        style="background-image: url('<%= resposta.otherResources[2].image %>'); transform: translateY(calc(64px * 1.5));">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -175,10 +181,14 @@
                             <div class="col-span-2 bg-[#74AA9c] rescaleHover tiltCard rounded-3xl"
                                 @mousemove="tiltEffect($event, $el)" @mouseleave="resetTilt($el)">
                                 <div class="flex flex-col lg:flex-row items-center justify-center p-4 h-full w-full">
-                                    <span class="text-center text-white" style="font-size: 1.4rem;"><%= resposta.otherResources[3].title%></span>
+                                    <span class="text-center text-white" style="font-size: 1.4rem;">
+                                        <%= resposta.otherResources[3].title%>
+                                    </span>
 
                                     <div class="relative flex justify-center w-full h-full aspect-square">
-                                        <div class="h-[70%] aspect-square bg-no-repeat bg-contain bg-center" style="background-image: url('<%= resposta.otherResources[3].image %>'); transform: translateY(20%)"></div>
+                                        <div class="h-[70%] aspect-square bg-no-repeat bg-contain bg-center"
+                                            style="background-image: url('<%= resposta.otherResources[3].image %>'); transform: translateY(20%)">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -186,21 +196,32 @@
                                 <div class="row-span-2 flex flex-col bg-[var(--mat-sys-background-bright)] rescaleHover tiltCard rounded-3xl"
                                     @mousemove="tiltEffect($event, $el)" @mouseleave="resetTilt($el)">
                                     <div class="flex flex-col items-center justify-center p-4 h-full w-full">
-                                        <span class="text-center" style="font-size: 1.4rem;"><%= resposta.otherResources[4].title %></span>
-                                        <div class="w-full h-[70%] bg-no-repeat bg-contain bg-center" style="background-image: url('<%= resposta.otherResources[4].image %>');"></div>
+                                        <span class="text-center" style="font-size: 1.4rem;">
+                                            <%= resposta.otherResources[4].title %>
+                                        </span>
+                                        <div class="w-full h-[70%] bg-no-repeat bg-contain bg-center"
+                                            style="background-image: url('<%= resposta.otherResources[4].image %>');">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="flex flex-col bg-[var(--mat-sys-background-bright)] rescaleHover tiltCard rounded-3xl"
                                     @mousemove="tiltEffect($event, $el)" @mouseleave="resetTilt($el)">
-                                    <div class="flex flex-col items-center justify-center self-start p-4 w-full overflow-hidden">
-                                        <span class="text-center" style="font-size: 1.4rem;"><%= resposta.otherResources[5].title %></span>
-                                        <div class="w-full absolute bottom-0 aspect-square bg-no-repeat" style="background-size: 50%; background-image: url('<%= resposta.otherResources[5].image %>'); background-position: 50% 70%;"></div>
+                                    <div
+                                        class="flex flex-col items-center justify-center self-start p-4 w-full overflow-hidden">
+                                        <span class="text-center" style="font-size: 1.4rem;">
+                                            <%= resposta.otherResources[5].title %>
+                                        </span>
+                                        <div class="w-full absolute bottom-0 aspect-square bg-no-repeat"
+                                            style="background-size: 50%; background-image: url('<%= resposta.otherResources[5].image %>'); background-position: 50% 70%;">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="flex flex-col bg-[var(--mat-sys-secondary)] rescaleHover tiltCard rounded-3xl"
                                     @mousemove="tiltEffect($event, $el)" @mouseleave="resetTilt($el)">
                                     <div class="w-full h-full flex items-center justify-center">
-                                        <span class="text-center" style="font-size: 2.4rem;"><%= resposta.otherResources[6].title %></span>
+                                        <span class="text-center text-white" style="font-size: 2.4rem;">
+                                            <%= resposta.otherResources[6].title %>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -209,15 +230,22 @@
                             <div class="row-span-2 flex flex-col bg-[var(--mat-sys-background-bright)] rescaleHover tiltCard rounded-3xl"
                                 @mousemove="tiltEffect($event, $el)" @mouseleave="resetTilt($el)">
                                 <div class="flex flex-col items-center justify-center p-4 h-full w-full">
-                                    <span class="text-center" style="font-size: 1.4rem;"><%= resposta.otherResources[7].title %></span>
-                                    <div class="w-full h-[70%] bg-no-repeat bg-contain bg-center" style="background-image: url('<%= resposta.otherResources[7].image %>');"></div>
+                                    <span class="text-center" style="font-size: 1.4rem;">
+                                        <%= resposta.otherResources[7].title %>
+                                    </span>
+                                    <div class="w-full h-[70%] bg-no-repeat bg-contain bg-center"
+                                        style="background-image: url('<%= resposta.otherResources[7].image %>');"></div>
                                 </div>
                             </div>
                             <div class="flex flex-col bg-[var(--mat-sys-primary-dim)] rescaleHover tiltCard rounded-3xl"
                                 @mousemove="tiltEffect($event, $el)" @mouseleave="resetTilt($el)">
                                 <div class="w-full h-full flex flex-col items-center justify-center">
-                                    <span class="text-center" style="font-size: 2.4rem;"><%= resposta.otherResources[8].title %></span>
-                                    <span class="text-center" style="font-size: 1rem;"><%= resposta.otherResources[8].subtitle %></span>
+                                    <span class="text-center" style="font-size: 2.4rem;">
+                                        <%= resposta.otherResources[8].title %>
+                                    </span>
+                                    <span class="text-center" style="font-size: 1.4rem;">
+                                        <%= resposta.otherResources[8].subtitle %>
+                                    </span>
                                 </div>
                             </div>
                         </div>
