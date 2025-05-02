@@ -590,6 +590,9 @@
   .row-span-2 {
     grid-row: span 2 / span 2;
   }
+  .m-5 {
+    margin: calc(var(--spacing) * 5);
+  }
   .my-\[20dvh\] {
     margin-block: 20dvh;
   }
@@ -718,6 +721,9 @@
   }
   .min-h-\[350px\] {
     min-height: 350px;
+  }
+  .w-3 {
+    width: calc(var(--spacing) * 3);
   }
   .w-9 {
     width: calc(var(--spacing) * 9);
@@ -1047,6 +1053,9 @@
   }
   .p-4 {
     padding: calc(var(--spacing) * 4);
+  }
+  .p-5 {
+    padding: calc(var(--spacing) * 5);
   }
   .p-6 {
     padding: calc(var(--spacing) * 6);
