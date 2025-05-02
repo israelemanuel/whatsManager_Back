@@ -719,6 +719,9 @@
   .min-h-\[350px\] {
     min-height: 350px;
   }
+  .w-9 {
+    width: calc(var(--spacing) * 9);
+  }
   .w-\[48px\] {
     width: 48px;
   }

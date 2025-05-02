@@ -208,9 +208,17 @@
                         <div class="grid grid-rows-3 col-span-1 gap-4">
                             <div class="row-span-2 flex flex-col bg-[var(--mat-sys-background-bright)] rescaleHover tiltCard rounded-3xl"
                                 @mousemove="tiltEffect($event, $el)" @mouseleave="resetTilt($el)">
+                                <div class="flex flex-col items-center justify-center p-4 h-full w-full">
+                                    <span class="text-center" style="font-size: 1.4rem;"><%= resposta.otherResources[7].title %></span>
+                                    <div class="w-full h-[70%] bg-no-repeat bg-contain bg-center" style="background-image: url('<%= resposta.otherResources[7].image %>');"></div>
+                                </div>
                             </div>
                             <div class="flex flex-col bg-[var(--mat-sys-primary-dim)] rescaleHover tiltCard rounded-3xl"
                                 @mousemove="tiltEffect($event, $el)" @mouseleave="resetTilt($el)">
+                                <div class="w-full h-full flex flex-col items-center justify-center">
+                                    <span class="text-center" style="font-size: 2.4rem;"><%= resposta.otherResources[8].title %></span>
+                                    <span class="text-center" style="font-size: 1rem;"><%= resposta.otherResources[8].subtitle %></span>
+                                </div>
                             </div>
                         </div>
                     </div>
