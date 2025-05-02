@@ -145,54 +145,63 @@
         <div
             class="bg-[var(--mat-sys-background)] relative min-h-[80dvh] py-[64px] w-full flex flex-col z-10 box-border">
 
-            <div class="w-full flex justify-center">
-                <div class="hidden lg:block max-w-[75dvw] w-full h-full">
-                    <div class="w-full h-full grid grid-cols-[var(--custom-columns)] gap-4">
+            <div class="relative w-full flex justify-center items-center box-border">
+                <div class="hidden lg:flex items-center justify-center w-full h-full xl:max-w-[75dvw] p-4">
+                    <div class="relative grid grid-cols-[var(--custom-columns)] gap-4">
                         <div class="grid grid-rows-3 col-span-1 gap-4">
-                            <div class="flex items-center justify-center bg-[var(--mat-sys-background-bright)] rescaleHover tiltCard rounded-3xl aspect-square"
+                            <div class="flex items-center justify-center bg-[var(--mat-sys-background-bright)] rescaleHover tiltCard rounded-3xl"
                                 @mousemove="tiltEffect($event, $el)" @mouseleave="resetTilt($el)">
                                 <div class="flex flex-col items-center">
                                     <span>Base de Conhecimento</span>
                                     <span style="font-size: 2.4rem;">ILimitada</span>
                                 </div>
                             </div>
-                            <div class="flex items-center justify-center bg-[var(--mat-sys-tertiary)] rescaleHover tiltCard rounded-3xl aspect-square"
+                            <div class="flex items-center justify-center bg-[var(--mat-sys-tertiary)] rescaleHover tiltCard rounded-3xl"
                                 @mousemove="tiltEffect($event, $el)" @mouseleave="resetTilt($el)">
                                 <div class="flex flex-col items-center text-black">
                                     <span style="font-size: 2.4rem;">100%</span>
                                     <span style="font-size: 2.4rem;">ILimitada</span>
                                 </div>
                             </div>
-                            <div class="flex items-center bg-[var(--mat-sys-background-bright)] rescaleHover tiltCard rounded-3xl aspect-square"
+                            <div class="flex items-center bg-[var(--mat-sys-background-bright)] rescaleHover tiltCard rounded-3xl"
                                 @mousemove="tiltEffect($event, $el)" @mouseleave="resetTilt($el)">
                                 <div class="flex flex-col items-center justify-center self-start p-4 w-full overflow-hidden">
-                                    <span class="text-center" style="font-size: 1.4rem;">100% de suporte a dispositivos móveis</span>
-                                    <div class="relative flex items-center justify-center w-full bottom-0 h-full">
-                                        <div class="h-[70%] aspect-square bg-no-repeat bg-contain bg-center" style="background-image: url('<%= resposta.otherResources[2].image %>'); transform: translateY(16%);"></div>
-                                    </div>
+                                    <span class="text-center" style="font-size: 1.4rem;"><%= resposta.otherResources[2].title %></span>
+                                    <div class="w-full absolute bottom-0 aspect-square bg-no-repeat bg-contain bg-center" style="background-image: url('<%= resposta.otherResources[2].image %>'); transform: translateY(calc(64px * 1.5));"></div>
                                 </div>
                             </div>
                         </div>
-                        <div class="grid grid-cols-2 grid-rows-3 gap-4">
+                        <div class="grid grid-cols-2 col-span-1 grid-rows-3 gap-4">
                             <div class="col-span-2 bg-[#74AA9c] rescaleHover tiltCard rounded-3xl"
                                 @mousemove="tiltEffect($event, $el)" @mouseleave="resetTilt($el)">
                                 <div class="flex flex-col lg:flex-row items-center justify-center p-4 h-full w-full">
                                     <span class="text-center text-white" style="font-size: 1.4rem;"><%= resposta.otherResources[3].title%></span>
 
-                                    <div class="relative flex items-center justify-center w-full h-full">
-                                        <div class="h-[70%] aspect-square bg-no-repeat bg-contain bg-center" style="background-image: url('<%= resposta.otherResources[3].image %>'); transform: translateX(20%)"></div>
+                                    <div class="relative flex justify-center w-full h-full aspect-square">
+                                        <div class="h-[70%] aspect-square bg-no-repeat bg-contain bg-center" style="background-image: url('<%= resposta.otherResources[3].image %>'); transform: translateY(20%)"></div>
                                     </div>
                                 </div>
                             </div>
                             <div class="grid grid-cols-2 grid-rows-2 col-span-2 row-span-2 gap-4">
                                 <div class="row-span-2 flex flex-col bg-[var(--mat-sys-background-bright)] rescaleHover tiltCard rounded-3xl"
                                     @mousemove="tiltEffect($event, $el)" @mouseleave="resetTilt($el)">
+                                    <div class="flex flex-col items-center justify-center p-4 h-full w-full">
+                                        <span class="text-center" style="font-size: 1.4rem;"><%= resposta.otherResources[4].title %></span>
+                                        <div class="w-full h-[70%] bg-no-repeat bg-contain bg-center" style="background-image: url('<%= resposta.otherResources[4].image %>');"></div>
+                                    </div>
                                 </div>
                                 <div class="flex flex-col bg-[var(--mat-sys-background-bright)] rescaleHover tiltCard rounded-3xl"
                                     @mousemove="tiltEffect($event, $el)" @mouseleave="resetTilt($el)">
+                                    <div class="flex flex-col items-center justify-center self-start p-4 w-full overflow-hidden">
+                                        <span class="text-center" style="font-size: 1.4rem;"><%= resposta.otherResources[5].title %></span>
+                                        <div class="w-full absolute bottom-0 aspect-square bg-no-repeat" style="background-size: 50%; background-image: url('<%= resposta.otherResources[5].image %>'); background-position: 50% 70%;"></div>
+                                    </div>
                                 </div>
                                 <div class="flex flex-col bg-[var(--mat-sys-secondary)] rescaleHover tiltCard rounded-3xl"
                                     @mousemove="tiltEffect($event, $el)" @mouseleave="resetTilt($el)">
+                                    <div class="w-full h-full flex items-center justify-center">
+                                        <span class="text-center" style="font-size: 2.4rem;"><%= resposta.otherResources[6].title %></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -207,7 +216,7 @@
                     </div>
                 </div>
 
-                <div class="block lg:hidden w-full h-max grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 grid-rows-auto gap-4"
+                <div class="lg:hidden w-full h-max grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 grid-rows-auto gap-4"
                     style="padding-left: min(1.5rem, 20dvw); padding-right: min(1.5rem, 20dvw);">
                     <div class="bg-red-500 col-span-1 rounded-3xl aspect-square sm:aspect-square"></div>
                     <div class="bg-red-500 col-span-1 rounded-3xl aspect-square sm:aspect-square"></div>

@@ -48,6 +48,31 @@ class IndexService {
                 id: 4,
                 title: "Suporte para integração com a API do ChatGPT",
                 image: "/images/gpt_logo.svg"
+            },
+            {
+                id: 5,
+                title: "Chat Integrado com as principais plataoformas",
+                image: "/images/chat_integrado.png"
+            },
+            {
+                id: 6,
+                title: "Armazene até 24GB de Documentos Gratuitamente",
+                image: "/images/arquivos.png"
+            },
+            {
+                id: 7,
+                title: "O melhor custo benefício do mercado"
+            },
+            {
+                id: 8,
+                title: "Compatível com",
+                image: "/images/plataformas_compativeis.png",
+
+            },
+            {
+                id: 9,
+                title: "24H",
+                subtitle: "Ao seu alcance"  
             }
         ]
 

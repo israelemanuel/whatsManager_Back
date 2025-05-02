@@ -1099,7 +1099,7 @@ body:has(.mat-menu.show) .backdrop {
 }
 
 #otherResources {
-  --custom-columns: 25% 50% 25%; /* Added missing semicolon */
+  --custom-columns: 25% 1fr 25%; /* Added missing semicolon */
 }
 #otherResources .tiltCard {
   position: relative;
