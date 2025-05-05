@@ -10,7 +10,8 @@ export interface IPages extends Document {
 const PagesSchema: Schema = new Schema({
     title: { type: String, required: true },
     name: { type: String, required: true },
-    description: { type: String, required: true }
+    description: { type: String, required: true },
+    domain_id: { type: Schema.Types.ObjectId, ref: 'Domain' },
 }, {
     timestamps: true,
 })

@@ -38,6 +38,9 @@ export class PageController {
 
             let resposta: any = {};
 
+            console.log(findDomain);
+            
+
             if (!findDomain) {
                 const notFoundTemplate = fs.readFileSync(path.resolve(__dirname, '../../', 'views', '404.ejs'), 'utf-8');
                 return res.status(404).send(ejs.render(notFoundTemplate));
@@ -69,7 +72,7 @@ export class PageController {
 
 
 
-            const findPage = await Pages.findOne({ name: params.page }).exec();
+            const findPage = await Pages.findOne({ name: params.page, domain_id: findDomain._id }).exec();
             if (!findPage) {
                 const notFoundTemplate = fs.readFileSync(
                     path.resolve(__dirname, '../../', 'views', findDomain?.folder, '404.ejs'),

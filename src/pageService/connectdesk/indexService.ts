@@ -251,6 +251,7 @@ class IndexService {
             description: 'This is the about us page.',
             content: '<p>Welcome to our website!</p>',
             page: 'index',
+            
         }
     }
 }
