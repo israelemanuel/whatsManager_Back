@@ -22,8 +22,8 @@
     "connectdesk:start:dev": "npm-run-all --parallel  connectdesk:scss:watch connectdesk:taiwind:watch prod:server",
     "connectdesk:start:macdev": "npm-run-all --parallel  connectdesk:scss:watch connectdesk:taiwind:watch prod:macserver",
     "build": "npx tsc",
-    "copy:files": "copyfiles -u 1 src/views/**/* ../siteConnectDeploy/views",
-    "copy:views": "copyfiles -u 1 src/views/**/**/* ../siteConnectDeploy/views",
+    "copy:files": "copyfiles -u 2 src/views/**/* ../siteConnectDeploy/views",
+    "copy:views": "copyfiles -u 2 src/views/**/**/* ../siteConnectDeploy/views",
     "copy:build" : "npm run copy:files && npm run copy:views",
     
     
