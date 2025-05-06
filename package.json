@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "prod:server": "set \"NODE_ENV=production\" && set \"PRODUCTION_LOCAL=true\" && ts-node-dev --inspect --transpile-only --ignore-watch node_modules  src/app.ts",
-    "prod:macserver": " export NODE_ENV=production && export PRODUCTION_LOCAL=true  && ts-node-dev --inspect --transpile-only --ignore-watch node_modules  src/app.ts",
+    "prod:server": "set \"NODE_ENV=developer\" && set \"PRODUCTION_LOCAL=true\" && ts-node-dev --inspect --transpile-only --ignore-watch node_modules  src/app.ts",
+    "prod:macserver": " export NODE_ENV=developer && export PRODUCTION_LOCAL=true  && ts-node-dev --inspect --transpile-only --ignore-watch node_modules  src/app.ts",
     "scss": "node compile-scss.js",
     "scss:watch": "sass --watch src/public/assets/scss/connectfy/style.scss src/public/assets/css/connectfy/style.css",
     "taiwind:watch": "npx tailwindcss -i src/public/assets/css/connectfy/output.css -o src/public/assets/css/connectfy/tailwind.css --watch",

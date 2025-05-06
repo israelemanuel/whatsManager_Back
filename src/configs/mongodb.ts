@@ -13,11 +13,9 @@ const connectDB = async () => {
 
         if (MONGO_LOCAL === undefined) {
             uri = `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_URI}:${MONGO_PORT}/${MONGO_DB}`
-        } else if(MONGO_LOCAL == 'false') {
-            uri = `mongodb://${MONGO_URI}:${MONGO_PORT}/${MONGO_DB}`
         } else if(MONGO_LOCAL == 'true') {
-            uri = `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_URI}:${MONGO_PORT}/${MONGO_DB}`
-        }
+            uri = `mongodb://${MONGO_URI}:${MONGO_PORT}/${MONGO_DB}`
+        } 
 
 
         console.log('MONGO_LOCAL', MONGO_LOCAL);

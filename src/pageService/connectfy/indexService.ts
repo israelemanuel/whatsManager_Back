@@ -6,6 +6,14 @@ class IndexService {
 
     const generalService = GeneralService.init();
 
+        let callToConnectDesk = "";
+
+        if (process.env.NODE_ENV === 'production') {
+            callToConnectDesk = "https://site-connectdesk.appservicedesk.com/";
+        } else {
+            callToConnectDesk = "http://connectdesk.local:3000";
+        }
+
 
         console.log('IndexService', params);
 
@@ -85,6 +93,7 @@ class IndexService {
             bannerAsset2,
             paralaxAsset,
             lstComents,
+            callToConnectDesk,
             title: 'Connectfy',
             description: 'This is the about us page.',
             content: '<p>Welcome to our website!</p>',
