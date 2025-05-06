@@ -289,7 +289,8 @@ export default class WhatsappListener {
         }
     };
 
-    private msgLocation(image: Uint8Array<ArrayBufferLike> | null | undefined, latitude: number | null | undefined, longitude: number | null | undefined) {
+    // private msgLocation(image: Uint8Array<ArrayBufferLike> | null | undefined, latitude: number | null | undefined, longitude: number | null | undefined) {
+    private msgLocation(image: any | null | undefined, latitude: number | null | undefined, longitude: number | null | undefined) {
         if (image) {
             var b64 = Buffer.from(image).toString("base64");
 

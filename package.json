@@ -12,19 +12,18 @@
     "connectfy:scss:watch": "sass --watch src/views/connectfy/style.scss src/views/connectfy/style.css",
     "connectfy:taiwind:watch": "npx tailwindcss -i src/views/connectfy/output.css -o src/views/connectfy/styles/tailwind.css --watch",
     "connectfy:taiwind:build": "npx tailwindcss -i src/views/connectfy/output.css -o src/views/connectfy/styles/tailwind.css",
-
     "connectdesk:scss:watch": "sass --watch src/views/connectdesk/style.scss src/views/connectdesk/style.css",
     "connectdesk:taiwind:watch": "npx tailwindcss -i src/views/connectdesk/output.css -o src/views/connectdesk/styles/tailwind.css --watch",
     "connectdesk:taiwind:build": "npx tailwindcss -i src/views/connectdesk/output.css -o src/views/connectdesk/styles/tailwind.css",
-
     "start:dev": "npm-run-all --parallel  scss:watch taiwind:watch prod:server",
     "start:macdev": "npm-run-all --parallel  scss:watch taiwind:watch prod:macserver",
-    
     "connectfy:start:dev": "npm-run-all --parallel  connectfy:scss:watch connectfy:taiwind:watch prod:server",
     "connectfy:start:macdev": "npm-run-all --parallel  connectfy:scss:watch connectfy:taiwind:watch prod:macserver",
-
     "connectdesk:start:dev": "npm-run-all --parallel  connectdesk:scss:watch connectdesk:taiwind:watch prod:server",
-    "connectdesk:start:macdev": "npm-run-all --parallel  connectdesk:scss:watch connectdesk:taiwind:watch prod:macserver"
+    "connectdesk:start:macdev": "npm-run-all --parallel  connectdesk:scss:watch connectdesk:taiwind:watch prod:macserver",
+    "build": "npx tsc",
+    "copy:views": "copyfiles -u 1 src/views/**/**/* ../siteConnectDeploy",
+    "build:prod": "npm run build && npm run copy:views"
   },
   "keywords": [],
   "author": "",
@@ -54,6 +53,7 @@
     "@types/jsonwebtoken": "^9.0.7",
     "@types/node": "^22.9.0",
     "@types/qrcode-terminal": "^0.12.2",
+    "copyfiles": "^2.4.1",
     "npm-run-all": "^4.1.5",
     "sass": "^1.85.0",
     "tailwindcss": "^4.0.6",

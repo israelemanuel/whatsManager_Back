@@ -148,9 +148,9 @@ export class WhatsappController {
                 message: request.body.message || 'Hello World',
                 whatsappSessionId: '6770522abce0a640ff5269bf'
             }
-            const sendMessage = await sendWhatsappMessage.execute(body);
+            // const sendMessage = await sendWhatsappMessage.execute(body);
 
-            return response.status(200).json(sendMessage);
+            // return response.status(200).json(sendMessage);
         } catch (error: any) {
             return response.status(400).json({ message: error.message });
         }

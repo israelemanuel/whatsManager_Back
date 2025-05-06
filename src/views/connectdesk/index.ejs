@@ -153,15 +153,15 @@
                             <div class="flex items-center justify-center bg-[var(--mat-sys-background-bright)] rescaleHover tiltCard rounded-3xl"
                                 @mousemove="tiltEffect($event, $el)" @mouseleave="resetTilt($el)">
                                 <div class="flex flex-col items-center">
-                                    <span>Base de Conhecimento</span>
-                                    <span style="font-size: 2.4rem;">ILimitada</span>
+                                    <span><%= resposta.otherResources[0].title %></span>
+                                    <span style="font-size: 2.4rem;"><%= resposta.otherResources[0].subtitle %></span>
                                 </div>
                             </div>
                             <div class="flex items-center justify-center bg-[var(--mat-sys-tertiary)] rescaleHover tiltCard rounded-3xl"
                                 @mousemove="tiltEffect($event, $el)" @mouseleave="resetTilt($el)">
-                                <div class="flex flex-col items-center text-black">
-                                    <span style="font-size: 2.4rem;">100%</span>
-                                    <span style="font-size: 2.4rem;">ILimitada</span>
+                                <div class="flex flex-col items-center justify-center text-black">
+                                    <span style="font-size: 2.4rem;"><%= resposta.otherResources[1].title %></span>
+                                    <span style="font-size: 2.4rem;"><%= resposta.otherResources[1].subtitle %></span>
                                 </div>
                             </div>
                             <div class="flex items-center bg-[var(--mat-sys-background-bright)] rescaleHover tiltCard rounded-3xl"
@@ -208,7 +208,7 @@
                                     @mousemove="tiltEffect($event, $el)" @mouseleave="resetTilt($el)">
                                     <div
                                         class="flex flex-col items-center justify-center self-start p-4 w-full overflow-hidden">
-                                        <span class="text-center" style="font-size: 1.4rem;">
+                                        <span class="text-center" style="font-size: clamp(16px, 2vw, 1.2rem);">
                                             <%= resposta.otherResources[5].title %>
                                         </span>
                                         <div class="w-full absolute bottom-0 aspect-square bg-no-repeat"
@@ -254,15 +254,19 @@
 
                 <div class="lg:hidden w-full h-max grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 grid-rows-auto gap-4"
                     style="padding-left: min(1.5rem, 20dvw); padding-right: min(1.5rem, 20dvw);">
-                    <div class="bg-red-500 col-span-1 rounded-3xl aspect-square sm:aspect-square"></div>
-                    <div class="bg-red-500 col-span-1 rounded-3xl aspect-square sm:aspect-square"></div>
-                    <div class="bg-red-500 col-span-1 rounded-3xl aspect-square sm:aspect-square"></div>
-                    <div class="bg-red-500 col-span-1 rounded-3xl aspect-[9/16] sm:aspect-square"></div>
-                    <div class="bg-red-500 col-span-1 rounded-3xl aspect-[9/16] sm:aspect-square"></div>
-                    <div class="bg-red-500 col-span-1 rounded-3xl aspect-square sm:aspect-square"></div>
-                    <div class="bg-red-500 col-span-1 rounded-3xl aspect-square sm:aspect-square"></div>
-                    <div class="bg-red-500 col-span-1 rounded-3xl aspect-[9/16] sm:aspect-square"></div>
-                    <!-- <div class="bg-red-500 col-span-1 rounded-3xl aspect-square md:aspect-square"></div> -->
+                    <div class="bg-[var(--mat-sys-background-bright)] col-span-1 rounded-3xl aspect-square sm:aspect-square">
+                        <div class="w-full flex flex-col items-center justify-center">
+                            <span><%= resposta.otherResources[0].title %></span>
+                            <span><%= resposta.otherResources[0].subtitle %></span>
+                        </div>
+                    </div>
+                    <div class="bg-[var(--mat-sys-background-bright)] col-span-1 rounded-3xl aspect-square sm:aspect-square"></div>
+                    <div class="bg-[var(--mat-sys-background-bright)] col-span-1 rounded-3xl aspect-square sm:aspect-square"></div>
+                    <div class="bg-[var(--mat-sys-background-bright)] col-span-1 rounded-3xl aspect-[9/16] sm:aspect-square"></div>
+                    <div class="bg-[var(--mat-sys-background-bright)] col-span-1 rounded-3xl aspect-[9/16] sm:aspect-square"></div>
+                    <div class="bg-[var(--mat-sys-background-bright)] col-span-1 rounded-3xl aspect-square sm:aspect-square"></div>
+                    <div class="bg-[var(--mat-sys-background-bright)] col-span-1 rounded-3xl aspect-square sm:aspect-square"></div>
+                    <div class="bg-[var(--mat-sys-background-bright)] col-span-1 rounded-3xl aspect-[9/16] sm:aspect-square"></div>
                 </div>
             </div>
 

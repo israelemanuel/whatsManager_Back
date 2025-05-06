@@ -21,6 +21,7 @@ import Page from './pages/Pages.routes';
 
 const router = Router();
 
+router.use(Assets,Page)
 router.use('/auth', Login)
 
 router.use('/api/v1/whatsapp', Whatsapp)
@@ -36,7 +37,6 @@ router.use('/api/v1/post', Post)
 //TEMPLATE
 router.use('/api/v1/templete', templete)
 
-router.use(Assets,Page)
 
 
 export default router;

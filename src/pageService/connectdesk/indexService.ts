@@ -35,7 +35,8 @@ class IndexService {
 
             {
                 id: 2,
-                title: "100% RealTime",
+                title: "100%",
+                subtitle: "RealTime"
             },
 
             {

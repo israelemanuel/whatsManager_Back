@@ -1,8 +1,8 @@
 import './bootstrap';
 import Subscribe from './models/Subscribe';
-import WhatsappSession from './models/WhatsappSession';
+// import WhatsappSession from './models/WhatsappSession';
 import server from './server';
-import { StartAllWhatsappSession } from './services/BotServices/StartAllWhasappSession';
+// import { StartAllWhatsappSession } from './services/BotServices/StartAllWhasappSession';
 
 const port = process.env.PORT || 3000;
 

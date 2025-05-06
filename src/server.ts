@@ -4,7 +4,7 @@ import Routes from './routes';
 
 import mongodb from './configs/mongodb';
 import path from 'path';
-import { OpenWebUi } from './libs/openwebui';
+// import { OpenWebUi } from './libs/openwebui';
 
 //OPEN WEB UI
 (async () => {

@@ -7,12 +7,27 @@ const connectDB = async () => {
         const MONGO_USER = process.env.MONGO_USER;
         const MONGO_PASSWORD = process.env.MONGO_PASSWORD;
         const MONGO_PORT = process.env.MONGO_PORT || 27017;
+        const MONGO_LOCAL = process.env.PRODUCTION_LOCAL;
 
-        // const uri = `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_URI}:${MONGO_PORT}/${MONGO_DB}`
-        const uri = `mongodb://${MONGO_URI}:${MONGO_PORT}/${MONGO_DB}`
+        let uri = '';
 
-        console.log('###########=>>>>>>>>',uri);
+        if (MONGO_LOCAL === undefined) {
+            uri = `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_URI}:${MONGO_PORT}/${MONGO_DB}`
+        } else if(MONGO_LOCAL == 'false') {
+            uri = `mongodb://${MONGO_URI}:${MONGO_PORT}/${MONGO_DB}`
+        } else if(MONGO_LOCAL == 'true') {
+            uri = `mongodb://${MONGO_USER}:${MONGO_PASSWORD}@${MONGO_URI}:${MONGO_PORT}/${MONGO_DB}`
+        }
+
+
+        console.log('MONGO_LOCAL', MONGO_LOCAL);
+        console.log('MONGO_URI', uri);
         
+
+        
+
+        console.log('###########=>>>>>>>>', uri);
+
 
         // const conn = await mongose.connect(`mongodb://${MONGO_URI}:${MONGO_PORT}/${MONGO_DB}`,{
         // const conn = await mongose.connect(`mongodb://${MONGO_URI}:${MONGO_PORT}/${MONGO_DB}`,{

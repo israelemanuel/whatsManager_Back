@@ -34,11 +34,14 @@ export class PageController {
             const host = req.get('host');
             const hostWithoutPort = host?.split(':')[0];
 
+            console.log(`###### host`, host);
+            
+
             const findDomain = await Domain.findOne({ domain: hostWithoutPort }).exec();
 
             let resposta: any = {};
 
-            console.log(findDomain);
+            console.log(`###### findDomain`,findDomain);
             
 
             if (!findDomain) {
@@ -46,9 +49,21 @@ export class PageController {
                 return res.status(404).send(ejs.render(notFoundTemplate));
             }
 
-            const PageService = path.resolve(__dirname, '../../', 'pageService', `${findDomain?.folder}`, `${params.page}Service.ts`);
+            let extension = '';
+            if(process.env.NODE_ENV === 'production') {
+                extension = '.js';
+            }else{
+                extension = '.ts';
+            }
+
+            const PageService = path.resolve(__dirname, '../../', 'pageService', `${findDomain?.folder}`, `${params.page}Service${extension}`);
             //verificar se o arquivo existe
             const isFileExisteService = fs.existsSync(PageService);
+
+            console.log('########## PageService', PageService);
+            console.log('########## isFileExisteService', isFileExisteService);
+            
+
             if (isFileExisteService) {
                 const pageServiceModule = await import(PageService);
                 const pageService = pageServiceModule.default;
@@ -73,6 +88,9 @@ export class PageController {
 
 
             const findPage = await Pages.findOne({ name: params.page, domain_id: findDomain._id }).exec();
+
+            console.log('###### findPage', findPage);
+            
             if (!findPage) {
                 const notFoundTemplate = fs.readFileSync(
                     path.resolve(__dirname, '../../', 'views', findDomain?.folder, '404.ejs'),

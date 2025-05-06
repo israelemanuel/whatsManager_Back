@@ -1070,14 +1070,14 @@
   .text-\[1\.6rem\] {
     font-size: 1.6rem;
   }
+  .text-\[2rem\] {
+    font-size: 2rem;
+  }
   .text-\[18px\] {
     font-size: 18px;
   }
   .text-\[1rem\] {
     font-size: 1rem;
-  }
-  .text-\[2rem\] {
-    font-size: 2rem;
   }
   .text-\[64px\] {
     font-size: 64px;
@@ -1244,11 +1244,6 @@
   .md\:aspect-\[16\/9\] {
     @media (width >= 48rem) {
       aspect-ratio: 16/9;
-    }
-  }
-  .md\:aspect-square {
-    @media (width >= 48rem) {
-      aspect-ratio: 1 / 1;
     }
   }
   .md\:h-\[48rem\] {
