@@ -23,7 +23,7 @@
         <div
             class="problemsWeSolve bg-[var(--mat-sys-background)] relative min-h-[80dvh] py-[64px] w-full flex flex-col z-10 box-border">
             <div class="w-full flex items-center justify-center">
-                <span class="text-[2rem] md:text-[4rem] p-4 text-center">Problemas que Resolvemos</span>
+                <h2 class="text-[2rem] md:text-[4rem] p-4 text-center">Problemas que Resolvemos</h2>
             </div>
 
             <div class="w-full flex items-center justify-center">
@@ -81,7 +81,7 @@
     <section id="meetHelpdesk">
         <div class="bg-[var(--mat-sys-background)] relative min-h-[80dvh] py-[64px] w-full flex flex-col box-border">
             <div class="w-full flex items-center justify-center">
-                <span class="text-[2rem] md:text-[4rem] p-4 text-center">Conheça o ConnectDesk</span>
+                <h2 class="text-[2rem] md:text-[4rem] p-4 text-center">Conheça o ConnectDesk</h2>
             </div>
 
             <div class="scroll-products">
@@ -147,7 +147,7 @@
             class="bg-[var(--mat-sys-background)] relative min-h-[80dvh] py-[64px] w-full flex flex-col z-10 box-border">
 
             <div class="w-full flex items-center justify-center">
-                <span class="text-[2rem] md:text-[4rem] p-4 text-center">E ainda tem mais</span>
+                <h2 class="">E ainda tem mais</h2>
             </div>
 
             <div class="relative w-full flex justify-center items-center box-border">
@@ -320,7 +320,7 @@
     <section id="plans">
         <div class="bg-[var(--mat-sys-background)] relative min-h-[80dvh] py-[64px] w-full flex flex-col z-10 box-border">
             <div class="w-full flex items-center justify-center">
-                <span class="text-[2rem] md:text-[4rem] p-4 text-center">O pacote ideal para você</span>
+                <h2 class="">O pacote ideal para você</h2>
             </div>
 
             <div class="w-full flex justify-center">
@@ -513,6 +513,44 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        
+    </section>
+
+    <section id="faq">
+        <div class="bg-[var(--mat-sys-background)] relative min-h-[80dvh] py-[64px] w-full flex flex-col items-center gap-4 z-10 box-border">
+            <div class="flex flex-col text-center">
+                <h2>Alguma dúvida? Conte com a gente</h2>
+                <span>Nossa central de perguntas frequentes foi desenhada para prover a você<br> respostas sobre as
+                    dúvidas mais comuns</span>
+            </div>
+
+            <div class="w-full 2xl:w-[80dvw] max-w-[1920px] flex flex-col gap-4">
+                <template x-for="(item, index) in lstFaq" :key="index">
+                    <div class="w-full rounded-2xl flex flex-col p-4 cursor-pointer transition-all text-[var(--mat-sys-on-background)]"
+                        :class="item.toggle ? 'gap-2 h-[100%]' : 'gap-0 h-[72px]'"
+                        style="border: 1px solid var(--mat-sys-on-surface); transition: all .6s cubic-bezier(0.075, 0.82, 0.165, 1);"
+                        @click="item.toggle = !item.toggle">
+
+                        <span :class="item.toggle ? 'text-[1rem]' : 'text-[1.6rem]'"
+                            style="transition: all .6s cubic-bezier(0.075, 0.82, 0.165, 1);" x-text="item.title"></span>
+
+                        <div :class="item.toggle ? 'h-[100%]' : 'h-[0%]'"
+                            style="transition: all .6s cubic-bezier(0.075, 0.82, 0.165, 1);"
+                            class="overflow-hidden w-full">
+                            <span x-text="item.description"></span>
+                        </div>
+                    </div>
+                </template>
+            </div>
+
+            <div class="slideUp absolute bottom-0 right-0 opacity-0 p-6">
+                <a href="#inicio" class="iconButton primary">
+                    <span class="material-symbols-rounded">
+                        arrow_upward
+                    </span>
+                </a>
             </div>
         </div>
         
