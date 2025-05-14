@@ -70,8 +70,36 @@ function loadUserPreferences() {
     }
 }
 
+
+
 // Inicializar as funções ao carregar a página
 document.addEventListener('DOMContentLoaded', function () {
     loadUserPreferences();
-    
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.to("#header", {
+        backgroundColor:  "var(--mat-sys-surface)", // Altera a cor de fundo
+        boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)", // Adiciona sombra
+        duration: 0.5, // Duração da transição
+        fixed: true,
+        scrollTrigger: {
+            trigger: "#header", // Elemento que ativa a animação
+            start: "top top", // Inicia quando o topo do header atinge o topo da viewport
+            scrub: true, // Sincroniza a animação com o scroll
+        },
+    });
+
+    gsap.to("#inicio", {
+        scale: 2,
+        opacity: 0,
+        duration: 1,
+        scrollTrigger: {
+            trigger: "#inicio",
+            start: "top 0%", // Inicia quando o topo do elemento atinge 80% da viewport
+            end: "bottom 10%",  // Termina quando o topo do elemento atinge 100% da viewport
+            scrub: true,     // Faz a animação acompanhar o scroll
+            markers: false,   // Mostra os marcadores para depuração (remova em produção)
+        },
+    });
 });

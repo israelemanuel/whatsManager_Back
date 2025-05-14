@@ -589,8 +589,6 @@ h6 {
 
 }
 
-.commonLink {}
-
 .search {
     background-color: var(--mat-sys-surface);
     overflow: hidden;
@@ -740,30 +738,11 @@ body:has(.mat-menu.show) {
     }
 }
 
-.cardAdvantages {
-    width: 100%;
-    border-radius: calc(1.6* var(--main-curve));
-    background-color: var(--mat-sys-primary-bright);
-    opacity: 0;
-    transition: var(--main-transition);
-    border: 1px solid var(--mat-sys-primary-dim);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    color: var(--mat-sys-on-primary-bright);
 
 
 
-    @media(max-width:640px) {
-        max-width: 80dvw;
-    }
 
 
-}
 
 
 .hoverCard {
@@ -787,58 +766,89 @@ body:has(.mat-menu.show) {
 
 }
 
-.titleAdvantages {
-    text-align: center;
-    width: 100%;
-    opacity: 0;
-}
+
 
 
 #innerBody {
     overflow-y: scroll;
     height: 100dvh;
-    scroll-timeline-name: --innerView;
+    scroll-timeline-name: --innerbody;
     position: relative;
 }
 
 .bannerfadeAndScale {
     animation: fadeAndScale .6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
-    animation-timeline: --innerView;
-    animation-range: 0vh 100vh;
+    animation-timeline: --innerbody;
+    animation-range: 0dvh cover 100dvh;
 }
 
 
 .advantages {
+    animation-timeline: --innerbody;
+    animation-range: 100dvh cover 120dvh;
+    scroll-timeline-name: --advantages;
+
+    .cardAdvantages {
+        width: 100%;
+        border-radius: calc(1.6* var(--main-curve));
+        background-color: var(--mat-sys-primary-bright);
+        transition: var(--main-transition);
+        border: 1px solid var(--mat-sys-primary-dim);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        color: var(--mat-sys-on-primary-bright);
+    
+    
+    
+        @media(max-width:640px) {
+            max-width: 80dvw;
+        }
+    
+    
+    }
+    
+    .titleAdvantages {
+        text-align: center;
+        width: 100%;
+    }
+
+    
+
     .slideDown {
         animation: slideDown 2s linear forwards;
-        animation-timeline: --innerView;
-        animation-range: 55dvh cover 80dvh;
+        animation-timeline: --advantages ;
+        animation-range: 0% cover 20%;
     }
 
     .slideUp {
         animation: slideUp 2s linear forwards;
-        animation-timeline: --innerView;
-        animation-range: 55dvh cover 80dvh;
+        animation-timeline: --advantages ;
+        animation-range: 0% cover 0%;
     }
 
-    .disapear {
-        animation: disapear 1s linear forwards;
-        animation-timeline: --innerView;
-        animation-range: 50dvh cover 82dvh;
-    }
+    // .disapear {
+    //     animation: disapear 1s linear forwards;
+    //     animation-timeline: view();
+    //     animation-range: 50dvh cover 82dvh;
+    // }
 
-    .appear {
-        animation: appear .1s linear forwards;
-        animation-timeline: --innerView;
-        animation-range: 55dvh cover 80dvh;
+    // .appear {
+    //     animation: appear .1s linear forwards;
+    //     animation-timeline: view();
+    //     animation-range: 55dvh cover 80dvh;
 
-    }
+    // }
 }
 
 .freelancers {
     .fadeInAndScale {
         animation: fadeInAndScale .6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
-        animation-timeline: --innerView;
+        animation-timeline: view();
         animation-range: 120dvh cover 250dvh;
     }
 }
@@ -847,19 +857,19 @@ body:has(.mat-menu.show) {
 
     .slideUp {
         animation: slideUp 2s linear forwards;
-        animation-timeline: --innerView;
+        animation-timeline: view();
         animation-range: 260dvh cover 300dvh;
     }
 
     .slideRight {
         animation: slideRight 1s linear forwards;
-        animation-timeline: --innerView;
+        animation-timeline: view();
         animation-range: 280dvh cover 350dvh;
     }
 
     .slideLeft {
         animation: slideLeft 1s linear forwards;
-        animation-timeline: --innerView;
+        animation-timeline: view();
         animation-range: 280dvh cover 330dvh;
     }
 }
@@ -868,7 +878,7 @@ body:has(.mat-menu.show) {
 
     .fadeInAndScale {
         animation: fadeInAndScale .6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
-        animation-timeline: --innerView;
+        animation-timeline: view();
         animation-range: 410dvh cover 440dvh;
 
         @media(min-width: 641px) and (max-width: 768px) {
@@ -884,13 +894,13 @@ body:has(.mat-menu.show) {
 
     .slideDown {
         animation: slideDown 2s linear forwards;
-        animation-timeline: --innerView;
+        animation-timeline: view();
         animation-range: 430dvh cover 460dvh;
     }
 
     .slideUp {
         animation: slideUp 2s linear forwards;
-        animation-timeline: --innerView;
+        animation-timeline: view();
         animation-range: 430dvh cover 460dvh;
     }
 }
@@ -898,13 +908,13 @@ body:has(.mat-menu.show) {
 .faq {
     .fadeInAndScale {
         animation: fadeInAndScale .6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
-        animation-timeline: --innerView;
+        animation-timeline: view();
         animation-range: 510dvh cover 570dvh;
     }
 
     .slideUp {
         animation: slideUp .6s linear forwards;
-        animation-timeline: --innerView;
+        animation-timeline: view();
         animation-range: 98% cover 100%;
     }
 }
@@ -1134,7 +1144,7 @@ body:has(.mat-menu.show) {
     .morphRotate {
         position: absolute;
         animation: morphRotate 1s linear forwards;
-        animation-timeline: --innerView;
+        animation-timeline: view();
         animation-range: 140dvh cover 260dvh;
         transform-origin: center;
     }
@@ -1142,14 +1152,14 @@ body:has(.mat-menu.show) {
     .antiRotate{
 
         animation: antiRotate 1s linear backwards;
-        animation-timeline: --innerView;
+        animation-timeline: view();
         animation-range: 140dvh cover 260dvh;
         transform-origin: center;
 
         .show1{
             opacity: 1 !important;
             animation: opacity 1s linear forwards;
-            animation-timeline: --innerView;
+            animation-timeline: view();
             animation-range: 140dvh cover 180dvh;
             z-index: 1;
         }
@@ -1157,7 +1167,7 @@ body:has(.mat-menu.show) {
         .show2{
             opacity: 0;
             animation: opacity 1s linear forwards;
-            animation-timeline: --innerView;
+            animation-timeline: view();
             animation-range: 180dvh cover 220dvh;
             z-index: 2;
         }
@@ -1165,7 +1175,7 @@ body:has(.mat-menu.show) {
         .show3{
             opacity: 0;
             animation: opacity 1s linear forwards;
-            animation-timeline: --innerView;
+            animation-timeline: view();
             animation-range: 220dvh cover 260dvh;
             z-index: 3;
         }

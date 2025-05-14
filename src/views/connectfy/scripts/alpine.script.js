@@ -45,7 +45,7 @@ document.addEventListener('alpine:init', () => {
         },
 
         controllScroll() {
-            const elInnerBody = document.querySelector('#innerBody');
+            const elInnerBody = document.querySelector('#body');
             const { debounceTime, distinct, pluck, tap } = rxjs.operators;
             rxjs.fromEvent(elInnerBody, 'scroll')
                 .pipe(

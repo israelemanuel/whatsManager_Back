@@ -1,10 +1,10 @@
 import GeneralService from './generalService';
 
+
 class IndexService {
 
-   public async execute(params : any): Promise<any> {
-
-    const generalService = GeneralService.init();
+    public async execute(params: any): Promise<any> {
+        const generalService = GeneralService.init();
 
         let callToConnectDesk = "";
 
@@ -83,10 +83,10 @@ class IndexService {
                 fileName: 'Crontabil',
                 style: 1,
             },
-        ]     
-        
+        ]
 
-        return{
+
+        return {
             logo: generalService.logo,
             banner: generalService.banner,
             bannerAsset,
@@ -100,6 +100,8 @@ class IndexService {
             page: 'index',
         }
     }
+
+    
 }
 
 export default new IndexService();

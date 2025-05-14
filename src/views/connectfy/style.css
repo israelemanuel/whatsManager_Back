@@ -583,28 +583,6 @@ body:has(.mat-menu.show) .backdrop {
   pointer-events: all;
 }
 
-.cardAdvantages {
-  width: 100%;
-  border-radius: calc(1.6 * var(--main-curve));
-  background-color: var(--mat-sys-primary-bright);
-  opacity: 0;
-  transition: var(--main-transition);
-  border: 1px solid var(--mat-sys-primary-dim);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  color: var(--mat-sys-on-primary-bright);
-}
-@media (max-width: 640px) {
-  .cardAdvantages {
-    max-width: 80dvw;
-  }
-}
-
 .hoverCard {
   position: relative;
   z-index: 0 !important;
@@ -622,71 +600,84 @@ body:has(.mat-menu.show) .backdrop {
   -moz-box-shadow: 1px 9px 15px 1px rgba(0, 0, 0, 0.37);
 }
 
-.titleAdvantages {
-  text-align: center;
-  width: 100%;
-  opacity: 0;
-}
-
 #innerBody {
   overflow-y: scroll;
   height: 100dvh;
-  scroll-timeline-name: --innerView;
+  scroll-timeline-name: --innerbody;
   position: relative;
 }
 
 .bannerfadeAndScale {
   animation: fadeAndScale 0.6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
-  animation-timeline: --innerView;
-  animation-range: 0vh 100vh;
+  animation-timeline: --innerbody;
+  animation-range: 0dvh cover 100dvh;
 }
 
+.advantages {
+  animation-timeline: --innerbody;
+  animation-range: 100dvh cover 120dvh;
+  scroll-timeline-name: --advantages;
+}
+.advantages .cardAdvantages {
+  width: 100%;
+  border-radius: calc(1.6 * var(--main-curve));
+  background-color: var(--mat-sys-primary-bright);
+  transition: var(--main-transition);
+  border: 1px solid var(--mat-sys-primary-dim);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color: var(--mat-sys-on-primary-bright);
+}
+@media (max-width: 640px) {
+  .advantages .cardAdvantages {
+    max-width: 80dvw;
+  }
+}
+.advantages .titleAdvantages {
+  text-align: center;
+  width: 100%;
+}
 .advantages .slideDown {
   animation: slideDown 2s linear forwards;
-  animation-timeline: --innerView;
-  animation-range: 55dvh cover 80dvh;
+  animation-timeline: --advantages;
+  animation-range: 0% cover 20%;
 }
 .advantages .slideUp {
   animation: slideUp 2s linear forwards;
-  animation-timeline: --innerView;
-  animation-range: 55dvh cover 80dvh;
-}
-.advantages .disapear {
-  animation: disapear 1s linear forwards;
-  animation-timeline: --innerView;
-  animation-range: 50dvh cover 82dvh;
-}
-.advantages .appear {
-  animation: appear 0.1s linear forwards;
-  animation-timeline: --innerView;
-  animation-range: 55dvh cover 80dvh;
+  animation-timeline: --advantages;
+  animation-range: 0% cover 0%;
 }
 
 .freelancers .fadeInAndScale {
   animation: fadeInAndScale 0.6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
-  animation-timeline: --innerView;
+  animation-timeline: view();
   animation-range: 120dvh cover 250dvh;
 }
 
 .ourproducts .slideUp {
   animation: slideUp 2s linear forwards;
-  animation-timeline: --innerView;
+  animation-timeline: view();
   animation-range: 260dvh cover 300dvh;
 }
 .ourproducts .slideRight {
   animation: slideRight 1s linear forwards;
-  animation-timeline: --innerView;
+  animation-timeline: view();
   animation-range: 280dvh cover 350dvh;
 }
 .ourproducts .slideLeft {
   animation: slideLeft 1s linear forwards;
-  animation-timeline: --innerView;
+  animation-timeline: view();
   animation-range: 280dvh cover 330dvh;
 }
 
 .beloved .fadeInAndScale {
   animation: fadeInAndScale 0.6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
-  animation-timeline: --innerView;
+  animation-timeline: view();
   animation-range: 410dvh cover 440dvh;
 }
 @media (min-width: 641px) and (max-width: 768px) {
@@ -701,23 +692,23 @@ body:has(.mat-menu.show) .backdrop {
 }
 .beloved .slideDown {
   animation: slideDown 2s linear forwards;
-  animation-timeline: --innerView;
+  animation-timeline: view();
   animation-range: 430dvh cover 460dvh;
 }
 .beloved .slideUp {
   animation: slideUp 2s linear forwards;
-  animation-timeline: --innerView;
+  animation-timeline: view();
   animation-range: 430dvh cover 460dvh;
 }
 
 .faq .fadeInAndScale {
   animation: fadeInAndScale 0.6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
-  animation-timeline: --innerView;
+  animation-timeline: view();
   animation-range: 510dvh cover 570dvh;
 }
 .faq .slideUp {
   animation: slideUp 0.6s linear forwards;
-  animation-timeline: --innerView;
+  animation-timeline: view();
   animation-range: 98% cover 100%;
 }
 
@@ -906,34 +897,34 @@ body:has(.mat-menu.show) .backdrop {
 .begining .morphRotate {
   position: absolute;
   animation: morphRotate 1s linear forwards;
-  animation-timeline: --innerView;
+  animation-timeline: view();
   animation-range: 140dvh cover 260dvh;
   transform-origin: center;
 }
 .begining .antiRotate {
   animation: antiRotate 1s linear backwards;
-  animation-timeline: --innerView;
+  animation-timeline: view();
   animation-range: 140dvh cover 260dvh;
   transform-origin: center;
 }
 .begining .antiRotate .show1 {
   opacity: 1 !important;
   animation: opacity 1s linear forwards;
-  animation-timeline: --innerView;
+  animation-timeline: view();
   animation-range: 140dvh cover 180dvh;
   z-index: 1;
 }
 .begining .antiRotate .show2 {
   opacity: 0;
   animation: opacity 1s linear forwards;
-  animation-timeline: --innerView;
+  animation-timeline: view();
   animation-range: 180dvh cover 220dvh;
   z-index: 2;
 }
 .begining .antiRotate .show3 {
   opacity: 0;
   animation: opacity 1s linear forwards;
-  animation-timeline: --innerView;
+  animation-timeline: view();
   animation-range: 220dvh cover 260dvh;
   z-index: 3;
 }

@@ -24,9 +24,7 @@
     "build": "npx tsc",
     "copy:files": "copyfiles -u 2 src/views/**/* ../siteConnectDeploy/views",
     "copy:views": "copyfiles -u 2 src/views/**/**/* ../siteConnectDeploy/views",
-    "copy:build" : "npm run copy:files && npm run copy:views",
-    
-    
+    "copy:build": "npm run copy:files && npm run copy:views",
     "remove:views": "rm -rf ../siteConnectDeploy/views",
     "build:prod": "npm run build && npm run remove:views && npm run copy:build"
   },
@@ -43,6 +41,7 @@
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.21.1",
+    "gsap": "^3.13.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.2",
     "pino": "^9.6.0",

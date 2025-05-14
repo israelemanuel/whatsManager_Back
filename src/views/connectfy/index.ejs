@@ -2,32 +2,31 @@
 
     <!-- Banner -->
     <section id="inicio"
-        class="bannerfadeAndScale relative w-full min-h-[90dvh] md:h-[48rem] flex items-center justify-center bg-no-repeat bg-cover bg-center">
+        class="relative w-full min-h-[90dvh] md:h-[48rem] flex items-center justify-center bg-no-repeat bg-cover bg-center">
 
-        <div class="relative w-full h-full flex items-center justify-center">
+        <div class="relative flex items-center justify-center">
             <div
-                class=" relative w-full 2xl:w-[80dvw] 2xl:max-w-[1920px] h-full flex flex-col-reverse md:flex-row items-center z-10">
+                class=" relative w-full h-full flex flex-col-reverse md:flex-row items-center z-10 xl:gap-6">
 
-                <div class="scaleInLeft flex flex-col p-4 items-center justify-center text-[var(--mat-sys-on-surface)]"
+                <div class="flex flex-col p-4 items-center justify-end text-[var(--mat-sys-on-surface)]"
                     style="flex: 1;">
-                    <h2 class="highlight w-full text-center md:text-left">Conecte-se ao novo <br> cenário
+                    <h2 class="highlight w-full md:text-left text-center">Conecte-se ao novo <br> cenário
                         profissional</h2>
-                    <span class="w-full text-center md:text-left">Gestão Eficiente, Liberdade de
+                    <span class="w-full md:text-left text-center">Gestão Eficiente, Liberdade de
                         Trabalho</span>
                 </div>
 
-                <div class="scaleInRight slow flex items-center justify-center" style="flex: 1">
+                <div class="flex items-center justify-start">
                     <div
-                        class="flex flex-row gap-4 p-4 items-center justify-center w-[100dvw] md:w-[400px] xl:w-[550px] aspect-square scale-100">
-                        <div class="flex flex-col gap-4 grow">
-                            <div class="relative w-full rounded-2xl bg-[var(--mat-sys-secondary)]"
-                                style="aspect-ratio: 12/16;">
+                        class="flex flex-row gap-4 p-4 items-center justify-center w-full aspect-square scale-100">
+                        <div class="flex flex-col items-end   gap-4">
+                            <div class="relative rounded-2xl w-[40dvw] md:w-[20dvw] aspect-square bg-[var(--mat-sys-secondary)]">
                                 <img class="absolute bottom-0 left-0 right-0 scale-125 origin-bottom aspect-square z-10"
                                     src="<%= resposta.bannerAsset.confidentMen %>" alt="">
                             </div>
                             <div
                                 class="h-max w-full flex items-center justify-center rounded-2xl bg-[var(--mat-sys-primary-bright)] text-[var(--mat-sys-on-primary-bright)] p-4">
-                                <span class="font-bold" style="font-size: 1rem;">Gestão Eficiente, Liberdade de Trabalho
+                                <span class="font-bold" style="font-size: 1rem;">Gestão Eficiente,<br> Liberdade de Trabalho<br>
                                     Transparência Total.</span>
                             </div>
 
@@ -75,53 +74,49 @@
             class="absolute flex flex-col gap-4 w-full h-full items-center pt-[210px] pb-[110px] xl:px-4 z-10 max-w-[1920px]">
 
             <div class="absolute top-0 h-[240px] z-0 w-full flex flex-col items-center justify-center p-4">
-                <h2 class="slideUp titleAdvantages font-bold text-[var(--mat-sys-on-surface)]"
-                    style="font-size: 2.4rem; animation-delay: 1.2s;">O melhor Lugar para você</h2>
-                <span class="slideUp titleAdvantages text-[var(--mat-sys-on-primary-dim)]"
-                    style="font-size: 1rem; animation-delay: 3s;">Confira vantagens para prestadores e para tomadores de
+                <h2 class="titleAdvantages font-bold text-[var(--mat-sys-on-surface)]"
+                    style="font-size: 2.4rem;">O melhor Lugar para você</h2>
+                <span class="titleAdvantages text-[var(--mat-sys-on-primary-dim)]"
+                    style="font-size: 1rem;">Confira vantagens para prestadores e para tomadores de
                     serviços</span>
             </div>
 
             <div class="hidden xl:flex flex-col gap-4 w-full h-full max-w-[100%]  2xl:max-w-[80dvw]">
                 <div class="relative grid grid-cols-4 w-full h-full gap-4">
-                    <div class="slideDown cardAdvantages hoverCard"
-                        style="animation-range: 80vh cover 85vh !important;">
+                    <div class="cardAdvantages hoverCard">
                         <span>Controle Total e Transparência</span>
                         <span>Tenha acesso a relatórios detalhados e métricas de desempenho em tempo real.</span>
                     </div>
-                    <div class="slideDown cardAdvantages hoverCard"
-                        style="animation-range: 70vh cover 75vh !important;">
+                    <div class="cardAdvantages hoverCard">
                         <span>Os Melhores Preços do Mercado!</span>
                         <span>A combinação perfeito custo x benefícios</span>
                     </div>
-                    <div class="slideDown cardAdvantages hoverCard"
-                        style="animation-range: 60vh cover 65vh !important;">
+                    <div class="cardAdvantages hoverCard">
                         <span>Com valores cobrados em moeda local!</span>
                         <span>Pague sempre na sua moeda. Esqueça o IOF e as variações do câmbio! Não tenha surpresas no
                             final do mês.</span>
                     </div>
-                    <div class="slideDown cardAdvantages hoverCard"
-                        style="animation-range: 50vh cover 55vh !important;">
+                    <div class="cardAdvantages hoverCard">
                         <span>Plataforma Integrada</span>
                         <span>Conecte todas as áreas do seu negócio em um único lugar.</span>
                     </div>
                 </div>
 
                 <div class="relative grid grid-cols-4 w-full h-full gap-4">
-                    <div class="slideUp cardAdvantages hoverCard" style="animation-range: 80vh cover 85vh !important;">
+                    <div class="cardAdvantages hoverCard">
                         <span>Trabalhe de Onde Quiser</span>
                         <span>Flexibilidade total para escolher seu local e horário de trabalho, em qualquer parte do
                             mundo.</span>
                     </div>
-                    <div class="slideUp cardAdvantages hoverCard" style="animation-range: 70vh cover 75vh !important;">
+                    <div class="cardAdvantages hoverCard">
                         <span>Diversidade de Projetos</span>
                         <span>Trabalhe em diferentes setores e expanda seu portfólio.</span>
                     </div>
-                    <div class="slideUp cardAdvantages hoverCard" style="animation-range: 60vh cover 65vh !important;">
+                    <div class="cardAdvantages hoverCard">
                         <span>Crescimento Profissional Constante</span>
                         <span>Acesse treinamentos e feedback contínuo para evoluir sua carreira.</span>
                     </div>
-                    <div class="slideUp cardAdvantages hoverCard" style="animation-range: 50vh cover 55vh !important;">
+                    <div class="cardAdvantages hoverCard">
                         <span>Autonomia Total</span>
                         <span>Defina suas metas, escolha seus projetos e gerencie seu próprio tempo.</span>
                     </div>
@@ -132,20 +127,20 @@
                 <div class="w-full h-full overflow-x-auto overflow-y-visible px-4">
                     <div
                         class="relative flex flex-row flex-nowrap w-full h-full gap-4 min-w-[calc(80dvw_*_4)] md:min-w-[calc(80dvw_*_3)]">
-                        <div class="cardAdvantages appear" style="animation-delay: 1.1s;">
+                        <div class="cardAdvantages">
                             <span>Controle Total e Transparência</span>
                             <span>Tenha acesso a relatórios detalhados e métricas de desempenho em tempo real.</span>
                         </div>
-                        <div class="cardAdvantages appear" style="animation-delay: 1s;">
+                        <div class="cardAdvantages">
                             <span>Os Melhores Preços do Mercado!</span>
                             <span>A combinação perfeito custo x benefícios</span>
                         </div>
-                        <div class="cardAdvantages appear" style="animation-delay: 0.9s;">
+                        <div class="cardAdvantages">
                             <span>Com valores cobrados em moeda local!</span>
                             <span>Pague sempre na sua moeda. Esqueça o IOF e as variações do câmbio! Não tenha surpresas
                                 no final do mês.</span>
                         </div>
-                        <div class="cardAdvantages appear" style="animation-delay: 0.8s;">
+                        <div class="cardAdvantages">
                             <span>Plataforma Integrada</span>
                             <span>Conecte todas as áreas do seu negócio em um único lugar.</span>
                         </div>
@@ -155,20 +150,20 @@
                 <div class="w-full h-full overflow-x-auto overflow-y-visible px-4">
                     <div
                         class="relative flex flex-row flex-nowrap w-full h-full gap-4 min-w-[calc(80dvw_*_4)] md:min-w-[calc(80dvw_*_3)]">
-                        <div class="cardAdvantages appear" style="animation-delay: 1.1s;">
+                        <div class="cardAdvantages">
                             <span>Trabalhe de Onde Quiser</span>
                             <span>Flexibilidade total para escolher seu local e horário de trabalho, em qualquer parte
                                 do mundo.</span>
                         </div>
-                        <div class="cardAdvantages appear" style="animation-delay: 1s;">
+                        <div class="cardAdvantages">
                             <span>Diversidade de Projetos</span>
                             <span>Trabalhe em diferentes setores e expanda seu portfólio.</span>
                         </div>
-                        <div class="cardAdvantages appear" style="animation-delay: 0.9s;">
+                        <div class="cardAdvantages">
                             <span>Crescimento Profissional Constante</span>
                             <span>Acesse treinamentos e feedback contínuo para evoluir sua carreira.</span>
                         </div>
-                        <div class="cardAdvantages appear" style="animation-delay: 0.8s;">
+                        <div class="cardAdvantages">
                             <span>Autonomia Total</span>
                             <span>Defina suas metas, escolha seus projetos e gerencie seu próprio tempo.</span>
                         </div>
@@ -179,8 +174,8 @@
 
             <div
                 class="hidden xl:flex items-center absolute top-0 bottom-0 z-0 w-full px-4 pointer-events-none select-none">
-                <span class="disapear font-bold text-[var(--mat-sys-on-surface)]"
-                    style="font-size: 2.4rem; animation-delay: 2s;">O melhor Lugar para prestadores<br> e tomadores de
+                <span class="font-bold text-[var(--mat-sys-on-surface)]"
+                    style="font-size: 2.4rem;">O melhor Lugar para prestadores<br> e tomadores de
                     serviço</span>
             </div>
 
@@ -195,7 +190,7 @@
     <section id="freelancers"
         class="freelancers relative w-full h-[80dvh] flex flex-col items-center justify-center p-4 bg-[var(--mat-sys-primary-bright-variant)]">
         <div
-            class="fadeInAndScale relative rounded-4xl lg:rounded-full w-full 2xl:w-[80%] min-h-[55dvh] h-[60%] bg-[var(--mat-sys-primary-dim)] opacity-0">
+            class="relative rounded-4xl lg:rounded-full w-full 2xl:w-[80%] min-h-[55dvh] h-[60%] bg-[var(--mat-sys-primary-dim)]">
             <div
                 class="hidden lg:flex absolute lg:right-[10dvw] top-[5%] bottom-0 rounded-3xl bg-[var(--mat-sys-secondary)] scale-100 lg:scale-125 pointer-events-none max-h-[90%] aspect-[calc(3/4)] 2xl:aspect-[calc(7/9)]">
                 <div class="absolute top-0 right-0 rounded-3xl w-max p-6 bg-[var(--mat-sys-complementar)] text-[var(--mat-sys-on-complementary)] dark:bg-[var(--mat-sys-tertiary)] dark:text-[var(--mat-sys-on-tertiary)]"
@@ -243,12 +238,12 @@
 
     <section id="ourproducts">
         <div class="ourproducts flex flex-col justify-center items-center gap-4 pt-[110px] pb-[86px] px-4">
-            <div class="slideUp flex flex-col text-center text-[var(--mat-sys-on-surface)] opacity-0">
+            <div class="flex flex-col text-center text-[var(--mat-sys-on-surface)]">
                 <h2>Nossos Produtos</h2>
                 <span>Estamos trabalhando para atender você ainda mais!</span>
             </div>
 
-            <div class="slideLeft w-full flex items-center justify-center opacity-0">
+            <div class="w-full flex items-center justify-center">
                 <div class="xl:w-[80dvw] bg-[var(--mat-sys-primary-bright)] rounded-2xl h-max overflow-hidden"
                     style="border: 1px solid var(--mat-sys-primary-dim);">
                     <div class="grid grid-cols-1 xl:grid-cols-2">
@@ -284,12 +279,12 @@
                 </div>
             </div>
 
-            <div class="slideRight w-full flex items-center justify-center opacity-0">
+            <div class="w-full flex items-center justify-center">
                 <div class="xl:w-[80dvw] bg-[var(--mat-sys-primary-dim)] rounded-2xl h-max overflow-hidden">
                     <div class="grid grid-cols-1 xl:grid-cols-2">
                         <div class="hidden relative w-full h-full xl:flex flex-auto items-center justify-center ">
                             <div
-                                class="relative xl:absolute xl:right-[10%] bg-[var(--mat-sys-primary)] rounded-2xl aspect-video w-[100%] scale-100">
+                                class="relative xl:absolute xl.right-[10%] bg-[var(--mat-sys-primary)] rounded-2xl aspect-video w-[100%] scale-100">
                             </div>
                         </div>
 
@@ -323,11 +318,11 @@
 
     <section id="beloved">
         <div class="beloved flex flex-col justify-center items-center gap-4 pt-[110px] pb-[86px] px-4">
-            <div class="fadeInAndScale flex flex-col text-center text-[var(--mat-sys-on-surface)] opacity-0">
+            <div class="flex flex-col text-center text-[var(--mat-sys-on-surface)]">
                 <h2>Amado por equipes de todos os tamanhos</h2>
             </div>
 
-            <div class="slideUp w-full 2xl:w-[80dvw] 2xl:max-w-[1920px] pt-8 opacity-0">
+            <div class="w-full 2xl:w-[80dvw] 2xl:max-w-[1920px] pt-8">
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-4 w-full">
                     <% resposta.lstComents.forEach(item=> {%>
                         <% if(item.style==1) {%>
@@ -408,7 +403,7 @@
 
     <section id="faq">
         <div class="faq relative flex flex-col justify-center items-center gap-4 pt-[110px] pb-[86px] px-4">
-            <div class="fadeInAndScale flex flex-col text-center text-[var(--mat-sys-on-surface)] opacity-0">
+            <div class="flex flex-col text-center text-[var(--mat-sys-on-surface)]">
                 <h2>Alguma dúvida? Conte com a gente</h2>
                 <span>Nossa central de perguntas frequentes foi desenhada para prover a você<br> respostas sobre as
                     dúvidas mais comuns</span>
@@ -433,7 +428,7 @@
                 </template>
             </div>
 
-            <div class="slideUp absolute bottom-0 right-0 opacity-0 p-6">
+            <div class="absolute bottom-0 right-0 p-6">
                 <a href="#inicio" class="iconButton primary">
                     <span class="material-symbols-rounded">
                         arrow_upward
