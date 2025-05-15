@@ -1,3 +1,188 @@
 </div>
 </div>
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        loadUserPreferences();
+
+        gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin);
+
+        let smoother = ScrollSmoother.create({
+            wrapper: "#scroll-wrapper",
+            content: "#scroll-content",
+            smooth: 1, // how long (in seconds) it takes to "calm" the scroll
+            effects: true, // looks for data-speed and data-lag attributes on elements
+            smoothTouch: 0.1, // much shorter smoothing time on touch devices (default is NO smoothing on touch devices)
+
+        });
+
+        gsap.to("#paralax-background", {
+            y: "-50%", // Move o fundo para criar o efeito de parallax
+            ease: "none", // Sem suavização
+            scrollTrigger: {
+                trigger: "#paralax-background", // Seção que ativa o efeito
+                start: "top bottom", // Inicia quando o topo da seção entra na viewport
+                end: "bottom top", // Termina quando o fundo da seção sai da viewport
+                scrub: true, // Sincroniza com o scroll
+                markers: false,   // Mostra os marcadores para depuração (remova em produção)
+            },
+        });
+
+        gsap.to("#header", {
+            backgroundColor: "var(--mat-sys-surface)", // Altera a cor de fundo
+            duration: 0.6, // Duração da transição
+            ease: "bezier(0.075, 0.82, 0.165, 1)", // Tipo de easing
+            scrollTrigger: {
+                trigger: "#header", // Elemento que ativa a animação
+                start: "top top", // Inicia quando o topo do header atinge o topo da viewport
+                scrub: false, // Sincroniza a animação com o scroll
+                markers: false,   // Mostra os marcadores para depuração (remova em produção)
+                toggleActions: "play none none reverse", // Ações de animação
+            },
+        });
+
+        gsap.to("#inicio", {
+            scale: 2,
+            opacity: 0,
+            duration: 1,
+            ease: "bezier(0.075, 0.82, 0.165, 1)", // Tipo de easing
+            scrollTrigger: {
+                trigger: "#inicio",
+                start: "top 0%", // Inicia quando o topo do elemento atinge 80% da viewport
+                end: "bottom 80%",  // Termina quando o topo do elemento atinge 100% da viewport
+                scrub: true,     // Faz a animação acompanhar o scroll
+                markers: false,   // Mostra os marcadores para depuração (remova em produção)
+            },
+        });
+
+        gsap.to("#vantagens-calltitle", {
+            opacity: 0, // Gradualmente desaparece
+            duration: .6, // Duração da animação
+            ease: "bezier(0.075, 0.82, 0.165, 1)", // Tipo de easing
+            scrollTrigger: {
+                trigger: "#vantagens-calltitle", // Elemento que ativa a animação
+                start: "top 80%", // Inicia quando o topo do elemento atinge 80% da viewport
+                end: "bottom 60%", // Termina quando o fundo do elemento atinge 20% da viewport
+                scrub: true, // Sincroniza a animação com o scroll
+                markers: false, // Mostra os marcadores para depuração (remova em produção)
+            },
+        });
+
+        gsap.to("#advantage-title", {
+            opacity: 1, // Gradualmente aparece
+            y: 0, // Move para a posição original
+            duration: 0.6, // Duração da animação
+            ease: "power1.out", // Efeito de suavização
+            scrollTrigger: {
+                trigger: "#advantage-title", // Elemento que ativa a animação
+                start: "top 20%", // Inicia quando o topo do elemento atinge 100% da viewport
+                end: "bottom 40%", // Termina quando o fundo do elemento atinge 70% da viewport
+                scrub: true, // Sincroniza a animação com o scroll
+                markers: false, // Mostra os marcadores para depuração (remova em produção)
+            },
+        });
+
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#vantagens-list", // Ativa a animação quando a seção #vantagens entra na viewport
+                start: "top 70%", // Inicia quando o topo da seção atinge 80% da viewport
+                end: "bottom 60%", // Termina quando o fundo da seção atinge 20% da viewport
+                markers: false, // Mostra os marcadores para depuração (remova em produção)
+                scrub: true, // Sincroniza a animação com o scroll
+                toggleActions: "play none none reverse", // Controla o comportamento ao entrar e sair da viewport
+            },
+        });
+
+        tl.from(".slideFromTop", {
+            opacity: 0, // Começa invisível
+            y: -20, // Começa deslocado 50px para a direita
+            duration: 0.6, // Duração de cada animação
+            ease: "power1.out", // Suavização
+            stagger: {
+                amount: 0.6, // Tempo total do stagger
+                from: "end", // Aplica o stagger do último para o primeiro
+            },
+        })
+
+        const tl2 = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#vantagens-list2", // Ativa a animação quando a seção #vantagens entra na viewport
+                start: "top 70%", // Inicia quando o topo da seção atinge 80% da viewport
+                end: "bottom 60%", // Termina quando o fundo da seção atinge 20% da viewport
+                markers: false, // Mostra os marcadores para depuração (remova em produção)
+                scrub: false, // Sincroniza a animação com o scroll
+                toggleActions: "play none none reverse",
+            },
+        });
+
+        tl2.from(".slideFromBottom", {
+            opacity: 0, // Começa invisível
+            y: 20, // Começa deslocado 50px para a direita
+            duration: 0.6, // Duração de cada animação
+            ease: "power1.out", // Suavização
+            stagger: {
+                amount: 0.6, // Tempo total do stagger
+                from: "end", // Aplica o stagger do último para o primeiro
+            },
+        });
+
+        gsap.to("#freelancers-modal", {
+            opacity: 1, // Gradualmente aparece
+            y: 0, // Move para a posição original
+            scale: 1,
+            duration: 0.6, // Duração da animação
+            ease: "power1.out", // Efeito de suavização
+            scrollTrigger: {
+                trigger: "#freelancers", // Elemento que ativa a animação
+                start: "top 100%", // Inicia quando o topo do elemento atinge 100% da viewport
+                end: "bottom 80%", // Termina quando o fundo do elemento atinge 70% da viewport
+                scrub: true, // Sincroniza a animação com o scroll
+                markers: false, // Mostra os marcadores para depuração (remova em produção)
+            },
+        });
+
+        gsap.to("#prod-connect-desk", {
+            opacity: 1, // Gradualmente aparece
+            x: 0, // Move para a posição original
+            scale: 1,
+            duration: 0.6, // Duração da animação
+            ease: "power1.out", // Efeito de suavização
+            scrollTrigger: {
+                trigger: "#prod-connect-desk", // Elemento que ativa a animação
+                start: "top 100%", // Inicia quando o topo do elemento atinge 100% da viewport
+                end: "bottom 80%", // Termina quando o fundo do elemento atinge 70% da viewport
+                scrub: true, // Sincroniza a animação com o scroll
+                markers: false, // Mostra os marcadores para depuração (remova em produção)
+            },
+        });
+
+        gsap.to("#prod-connect-schools", {
+            opacity: 1, // Gradualmente aparece
+            x: 0, // Move para a posição original
+            scale: 1,
+            duration: 0.6, // Duração da animação
+            ease: "power1.out", // Efeito de suavização
+            scrollTrigger: {
+                trigger: "#prod-connect-schools", // Elemento que ativa a animação
+                start: "top 100%", // Inicia quando o topo do elemento atinge 100% da viewport
+                end: "bottom 80%", // Termina quando o fundo do elemento atinge 70% da viewport
+                scrub: true, // Sincroniza a animação com o scroll
+                markers: false, // Mostra os marcadores para depuração (remova em produção)
+            },
+        });
+
+        let backTop = document.querySelector("#back-top");
+
+        if (backTop) {
+            backTop.addEventListener('click', function (event) {
+                event.preventDefault();
+
+                // Usa o método scrollTo do ScrollSmoother
+                smoother.scrollTo("#inicio", true, "power1.inOut");
+            });
+        }
+
+
+        ScrollTrigger.refresh();
+    });
+</script>

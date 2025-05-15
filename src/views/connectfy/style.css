@@ -633,14 +633,6 @@ body:has(.mat-menu.show) .backdrop {
 .advantages .cardAdvantages.secondary {
   background-color: var(--mat-sys-primary-dim);
 }
-.advantages .cardAdvantages.slideFromTop {
-  opacity: 1;
-  transform: translateY(0px);
-}
-.advantages .cardAdvantages.slideFromBottom {
-  opacity: 1;
-  transform: translateY(0px);
-}
 @media (max-width: 640px) {
   .advantages .cardAdvantages {
     max-width: 80dvw;

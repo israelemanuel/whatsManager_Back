@@ -85,6 +85,77 @@ class IndexService {
             },
         ]
 
+        const lstAdvantages = [
+            {
+                title: 'Controle Total e Transparência',
+                description: 'Tenha acesso a relatórios detalhados e métricas de desempenho em tempo real.',
+                style: 1,
+            },
+
+            {
+                title: 'Os Melhores Preços do Mercado',
+                description: 'A combinação perfeito custo x benefícios.',
+                style: 2,
+            },
+            {
+                title: 'Com valores cobrados em moeda local',
+                description: 'Pague sempre na sua moeda. Esqueça o IOF e as variações do câmbio! Não tenha surpresas no final do mês.',
+                style: 1,
+            },
+            {
+                title: 'Plataforma Integrada',
+                description:'Conecte todas as áreas do seu negócio em um único lugar.',
+                style: 2,
+            },
+        ]
+
+        const lstAdvantages2 = [
+            {
+                title: 'Trabalhe de Onde Quiser',
+                description: 'Flexibilidade total para escolher seu local e horário de trabalho, em qualquer parte do mundo.',
+                style: 1,
+            },
+            {
+                title: 'Diversidade de Projetos',
+                description:'Trabalhe em diferentes setores e expanda seu portfólio.',
+                style: 2,
+            },
+            {
+                title: 'Crescimento Profissional Constante',
+                description: 'Acesse treinamentos e feedback contínuo para evoluir sua carreira.',
+                style: 1,
+            },
+            {
+                title: 'Autonomia Total',
+                description: 'Defina suas metas, escolha seus projetos e gerencie seu próprio tempo.',
+                style: 2,
+            },
+        ]
+
+
+        const lstFaq = [
+            {
+                title: 'O que é o connectDesk?',
+                description: 'O connectDesk é uma plataforma inovadora que transforma o atendimento ao cliente, permitindo que equipes de qualquer organização se conectem de forma ágil e personalizada, oferecendo soluções rápidas e eficientes, aumentando a produtividade e melhorando a experiência do cliente com tecnologia inteligente e integração simplificada.',
+                toggle: false
+            },
+            {
+                title: 'O que é o connectDesk?',
+                description: 'O connectDesk é uma plataforma inovadora que transforma o atendimento ao cliente, permitindo que equipes de qualquer organização se conectem de forma ágil e personalizada, oferecendo soluções rápidas e eficientes, aumentando a produtividade e melhorando a experiência do cliente com tecnologia inteligente e integração simplificada.',
+                toggle: false
+            },
+            {
+                title: 'O que é o connectDesk?',
+                description: 'O connectDesk é uma plataforma inovadora que transforma o atendimento ao cliente, permitindo que equipes de qualquer organização se conectem de forma ágil e personalizada, oferecendo soluções rápidas e eficientes, aumentando a produtividade e melhorando a experiência do cliente com tecnologia inteligente e integração simplificada.',
+                toggle: false
+            },
+            {
+                title: 'O que é o connectDesk?',
+                description: 'O connectDesk é uma plataforma inovadora que transforma o atendimento ao cliente, permitindo que equipes de qualquer organização se conectem de forma ágil e personalizada, oferecendo soluções rápidas e eficientes, aumentando a produtividade e melhorando a experiência do cliente com tecnologia inteligente e integração simplificada.',
+                toggle: false
+            },
+        ]
+
 
         return {
             logo: generalService.logo,
@@ -94,6 +165,9 @@ class IndexService {
             paralaxAsset,
             lstComents,
             callToConnectDesk,
+            lstAdvantages,
+            lstAdvantages2,
+            lstFaq,
             title: 'Connectfy',
             description: 'This is the about us page.',
             content: '<p>Welcome to our website!</p>',
