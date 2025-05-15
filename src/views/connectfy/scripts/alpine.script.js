@@ -7,6 +7,53 @@ document.addEventListener('alpine:init', () => {
         showAboutUs: false,
         toggleMobileMenu: false,
 
+        lstAdvantages: [
+            {
+                title: 'Controle Total e Transparência',
+                description: 'Tenha acesso a relatórios detalhados e métricas de desempenho em tempo real.',
+                style: 1,
+            },
+
+            {
+                title: 'Os Melhores Preços do Mercado',
+                description: 'A combinação perfeito custo x benefícios.',
+                style: 2,
+            },
+            {
+                title: 'Com valores cobrados em moeda local',
+                description: 'Pague sempre na sua moeda. Esqueça o IOF e as variações do câmbio! Não tenha surpresas no final do mês.',
+                style: 1,
+            },
+            {
+                title: 'Plataforma Integrada',
+                description:'Conecte todas as áreas do seu negócio em um único lugar.',
+                style: 2,
+            },
+        ],
+        
+        lstAdvantages2: [
+            {
+                title: 'Trabalhe de Onde Quiser',
+                description: 'Flexibilidade total para escolher seu local e horário de trabalho, em qualquer parte do mundo.',
+                style: 1,
+            },
+            {
+                title: 'Diversidade de Projetos',
+                description:'Trabalhe em diferentes setores e expanda seu portfólio.',
+                style: 2,
+            },
+            {
+                title: 'Crescimento Profissional Constante',
+                description: 'Acesse treinamentos e feedback contínuo para evoluir sua carreira.',
+                style: 1,
+            },
+            {
+                title: 'Autonomia Total',
+                description: 'Defina suas metas, escolha seus projetos e gerencie seu próprio tempo.',
+                style: 2,
+            },
+        ],
+
 
         lstFaq: [
             {

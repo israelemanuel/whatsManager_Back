@@ -607,21 +607,13 @@ body:has(.mat-menu.show) .backdrop {
   position: relative;
 }
 
-.bannerfadeAndScale {
-  animation: fadeAndScale 0.6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
-  animation-timeline: --innerbody;
-  animation-range: 0dvh cover 100dvh;
-}
-
-.advantages {
-  animation-timeline: --innerbody;
-  animation-range: 100dvh cover 120dvh;
-  scroll-timeline-name: --advantages;
+.advantages #advantage-title {
+  opacity: 0;
+  transform: translateY(20px);
 }
 .advantages .cardAdvantages {
   width: 100%;
   border-radius: calc(1.6 * var(--main-curve));
-  background-color: var(--mat-sys-primary-bright);
   transition: var(--main-transition);
   border: 1px solid var(--mat-sys-primary-dim);
   display: flex;
@@ -632,6 +624,22 @@ body:has(.mat-menu.show) .backdrop {
   height: 100%;
   text-align: center;
   color: var(--mat-sys-on-primary-bright);
+  gap: 1rem;
+  padding: 1rem;
+}
+.advantages .cardAdvantages.main {
+  background-color: var(--mat-sys-primary-bright);
+}
+.advantages .cardAdvantages.secondary {
+  background-color: var(--mat-sys-primary-dim);
+}
+.advantages .cardAdvantages.slideFromTop {
+  opacity: 1;
+  transform: translateY(0px);
+}
+.advantages .cardAdvantages.slideFromBottom {
+  opacity: 1;
+  transform: translateY(0px);
 }
 @media (max-width: 640px) {
   .advantages .cardAdvantages {
@@ -657,22 +665,6 @@ body:has(.mat-menu.show) .backdrop {
   animation: fadeInAndScale 0.6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
   animation-timeline: view();
   animation-range: 120dvh cover 250dvh;
-}
-
-.ourproducts .slideUp {
-  animation: slideUp 2s linear forwards;
-  animation-timeline: view();
-  animation-range: 260dvh cover 300dvh;
-}
-.ourproducts .slideRight {
-  animation: slideRight 1s linear forwards;
-  animation-timeline: view();
-  animation-range: 280dvh cover 350dvh;
-}
-.ourproducts .slideLeft {
-  animation: slideLeft 1s linear forwards;
-  animation-timeline: view();
-  animation-range: 280dvh cover 330dvh;
 }
 
 .beloved .fadeInAndScale {

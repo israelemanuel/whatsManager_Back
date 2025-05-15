@@ -73,7 +73,7 @@
         <div
             class="absolute flex flex-col gap-4 w-full h-full items-center pt-[210px] pb-[110px] xl:px-4 z-10 max-w-[1920px]">
 
-            <div class="absolute top-0 h-[240px] z-0 w-full flex flex-col items-center justify-center p-4">
+            <div id="advantage-title" class="absolute top-0 h-[240px] z-0 w-full flex flex-col items-center justify-center p-4">
                 <h2 class="titleAdvantages font-bold text-[var(--mat-sys-on-surface)]"
                     style="font-size: 2.4rem;">O melhor Lugar para você</h2>
                 <span class="titleAdvantages text-[var(--mat-sys-on-primary-dim)]"
@@ -81,45 +81,26 @@
                     serviços</span>
             </div>
 
-            <div class="hidden xl:flex flex-col gap-4 w-full h-full max-w-[100%]  2xl:max-w-[80dvw]">
+            <div class="hidden xl:flex flex-col w-full h-full max-w-[100%]  2xl:max-w-[80dvw]">
                 <div class="relative grid grid-cols-4 w-full h-full gap-4">
-                    <div class="cardAdvantages hoverCard">
-                        <span>Controle Total e Transparência</span>
-                        <span>Tenha acesso a relatórios detalhados e métricas de desempenho em tempo real.</span>
-                    </div>
-                    <div class="cardAdvantages hoverCard">
-                        <span>Os Melhores Preços do Mercado!</span>
-                        <span>A combinação perfeito custo x benefícios</span>
-                    </div>
-                    <div class="cardAdvantages hoverCard">
-                        <span>Com valores cobrados em moeda local!</span>
-                        <span>Pague sempre na sua moeda. Esqueça o IOF e as variações do câmbio! Não tenha surpresas no
-                            final do mês.</span>
-                    </div>
-                    <div class="cardAdvantages hoverCard">
-                        <span>Plataforma Integrada</span>
-                        <span>Conecte todas as áreas do seu negócio em um único lugar.</span>
-                    </div>
+                    <template x-for="(item, index) in lstAdvantages" :key="index">
+                        <div class="cardAdvantages hoverCard slideFromTop" :class="item.style == 1 ? 'main' : 'secondary'"> 
+                            <span :class="item.toggle ? 'text-[1rem]' : 'text-[1.6rem]'" x-text="item.title"></span>
+                            <span x-text="item.description"></span>
+                        </div>
+                    </template>
                 </div>
+                
+                <div id="vantagens-list-top" class="h-[1rem]"></div>
+                <div id="vantagens-list-bottom" class="h-[1rem]"></div>
 
                 <div class="relative grid grid-cols-4 w-full h-full gap-4">
-                    <div class="cardAdvantages hoverCard">
-                        <span>Trabalhe de Onde Quiser</span>
-                        <span>Flexibilidade total para escolher seu local e horário de trabalho, em qualquer parte do
-                            mundo.</span>
-                    </div>
-                    <div class="cardAdvantages hoverCard">
-                        <span>Diversidade de Projetos</span>
-                        <span>Trabalhe em diferentes setores e expanda seu portfólio.</span>
-                    </div>
-                    <div class="cardAdvantages hoverCard">
-                        <span>Crescimento Profissional Constante</span>
-                        <span>Acesse treinamentos e feedback contínuo para evoluir sua carreira.</span>
-                    </div>
-                    <div class="cardAdvantages hoverCard">
-                        <span>Autonomia Total</span>
-                        <span>Defina suas metas, escolha seus projetos e gerencie seu próprio tempo.</span>
-                    </div>
+                    <template x-for="(item, index) in lstAdvantages2" :key="index">
+                        <div class="cardAdvantages hoverCard slideFromBottom" :class="item.style == 1 ? 'main' : 'secondary'">
+                            <span :class="item.toggle ? 'text-[1rem]' : 'text-[1.6rem]'" x-text="item.title"></span>
+                            <span x-text="item.description"></span>
+                        </div>
+                    </template>
                 </div>
             </div>
 
@@ -174,7 +155,7 @@
 
             <div
                 class="hidden xl:flex items-center absolute top-0 bottom-0 z-0 w-full px-4 pointer-events-none select-none">
-                <span class="font-bold text-[var(--mat-sys-on-surface)]"
+                <span class="font-bold text-[var(--mat-sys-on-surface)]" id="vantagens-calltitle"
                     style="font-size: 2.4rem;">O melhor Lugar para prestadores<br> e tomadores de
                     serviço</span>
             </div>
@@ -187,10 +168,10 @@
 
     </section>
 
-    <section id="freelancers"
-        class="freelancers relative w-full h-[80dvh] flex flex-col items-center justify-center p-4 bg-[var(--mat-sys-primary-bright-variant)]">
-        <div
-            class="relative rounded-4xl lg:rounded-full w-full 2xl:w-[80%] min-h-[55dvh] h-[60%] bg-[var(--mat-sys-primary-dim)]">
+    <section id="freelancers" class="freelancers relative w-full h-[80dvh] flex flex-col items-center justify-center p-4 bg-[var(--mat-sys-primary-bright-variant)]">
+
+        <div id="freelancers-modal"
+            class="relative rounded-4xl lg:rounded-full w-full 2xl:w-[80%] min-h-[55dvh] h-[60%] bg-[var(--mat-sys-primary-dim)]" style="transform: translateY(30%); scale: 0;">
             <div
                 class="hidden lg:flex absolute lg:right-[10dvw] top-[5%] bottom-0 rounded-3xl bg-[var(--mat-sys-secondary)] scale-100 lg:scale-125 pointer-events-none max-h-[90%] aspect-[calc(3/4)] 2xl:aspect-[calc(7/9)]">
                 <div class="absolute top-0 right-0 rounded-3xl w-max p-6 bg-[var(--mat-sys-complementar)] text-[var(--mat-sys-on-complementary)] dark:bg-[var(--mat-sys-tertiary)] dark:text-[var(--mat-sys-on-tertiary)]"
@@ -210,6 +191,7 @@
                 </a>
             </div>
         </div>
+
     </section>
 
     <section id="clients">
@@ -243,7 +225,7 @@
                 <span>Estamos trabalhando para atender você ainda mais!</span>
             </div>
 
-            <div class="w-full flex items-center justify-center">
+            <div id="prod-connect-desk" class="w-full flex items-center justify-center" style="transform: translateX(100%); scale: 0.6;">
                 <div class="xl:w-[80dvw] bg-[var(--mat-sys-primary-bright)] rounded-2xl h-max overflow-hidden"
                     style="border: 1px solid var(--mat-sys-primary-dim);">
                     <div class="grid grid-cols-1 xl:grid-cols-2">
@@ -279,7 +261,7 @@
                 </div>
             </div>
 
-            <div class="w-full flex items-center justify-center">
+            <div id="prod-connect-schools" class="w-full flex items-center justify-center" style="transform: translateX(-100%); scale: 0.6;">
                 <div class="xl:w-[80dvw] bg-[var(--mat-sys-primary-dim)] rounded-2xl h-max overflow-hidden">
                     <div class="grid grid-cols-1 xl:grid-cols-2">
                         <div class="hidden relative w-full h-full xl:flex flex-auto items-center justify-center ">

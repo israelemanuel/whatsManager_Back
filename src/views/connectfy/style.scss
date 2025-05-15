@@ -776,22 +776,17 @@ body:has(.mat-menu.show) {
     position: relative;
 }
 
-.bannerfadeAndScale {
-    animation: fadeAndScale .6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
-    animation-timeline: --innerbody;
-    animation-range: 0dvh cover 100dvh;
-}
-
 
 .advantages {
-    animation-timeline: --innerbody;
-    animation-range: 100dvh cover 120dvh;
-    scroll-timeline-name: --advantages;
+
+    #advantage-title{
+        opacity: 0;
+        transform: translateY(20px);
+    }
 
     .cardAdvantages {
         width: 100%;
         border-radius: calc(1.6* var(--main-curve));
-        background-color: var(--mat-sys-primary-bright);
         transition: var(--main-transition);
         border: 1px solid var(--mat-sys-primary-dim);
         display: flex;
@@ -802,6 +797,29 @@ body:has(.mat-menu.show) {
         height: 100%;
         text-align: center;
         color: var(--mat-sys-on-primary-bright);
+        gap: 1rem;
+        padding: 1rem;
+
+        &.main{
+            background-color: var(--mat-sys-primary-bright);
+        }
+
+        &.secondary{
+            background-color: var(--mat-sys-primary-dim);
+        }
+
+
+        
+
+        &.slideFromTop{
+            opacity: 1;
+            transform: translateY(0px);
+        }
+
+        &.slideFromBottom{
+            opacity: 1;
+            transform: translateY(0px);
+        }
     
     
     
@@ -817,7 +835,7 @@ body:has(.mat-menu.show) {
         width: 100%;
     }
 
-    
+
 
     .slideDown {
         animation: slideDown 2s linear forwards;
@@ -855,23 +873,8 @@ body:has(.mat-menu.show) {
 
 .ourproducts {
 
-    .slideUp {
-        animation: slideUp 2s linear forwards;
-        animation-timeline: view();
-        animation-range: 260dvh cover 300dvh;
-    }
+   
 
-    .slideRight {
-        animation: slideRight 1s linear forwards;
-        animation-timeline: view();
-        animation-range: 280dvh cover 350dvh;
-    }
-
-    .slideLeft {
-        animation: slideLeft 1s linear forwards;
-        animation-timeline: view();
-        animation-range: 280dvh cover 330dvh;
-    }
 }
 
 .beloved {
