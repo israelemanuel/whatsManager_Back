@@ -189,19 +189,6 @@
         });
 
 
-
-        // const bl = gsap.timeline({
-        //     scrollTrigger: {
-        //         trigger: "#card-comment", // Ativa a animação quando a seção #vantagens entra na viewport
-        //         start: "top 80%", // Inicia quando o topo da seção atinge 80% da viewport
-        //         end: "bottom 20%", // Termina quando o fundo da seção atinge 20% da viewport
-        //         markers: true, // Mostra os marcadores para depuração (remova em produção)
-        //         scrub: true, // Sincroniza a animação com o scroll
-        //         toggleActions: "play none none reverse",
-        //     },
-        // });
-
-
         if (window.innerWidth <= 640) {
             document.querySelectorAll('.card-comment').forEach(card => {
                 gsap.fromTo(card,

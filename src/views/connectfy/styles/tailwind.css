@@ -970,6 +970,9 @@
   .flex-nowrap {
     flex-wrap: nowrap;
   }
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
   .items-center {
     align-items: center;
   }
@@ -1095,6 +1098,9 @@
   }
   .bg-\[var\(--mat-sys-tertiary-bright\)\] {
     background-color: var(--mat-sys-tertiary-bright);
+  }
+  .bg-amber-400 {
+    background-color: var(--color-amber-400);
   }
   .bg-gray-400 {
     background-color: var(--color-gray-400);
@@ -1361,6 +1367,16 @@
         --tw-scale-x: 90%;
         --tw-scale-y: 90%;
         --tw-scale-z: 90%;
+        scale: var(--tw-scale-x) var(--tw-scale-y);
+      }
+    }
+  }
+  .hover\:scale-110 {
+    &:hover {
+      @media (hover: hover) {
+        --tw-scale-x: 110%;
+        --tw-scale-y: 110%;
+        --tw-scale-z: 110%;
         scale: var(--tw-scale-x) var(--tw-scale-y);
       }
     }
