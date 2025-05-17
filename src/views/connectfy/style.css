@@ -626,6 +626,7 @@ body:has(.mat-menu.show) .backdrop {
   color: var(--mat-sys-on-primary-bright);
   gap: 1rem;
   padding: 1rem;
+  aspect-ratio: 1/1;
 }
 .advantages .cardAdvantages.main {
   background-color: var(--mat-sys-primary-bright);

@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="/style.css">
 
 
-    <title><%=resposta.title%> Connect-Fy</title>
+    <title>
+        <%=resposta.title%> Connect-Fy
+    </title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +27,7 @@
     <script src="/scripts/ScrollTrigger.min.js"></script>
     <script src="/scripts/ScrollSmoother.min.js"></script>
     <script src="/scripts/ScrollToPlugin.min.js"></script>
-    
+
 </head>
 
 <body style="background-color: var(--mat-sys-background)" x-data="geral">
@@ -68,8 +70,7 @@
                 </div>
             </template>
 
-            <div :class="{'text-[var(--mat-sys-on-background)]': isScrolled, 'text-[var(--mat-sys-background-bright)]': !isScrolled}"
-                class="relative top-0 left-0 hidden xl:flex flext-row justify-between items-center w-full min-h-[88px] px-4">
+            <div class="relative top-0 left-0 hidden xl:flex flext-row justify-between items-center w-full min-h-[88px] px-4">
                 <h1 class="fixed top-0 left-0 opacity-0 select-none pointer-events-none">
                     ConnectFy
                 </h1>
@@ -88,13 +89,17 @@
 
                 <div class="absolute h-full w-full flex justify-center pointer-events-none">
                     <ul class="flex flex-row gap-4 items-center text-[var(--mat-sys-on-background)] pointer-events-auto"
-                        aria-label="Menu Principal">                       
-                        <li><a  <%= (resposta.page == 'index' ? 'href=#inicio' : 'href=/') %>  class="commonButton transparent" aria-label="Início">Início</a></li>
-              
-                        <li><a href="connectpro" class="commonButton transparent" aria-label="Quero ser ConnectPRO">Quero ser ConnectPRO</a></li>
+                        aria-label="Menu Principal">
+                        <li><a <%=(resposta.page=='index' ? 'href=#inicio' : 'href=/' ) %> class="commonButton
+                                transparent" aria-label="Início">Início</a></li>
+
+                        <li><a href="connectpro" class="commonButton transparent"
+                                aria-label="Quero ser ConnectPRO">Quero ser ConnectPRO</a></li>
                         <li><a href="#clients" class="commonButton transparent" aria-label="Clientes">Clientes</a></li>
-                        <li><a href="#ourproducts" class="commonButton transparent" aria-label="Produtos">Produtos</a></li>
-                        <li><a href="#beloved" class="commonButton transparent" aria-label="Depoimentos">Depoimentos</a></li>
+                        <li><a href="#ourproducts" class="commonButton transparent" aria-label="Produtos">Produtos</a>
+                        </li>
+                        <li><a href="#beloved" class="commonButton transparent" aria-label="Depoimentos">Depoimentos</a>
+                        </li>
                         <li><a href="about" class="commonButton transparent" aria-label="Sobre Nós">Sobre Nós</a></li>
                         <li><a href="#faq" class="commonButton transparent" aria-label="Faq">Faq</a></li>
                     </ul>
@@ -103,7 +108,7 @@
         </div>
 
 
-        <div class="flex xl:hidden flex-col w-full z-20" :class="{'slideDown fixed bg-[var(--mat-sys-surface)]': isScrolled, 'relative bg-[var(--mat-sys-background)]': !isScrolled}">
+        <div class="flex xl:hidden flex-col w-full z-20" style="position: fixed; margin: 8px; max-width: calc(100% - 16px); border-radius: 24px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); background-color: rgba(255, 255, 255, 0.4); backdrop-filter: blur(10px); padding: 0px 8px;">
             <template x-if="acessibility">
                 <div class="flex xl:hidden flex-row justify-between w-full min-h-[48px] bg-[var(--mat-sys-primary)]">
                     <div class="flex flex-row items-center box-border text-[var(--mat-sys-on-primary)]">
@@ -112,7 +117,8 @@
                                 mode_night
                             </span>
                         </button> -->
-                        <button @click="toggleHighContrast()" class="iconButton" id="toggle-high-contrast" aria-label="Alto Contraste">
+                        <button @click="toggleHighContrast()" class="iconButton" id="toggle-high-contrast"
+                            aria-label="Alto Contraste">
                             <span class="material-symbols-rounded">
                                 contrast
                             </span>
@@ -131,17 +137,20 @@
                             </span>
                         </button>
 
-                        <button @click="adjustFontSize(-25)" class="iconButton" id="decrease-font" aria-label="Diminuir Fonte">
+                        <button @click="adjustFontSize(-25)" class="iconButton" id="decrease-font"
+                            aria-label="Diminuir Fonte">
                             <span class="material-symbols-rounded">
                                 text_decrease
                             </span>
                         </button>
-                        <button @click="adjustFontSize(100)" class="iconButton" id="default-font" aria-label="Fonte Padrão">
+                        <button @click="adjustFontSize(100)" class="iconButton" id="default-font"
+                            aria-label="Fonte Padrão">
                             <span class="material-symbols-rounded">
                                 text_format
                             </span>
                         </button>
-                        <button @click="adjustFontSize(25)" class="iconButton" id="increase-font" aria-label="Aumentar Fonte">
+                        <button @click="adjustFontSize(25)" class="iconButton" id="increase-font"
+                            aria-label="Aumentar Fonte">
                             <span class="material-symbols-rounded">
                                 text_increase
                             </span>
@@ -152,7 +161,7 @@
 
             <div
                 class="relative flex xl:hidden flext-row items-center justify-between w-full min-h-[56px] md:px-4 text-[var(--mat-sys-on-background)]">
-                <div class="iconButton" aria-label="Menu" @click="toggleMenu()" >
+                <div class="iconButton" aria-label="Menu" @click="toggleMenu()">
                     <span class="material-symbols-rounded" style="font-size: 2.0rem;">menu</span>
                 </div>
 
@@ -168,22 +177,38 @@
 
             </div>
         </div>
-        
 
-        
+
+
         <div class="mat-menu flex flex-col justify-between xl:hidden" :class="{'show' : toggleMobileMenu}">
             <ul class="mat-menu-content" aria-label="Menu Mobile">
-                <li><a @click="toggleMenu()" <%= (resposta.page == 'index' ? 'href=#inicio' : 'href=/') %>  class="commonButton " aria-label="Início">Início</a></li>
-                <li><a @click="toggleMenu()" href="connectpro" class="commonButton " aria-label="Quero ser ConnectPRO">Quero ser ConnectPRO</a></li>
-                <li><a @click="toggleMenu()" href="#clients" class="commonButton " aria-label="Clientes">Clientes</a></li>
-                <li><a @click="toggleMenu()" href="#ourproducts" class="commonButton " aria-label="Produtos">Produtos</a></li>
-                <li><a @click="toggleMenu()" href="#beloved" class="commonButton " aria-label="Depoimentos">Depoimentos</a></li>
-                <li><a @click="toggleMenu()" href="about" class="commonButton " aria-label="Sobre Nós">Sobre Nós</a></li>
-                <li><a @click="toggleMenu()" href="#faq" class="commonButton " aria-label="Faq">Faq</a></li>
+                <li class="commonButton">
+                    <a class="w-full h-full flex items-center justify-center" class="commonButton" <%= (resposta.page == 'index' ? 'href=#inicio' : 'href=/') %> aria-label="Início" @click="toggleMenu()">Início</a>
+                </li>
+                <li class="commonButton">
+                    <a class="w-full h-full flex items-center justify-center" href="connectpro" aria-label="Quero ser ConnectPRO" @click="toggleMenu()">Quero ser
+                        ConnectPRO</a>
+                </li>
+                <li class="commonButton">
+                    <a class="w-full h-full flex items-center justify-center" href="#clients" aria-label="Clientes" @click="toggleMenu()">Clientes</a>
+                </li>
+                <li class="commonButton">
+                    <a class="w-full h-full flex items-center justify-center" href="#ourproducts" aria-label="Produtos" @click="toggleMenu()">Produtos</a>
+                </li>
+                <li class="commonButton">
+                    <a class="w-full h-full flex items-center justify-center" href="#beloved" aria-label="Depoimentos" @click="toggleMenu()">Depoimentos</a>
+                </li>
+                <li class="commonButton">
+                    <a class="w-full h-full flex items-center justify-center" href="about" aria-label="Sobre Nós" @click="toggleMenu()">Sobre Nós</a>
+                </li>
+                <li class="commonButton">
+                    <a class="w-full h-full flex items-center justify-center" href="#faq" aria-label="Faq" @click="toggleMenu()">Faq</a>
+                </li>
             </ul>
 
             <div class="w-full flex flex-col items-center">
-                <span @click="toggleAcessibility(); toggleMenu()" aria-label="Acessibilidade" class="w-full commonButton primary" >
+                <span @click="toggleAcessibility(); toggleMenu()" aria-label="Acessibilidade"
+                    class="w-full commonButton primary">
                     <span class="material-symbols-rounded">
                         settings_accessibility
                     </span>
@@ -199,4 +224,3 @@
 
     <div id="scroll-wrapper" class="overflow-x-hidden">
         <div id="scroll-content" class="overflow-x-hidden">
-        

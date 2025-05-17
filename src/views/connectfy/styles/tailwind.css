@@ -722,24 +722,6 @@
   .h-\[0\%\] {
     height: 0%;
   }
-  .h-\[80dvh\] {
-    height: 80dvh;
-  }
-  .h-\[100\%\] {
-    height: 100%;
-  }
-  .h-\[100dvh\] {
-    height: 100dvh;
-  }
-  .h-\[150\%\] {
-    height: 150%;
-  }
-  .h-\[200px\] {
-    height: 200px;
-  }
-  .h-\[240px\] {
-    height: 240px;
-  }
   .h-\[24px\] {
     height: 24px;
   }
@@ -752,18 +734,6 @@
   .h-\[60\%\] {
     height: 60%;
   }
-  .h-\[1800px\] {
-    height: 1800px;
-  }
-  .h-\[1920px\] {
-    height: 1920px;
-  }
-  .h-\[1rem\] {
-    height: 1rem;
-  }
-  .h-\[600px\] {
-    height: 600px;
-  }
   .h-\[60dvh\] {
     height: 60dvh;
   }
@@ -775,6 +745,30 @@
   }
   .h-\[72px\] {
     height: 72px;
+  }
+  .h-\[80dvh\] {
+    height: 80dvh;
+  }
+  .h-\[100\%\] {
+    height: 100%;
+  }
+  .h-\[150\%\] {
+    height: 150%;
+  }
+  .h-\[200px\] {
+    height: 200px;
+  }
+  .h-\[240px\] {
+    height: 240px;
+  }
+  .h-\[600px\] {
+    height: 600px;
+  }
+  .h-\[1800px\] {
+    height: 1800px;
+  }
+  .h-\[1920px\] {
+    height: 1920px;
   }
   .h-auto {
     height: auto;
@@ -790,6 +784,9 @@
   }
   .max-h-\[1360px\] {
     max-height: 1360px;
+  }
+  .min-h-\[0\.5rem\] {
+    min-height: 0.5rem;
   }
   .min-h-\[48px\] {
     min-height: 48px;
@@ -814,6 +811,9 @@
   }
   .min-h-\[90dvh\] {
     min-height: 90dvh;
+  }
+  .min-h-\[100dvh\] {
+    min-height: 100dvh;
   }
   .min-h-\[300px\] {
     min-height: 300px;
@@ -970,9 +970,6 @@
   .flex-nowrap {
     flex-wrap: nowrap;
   }
-  .flex-wrap {
-    flex-wrap: wrap;
-  }
   .items-center {
     align-items: center;
   }
@@ -1099,9 +1096,6 @@
   .bg-\[var\(--mat-sys-tertiary-bright\)\] {
     background-color: var(--mat-sys-tertiary-bright);
   }
-  .bg-amber-400 {
-    background-color: var(--color-amber-400);
-  }
   .bg-gray-400 {
     background-color: var(--color-gray-400);
   }
@@ -1191,9 +1185,6 @@
   }
   .pb-\[86px\] {
     padding-bottom: 86px;
-  }
-  .pb-\[110px\] {
-    padding-bottom: 110px;
   }
   .pl-6 {
     padding-left: calc(var(--spacing) * 6);
@@ -1370,16 +1361,6 @@
         --tw-scale-x: 90%;
         --tw-scale-y: 90%;
         --tw-scale-z: 90%;
-        scale: var(--tw-scale-x) var(--tw-scale-y);
-      }
-    }
-  }
-  .hover\:scale-110 {
-    &:hover {
-      @media (hover: hover) {
-        --tw-scale-x: 110%;
-        --tw-scale-y: 110%;
-        --tw-scale-z: 110%;
         scale: var(--tw-scale-x) var(--tw-scale-y);
       }
     }

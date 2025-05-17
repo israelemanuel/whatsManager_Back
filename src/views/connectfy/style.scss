@@ -799,6 +799,7 @@ body:has(.mat-menu.show) {
         color: var(--mat-sys-on-primary-bright);
         gap: 1rem;
         padding: 1rem;
+        aspect-ratio: 1/1;
 
         &.main{
             background-color: var(--mat-sys-primary-bright);
