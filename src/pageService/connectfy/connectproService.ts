@@ -13,19 +13,19 @@ class ConnectProService {
         const generalService = GeneralService.init();
 
         const connectProBanner = {
-            imageUrl: '/images/connectprobanner.jpg',
+            imageUrl: '/images/connectprobanner.png',
         };
 
         const connectPro1Setp = {
-            imageUrl: '/images/cadastro.jpg',
+            imageUrl: '/images/cadastro.png',
         }
 
         const connectPro2Setp = {
-            imageUrl: '/images/candidatese.jpg',
+            imageUrl: '/images/candidatese.png',
         }
 
         const connectPro3Setp = {
-            imageUrl: '/images/notificado.jpg',
+            imageUrl: '/images/notificado.png',
         }
 
         const lstComents = [
@@ -83,7 +83,7 @@ class ConnectProService {
             {
                 title: 'Horários Flexíveis',
                 subtitle: 'Defina seu próprio horário',
-                image: '/images/economy_time_money.jpg',
+                image: '/images/economy_time_money.png',
                 description: 'Adeus ao horário das 9 às 18h! Como freelancer, você escolhe quando trabalhar. Organize seu tempo de acordo com suas necessidades e preferências, equilibrando trabalho e vida pessoal.'
             },
             {
@@ -95,13 +95,13 @@ class ConnectProService {
             {
                 title: 'Diversidade de Projetos',
                 subtitle: 'Novos Desafios, Novas Oportunidades',
-                image: '/images/estability_security.jpg',
+                image: '/images/estability_security.png',
                 description: 'Freelancers têm a oportunidade de trabalhar em diversos projetos, conhecendo diferentes empresas e desafios. Isso amplia seu portfólio, enriquece sua experiência e mantém o trabalho interessante.'
             },
             {
                 title: 'Autonomia e Independência',
                 subtitle: 'Seja Seu Próprio Chefe',
-                image: '/images/economy_time_money.jpg',
+                image: '/images/economy_time_money.png',
                 description: 'Como freelancer, você tem a autonomia para escolher seus projetos e clientes. Essa independência permite que você direcione sua carreira da maneira que achar melhor, sem estar preso a uma única empresa.'
             },
             {
@@ -113,13 +113,13 @@ class ConnectProService {
             {
                 title: 'Crescimento Profissional',
                 subtitle: 'Evolua Continuamente',
-                image: '/images/estability_security.jpg',
+                image: '/images/estability_security.png',
                 description: 'Freelancers estão sempre em constante aprendizado, adaptando-se a novos projetos e demandas. Essa evolução contínua é fundamental para o crescimento profissional e a aquisição de novas habilidades.'
             },
             {
                 title: 'Variedade de Experiências',
                 subtitle: 'Trabalhe com Diversos Profissionais',
-                image: '/images/economy_time_money.jpg',
+                image: '/images/economy_time_money.png',
                 description: 'Como freelancer, você terá a chance de colaborar com diferentes equipes e profissionais. Essa variedade enriquece suas habilidades interpessoais e expande seu conhecimento em várias áreas.'
             },
             {
@@ -131,25 +131,25 @@ class ConnectProService {
             {
                 title: 'Inovação e Criatividade',
                 subtitle: 'Liberte sua Criatividade',
-                image: '/images/estability_security.jpg',
+                image: '/images/estability_security.png',
                 description: 'Trabalhar como freelancer permite explorar sua criatividade sem as restrições de uma empresa tradicional. Desenvolva soluções inovadoras e traga novas ideias para cada projeto.'
             },
             {
                 title: 'Estabilidade e Segurança',
                 subtitle: 'Diversifique suas Fontes de Renda',
-                image: '/images/economy_time_money.jpg',
+                image: '/images/economy_time_money.png',
                 description: 'Como freelancer, você não depende de um único empregador. Essa diversificação de clientes traz mais estabilidade e segurança financeira, diminuindo os riscos associados a perder um único emprego.'
             },
             {
                 title: 'Foco em Resultados',
                 subtitle: 'Seja Avaliado pelo Seu Trabalho',
-                image: '/images/estability_security.jpg',
+                image: '/images/estability_security.png',
                 description: 'Freelancers são valorizados pelos resultados que entregam. Isso motiva a busca constante pela excelência e o reconhecimento profissional, baseando-se no desempenho real.'
             },
             {
                 title: 'Desenvolvimento Pessoal',
                 subtitle: 'Cresça com Cada Projeto',
-                image: '/images/estability_security.jpg',
+                image: '/images/estability_security.png',
                 description: 'Cada novo projeto é uma oportunidade de aprendizado e desenvolvimento pessoal. Enfrente desafios, adquira novas habilidades e se torne um profissional mais completo e versátil.'
             },
         ],
@@ -162,22 +162,22 @@ class ConnectProService {
                 },
                 {
                     title: 'Área de treinamentos diversos',
-                    image: '/images/economy_time_money.jpg',
+                    image: '/images/economy_time_money.png',
                     description: ''
                 },
                 {
                     title: 'Blog / Fórum',
-                    image: '/images/economy_time_money.jpg',
+                    image: '/images/economy_time_money.png',
                     description: ''
                 },
                 {
                     title: 'Módulo de financeiro gratuito (Em Breve)',
-                    image: '/images/economy_time_money.jpg',
+                    image: '/images/economy_time_money.png',
                     description: ''
                 },
                 {
                     title: 'Contabilidade Online (Em Breve)',
-                    image: '/images/economy_time_money.jpg',
+                    image: '/images/economy_time_money.png',
                     description: ''
                 },
             ]

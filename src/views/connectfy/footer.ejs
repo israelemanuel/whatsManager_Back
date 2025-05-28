@@ -188,6 +188,37 @@
             },
         });
 
+        const rotateStart = "top 20%";
+        const rotateEnd = "bottom 60%";
+
+        // Crie um timeline GSAP sincronizado com o scroll do morphRotate
+        const tl3 = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#morphRotateContainer",
+                start: rotateStart,
+                end: rotateEnd,
+                scrub: true,
+                pin: true,
+                pinSpacing: false,
+                markers: false
+            }
+        });
+
+        // 1. Rotação do morphRotate (360° durante todo o espaço de rolagem do morphRotateContainer)
+        tl3.to("#morphRotate", { borderRadius: "50%", rotation: 360, ease: "none", duration: 1 }, 0);
+
+        // 2. Rotação anti-horária da antiRotate (360° durante todo o espaço de rolagem)
+        tl3.to(".antiRotate", { rotation: -360, ease: "none", duration: 1 }, 0);
+
+        // 3. Animações de opacidade das .showX divididas em 3 partes da timeline
+        tl3.fromTo(".show1", { opacity: 1 }, { opacity: 1, ease: "none" }, 0)
+            .to(".show1", { opacity: 0, ease: "none" }, 1 / 3);
+
+        tl3.fromTo(".show2", { opacity: 0 }, { opacity: 1, ease: "none" }, 1 / 3)
+            .to(".show2", { opacity: 0, ease: "none" }, 2 / 3);
+
+        tl3.fromTo(".show3", { opacity: 0 }, { opacity: 1, ease: "none" }, 2 / 3);
+
 
         if (window.innerWidth <= 640) {
             document.querySelectorAll('.card-comment').forEach(card => {

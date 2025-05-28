@@ -1045,86 +1045,68 @@ body:has(.mat-menu.show) {
 
     --block-reference: 450px;
 
-    .morphRotate {
-        position: absolute;
-        animation: morphRotate 1s linear forwards;
-        animation-timeline: view();
-        animation-range: 140dvh cover 260dvh;
-        transform-origin: center;
-    }
+    // .morphRotate {
+    //     position: absolute;
+    //     animation: morphRotate 1s linear forwards;
+    //     animation-timeline: view();
+    //     animation-range: 140dvh cover 260dvh;
+    //     transform-origin: center;
+    // }
 
-    .antiRotate{
+    // .antiRotate{
 
-        animation: antiRotate 1s linear backwards;
-        animation-timeline: view();
-        animation-range: 140dvh cover 260dvh;
-        transform-origin: center;
+    //     animation: antiRotate 1s linear backwards;
+    //     animation-timeline: view();
+    //     animation-range: 140dvh cover 260dvh;
+    //     transform-origin: center;
 
-        .show1{
-            opacity: 1 !important;
-            animation: opacity 1s linear forwards;
-            animation-timeline: view();
-            animation-range: 140dvh cover 180dvh;
-            z-index: 1;
-        }
+    //     .show1{
+    //         opacity: 1 !important;
+    //         animation: opacity 1s linear forwards;
+    //         animation-timeline: view();
+    //         animation-range: 140dvh cover 180dvh;
+    //         z-index: 1;
+    //     }
 
-        .show2{
-            opacity: 0;
-            animation: opacity 1s linear forwards;
-            animation-timeline: view();
-            animation-range: 180dvh cover 220dvh;
-            z-index: 2;
-        }
+    //     .show2{
+    //         opacity: 0;
+    //         animation: opacity 1s linear forwards;
+    //         animation-timeline: view();
+    //         animation-range: 180dvh cover 220dvh;
+    //         z-index: 2;
+    //     }
 
-        .show3{
-            opacity: 0;
-            animation: opacity 1s linear forwards;
-            animation-timeline: view();
-            animation-range: 220dvh cover 260dvh;
-            z-index: 3;
-        }
-    }
+    //     .show3{
+    //         opacity: 0;
+    //         animation: opacity 1s linear forwards;
+    //         animation-timeline: view();
+    //         animation-range: 220dvh cover 260dvh;
+    //         z-index: 3;
+    //     }
+    // }
 
-    @keyframes morphRotate {
-        0% {
-            transform: rotate(0deg);
-            border-radius: 2rem;
-            top: 0;
+    
 
-        }
+    // @keyframes opacity{
+    //     0% {
+    //         opacity: 0;
+    //     }
 
-        50%{
-            transform: rotate(360deg);
-            top: calc(50% - (var(--block-reference) / 2));
-        }
+    //     60% {
+    //         opacity: 1;
+    //     }
 
-        100% {
-            transform: rotate(720deg);
-            border-radius: 50%;
-            top: calc(100% - var(--block-reference));
-        }
-    }
-
-    @keyframes opacity{
-        0% {
-            opacity: 0;
-        }
-
-        60% {
-            opacity: 1;
-        }
-
-        100% {
-            opacity: 1;
-        }
+    //     100% {
+    //         opacity: 1;
+    //     }
 
         
-    }
+    // }
 }
 
 .quoteArea {
 
-    &:hover {}
+    // &:hover {}
 }
 
 .moving-spheres {
