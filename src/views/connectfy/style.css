@@ -600,13 +600,6 @@ body:has(.mat-menu.show) .backdrop {
   -moz-box-shadow: 1px 9px 15px 1px rgba(0, 0, 0, 0.37);
 }
 
-#innerBody {
-  overflow-y: scroll;
-  height: 100dvh;
-  scroll-timeline-name: --innerbody;
-  position: relative;
-}
-
 .advantages #advantage-title {
   opacity: 0;
   transform: translateY(20px);
@@ -644,22 +637,105 @@ body:has(.mat-menu.show) .backdrop {
   width: 100%;
 }
 
-.slider {
+.slider.vertical {
+  height: var(--max-height);
+  overflow: hidden;
+  position: relative;
+  mix-blend-mode: hard-light;
+  pointer-events: none;
+  user-select: none;
+}
+@media (prefers-color-scheme: dark) {
+  .slider.vertical:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    mask-image: linear-gradient(to top, transparent, #000 50%, #000 55%, transparent);
+    backdrop-filter: blur(10px);
+    z-index: 1;
+  }
+}
+@media (prefers-color-scheme: light) {
+  .slider.vertical:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    mask-image: linear-gradient(to top, #000, transparent 45%, transparent 65%, #000);
+    z-index: 1;
+    backdrop-filter: invert(1) hue-rotate(180deg);
+  }
+}
+.slider.vertical .list {
+  --clock: calc(var(--quantity) * var(--time));
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: calc(var(--height) * var(--quantity));
+  position: relative;
+  transform: translateY(-89%);
+}
+.slider.vertical .list .item {
+  width: var(--width);
+  height: var(--height);
+  position: absolute;
+  top: 100%;
+  transition: var(--main-transition);
+  animation: verticalRun var(--clock) linear infinite;
+  animation-delay: calc(var(--clock) / var(--quantity) * (var(--position) - 1));
+  transform: scale(1);
+  text-wrap: nowrap;
+  text-align: center;
+  width: 100%;
+}
+.slider.vertical .list .item:active {
+  transform: scale(2);
+  filter: blur(0px);
+  font-weight: 700;
+}
+.slider.vertical .list .item .resizeTimeline {
+  transform-origin: center;
+  transform: scale(3.5);
+  font-weight: 700;
+}
+@media (max-width: 640px) {
+  .slider.vertical .list .item .resizeTimeline {
+    transform: scale(2);
+  }
+}
+@keyframes verticalRun {
+  0% {
+    top: 100%;
+    opacity: 0;
+  }
+  2% {
+    opacity: 1;
+  }
+  100% {
+    top: calc(var(--height) * -1);
+  }
+}
+.slider.horizontal {
   width: 100%;
   height: var(--height);
   overflow: hidden;
   mask-image: linear-gradient(to right, transparent, #000 20% 80%, transparent);
 }
-.slider:hover .item {
+.slider.horizontal:hover .item {
   animation-play-state: paused !important;
 }
-.slider .list {
+.slider.horizontal .list {
   display: flex;
   width: 100%;
   min-width: calc(var(--width) * var(--quantity));
   position: relative;
 }
-.slider .list .item {
+.slider.horizontal .list .item {
   width: var(--width);
   height: var(--height);
   position: absolute;
@@ -670,11 +746,10 @@ body:has(.mat-menu.show) .backdrop {
   transform: scale(1);
 }
 @media (prefers-color-scheme: light) {
-  .slider.themed-light .list {
+  .slider.horizontal.themed-light .list {
     filter: invert(1);
   }
 }
-
 @keyframes autorun {
   0% {
     left: 100%;
@@ -691,9 +766,9 @@ body:has(.mat-menu.show) .backdrop {
     left: calc(var(--width) * -1);
   }
 }
+
 .flex-row-scroll {
   --padding-scroll-new: 16px;
-  --height-max: 460px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -709,10 +784,9 @@ body:has(.mat-menu.show) .backdrop {
   scroll-snap-type: x mandatory;
 }
 .flex-row-scroll .item {
+  padding: var(--padding-scroll-new);
   position: relative;
   min-width: calc(var(--height-max) - 100px);
-  min-height: var(--height-max);
-  padding: var(--padding-scroll-new);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -720,6 +794,7 @@ body:has(.mat-menu.show) .backdrop {
   transition: all 0.2s;
   overflow: hidden;
   z-index: 10;
+  scroll-snap-align: center;
 }
 @media (max-width: 640px) {
   .flex-row-scroll .item {
@@ -735,19 +810,6 @@ body:has(.mat-menu.show) .backdrop {
 }
 .flex-row-scroll .item:hover .content {
   transform: translateY(0%);
-}
-.flex-row-scroll .item .background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  border-radius: 1.5rem;
-  transition: all 0.2s;
-  z-index: 1;
 }
 .flex-row-scroll .item .content {
   position: absolute;
@@ -789,17 +851,87 @@ body:has(.mat-menu.show) .backdrop {
   background: rgba(0, 0, 0, 0.6);
 }
 .flex-row-scroll .item.large {
-  min-width: calc(var(--height-max) * 1.5 - 100px);
+  min-width: 400px;
+  aspect-ratio: 3/4;
+  overflow: hidden;
   min-height: var(--height-max);
 }
 @media (max-width: 640px) {
   .flex-row-scroll .item.large {
-    min-width: 90dvw;
-    min-height: var(--height-max);
+    min-width: 70dvw;
+    aspect-ratio: 12/9;
   }
+}
+.flex-row-scroll .item.large .background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 1.5rem;
+  transition: all 0.2s;
+  z-index: 1;
 }
 .flex-row-scroll .item.large:hover {
   transform: scale(1.05);
+}
+.flex-row-scroll .item.gigantic {
+  min-width: 70dvw;
+  aspect-ratio: 18/9;
+  overflow: hidden;
+}
+.flex-row-scroll .item.gigantic .background {
+  position: absolute;
+  aspect-ratio: 4/3;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: all 0.2s;
+  z-index: 1;
+  mask-image: linear-gradient(to right, transparent, #000 50%);
+}
+@media (max-width: 1280px) {
+  .flex-row-scroll .item.gigantic .background {
+    opacity: 0.6;
+  }
+}
+@media (max-width: 640px) {
+  .flex-row-scroll .item.gigantic .background {
+    aspect-ratio: 3/4;
+  }
+}
+@media (min-width: 769px) and (max-width: 1024px) {
+  .flex-row-scroll .item.gigantic {
+    min-width: 70dvw;
+    aspect-ratio: 12/9;
+  }
+}
+@media (min-width: 641px) and (max-width: 768px) {
+  .flex-row-scroll .item.gigantic {
+    min-width: 80dvw;
+    aspect-ratio: 4/3;
+  }
+}
+@media (max-width: 640px) {
+  .flex-row-scroll .item.gigantic {
+    min-width: 90dvw;
+    aspect-ratio: 9/12;
+  }
+}
+@media (max-width: 425px) {
+  .flex-row-scroll .item.gigantic {
+    min-width: 90dvw;
+    aspect-ratio: 9/16;
+  }
+}
+.flex-row-scroll .item.gigantic:hover {
+  transform: scale(1.02);
 }
 .flex-row-scroll::-webkit-scrollbar {
   height: calc(var(--padding-scroll-new) * 0.33);
@@ -863,7 +995,6 @@ body:has(.mat-menu.show) .backdrop {
   left: 50%;
   animation: move 120s infinite linear;
 }
-
 @keyframes move {
   0% {
     transform: translate(0, 0) scale(1);
@@ -901,121 +1032,130 @@ body:has(.mat-menu.show) .backdrop {
     filter: hue-rotate(360deg);
   }
 }
-@keyframes slideDown {
-  from {
-    transform: translateY(-48px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-@keyframes slideUp {
-  from {
-    transform: translateY(48px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0px);
-    opacity: 1;
-  }
-}
-@keyframes disapear {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-@keyframes appear {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
 @keyframes pulse {
   75%, 100% {
     transform: scale(2);
     opacity: 0;
   }
 }
-@keyframes fadeAndScale {
-  0% {
-    opacity: 1;
-    scale: 1;
-  }
-  100% {
-    opacity: 0;
-    scale: 2;
-  }
-}
-@keyframes fadeInAndScale {
-  0% {
-    opacity: 0;
-    scale: 0;
-  }
-  100% {
-    opacity: 1;
-    scale: 1;
-  }
-}
-@keyframes slideRight {
-  from {
-    transform: translateX(-100%) scale(0.2);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0) scale(1);
-    opacity: 1;
-  }
-}
-@keyframes slideLeft {
-  from {
-    transform: translateX(100%) scale(0.2);
-    pacity: 0;
-  }
-  to {
-    transform: translateX(0) scale(1);
-    opacity: 1;
-  }
-}
-.scaleInLeft {
-  animation: scaleIn 0.6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
-  transform-origin: right;
+
+.problemsWeSolve {
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.37);
+  filter: brightness(0.98);
 }
 
-.scaleInRight {
-  animation: scaleIn 0.6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
-  transform-origin: left;
+#meetHelpdesk {
+  --padding-scroll-new: 16px;
 }
-.scaleInRight.slow {
-  animation-duration: 1.2s;
+#meetHelpdesk .scroll-products {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  gap: 24px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  padding: var(--main-padding);
 }
-
-.scaleInCenter {
-  animation: scaleIn 0.4s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
-  transform-origin: center;
+#meetHelpdesk .scroll-products .item {
+  position: relative;
+  height: 680px !important;
+  min-width: 372px !important;
+  padding: var(--main-padding);
+  border-radius: calc(var(--main-curve) + var(--main-padding));
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.37);
+  background-color: var(--mat-sys-background);
+  scroll-snap-align: center;
+  height: 500px;
+  /* Added height */
+  min-width: 300px;
+  /* Added min-width */
+  border-radius: 1.5rem;
+  /* Added border-radius */
+  padding: var(--main-padding);
+  /* Added padding */
+  transition: var(--main-transition);
+  /* Added transition */
 }
-
+#meetHelpdesk .scroll-products .item:hover {
+  transform: scale(1.02);
+}
+#meetHelpdesk .scroll-products::-webkit-scrollbar {
+  height: calc(var(--padding-scroll-new) * 0.33);
+}
+#meetHelpdesk .scroll-products::-webkit-scrollbar-track {
+  background: transparent;
+  margin-left: calc(30dvw + 1rem);
+  margin-right: calc(30dvw + 1rem);
+}
 @media (max-width: 640px) {
-  .scaleInLeft {
-    transform-origin: top;
-  }
-  .scaleInRight {
-    transform-origin: bottom;
+  #meetHelpdesk .scroll-products::-webkit-scrollbar-track {
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 }
-@keyframes scaleIn {
+#meetHelpdesk .scroll-products::-webkit-scrollbar-thumb {
+  background: var(--mat-sys-primary);
+  border-radius: 8px;
+}
+#meetHelpdesk .scroll-products::-webkit-scrollbar-thumb:hover {
+  background: var(--mat-sys-tertiary);
+}
+#meetHelpdesk .fullInformation {
+  width: 100dvw;
+  height: 100dvh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  backdrop-filter: blur(20px);
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+  animation: slideUp 0.6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+@keyframes slideUp {
+  0% {
+    transform: translateY(20dvh);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes slideDown {
   from {
-    transform: scale(0);
+    transform: translateY(0);
+    opacity: 1;
   }
   to {
-    transform: scale(1);
+    transform: translateY(10%);
+    opacity: 0;
   }
+}
+#meetHelpdesk .slide-down {
+  animation: slideDown 0.6s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+}
+
+#otherResources {
+  --custom-columns: 25% 1fr 25%;
+  /* Added missing semicolon */
+}
+#otherResources .tiltCard {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all 0.2s ease-out;
+  perspective: 1000px;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+#otherResources .tiltCard:hover {
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.4);
 }
 
 /*# sourceMappingURL=style.css.map */

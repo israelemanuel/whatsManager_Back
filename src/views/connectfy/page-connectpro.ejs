@@ -34,9 +34,9 @@
             <h2>Descubra a vantagens de trabalhar como freelancer</h2>
          </div>
 
-         <div class="flex-row-scroll">
+         <div class="flex-row-scroll px-8 pb-8 pt-4">
             <% resposta.lstAdvantages.forEach((item, index)=> {%>
-               <div class="item">
+               <div class="item large shadow-lg">
                   <div class="background" style="background-image: url('<%= item.image %>')"></div>
                   <div class="content text-white">
                      <span style="font-size: 0.8rem;">
@@ -180,7 +180,7 @@
             <span>Empresas que já usam nossas ferramentas</span>
          </div>
 
-         <div class="slider themed-light" style="
+         <div class="slider horizontal themed-light" style="
                --width: 200px;
                --height: 72px;
                --quantity: 6;

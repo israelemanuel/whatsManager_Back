@@ -1,19 +1,27 @@
 <%- header%>
 
     <section id="bannerConnectDesk">
-        <div class="bannerCanvas">
-            <div class="motionBanner">
-                <div class="flex items-center justify-center w-full h-full">
-                    <div class="enterModal">
-                        <div class="flex flex-col gap-4 items-center justify-center min-h-[70dvh] md:min-h-fit">
-                            <span class="text-[18px] md:text-[32px]">Veja o que o ConnectDesk pode fazer por...</span>
-                            <span class="text-[64px]">Você</span>
-                            <span class="commonButton primary">Comece Agora!</span>
-                        </div>
+        <div id="bannerCanvas" class="relative h-[300dvh]">
+            <div id="meetConnectDeskTitle" class="absolute top-0 h-[100dvh] w-full z-40 flex items-center justify-center">
+                <span style="font-size: min(64px, 10vh);">Conheça o ConnectDesk</span>
+            </div>
+
+            <div id="meetConnectDeskModal" class="absolute top-0 h-[100dvh] w-full flex items-center justify-center backdrop-blur-2xl">
+                <div class="flex items-center justify-center rounded-2xl bg-[var(--mat-sys-background-on-translucent)] min-w-[70dvh] min-h-[50dvh] z-50"
+                    style="border: 1px solid rgba(0,0,0,0.1)">
+                    <div class="flex flex-col gap-4 items-center justify-center"
+                        style="padding: min(var(--main-padding, 20dvw));">
+                        <span class="text-[18px] md:text-[32px]">Veja o que o ConnectDesk pode fazer por...</span>
+                        <span class="text-[64px]">Você</span>
+                        <span class="commonButton primary">Comece Agora!</span>
                     </div>
-                    <div class="enterBackground absolute opacity-0 w-[80%] aspect-[21/9] rounded-3xl bg-center bg-no-repeat bg-contain"
-                        style="background-image: url('<%= resposta.banner.imageUrl %>');"></div>
-                    <span class="resizeDownWhileScroll">Conheça o ConnectDesk</span>
+                </div>
+
+            </div>
+            <div id="meetConnectDeskBackground" class="absolute top-0 h-[100dvh] w-full z-30 flex items-center justify-center">
+                <div class="min-w-[70dvw] aspect-[16/9] bg-center bg-no-repeat bg-contain"
+                    style="background-image: url('<%= resposta.banner.imageUrl %>');">
+
                 </div>
             </div>
         </div>
@@ -27,7 +35,7 @@
             </div>
 
             <div class="w-full flex items-center justify-center">
-                <div class="slider"
+                <div class="slider vertical"
                     style="--width: 200px;--height: 88px;--quantity: 33;--time: 1s;--max-height: 300px; width: 100%;">
                     <div class="list" #listStyle>
                         <% resposta.lstProblems.forEach((item, index)=> {%>
@@ -318,38 +326,41 @@
     </section>
 
     <section id="plans">
-        <div class="bg-[var(--mat-sys-background)] relative min-h-[80dvh] py-[64px] w-full flex flex-col z-10 box-border">
+        <div
+            class="bg-[var(--mat-sys-background)] relative min-h-[80dvh] py-[64px] w-full flex flex-col z-10 box-border">
             <div class="w-full flex items-center justify-center">
                 <h2 class="">O pacote ideal para você</h2>
             </div>
 
             <div class="w-full flex justify-center">
                 <div class="grid grid-cols-4 p-4 xl:max-w-[75dvw] 2xl: max-w-[1920px] gap-4">
-                    <div class="flex flex-col h-full col-span-2 bg-[var(--mat-sys-secondary)] rounded-3xl p-4 text-[var(--mat-sys-tertiary)] shadow-xl">
+                    <div
+                        class="flex flex-col h-full col-span-2 bg-[var(--mat-sys-secondary)] rounded-3xl p-4 text-[var(--mat-sys-tertiary)] shadow-xl">
                         <span class="font-bold">Dupla de OURO</span>
                         <div class="flex flex-row gap-2 items-center justify-center w-full h-[200px]">
                             <div class="h-[64px] aspect-square rounded-3xl bg-white shadow-xl"></div>
                             <div class="h-[24px] aspect-square rounded-full bg-white shadow-xl"></div>
                             <div class="h-[64px] aspect-square rounded-3xl bg-white shadow-xl"></div>
                         </div>
-        
+
                         <div class="flex flex-col w-full gap-4">
                             <div class="flex flex-col gap-1">
                                 <span>R$ 299,00/Mês</span>
                                 <span class="font-bold" style="font-size: 2.4rem;">R$ 139,00/Mês</span>
                                 <span>Veja os Termos</span>
                             </div>
-        
+
                             <div class="flex flex-col gap-2">
-                                <span>HelpDesk, Base de Conhecimento, 24GB de armazenamento na nuvem, chat, widget de integração de chat para a sua webpage, acesso 24h.</span>
+                                <span>HelpDesk, Base de Conhecimento, 24GB de armazenamento na nuvem, chat, widget de
+                                    integração de chat para a sua webpage, acesso 24h.</span>
                             </div>
-        
+
                             <div class="flex flex-row justify-between items-center">
                                 <div class="flex items-center gap-2">
                                     <div class="h-[24px] aspect-square rounded-full bg-white"></div>
                                     <span>Transação Segura</span>
                                 </div>
-        
+
                                 <div class="commonButton tertiary">
                                     <span>Compre Agora!</span>
                                 </div>
@@ -357,7 +368,8 @@
                         </div>
                     </div>
 
-                    <div class="flex flex-col h-full col-span-2 bg-[var(--mat-sys-tertiary)] rounded-3xl p-4 text-[var(--mat-sys-primary)] shadow-xl">
+                    <div
+                        class="flex flex-col h-full col-span-2 bg-[var(--mat-sys-tertiary)] rounded-3xl p-4 text-[var(--mat-sys-primary)] shadow-xl">
                         <span class="font-bold">ECO-SISTEMA COMPLETO</span>
                         <div class="flex flex-row gap-2 items-center justify-center w-full h-[200px]">
                             <div class="h-[64px] aspect-square rounded-3xl bg-white shadow-xl"></div>
@@ -368,24 +380,25 @@
                             <div class="h-[24px] aspect-square rounded-full bg-white shadow-xl"></div>
                             <div class="h-[64px] aspect-square rounded-3xl bg-white shadow-xl"></div>
                         </div>
-        
+
                         <div class="flex flex-col w-full gap-4">
                             <div class="flex flex-col gap-1">
                                 <span>R$ 299,00/Mês</span>
                                 <span class="font-bold" style="font-size: 2.4rem;">R$ 139,00/Mês</span>
                                 <span>Veja os Termos</span>
                             </div>
-        
+
                             <div class="flex flex-col gap-2">
-                                <span>HelpDesk, Base de Conhecimento, 24GB de armazenamento na nuvem, chat, widget de integração de chat para a sua webpage, acesso 24h.</span>
+                                <span>HelpDesk, Base de Conhecimento, 24GB de armazenamento na nuvem, chat, widget de
+                                    integração de chat para a sua webpage, acesso 24h.</span>
                             </div>
-        
+
                             <div class="flex flex-row justify-between items-center">
                                 <div class="flex items-center gap-2">
                                     <div class="h-[24px] aspect-square rounded-full bg-white"></div>
                                     <span>Transação Segura</span>
                                 </div>
-        
+
                                 <div class="commonButton secondary">
                                     <span>Compre Agora!</span>
                                 </div>
@@ -393,29 +406,31 @@
                         </div>
                     </div>
 
-                    <div class="flex flex-col h-full col-span-1 bg-[var(--mat-sys-background-bright)] rounded-3xl p-4 shadow-xl">
+                    <div
+                        class="flex flex-col h-full col-span-1 bg-[var(--mat-sys-background-bright)] rounded-3xl p-4 shadow-xl">
                         <div class="flex flex-col gap-2 items-center justify-center w-full h-[200px]">
                             <div class="h-[64px] aspect-square rounded-3xl bg-white shadow-xl"></div>
                             <span>HelpDesk</span>
                         </div>
-        
+
                         <div class="flex flex-col w-full gap-4">
                             <div class="flex flex-col gap-1">
                                 <span>R$ 299,00/Mês</span>
                                 <span style="font-size: 2rem;">R$ 139,00/Mês</span>
                                 <span>Veja os Termos</span>
                             </div>
-        
+
                             <div class="flex flex-col gap-2">
-                                <span>HelpDesk, Base de Conhecimento, 24GB de armazenamento na nuvem, chat, widget de integração de chat para a sua webpage, acesso 24h.</span>
+                                <span>HelpDesk, Base de Conhecimento, 24GB de armazenamento na nuvem, chat, widget de
+                                    integração de chat para a sua webpage, acesso 24h.</span>
                             </div>
-        
+
                             <div class="flex flex-col gap-4 justify-between items-center">
                                 <div class="flex items-center gap-2">
                                     <div class="h-[24px] aspect-square rounded-full bg-white"></div>
                                     <span>Transação Segura</span>
                                 </div>
-        
+
                                 <div class="commonButton tertiary">
                                     <span>Compre Agora!</span>
                                 </div>
@@ -423,29 +438,31 @@
                         </div>
                     </div>
 
-                    <div class="flex flex-col h-full col-span-1 bg-[var(--mat-sys-background-bright)] rounded-3xl p-4 shadow-xl">
+                    <div
+                        class="flex flex-col h-full col-span-1 bg-[var(--mat-sys-background-bright)] rounded-3xl p-4 shadow-xl">
                         <div class="flex flex-col gap-2 items-center justify-center w-full h-[200px]">
                             <div class="h-[64px] aspect-square rounded-3xl bg-white shadow-xl"></div>
                             <span>HelpDesk</span>
                         </div>
-        
+
                         <div class="flex flex-col w-full gap-4">
                             <div class="flex flex-col gap-1">
                                 <span>R$ 299,00/Mês</span>
                                 <span style="font-size: 2rem;">R$ 139,00/Mês</span>
                                 <span>Veja os Termos</span>
                             </div>
-        
+
                             <div class="flex flex-col gap-2">
-                                <span>HelpDesk, Base de Conhecimento, 24GB de armazenamento na nuvem, chat, widget de integração de chat para a sua webpage, acesso 24h.</span>
+                                <span>HelpDesk, Base de Conhecimento, 24GB de armazenamento na nuvem, chat, widget de
+                                    integração de chat para a sua webpage, acesso 24h.</span>
                             </div>
-        
+
                             <div class="flex flex-col gap-4 justify-between items-center">
                                 <div class="flex items-center gap-2">
                                     <div class="h-[24px] aspect-square rounded-full bg-white"></div>
                                     <span>Transação Segura</span>
                                 </div>
-        
+
                                 <div class="commonButton tertiary">
                                     <span>Compre Agora!</span>
                                 </div>
@@ -453,59 +470,63 @@
                         </div>
                     </div>
 
-                    <div class="flex flex-col h-full col-span-1 bg-[var(--mat-sys-background-bright)] rounded-3xl p-4 shadow-xl">
+                    <div
+                        class="flex flex-col h-full col-span-1 bg-[var(--mat-sys-background-bright)] rounded-3xl p-4 shadow-xl">
                         <div class="flex flex-col gap-2 items-center justify-center w-full h-[200px]">
                             <div class="h-[64px] aspect-square rounded-3xl bg-white shadow-xl"></div>
                             <span>HelpDesk</span>
                         </div>
-        
+
                         <div class="flex flex-col w-full gap-4">
                             <div class="flex flex-col gap-1">
                                 <span>R$ 299,00/Mês</span>
                                 <span style="font-size: 2rem;">R$ 139,00/Mês</span>
                                 <span>Veja os Termos</span>
                             </div>
-        
+
                             <div class="flex flex-col gap-2">
-                                <span>HelpDesk, Base de Conhecimento, 24GB de armazenamento na nuvem, chat, widget de integração de chat para a sua webpage, acesso 24h.</span>
+                                <span>HelpDesk, Base de Conhecimento, 24GB de armazenamento na nuvem, chat, widget de
+                                    integração de chat para a sua webpage, acesso 24h.</span>
                             </div>
-        
+
                             <div class="flex flex-col gap-4 justify-between items-center">
                                 <div class="flex items-center gap-2">
                                     <div class="h-[24px] aspect-square rounded-full bg-white"></div>
                                     <span>Transação Segura</span>
                                 </div>
-        
+
                                 <div class="commonButton tertiary">
                                     <span>Compre Agora!</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="flex flex-col h-full col-span-1 bg-[var(--mat-sys-background-bright)] rounded-3xl p-4 shadow-xl">
+
+                    <div
+                        class="flex flex-col h-full col-span-1 bg-[var(--mat-sys-background-bright)] rounded-3xl p-4 shadow-xl">
                         <div class="flex flex-col gap-2 items-center justify-center w-full h-[200px]">
                             <div class="h-[64px] aspect-square rounded-3xl bg-white shadow-xl"></div>
                             <span>HelpDesk</span>
                         </div>
-        
+
                         <div class="flex flex-col w-full gap-4">
                             <div class="flex flex-col gap-1">
                                 <span>R$ 299,00/Mês</span>
                                 <span style="font-size: 2rem;">R$ 139,00/Mês</span>
                                 <span>Veja os Termos</span>
                             </div>
-        
+
                             <div class="flex flex-col gap-2">
-                                <span>HelpDesk, Base de Conhecimento, 24GB de armazenamento na nuvem, chat, widget de integração de chat para a sua webpage, acesso 24h.</span>
+                                <span>HelpDesk, Base de Conhecimento, 24GB de armazenamento na nuvem, chat, widget de
+                                    integração de chat para a sua webpage, acesso 24h.</span>
                             </div>
-        
+
                             <div class="flex flex-col gap-4 justify-between items-center">
                                 <div class="flex items-center gap-2">
                                     <div class="h-[24px] aspect-square rounded-full bg-white"></div>
                                     <span>Transação Segura</span>
                                 </div>
-        
+
                                 <div class="commonButton tertiary">
                                     <span>Compre Agora!</span>
                                 </div>
@@ -515,45 +536,45 @@
                 </div>
             </div>
         </div>
-        
+
     </section>
 
     <section id="faq">
-        <div class="bg-[var(--mat-sys-background)] relative min-h-[80dvh] py-[64px] w-full flex flex-col items-center gap-4 z-10 box-border">
-            <div class="flex flex-col text-center">
+        <div class="faq relative flex flex-col justify-center items-center gap-4 pt-[110px] pb-[86px] px-4">
+            <div class="flex flex-col text-center text-[var(--mat-sys-on-surface)]">
                 <h2>Alguma dúvida? Conte com a gente</h2>
                 <span>Nossa central de perguntas frequentes foi desenhada para prover a você<br> respostas sobre as
                     dúvidas mais comuns</span>
             </div>
 
             <div class="w-full 2xl:w-[80dvw] max-w-[1920px] flex flex-col gap-4">
-                <template x-for="(item, index) in lstFaq" :key="index">
+                <% resposta.lstFaq.forEach((item, index)=> { %>
                     <div class="w-full rounded-2xl flex flex-col p-4 cursor-pointer transition-all text-[var(--mat-sys-on-background)]"
-                        :class="item.toggle ? 'gap-2 h-[100%]' : 'gap-0 h-[72px]'"
                         style="border: 1px solid var(--mat-sys-on-surface); transition: all .6s cubic-bezier(0.075, 0.82, 0.165, 1);"
-                        @click="item.toggle = !item.toggle">
+                        onclick="this.querySelector('.faq-content').classList.toggle('hidden');">
 
-                        <span :class="item.toggle ? 'text-[1rem]' : 'text-[1.6rem]'"
-                            style="transition: all .6s cubic-bezier(0.075, 0.82, 0.165, 1);" x-text="item.title"></span>
+                        <span class="text-[1.6rem]" style="transition: all .6s cubic-bezier(0.075, 0.82, 0.165, 1);">
+                            <%= item.title %>
+                        </span>
 
-                        <div :class="item.toggle ? 'h-[100%]' : 'h-[0%]'"
-                            style="transition: all .6s cubic-bezier(0.075, 0.82, 0.165, 1);"
-                            class="overflow-hidden w-full">
-                            <span x-text="item.description"></span>
+                        <div class="faq-content hidden h-[100%] overflow-hidden w-full"
+                            style="transition: all .6s cubic-bezier(0.075, 0.82, 0.165, 1);">
+                            <span>
+                                <%= item.description %>
+                            </span>
                         </div>
                     </div>
-                </template>
+                    <% }); %>
             </div>
 
-            <div class="slideUp absolute bottom-0 right-0 opacity-0 p-6">
-                <a href="#inicio" class="iconButton primary">
+            <div class="absolute bottom-0 right-0 p-6">
+                <a id="backTop" class="iconButton primary">
                     <span class="material-symbols-rounded">
                         arrow_upward
                     </span>
                 </a>
             </div>
         </div>
-        
     </section>
 
     <%- footer%>

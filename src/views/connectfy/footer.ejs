@@ -39,6 +39,7 @@
                 scrub: false, // Sincroniza a animação com o scroll
                 markers: false,   // Mostra os marcadores para depuração (remova em produção)
                 toggleActions: "play none none reverse", // Ações de animação
+                force3D: true, // Força o uso de 3D para melhor performance
             },
         });
 
@@ -248,6 +249,64 @@
                 });
             });
         }
+
+        
+        const bannerTl = gsap.timeline({
+            scrollTrigger: {
+                trigger: "#bannerCanvas",
+                start: "top top",
+                end: "bottom bottom",
+                scrub: true,
+                pin: true,
+                pinSpacing: false,
+                markers: false,
+            }
+        });
+
+        
+        ///primeira animação, escalonando o item até 100x o tamanho dele iniciando em 0 e concluíndo em 30% da timelin
+        bannerTl.fromTo(
+            "#meetConnectDeskTitle",
+            {
+                scale: 1, // 1000%
+                transformOrigin: "50% 50%",
+                ease: "none",
+                force3D: true
+            },
+
+            {
+                scale: 100,
+                transformOrigin: "50% 50%",
+                ease: "none",
+                force3D: true
+            },
+            0 
+        );
+
+
+        ///segunda animação, escalonando o item para o tamnho real iniciando em 15% e concluíndo em 40% da timeline
+        bannerTl.fromTo(
+            "#meetConnectDeskModal",
+            { opacity: 0, y: 100, zIndex: 100, force3D: true },
+            { opacity: 1, y: 0, zIndex: 100, ease: "none", duration: 0.3, force3D: true },
+            0.5 
+        );
+
+        ///terceira animação, deslizando de baixo para cima o item iniciando em 50% e concluíndo em 80% da timeline
+        bannerTl.fromTo(
+            "#meetConnectDeskBackground",
+            {
+                scale: 0, // 1000%
+                transformOrigin: "50% 50%",
+                ease: "none"
+            },
+            {
+                scale: 1,
+                transformOrigin: "50% 50%",
+                ease: "none"
+            },
+            0
+        );
 
 
 
