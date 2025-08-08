@@ -12,15 +12,28 @@
     "connectfy:scss:watch": "sass --watch src/views/connectfy/style.scss src/views/connectfy/style.css",
     "connectfy:taiwind:watch": "npx tailwindcss -i src/views/connectfy/output.css -o src/views/connectfy/styles/tailwind.css --watch",
     "connectfy:taiwind:build": "npx tailwindcss -i src/views/connectfy/output.css -o src/views/connectfy/styles/tailwind.css",
+    
     "connectdesk:scss:watch": "sass --watch src/views/connectdesk/style.scss src/views/connectdesk/style.css",
     "connectdesk:taiwind:watch": "npx tailwindcss -i src/views/connectdesk/output.css -o src/views/connectdesk/styles/tailwind.css --watch",
     "connectdesk:taiwind:build": "npx tailwindcss -i src/views/connectdesk/output.css -o src/views/connectdesk/styles/tailwind.css",
+
+    "estoqgov:scss:watch": "sass --watch src/views/estoqgov/style.scss src/views/estoqgov/style.css",
+    "estoqgov:taiwind:watch": "npx tailwindcss -i src/views/estoqgov/output.css -o src/views/estoqgov/styles/tailwind.css --watch",
+    "estoqgov:taiwind:build": "npx tailwindcss -i src/views/estoqgov/output.css -o src/views/estoqgov/styles/tailwind.css",
+  
+
     "start:dev": "npm-run-all --parallel  scss:watch taiwind:watch prod:server",
     "start:macdev": "npm-run-all --parallel  scss:watch taiwind:watch prod:macserver",
+
     "connectfy:start:dev": "npm-run-all --parallel  connectfy:scss:watch connectfy:taiwind:watch prod:server",
     "connectfy:start:macdev": "npm-run-all --parallel  connectfy:scss:watch connectfy:taiwind:watch prod:macserver",
+
     "connectdesk:start:dev": "npm-run-all --parallel  connectdesk:scss:watch connectdesk:taiwind:watch prod:server",
     "connectdesk:start:macdev": "npm-run-all --parallel  connectdesk:scss:watch connectdesk:taiwind:watch prod:macserver",
+
+    "estoqgov:start:dev": "npm-run-all --parallel  estoqgov:scss:watch estoqgov:taiwind:watch prod:server",
+    "estoqgov:start:macdev": "npm-run-all --parallel  estoqgov:scss:watch estoqgov:taiwind:watch prod:macserver",
+
     "build": "npx tsc",
     "copy:files": "copyfiles -u 2 src/views/**/* ../siteConnectDeploy/views",
     "copy:views": "copyfiles -u 2 src/views/**/**/* ../siteConnectDeploy/views",

@@ -1,0 +1,129 @@
+html {
+    font-size: 62.5% !important;
+}
+
+.alm_align_center {
+    text-align: center;
+}
+
+.alm_align_right {
+    text-align: right;
+    width: 100%
+}
+
+.alm_align_left {
+    text-align: left;
+    width: 100%
+}
+
+.align-baseline {
+    display: flex;
+    align-items: center;
+}
+
+.align-baseline-reverse {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    width: 100%;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .align-baseline {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 16px;
+    }
+
+    .align-baseline-reverse {
+        display: flex;
+        flex-direction: column !important;
+        align-items: center;
+        width: 100%;
+    }
+
+}
+
+
+h1 {
+    font-size: clamp(1.8rem, 2.5vw, 2rem) !important;
+    font-family: 'Nunito', sans-serif !important;
+    margin: 8px 0px !important;
+    font-weight: 700 !important;
+}
+
+.thin_title {
+    margin-top: 0px;
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: clamp(1.8rem, 2.5vw, 2rem) !important;
+    font-family: 'Nunito', sans-serif !important;
+    margin: 8px 0px !important;
+    font-weight: 700 !important;
+}
+
+h3 {
+    font-size: clamp(1.8rem, 2.5vw, 2rem) !important;
+    font-family: 'Nunito', sans-serif !important;
+    margin: 8px 0px !important;
+    font-weight: 700 !important;
+}
+h4 {
+    font-size: clamp(1.8rem, 2.5vw, 2rem) !important;
+    font-family: 'Nunito', sans-serif !important;
+    margin: 8px 0px !important;
+    font-weight: 700 !important;
+}
+
+p:not(.high, .subtitle) {
+    font-size: 1.6rem;
+    font-family: 'Nunito', sans-serif !important;
+    margin: 8px 0px !important;
+}
+
+a {
+    font-size: 1.6rem !important;
+    font-family: 'Nunito', sans-serif !important;
+    font-weight: 700 !important;
+}
+
+input{
+    font-size: 1.6rem !important;
+    font-family: 'Nunito', sans-serif !important;
+    font-weight: 400 !important;
+}
+
+.lowlight {
+    font-size: 1.4rem !important;
+    font-family: 'Nunito', sans-serif !important;
+    margin: 8px 0px !important;
+}
+
+.highlight {
+    font-size: 2.4rem !important;
+    font-family: 'Nunito', sans-serif !important;
+    margin: 8px 0px !important;
+    font-weight: 700 !important;
+    line-height: 100%;
+}
+
+
+
+.x2 {
+    font-size: 2.6rem !important;
+    font-family: 'Nunito', sans-serif !important;
+    margin: 8px 0px !important;
+    font-weight: 700 !important;
+    line-height: 100%;
+}
+
+.zero_font_margin {
+    margin: 0px !important;
+}

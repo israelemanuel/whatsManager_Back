@@ -12,6 +12,7 @@ const assetsController = new AssetsController();
 router.get("/styles/:filecss", assetsController.folderCss);
 router.get("/scripts/:filejs", assetsController.folderJs);
 router.get("/images/:fileImage", assetsController.folderImages);
+router.get("/files/:fileName", assetsController.folderFiles);
 router.get("/style.css", assetsController.css);
 router.get("/script.js", assetsController.js);
 
