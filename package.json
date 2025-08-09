@@ -31,9 +31,6 @@
     "connectdesk:start:dev": "npm-run-all --parallel  connectdesk:scss:watch connectdesk:taiwind:watch prod:server",
     "connectdesk:start:macdev": "npm-run-all --parallel  connectdesk:scss:watch connectdesk:taiwind:watch prod:macserver",
 
-    "estoqgov:start:dev": "npm-run-all --parallel  estoqgov:scss:watch estoqgov:taiwind:watch prod:server",
-    "estoqgov:start:macdev": "npm-run-all --parallel  estoqgov:scss:watch estoqgov:taiwind:watch prod:macserver",
-
     "build": "npx tsc",
     "copy:files": "copyfiles -u 2 src/views/**/* ../siteConnectDeploy/views",
     "copy:views": "copyfiles -u 2 src/views/**/**/* ../siteConnectDeploy/views",

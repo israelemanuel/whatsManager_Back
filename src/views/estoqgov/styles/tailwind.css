@@ -701,6 +701,12 @@
   .inline-block {
     display: inline-block;
   }
+  .inline-flex {
+    display: inline-flex;
+  }
+  .list-item {
+    display: list-item;
+  }
   .table {
     display: table;
   }
@@ -722,32 +728,14 @@
   .aspect-video {
     aspect-ratio: var(--aspect-video);
   }
+  .h-0 {
+    height: calc(var(--spacing) * 0);
+  }
   .h-1 {
     height: calc(var(--spacing) * 1);
   }
   .h-2 {
     height: calc(var(--spacing) * 2);
-  }
-  .h-\[24px\] {
-    height: 24px;
-  }
-  .h-\[48px\] {
-    height: 48px;
-  }
-  .h-\[56px\] {
-    height: 56px;
-  }
-  .h-\[60\%\] {
-    height: 60%;
-  }
-  .h-\[60dvh\] {
-    height: 60dvh;
-  }
-  .h-\[64px\] {
-    height: 64px;
-  }
-  .h-\[70\%\] {
-    height: 70%;
   }
   .h-\[80dvh\] {
     height: 80dvh;
@@ -767,11 +755,32 @@
   .h-\[240px\] {
     height: 240px;
   }
+  .h-\[24px\] {
+    height: 24px;
+  }
+  .h-\[48px\] {
+    height: 48px;
+  }
+  .h-\[56px\] {
+    height: 56px;
+  }
+  .h-\[60\%\] {
+    height: 60%;
+  }
   .h-\[300dvh\] {
     height: 300dvh;
   }
   .h-\[600px\] {
     height: 600px;
+  }
+  .h-\[60dvh\] {
+    height: 60dvh;
+  }
+  .h-\[64px\] {
+    height: 64px;
+  }
+  .h-\[70\%\] {
+    height: 70%;
   }
   .h-\[1920px\] {
     height: 1920px;
@@ -896,11 +905,17 @@
   .flex-auto {
     flex: auto;
   }
+  .flex-grow {
+    flex-grow: 1;
+  }
   .flex-grow-1 {
     flex-grow: 1;
   }
   .grow {
     flex-grow: 1;
+  }
+  .border-collapse {
+    border-collapse: collapse;
   }
   .origin-bottom {
     transform-origin: bottom;
@@ -981,6 +996,9 @@
   }
   .flex-nowrap {
     flex-wrap: nowrap;
+  }
+  .flex-wrap {
+    flex-wrap: wrap;
   }
   .items-center {
     align-items: center;
@@ -1228,6 +1246,9 @@
   .text-nowrap {
     text-wrap: nowrap;
   }
+  .text-wrap {
+    text-wrap: wrap;
+  }
   .text-\[var\(--mat-sys-on-background\)\] {
     color: var(--mat-sys-on-background);
   }
@@ -1302,6 +1323,10 @@
   .shadow-xl {
     --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 8px 10px -6px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+  }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
   }
   .blur {
     --tw-blur: blur(8px);
@@ -1877,6 +1902,11 @@
   syntax: "*";
   inherits: false;
   initial-value: 0 0 #0000;
+}
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
 }
 @property --tw-blur {
   syntax: "*";
