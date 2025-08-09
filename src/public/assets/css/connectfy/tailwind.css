@@ -605,6 +605,9 @@
   .z-30 {
     z-index: 30;
   }
+  .z-32 {
+    z-index: 32;
+  }
   .z-40 {
     z-index: 40;
   }
@@ -701,8 +704,17 @@
   .inline-block {
     display: inline-block;
   }
+  .inline-flex {
+    display: inline-flex;
+  }
+  .list-item {
+    display: list-item;
+  }
   .table {
     display: table;
+  }
+  .table-cell {
+    display: table-cell;
   }
   .aspect-\[4\/3\] {
     aspect-ratio: 4/3;
@@ -722,14 +734,14 @@
   .aspect-video {
     aspect-ratio: var(--aspect-video);
   }
+  .h-0 {
+    height: calc(var(--spacing) * 0);
+  }
   .h-1 {
     height: calc(var(--spacing) * 1);
   }
   .h-2 {
     height: calc(var(--spacing) * 2);
-  }
-  .h-\[24px\] {
-    height: 24px;
   }
   .h-\[48px\] {
     height: 48px;
@@ -766,6 +778,9 @@
   }
   .h-\[240px\] {
     height: 240px;
+  }
+  .h-\[24px\] {
+    height: 24px;
   }
   .h-\[300dvh\] {
     height: 300dvh;
@@ -896,11 +911,17 @@
   .flex-auto {
     flex: auto;
   }
+  .flex-grow {
+    flex-grow: 1;
+  }
   .flex-grow-1 {
     flex-grow: 1;
   }
   .grow {
     flex-grow: 1;
+  }
+  .border-collapse {
+    border-collapse: collapse;
   }
   .origin-bottom {
     transform-origin: bottom;
@@ -982,6 +1003,9 @@
   .flex-nowrap {
     flex-wrap: nowrap;
   }
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
   .items-center {
     align-items: center;
   }
@@ -1017,6 +1041,11 @@
   }
   .self-start {
     align-self: flex-start;
+  }
+  .truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   .overflow-auto {
     overflow: auto;
@@ -1201,6 +1230,9 @@
   .text-center {
     text-align: center;
   }
+  .align-baseline {
+    vertical-align: baseline;
+  }
   .text-4xl {
     font-size: var(--text-4xl);
     line-height: var(--tw-leading, var(--text-4xl--line-height));
@@ -1227,6 +1259,9 @@
   }
   .text-nowrap {
     text-wrap: nowrap;
+  }
+  .text-wrap {
+    text-wrap: wrap;
   }
   .text-\[var\(--mat-sys-on-background\)\] {
     color: var(--mat-sys-on-background);
@@ -1270,8 +1305,18 @@
   .lowercase {
     text-transform: lowercase;
   }
+  .uppercase {
+    text-transform: uppercase;
+  }
+  .italic {
+    font-style: italic;
+  }
   .underline {
     text-decoration-line: underline;
+  }
+  .antialiased {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   .opacity-0 {
     opacity: 0%;
@@ -1303,6 +1348,10 @@
     --tw-shadow: 0 20px 25px -5px var(--tw-shadow-color, rgb(0 0 0 / 0.1)), 0 8px 10px -6px var(--tw-shadow-color, rgb(0 0 0 / 0.1));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
+  .outline {
+    outline-style: var(--tw-outline-style);
+    outline-width: 1px;
+  }
   .blur {
     --tw-blur: blur(8px);
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
@@ -1317,6 +1366,10 @@
   }
   .drop-shadow {
     --tw-drop-shadow: drop-shadow(0 1px 2px rgb(0 0 0 / 0.1)) drop-shadow( 0 1px 1px rgb(0 0 0 / 0.06));
+    filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
+  }
+  .grayscale {
+    --tw-grayscale: grayscale(100%);
     filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-contrast,) var(--tw-grayscale,) var(--tw-hue-rotate,) var(--tw-invert,) var(--tw-saturate,) var(--tw-sepia,) var(--tw-drop-shadow,);
   }
   .invert {
@@ -1349,6 +1402,14 @@
     transition-property: all;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .ease-in-out {
+    --tw-ease: var(--ease-in-out);
+    transition-timing-function: var(--ease-in-out);
+  }
+  .ease-out {
+    --tw-ease: var(--ease-out);
+    transition-timing-function: var(--ease-out);
   }
   .outline-none {
     --tw-outline-style: none;
@@ -1874,6 +1935,11 @@
   inherits: false;
   initial-value: 0 0 #0000;
 }
+@property --tw-outline-style {
+  syntax: "*";
+  inherits: false;
+  initial-value: solid;
+}
 @property --tw-blur {
   syntax: "*";
   inherits: false;
@@ -1943,6 +2009,10 @@
   inherits: false;
 }
 @property --tw-backdrop-sepia {
+  syntax: "*";
+  inherits: false;
+}
+@property --tw-ease {
   syntax: "*";
   inherits: false;
 }

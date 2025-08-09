@@ -1,0 +1,305 @@
+:root {
+    --primary-color: #214E48 !important;
+    --seccondary-color: black;
+    --accent-color: #F7CD5F;
+    --warn-color: #F7CD5F;
+    --neutral-color: white;
+    --page-background: #EFEADC;
+    --filter-multiply: rgba(0, 0, 0, 0.7);
+    -webkit-font-smoothing: antialiased;
+    --curve: 32px;
+    font-size: 62.5% !important;
+}
+
+/* Para navegadores Webkit (Chrome, Safari, Opera) */
+::-webkit-scrollbar {
+    width: 5px;
+    /* Largura da barra de rolagem */
+    background-color: transparent;
+    /* Cor de fundo transparente */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #888;
+    /* Cor da barra de rolagem */
+}
+
+/* Para navegadores Firefox */
+::-moz-scrollbar {
+    width: 5px;
+    /* Largura da barra de rolagem */
+    background-color: transparent;
+    /* Cor de fundo transparente */
+}
+
+::-moz-scrollbar-thumb {
+    background-color: #888;
+    /* Cor da barra de rolagem */
+}
+
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgba(0, 0, 0, 0.500) !important;
+    opacity: 0.8;
+    /* Firefox */
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: rgba(0, 0, 0, 0.500) !important;
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: rgba(0, 0, 0, 0.500) !important;
+}
+
+
+html {
+    background-color: var(--page-background);
+}
+
+
+body {
+    display: flex !important;
+    width: 100%;
+    height: 100vh !important;
+    flex-direction: row;
+    overflow: auto;
+}
+
+@media(min-width: 1920px) {
+    body {
+        width: 100vw;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media(max-width: 600px) {
+    body {
+        flex-direction: column;
+    }
+}
+
+.main_header {
+    height: 100vh;
+    max-width: 30vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background-color: var(--primary-color);
+    color: #F7CD5F;
+}
+
+.main_logo a {
+    padding: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 56px;
+}
+
+.main_logo a img {
+    height: 100%;
+}
+
+@media(max-width: 600px) {
+    .main_header {
+        max-width: 100vw;
+        flex-direction: column-reverse;
+    }
+}
+
+@media(min-width: 601px) and (max-width: 1440px) {
+    .main_header {
+        max-width: 50vw;
+    }
+}
+
+.main_header .title {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+}
+
+.main_header .title h1 {
+    font-size: 4.4rem;
+    font-weight: bold !important;
+    margin: 0px;
+    font-family: 'Montserrat', sans-serif !important;
+
+}
+
+.main_header .title p {
+    font-size: 1.6rem;
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.main_content {
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    padding: 16px;
+}
+
+.main_content .formulary {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    border-radius: 16px;
+    margin: 16px;
+    -webkit-box-shadow: 0px 0px 0px 1px var(--primary-color);
+    -moz-box-shadow: 0px 0px 0px 1px var(--primary-color);
+    box-shadow: 0px 0px 0px 1px var(--primary-color);
+}
+
+@media(max-width: 600px){
+    .main_content .formulary {
+        margin: 16px 0px;
+    }
+
+    .main_content{
+        padding: 0px;
+    }
+}
+
+
+
+
+.input-field label {
+    color: var(--primary-color) !important;
+}
+
+/* label focus color */
+.input-field input[type=text]:focus+label {
+    color: var(--primary-color) !important;
+}
+
+/* label underline focus color */
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid var(--primary-color) !important;
+    box-shadow: 0 1px 0 0 var(--primary-color) !important;
+}
+
+/* valid color */
+.input-field input[type=text].valid {
+    border-bottom: 1px solid var(--primary-color) !important;
+    box-shadow: 0 1px 0 0 var(--primary-color) !important;
+}
+
+/* invalid color */
+.input-field input[type=text].invalid {
+    border-bottom: 1px solid red !important;
+    box-shadow: 0 1px 0 0 red !important;
+}
+
+/* icon prefix focus color */
+.input-field .prefix.active {
+    color: var(--primary-color) !important;
+}
+
+
+/* select */
+.dropdown-content li>a, .dropdown-content li>span {
+    font-size: 16px;
+    color: var(--primary-color) !important;
+    display: block;
+    line-height: 22px;
+    padding: 14px 16px;
+}
+
+.dropdown-content {
+    border-radius: 16px;
+}
+
+/* Button */
+.dock_button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.btn {
+    height: 56px !important;
+    width: 200px !important;
+    padding: 16px !important;
+    border-radius: 56px !important;
+    background-color: var(--primary-color) !important;
+    color: white;
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 700;
+}
+
+
+.dual-input {
+    display: flex;
+    flex-direction: row;
+    gap: 0.8rem;
+    width: 100%;
+}
+
+.dual-input .select-wrapper {
+    flex: 1 !important;
+}
+
+@media(max-width: 600px) {
+    .dual-input {
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+    }
+
+    .dual-input select {
+        flex: 100% !important;
+    }
+
+    .dual-input .input-field {
+        flex: 100% !important;
+    }
+}
+
+.dropdown-content::-webkit-scrollbar {
+    width: 24px;
+    /* Largura da barra de rolagem */
+    background-color: transparent;
+    /* Cor de fundo transparente */
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    /* color of the scroll thumb */
+    border-radius: 16px;
+    /* roundness of the scroll thumb */
+    border: 6px solid white;
+    /* creates padding around scroll thumb */
+}
+
+/* Para navegadores Firefox */
+.dropdown-content::-moz-scrollbar {
+    width: 5px;
+    /* Largura da barra de rolagem */
+    background-color: transparent;
+    /* Cor de fundo transparente */
+}
+
+.dropdown-content::-moz-scrollbar-thumb {
+    background-color: var(--primary-color);
+    /* color of the scroll thumb */
+    border-radius: 16px;
+    /* roundness of the scroll thumb */
+    border: 6px solid white;
+    /* creates padding around scroll thumb */
+}
