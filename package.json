@@ -9,6 +9,7 @@
     "scss:watch": "sass --watch src/public/assets/scss/connectfy/style.scss src/public/assets/css/connectfy/style.css",
     "taiwind:watch": "npx tailwindcss -i src/public/assets/css/connectfy/output.css -o src/public/assets/css/connectfy/tailwind.css --watch",
     "taiwind:build": "npx tailwindcss -i src/public/assets/css/connectfy/output.css -o src/public/assets/css/connectfy/tailwind.css",
+
     "connectfy:scss:watch": "sass --watch src/views/connectfy/style.scss src/views/connectfy/style.css",
     "connectfy:taiwind:watch": "npx tailwindcss -i src/views/connectfy/output.css -o src/views/connectfy/styles/tailwind.css --watch",
     "connectfy:taiwind:build": "npx tailwindcss -i src/views/connectfy/output.css -o src/views/connectfy/styles/tailwind.css",
@@ -17,9 +18,13 @@
     "connectdesk:taiwind:watch": "npx tailwindcss -i src/views/connectdesk/output.css -o src/views/connectdesk/styles/tailwind.css --watch",
     "connectdesk:taiwind:build": "npx tailwindcss -i src/views/connectdesk/output.css -o src/views/connectdesk/styles/tailwind.css",
 
-    "estoqgov:scss:watch": "sass --watch src/views/estoqgov/style.scss src/views/estoqgov/style.css",
+    
     "estoqgov:taiwind:watch": "npx tailwindcss -i src/views/estoqgov/output.css -o src/views/estoqgov/styles/tailwind.css --watch",
     "estoqgov:taiwind:build": "npx tailwindcss -i src/views/estoqgov/output.css -o src/views/estoqgov/styles/tailwind.css",
+
+
+    "nutrigov:taiwind:watch": "npx tailwindcss -i src/views/nutrigov/output.css -o src/views/nutrigov/styles/tailwind.css --watch",
+    "nutrigov:taiwind:build": "npx tailwindcss -i src/views/nutrigov/output.css -o src/views/nutrigov/styles/tailwind.css",
   
 
     "start:dev": "npm-run-all --parallel  scss:watch taiwind:watch prod:server",
@@ -30,6 +35,13 @@
 
     "connectdesk:start:dev": "npm-run-all --parallel  connectdesk:scss:watch connectdesk:taiwind:watch prod:server",
     "connectdesk:start:macdev": "npm-run-all --parallel  connectdesk:scss:watch connectdesk:taiwind:watch prod:macserver",
+
+
+    "estoqgov:start:dev": "npm-run-all --parallel estoqgov:taiwind:watch prod:server",
+    "estoqgov:start:macdev": "npm-run-all --parallel estoqgov:taiwind:watch prod:macserver",
+
+    "nutrigov:start:dev": "npm-run-all --parallel nutrigov:taiwind:watch prod:server",
+    "nutrigov:start:macdev": "npm-run-all --parallel nutrigov:taiwind:watch prod:macserver",
 
     "build": "npx tsc",
     "copy:files": "copyfiles -u 2 src/views/**/* ../siteConnectDeploy/views",
