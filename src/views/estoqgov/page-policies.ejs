@@ -1,0 +1,425 @@
+<%- header%>
+
+<!-- Alpine.js CDN -->
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+<div class="relative min-h-screen" x-data="{ activeTab: 'privacy' }">
+    <div class="relative z-50 header">
+        <a href="/"><img src="/images/estoq_gov_logo_white.svg" alt="EstoqGov"></a>
+    </div>
+    
+    <div class="relative z-20 docs_area">
+        <div class="bg-white max-w-7xl mx-auto px-5 py-10 relative z-30 privacy_content">
+            
+            <!-- Abas de Navegação -->
+            <div class="mb-10 tabs_navigation">
+                <div class="flex justify-center border-b-2 border-gray-200 mb-8 flex-col md:flex-row">
+                    <button 
+                        @click="activeTab = 'privacy'"
+                        :class="activeTab === 'privacy' ? 'text-[var(--alm-sec_color)] border-[var(--alm-prim_color)]' : 'text-gray-500 border-transparent'"
+                        class="px-8 py-4 mx-2 text-lg font-bold border-none bg-none cursor-pointer border-b-4 transition-all duration-300 hover:text-[var(--alm-sec_color)] !focus:text-[var(--alm-sec_color)] !focus:bg-transparent focus:outline-none w-full md:w-auto text-center mb-2 md:mb-0 tab-button">
+                        Política de Privacidade
+                    </button>
+                    <button 
+                        @click="activeTab = 'terms'"
+                        :class="activeTab === 'terms' ? 'text-[var(--alm-sec_color)] border-[var(--alm-prim_color)]' : 'text-gray-500 border-transparent'"
+                        class="px-8 py-4 mx-2 text-lg font-bold border-none bg-none cursor-pointer border-b-4 transition-all duration-300 hover:text-[var(--alm-sec_color)] !focus:text-[var(--alm-sec_color)] !focus:bg-transparent focus:outline-none w-full md:w-auto text-center tab-button">
+                        Termos de Uso
+                    </button>
+                </div>
+            </div>
+
+            <!-- Título Dinâmico -->
+            <div class="text-center mb-10 title">
+                <h1 x-text="activeTab === 'privacy' ? 'Política de Privacidade' : 'Termos de Uso'" 
+                    class="text-gray-800 text-4xl md:text-5xl font-bold mb-3"></h1>
+                <p class="text-gray-600 text-lg md:text-xl">EstoqGov - Plataforma de Gestão de Almoxarifados Públicos</p>
+                <p class="text-gray-400 text-sm mt-3">Última atualização: <%= new Date().toLocaleDateString('pt-BR') %></p>
+            </div>
+
+            <!-- Conteúdo da Política de Privacidade -->
+            <div x-show="activeTab === 'privacy'" 
+                 x-transition:enter="transition ease-out duration-300"
+                 x-transition:enter-start="opacity-0 transform translate-x-4"
+                 x-transition:enter-end="opacity-100 transform translate-x-0"
+                 x-transition:leave="transition ease-in duration-200"
+                 x-transition:leave-start="opacity-100 transform translate-x-0"
+                 x-transition:leave-end="opacity-0 transform -translate-x-4"
+                 class="bg-white rounded-lg p-10 shadow-lg relative z-40 privacy_sections">
+                
+                <section class="mb-10">
+                    <h2 class="text-gray-800 text-3xl font-bold mb-4 border-b-2 border-[var(--alm-prim_color)] pb-3">1. Introdução</h2>
+                    <p class="text-gray-800 leading-relaxed mb-4">
+                        A EstoqGov está comprometida com a proteção da privacidade e segurança dos dados pessoais dos usuários de nossa plataforma de gestão de almoxarifados públicos. Esta Política de Privacidade descreve como coletamos, usamos, armazenamos e protegemos suas informações pessoais, em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018) e demais legislações aplicáveis.
+                    </p>
+                </section>
+
+                <section class="mb-10">
+                    <h2 class="text-gray-800 text-3xl font-bold mb-4 border-b-2 border-[var(--alm-prim_color)] pb-3">2. Dados Coletados</h2>
+                    <p class="text-gray-800 leading-relaxed mb-4">Coletamos os seguintes tipos de dados:</p>
+                    
+                    <h3 class="text-gray-700 text-xl font-bold my-5">2.1 Dados de Identificação</h3>
+                    <ul class="text-gray-800 leading-relaxed ml-5 mb-4 list-disc">
+                        <li>Nome completo</li>
+                        <li>CPF</li>
+                        <li>RG</li>
+                        <li>Cargo/função</li>
+                        <li>Órgão público de vinculação</li>
+                    </ul>
+
+                    <h3 class="text-gray-700 text-xl font-bold my-5">2.2 Dados de Contato</h3>
+                    <ul class="text-gray-800 leading-relaxed ml-5 mb-4 list-disc">
+                        <li>Endereço de e-mail institucional</li>
+                        <li>Telefone de contato</li>
+                        <li>Endereço do órgão público</li>
+                    </ul>
+
+                    <h3 class="text-gray-700 text-xl font-bold my-5">2.3 Dados de Acesso e Uso</h3>
+                    <ul class="text-gray-800 leading-relaxed ml-5 mb-4 list-disc">
+                        <li>Logs de acesso à plataforma</li>
+                        <li>Endereço IP</li>
+                        <li>Dados de navegação</li>
+                        <li>Histórico de atividades no sistema</li>
+                    </ul>
+                </section>
+
+                <section class="mb-10">
+                    <h2 class="text-gray-800 text-3xl font-bold mb-4 border-b-2 border-[var(--alm-prim_color)] pb-3">3. Finalidade do Tratamento</h2>
+                    <p class="text-gray-800 leading-relaxed mb-4">Utilizamos seus dados pessoais para:</p>
+                    <ul class="text-gray-800 leading-relaxed ml-5 mb-4 list-disc">
+                        <li>Fornecimento dos serviços da plataforma EstoqGov</li>
+                        <li>Controle de acesso e autenticação de usuários</li>
+                        <li>Gestão e administração de almoxarifados públicos</li>
+                        <li>Geração de relatórios de auditoria e conformidade</li>
+                        <li>Suporte técnico e atendimento ao usuário</li>
+                        <li>Cumprimento de obrigações legais e regulamentares</li>
+                        <li>Melhoria contínua dos serviços oferecidos</li>
+                    </ul>
+                </section>
+
+                <section class="mb-10">
+                    <h2 class="text-gray-800 text-3xl font-bold mb-4 border-b-2 border-[var(--alm-prim_color)] pb-3">4. Base Legal</h2>
+                    <p class="text-gray-800 leading-relaxed mb-4">O tratamento de dados pessoais na EstoqGov fundamenta-se nas seguintes bases legais:</p>
+                    <ul class="text-gray-800 leading-relaxed ml-5 mb-4 list-disc">
+                        <li><strong>Execução de contrato:</strong> Para fornecimento dos serviços contratados</li>
+                        <li><strong>Cumprimento de obrigação legal:</strong> Para atender exigências legais de controle público</li>
+                        <li><strong>Exercício regular de direitos:</strong> Para defesa de direitos em processos judiciais</li>
+                        <li><strong>Interesse legítimo:</strong> Para melhoria dos serviços e segurança da plataforma</li>
+                    </ul>
+                </section>
+
+                <section class="mb-10">
+                    <h2 class="text-gray-800 text-3xl font-bold mb-4 border-b-2 border-[var(--alm-prim_color)] pb-3">5. Compartilhamento de Dados</h2>
+                    <p class="text-gray-800 leading-relaxed mb-4">
+                        Seus dados pessoais podem ser compartilhados nas seguintes situações:
+                    </p>
+                    <ul class="text-gray-800 leading-relaxed ml-5 mb-4 list-disc">
+                        <li>Com outros usuários do mesmo órgão público, conforme necessário para a gestão do almoxarifado</li>
+                        <li>Com órgãos de controle (TCU, CGU, Tribunais de Contas) quando exigido por lei</li>
+                        <li>Com prestadores de serviços terceirizados, mediante contrato de confidencialidade</li>
+                        <li>Por determinação judicial ou de autoridades competentes</li>
+                    </ul>
+                </section>
+
+                <section class="mb-10">
+                    <h2 class="text-gray-800 text-3xl font-bold mb-4 border-b-2 border-[var(--alm-prim_color)] pb-3">6. Segurança dos Dados</h2>
+                    <p class="text-gray-800 leading-relaxed mb-4">
+                        Implementamos medidas técnicas e organizacionais adequadas para proteger seus dados:
+                    </p>
+                    <ul class="text-gray-800 leading-relaxed ml-5 mb-4 list-disc">
+                        <li>Criptografia de dados em trânsito e em repouso</li>
+                        <li>Controles de acesso baseados em perfis de usuário</li>
+                        <li>Monitoramento contínuo de segurança</li>
+                        <li>Backups regulares e seguros</li>
+                        <li>Treinamento de equipe em segurança da informação</li>
+                        <li>Auditorias periódicas de segurança</li>
+                    </ul>
+                </section>
+
+                <section class="mb-10">
+                    <h2 class="text-gray-800 text-3xl font-bold mb-4 border-b-2 border-[var(--alm-prim_color)] pb-3">7. Retenção de Dados</h2>
+                    <p class="text-gray-800 leading-relaxed mb-4">
+                        Os dados pessoais serão mantidos pelo período necessário para:
+                    </p>
+                    <ul class="text-gray-800 leading-relaxed ml-5 mb-4 list-disc">
+                        <li>Cumprimento das finalidades descritas nesta política</li>
+                        <li>Atendimento a obrigações legais (conforme prazos estabelecidos em lei)</li>
+                        <li>Exercício de direitos em processos administrativos ou judiciais</li>
+                    </ul>
+                    <p class="text-gray-800 leading-relaxed mb-4">
+                        Após esses períodos, os dados serão eliminados de forma segura, salvo quando houver obrigação legal de manutenção.
+                    </p>
+                </section>
+
+                <section class="mb-10">
+                    <h2 class="text-gray-800 text-3xl font-bold mb-4 border-b-2 border-[var(--alm-prim_color)] pb-3">8. Seus Direitos</h2>
+                    <p class="text-gray-800 leading-relaxed mb-4">Como titular de dados, você tem direito a:</p>
+                    <ul class="text-gray-800 leading-relaxed ml-5 mb-4 list-disc">
+                        <li><strong>Confirmação e acesso:</strong> Confirmar se seus dados são tratados e acessá-los</li>
+                        <li><strong>Correção:</strong> Corrigir dados incompletos, inexatos ou desatualizados</li>
+                        <li><strong>Eliminação:</strong> Solicitar eliminação de dados desnecessários ou tratados inadequadamente</li>
+                        <li><strong>Portabilidade:</strong> Solicitar a portabilidade dos dados a outro fornecedor</li>
+                        <li><strong>Informação:</strong> Obter informações sobre compartilhamento e uso dos dados</li>
+                        <li><strong>Revogação do consentimento:</strong> Quando aplicável</li>
+                    </ul>
+                </section>
+
+                <section class="mb-10">
+                    <h2 class="text-gray-800 text-3xl font-bold mb-4 border-b-2 border-[var(--alm-prim_color)] pb-3">9. Cookies e Tecnologias Similares</h2>
+                    <p class="text-gray-800 leading-relaxed mb-4">
+                        Nossa plataforma utiliza cookies e tecnologias similares para:
+                    </p>
+                    <ul class="text-gray-800 leading-relaxed ml-5 mb-4 list-disc">
+                        <li>Manter sua sessão ativa durante o uso da plataforma</li>
+                        <li>Melhorar a experiência do usuário</li>
+                        <li>Coletar estatísticas de uso (dados anonimizados)</li>
+                        <li>Garantir a segurança do sistema</li>
+                    </ul>
+                </section>
+
+                <section class="mb-10">
+                    <h2 class="text-gray-800 text-3xl font-bold mb-4 border-b-2 border-[var(--alm-prim_color)] pb-3">10. Encarregado de Dados (DPO)</h2>
+                    <div class="bg-gray-50 p-5 rounded-lg border-l-4 border-[var(--alm-prim_color)]">
+                        <p class="text-gray-800 leading-relaxed mb-3">
+                            <strong>Encarregado de Proteção de Dados:</strong> [Nome do DPO]
+                        </p>
+                        <p class="text-gray-800 leading-relaxed mb-3">
+                            <strong>E-mail:</strong> dpo@estoqgov.com
+                        </p>
+                        <p class="text-gray-800 leading-relaxed mb-3">
+                            <strong>Telefone:</strong> [Telefone de contato]
+                        </p>
+                        <p class="text-gray-800 leading-relaxed">
+                            O DPO é responsável por atender suas solicitações relacionadas ao tratamento de dados pessoais.
+                        </p>
+                    </div>
+                </section>
+
+                <section class="mb-10">
+                    <h2 class="text-gray-800 text-3xl font-bold mb-4 border-b-2 border-[var(--alm-prim_color)] pb-3">11. Alterações nesta Política</h2>
+                    <p class="text-gray-800 leading-relaxed mb-4">
+                        Esta Política de Privacidade pode ser atualizada periodicamente. Principais alterações serão comunicadas através de:
+                    </p>
+                    <ul class="text-gray-800 leading-relaxed ml-5 mb-4 list-disc">
+                        <li>Notificação na plataforma</li>
+                        <li>E-mail para usuários cadastrados</li>
+                        <li>Publicação no site oficial</li>
+                    </ul>
+                </section>
+
+                <section class="mb-10">
+                    <h2 class="text-gray-800 text-3xl font-bold mb-4 border-b-2 border-[var(--alm-prim_color)] pb-3">12. Contato</h2>
+                    <div class="bg-gray-50 p-5 rounded-lg border-l-4 border-[var(--alm-prim_color)]">
+                        <p class="text-gray-800 leading-relaxed mb-4">
+                            Para dúvidas, solicitações ou exercício de seus direitos relacionados a esta Política de Privacidade, entre em contato conosco:
+                        </p>
+                        <p class="text-gray-800 leading-relaxed mb-3">
+                            <strong>EstoqGov</strong><br>
+                            E-mail: privacidade@estoqgov.com<br>
+                            Telefone: [Telefone de contato]<br>
+                            Site: https://www.estoqgov.com
+                        </p>
+                    </div>
+                </section>
+
+                <div class="text-center mt-10 pt-8 border-t-2 border-gray-200">
+                    <p class="text-gray-500 text-sm">
+                        © <%= new Date().getFullYear() %> EstoqGov. Todos os direitos reservados.<br>
+                        Plataforma de gestão de almoxarifados públicos em conformidade com a LGPD.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Conteúdo dos Termos de Uso -->
+            <div x-show="activeTab === 'terms'" 
+                 x-transition:enter="transition ease-out duration-300"
+                 x-transition:enter-start="opacity-0 transform translate-x-4"
+                 x-transition:enter-end="opacity-100 transform translate-x-0"
+                 x-transition:leave="transition ease-in duration-200"
+                 x-transition:leave-start="opacity-100 transform translate-x-0"
+                 x-transition:leave-end="opacity-0 transform -translate-x-4"
+                 class="bg-white rounded-lg p-10 shadow-lg relative z-40 terms_sections">
+                
+                <section class="mb-10">
+                    <h2 class="text-gray-800 text-3xl font-bold mb-4 border-b-2 border-[var(--alm-prim_color)] pb-3">1. Aceitação dos Termos</h2>
+                    <p class="text-gray-800 leading-relaxed mb-4">
+                        Ao acessar e utilizar a plataforma EstoqGov, você concorda em cumprir e estar vinculado aos presentes Termos de Uso. Se você não concordar com qualquer parte destes termos, não deve utilizar nossos serviços.
+                    </p>
+                </section>
+
+                <section class="mb-10">
+                    <h2 class="text-gray-800 text-3xl font-bold mb-4 border-b-2 border-[var(--alm-prim_color)] pb-3">2. Descrição do Serviço</h2>
+                    <p class="text-gray-800 leading-relaxed mb-4">
+                        O EstoqGov é uma plataforma digital especializada em gestão de almoxarifados públicos que oferece:
+                    </p>
+                    <ul class="text-gray-800 leading-relaxed ml-5 mb-4 list-disc">
+                        <li>Sistema de controle de estoque digital</li>
+                        <li>Gestão de requisições e autorizações</li>
+                        <li>Relatórios de auditoria e conformidade</li>
+                        <li>Controle de acesso por perfis de usuário</li>
+                        <li>Integração com sistemas governamentais</li>
+                    </ul>
+                </section>
+
+                <section class="mb-10">
+                    <h2 class="text-gray-800 text-3xl font-bold mb-4 border-b-2 border-[var(--alm-prim_color)] pb-3">3. Elegibilidade e Cadastro</h2>
+                    <h3 class="text-gray-700 text-xl font-bold my-5">3.1 Requisitos de Elegibilidade</h3>
+                    <ul class="text-gray-800 leading-relaxed ml-5 mb-4 list-disc">
+                        <li>Ser servidor público ou prestador de serviços para órgão público</li>
+                        <li>Possuir autorização institucional para uso da plataforma</li>
+                        <li>Ter 18 anos completos ou mais</li>
+                        <li>Fornecer informações verdadeiras e atualizadas</li>
+                    </ul>
+
+                    <h3 class="text-gray-700 text-xl font-bold my-5">3.2 Responsabilidades do Usuário</h3>
+                    <ul class="text-gray-800 leading-relaxed ml-5 mb-4 list-disc">
+                        <li>Manter a confidencialidade das credenciais de acesso</li>
+                        <li>Utilizar a plataforma apenas para fins profissionais</li>
+                        <li>Reportar imediatamente qualquer uso não autorizado</li>
+                        <li>Manter dados pessoais e profissionais atualizados</li>
+                    </ul>
+                </section>
+
+                <section class="mb-10">
+                    <h2 class="text-gray-800 text-3xl font-bold mb-4 border-b-2 border-[var(--alm-prim_color)] pb-3">4. Uso Permitido</h2>
+                    <p class="text-gray-800 leading-relaxed mb-4">Você pode utilizar o EstoqGov para:</p>
+                    <ul class="text-gray-800 leading-relaxed ml-5 mb-4 list-disc">
+                        <li>Gestão oficial de almoxarifados públicos</li>
+                        <li>Controle de estoque e patrimônio público</li>
+                        <li>Geração de relatórios de conformidade</li>
+                        <li>Atendimento a requisições internas do órgão</li>
+                        <li>Cumprimento de obrigações legais de transparência</li>
+                    </ul>
+                </section>
+
+                <section class="mb-10">
+                    <h2 class="text-gray-800 text-3xl font-bold mb-4 border-b-2 border-[var(--alm-prim_color)] pb-3">5. Uso Proibido</h2>
+                    <p class="text-gray-800 leading-relaxed mb-4">É expressamente proibido:</p>
+                    <ul class="text-gray-800 leading-relaxed ml-5 mb-4 list-disc">
+                        <li>Usar a plataforma para fins pessoais ou comerciais não autorizados</li>
+                        <li>Compartilhar credenciais de acesso com terceiros</li>
+                        <li>Tentar acessar áreas restritas ou dados de outros órgãos</li>
+                        <li>Realizar engenharia reversa ou tentar descobrir códigos-fonte</li>
+                        <li>Transmitir vírus, malware ou códigos maliciosos</li>
+                        <li>Interferir no funcionamento normal da plataforma</li>
+                        <li>Realizar atividades que violem leis aplicáveis</li>
+                    </ul>
+                </section>
+
+                <section class="mb-10">
+                    <h2 class="text-gray-800 text-3xl font-bold mb-4 border-b-2 border-[var(--alm-prim_color)] pb-3">6. Propriedade Intelectual</h2>
+                    <p class="text-gray-800 leading-relaxed mb-4">
+                        Todo o conteúdo da plataforma EstoqGov, incluindo mas não limitado a:
+                    </p>
+                    <ul class="text-gray-800 leading-relaxed ml-5 mb-4 list-disc">
+                        <li>Software e código-fonte</li>
+                        <li>Interface de usuário e design</li>
+                        <li>Logotipos, marcas e elementos visuais</li>
+                        <li>Documentação e manuais</li>
+                        <li>Algoritmos e funcionalidades</li>
+                    </ul>
+                    <p class="text-gray-800 leading-relaxed mb-4">
+                        São de propriedade exclusiva da EstoqGov e protegidos por leis de propriedade intelectual.
+                    </p>
+                </section>
+
+                <section class="mb-10">
+                    <h2 class="text-gray-800 text-3xl font-bold mb-4 border-b-2 border-[var(--alm-prim_color)] pb-3">7. Disponibilidade e Manutenção</h2>
+                    <h3 class="text-gray-700 text-xl font-bold my-5">7.1 Disponibilidade do Serviço</h3>
+                    <p class="text-gray-800 leading-relaxed mb-4">
+                        Nos esforçamos para manter a plataforma disponível 24/7, mas podem ocorrer:
+                    </p>
+                    <ul class="text-gray-800 leading-relaxed ml-5 mb-4 list-disc">
+                        <li>Manutenções programadas (comunicadas antecipadamente)</li>
+                        <li>Interrupções por motivos técnicos ou de força maior</li>
+                        <li>Atualizações de segurança emergenciais</li>
+                    </ul>
+
+                    <h3 class="text-gray-700 text-xl font-bold my-5">7.2 Backup e Recuperação</h3>
+                    <p class="text-gray-800 leading-relaxed mb-4">
+                        Realizamos backups regulares, mas recomendamos que os órgãos mantenham seus próprios registros de controle conforme procedimentos internos.
+                    </p>
+                </section>
+
+                <section class="mb-10">
+                    <h2 class="text-gray-800 text-3xl font-bold mb-4 border-b-2 border-[var(--alm-prim_color)] pb-3">8. Limitação de Responsabilidade</h2>
+                    <p class="text-gray-800 leading-relaxed mb-4">
+                        A EstoqGov não se responsabiliza por:
+                    </p>
+                    <ul class="text-gray-800 leading-relaxed ml-5 mb-4 list-disc">
+                        <li>Decisões administrativas tomadas com base nos dados da plataforma</li>
+                        <li>Perdas ou danos decorrentes de uso inadequado</li>
+                        <li>Falhas de conectividade de internet do usuário</li>
+                        <li>Atos ou omissões de terceiros</li>
+                        <li>Casos fortuitos ou de força maior</li>
+                    </ul>
+                </section>
+
+                <section class="mb-10">
+                    <h2 class="text-gray-800 text-3xl font-bold mb-4 border-b-2 border-[var(--alm-prim_color)] pb-3">9. Rescisão</h2>
+                    <h3 class="text-gray-700 text-xl font-bold my-5">9.1 Rescisão pelo Usuário</h3>
+                    <p class="text-gray-800 leading-relaxed mb-4">
+                        O órgão público pode encerrar o uso da plataforma a qualquer momento, mediante comunicação formal.
+                    </p>
+
+                    <h3 class="text-gray-700 text-xl font-bold my-5">9.2 Rescisão pela EstoqGov</h3>
+                    <p class="text-gray-800 leading-relaxed mb-4">
+                        Podemos encerrar o acesso em casos de:
+                    </p>
+                    <ul class="text-gray-800 leading-relaxed ml-5 mb-4 list-disc">
+                        <li>Violação destes Termos de Uso</li>
+                        <li>Uso fraudulento ou inadequado</li>
+                        <li>Inadimplência contratual</li>
+                        <li>Solicitação de autoridades competentes</li>
+                    </ul>
+                </section>
+
+                <section class="mb-10">
+                    <h2 class="text-gray-800 text-3xl font-bold mb-4 border-b-2 border-[var(--alm-prim_color)] pb-3">10. Lei Aplicável e Foro</h2>
+                    <p class="text-gray-800 leading-relaxed mb-4">
+                        Estes Termos de Uso são regidos pelas leis brasileiras. Qualquer disputa será resolvida no foro da comarca onde está sediado o órgão contratante, renunciando-se a qualquer outro, por mais privilegiado que seja.
+                    </p>
+                </section>
+
+                <section class="mb-10">
+                    <h2 class="text-gray-800 text-3xl font-bold mb-4 border-b-2 border-[var(--alm-prim_color)] pb-3">11. Alterações nos Termos</h2>
+                    <p class="text-gray-800 leading-relaxed mb-4">
+                        Reservamos o direito de modificar estes termos a qualquer momento. Alterações significativas serão comunicadas com antecedência mínima de 30 dias através de:
+                    </p>
+                    <ul class="text-gray-800 leading-relaxed ml-5 mb-4 list-disc">
+                        <li>Notificação na plataforma</li>
+                        <li>E-mail para administradores do órgão</li>
+                        <li>Comunicação oficial quando necessário</li>
+                    </ul>
+                </section>
+
+                <section class="mb-10">
+                    <h2 class="text-gray-800 text-3xl font-bold mb-4 border-b-2 border-[var(--alm-prim_color)] pb-3">12. Contato e Suporte</h2>
+                    <div class="bg-gray-50 p-5 rounded-lg border-l-4 border-[var(--alm-prim_color)]">
+                        <p class="text-gray-800 leading-relaxed mb-4">
+                            Para questões relacionadas aos Termos de Uso, suporte técnico ou comercial:
+                        </p>
+                        <p class="text-gray-800 leading-relaxed mb-3">
+                            <strong>EstoqGov</strong><br>
+                            E-mail: suporte@estoqgov.com<br>
+                            Telefone: [Telefone de contato]<br>
+                            Site: https://www.estoqgov.com<br>
+                            Horário: Segunda a sexta, 8h às 18h
+                        </p>
+                    </div>
+                </section>
+
+                <div class="text-center mt-10 pt-8 border-t-2 border-gray-200">
+                    <p class="text-gray-500 text-sm">
+                        © <%= new Date().getFullYear() %> EstoqGov. Todos os direitos reservados.<br>
+                        Estes termos entram em vigor a partir da data de aceite.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="pointer-events-none absolute top-0 left-0 w-full h-full z-10 background" style="background-image: url('/images/banner_downloads.svg');"></div>
+</div>
+
+<%- footer%>

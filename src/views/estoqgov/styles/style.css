@@ -70,13 +70,12 @@ body {
 }
 
 .main_content .container_behavior{
-    width: 70dvw;
-    max-width: 1440px;
     height: 100%;
     background-color: transparent;
     display: flex;
     flex-direction: column;
     gap: var(--main-gap);
+    align-items: center;
 }
 
 .main_content .container_behavior .behavior_bloc{
@@ -302,62 +301,6 @@ body {
 }
 
 
-
-@media (min-width: 2560px) and (max-width:4096px) {
-    .carousel {
-        height: 380px !important;
-    }
-}
-
-@media (min-width: 1440px) and (max-width:2559px) {
-    .carousel {
-        height: 380px !important;
-    }
-}
-
-@media (min-width: 1266px) and (max-width:1439) {
-    .carousel {
-        height: 410px !important;
-    }
-}
-
-@media (min-width: 1044px) and (max-width:1265px) {
-    .carousel {
-        height: 430px !important;
-    }
-}
-
-@media (min-width: 1025px) and (max-width:1043px) {
-    .carousel {
-        height: 480px !important;
-    }
-}
-
-@media (min-width: 768px) and (max-width:1024px) {
-    .carousel {
-        height: 680px !important;
-    }
-}
-
-@media (min-width: 768px) and (max-width:1023px) {
-    .carousel {
-        height: 680px !important;
-    }
-}
-
-@media (min-width: 600px) and (max-width:767px) {
-    .carousel {
-        height: 680px !important;
-    }
-}
-
-@media (min-width: 320px) and (max-width:599px) {
-    .carousel {
-        height: 1130px !important;
-    }
-}
-
-
 .carousel-item {
     transition: all 10ms ease-out 0s !important;
     animation: fadeIn 200ms !important;
@@ -408,4 +351,7 @@ body {
         background-color: transparent;
         justify-content: center;
     }
+}
+button:focus{
+    background-color: transparent !important;
 }
