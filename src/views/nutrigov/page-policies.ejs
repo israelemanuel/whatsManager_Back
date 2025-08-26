@@ -3,13 +3,13 @@
   <!-- Alpine.js CDN -->
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-  <div class="relative bg-[var(--page-background)]" x-data="{ activeTab: 'privacy' }">
+  <body class="relative bg-[var(--page-background)] policies_page" x-data="{ activeTab: 'privacy' }">
     <div class="relative z-50 header">
       <a href="/"><img src="/images/nutrigov_logo.svg" alt="EstoqGov"></a>
     </div>
 
     <div class="policies_area">
-      <div class="relative z-20  overflow-y-scroll">
+      <div class="relative z-20  overflow-y-scroll bg-[var(--page-background)] ">
         <div class="bg-white max-w-7xl mx-auto px-5 py-10 relative z-30 privacy_content">
 
           <!-- Abas de Navegação -->
@@ -469,6 +469,6 @@
 
     <div class="pointer-events-none absolute top-0 left-0 w-full h-full z-10 background"
       style="background-image: url('/images/banner_downloads.svg');"></div>
-  </div>
+  </body>
 
   <%- footer%>
