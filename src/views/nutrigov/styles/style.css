@@ -74,8 +74,6 @@ body {
 }
 
 .container_behavior {
-	width: 70vw;
-	max-width: 1440px;
 	height: 100%;
 	background-color: transparent;
 	display: flex;
@@ -83,14 +81,13 @@ body {
 	align-items: center;
 	gap: 16px;
     position: relative;
-    padding: var(--main-padding);
 }
 
 @media (min-width: 641px) and (max-width: 1366px) {
 	.container_behavior {
 		width: 90% !important;
 		height: 100%;
-		padding: var(--main-padding);
+		padding: var(--main-padding) 0px var(--main-padding) var(--main-padding)
 	}
 }
 
@@ -98,7 +95,7 @@ body {
 	.container_behavior {
 		width: 100%;
 		height: 100%;
-		padding: var(--main-padding);
+		padding: var(--main-padding) 0px var(--main-padding) var(--main-padding)
 	}
 }
 
@@ -135,14 +132,15 @@ body {
 	display: block;
 	flex: 1;
 	width: 100%;
-	overflow: auto !important;
+	overflow-y: scroll !important;
+	overflow-x: hidden !important;
 	scroll-behavior: smooth;
 	position: fixed;
 	display: block;
 	z-index: 0 !important;
 	max-height: calc(100% - 64px);
 	top: 64px;
-	padding-bottom: 88px;
+	
 }
 
 @media (max-width: 600px) {

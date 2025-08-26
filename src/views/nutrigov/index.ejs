@@ -1,462 +1,686 @@
 <%- header%>
 
 
-<body>
-    <!-- BANNER -->
-    <div class="main_menu">
-        <nav>
-            <div class="nav-wrapper">
+    <body>
+        <!-- BANNER -->
+        <div class="main_menu">
+            <nav>
+                <div class="nav-wrapper">
 
-                <a style="color: black" href="inicio" data-target="mobile-demo" class="sidenav-trigger"><i class="material-symbols-outlined">menu</i></a>
+                    <a style="color: black" href="inicio" data-target="mobile-demo" class="sidenav-trigger"><i
+                            class="material-symbols-outlined">menu</i></a>
 
-                <div class="container">
-                    <a href="#inicio" class="brand-logo">
+                    <div class="container">
+                        <a href="#inicio" class="brand-logo">
 
-                        <img style="width: 150px" alt="nutrigov" src="/images/nutrigov_logo.svg">
-                    </a>
-                    <ul class="right hide-on-large-and-down">
+                            <img style="width: 150px" alt="nutrigov" src="/images/nutrigov_logo.svg">
+                        </a>
+                        <ul class="right hide-on-large-and-down">
 
-                        <li><a class="nav-link" href="#inicio">Inicio</a></li>
-                        <li><a class="nav-link" href="#fluxo">Fluxo</a></li>
-                        <li><a class="nav-link" href="#recursos">Recursos</a></li>
-                        <li><a class="nav-link" href="#planos">Preços</a></li>
-                        <li><a class="nav-link" href="#suporte">Suporte</a></li>
-                        <li><a class="waves-effect waves-light btn-small positive" style="font-weight: bold; font-family: 'Montserrat', sans-serif !important" href="http://app.nutrigov.com/auth" target="_blank" targ><span>Login</span></a></li>
+                            <li><a class="nav-link" href="#inicio">Inicio</a></li>
+                            <li><a class="nav-link" href="#fluxo">Fluxo</a></li>
+                            <li><a class="nav-link" href="#recursos">Recursos</a></li>
+                            <li><a class="nav-link" href="#planos">Preços</a></li>
+                            <li><a class="nav-link" href="#suporte">Suporte</a></li>
+                            <li><a class="waves-effect waves-light btn-small positive"
+                                    style="font-weight: bold; font-family: 'Montserrat', sans-serif !important"
+                                    href="http://app.nutrigov.com/auth" target="_blank" targ><span>Login</span></a></li>
 
 
-                    </ul>
+                        </ul>
+                    </div>
+
                 </div>
+            </nav>
 
+            <div id="start"></div>
+
+            <div>
+
+                <ul id="mobile-demo" class="sidenav sidenav-close">
+
+                    <li><a class="nav-link" href="#inicio">Inicio</a></li>
+                    <li><a class="nav-link" href="#fluxo">Fluxo</a></li>
+                    <li><a class="nav-link" href="#recursos">Recursos</a></li>
+                    <li><a class="nav-link" href="#planos">Preços</a></li>
+                    <li><a class="nav-link" href="#suporte">Suporte</a></li>
+
+
+                </ul>
             </div>
-        </nav>
-
-        <div id="start"></div>
-
-        <div>
-
-            <ul id="mobile-demo" class="sidenav sidenav-close">
-
-                <li><a class="nav-link" href="#inicio">Inicio</a></li>
-                <li><a class="nav-link" href="#fluxo">Fluxo</a></li>
-                <li><a class="nav-link" href="#recursos">Recursos</a></li>
-                <li><a class="nav-link" href="#planos">Preços</a></li>
-                <li><a class="nav-link" href="#suporte">Suporte</a></li>
-
-
-            </ul>
         </div>
-    </div>
-    <div class="main_content" onscroll="mostrarPosicaoDeRolagem()">
-        <h1 style="display: none;">Conheça o Alimentação Escolar</h1>
-        <div style="position: relative; display: flex; flex-direction: column; gap: var(--main-gap); align-items: center">
-            <article id="inicio" class="container_behavior">
-                <style> .underflow{background-repeat: no-repeat; background-position:center;}</style>
+        <div class="main_content" onscroll="mostrarPosicaoDeRolagem()">
+            <h1 style="display: none;">Conheça o Alimentação Escolar</h1>
+            <div
+                style="position: relative; display: flex; flex-direction: column; gap: var(--main-gap); align-items: center">
+                <article id="inicio" class="container_behavior">
+                    <style>
+                        .underflow {
+                            background-repeat: no-repeat;
+                            background-position: center;
+                        }
+                    </style>
 
-                <div class="container_behavior">
-                <div class="owl-carousel style1">
-                    <div class="banner"><div class="banner1"><div class="esquerda"><div class="high"><p><p>A escolha número <span class="underflow" style="background-image: url('/images/underflow.svg')">#1</span> para a gestão de alimentação escolar</p></p></div><div class="subtitle"><p><p>Deixe os cálculos com a gente, foque no mais importante, a nutrição.</p></p></div></div><div class="direita"><img src="/images/almoco.png" alt=""></div></div></div><div class="banner"><div class="banner1"><div class="esquerda"><div class="high"><p><p>Desperdício zero com o dimensionamento automático de compras</p></p></div><div class="subtitle"><p><p>Você planeja o cardápio, nós dizemos o quanto comprar.</p></p></div></div><div class="direita"><img src="/images/desperdicio.png" alt=""></div></div></div><div class="banner"><div class="banner1"><div class="esquerda"><div class="high"><p><p>Agilidade e eficiência na geração das remessas</p></p></div><div class="subtitle"><p><p>Você escolhe os cardápios nós geramos as requisições/autorizações de compra e o mapa de entrega</p></p></div></div><div class="direita"><img src="/images/agilidade.png" alt=""></div></div></div>  </div>
-                </div>
-                <!-- FLUXO -->
-                <section id="fluxo" class="">
-
-                    <div class="titulo">
-                        <h2>Automatize todos os processos</h2>
-                        <p> Automatizar os processos operacionais, permite focar no que é mais importante, a nutrição dos alunos.</p>
-                    </div>
-
-
-                    <div class="fluxo">
-                        <!-- cartão -->
-                        <div id="alm_flux_1" class="item fluxes">
-                            <div class="cartao bg_color_red">
-                                <div class="flux_content">
-                                    <h3>Cardápios Modelo</h3>
-                                    <p>Crie cardápios Modelos para um dia, uma semana ou um mês e utilize-os sempre que precisar.</p>
+                    <div class="container_behavior">
+                        <div class="owl-carousel style1" style="width: 80dvw; max-width: 1600px;">
+                            <div class="banner">
+                                <div class="banner1">
+                                    <div class="esquerda">
+                                        <div class="high">
+                                            <p>
+                                            <p>A escolha número <span class="underflow"
+                                                    style="background-image: url('/images/underflow.svg')">#1</span>
+                                                para a gestão de alimentação escolar</p>
+                                            </p>
+                                        </div>
+                                        <div class="subtitle">
+                                            <p>
+                                            <p>Deixe os cálculos com a gente, foque no mais importante, a nutrição.</p>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="direita"><img src="/images/almoco.png" alt=""></div>
                                 </div>
-                                <button onclick="slideUp(1)" class="float_button waves-effect waves-light"><span class="material-symbols-outlined color_red">add</span></button>
                             </div>
-                            <div class="overlay bg_color_white">
-                                <div class="flux_content" style="padding-bottom: 56px">
-                                    <p class="color_red">Os Cardápios Modelo além de padronizar as refeições, elimina erros e reduzem o trabalho de criar um cardápio para cada dia do ano letivo. Com o NutriGOV, você pode criar cardápios para diferentes períodos e reutilizá-los conforme necessário, garantindo consistência e praticidade na gestão da alimentação escolar. Adapte rapidamente os modelos para atender às variações sazonais e preferências regionais.</p>
+                            <div class="banner">
+                                <div class="banner1">
+                                    <div class="esquerda">
+                                        <div class="high">
+                                            <p>
+                                            <p>Desperdício zero com o dimensionamento automático de compras</p>
+                                            </p>
+                                        </div>
+                                        <div class="subtitle">
+                                            <p>
+                                            <p>Você planeja o cardápio, nós dizemos o quanto comprar.</p>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="direita"><img src="/images/desperdicio.png" alt=""></div>
                                 </div>
-                                <button onclick="slideDown(1)" class="float_button waves-effect waves-light"><span class="material-symbols-outlined color_red">remove</span></button>
+                            </div>
+                            <div class="banner">
+                                <div class="banner1">
+                                    <div class="esquerda">
+                                        <div class="high">
+                                            <p>
+                                            <p>Agilidade e eficiência na geração das remessas</p>
+                                            </p>
+                                        </div>
+                                        <div class="subtitle">
+                                            <p>
+                                            <p>Você escolhe os cardápios nós geramos as requisições/autorizações de
+                                                compra e o mapa de entrega</p>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="direita"><img src="/images/agilidade.png" alt=""></div>
+                                </div>
                             </div>
                         </div>
-                        <div id="alm_flux_2" class="item fluxes">
-                            <div class="cartao bg_color_yellow">
-                                <div class="flux_content">
+                    </div>
+                    <!-- FLUXO -->
+                    <section id="fluxo" class="w-full md:w-[80dvw] max-w-[1600px]">
+
+                        <div class="titulo">
+                            <h2>Automatize todos os processos</h2>
+                            <p> Automatizar os processos operacionais, permite focar no que é mais importante, a
+                                nutrição dos alunos.</p>
+                        </div>
+
+
+                        <div class="fluxo">
+                            <!-- cartão -->
+                            <div id="alm_flux_1" class="item fluxes">
+                                <div class="cartao bg_color_red">
+                                    <div class="flux_content">
+                                        <h3>Cardápios Modelo</h3>
+                                        <p>Crie cardápios Modelos para um dia, uma semana ou um mês e utilize-os sempre
+                                            que precisar.</p>
+                                    </div>
+                                    <button onclick="slideUp(1)" class="float_button waves-effect waves-light"><span
+                                            class="material-symbols-outlined color_red">add</span></button>
+                                </div>
+                                <div class="overlay bg_color_white">
+                                    <div class="flux_content" style="padding-bottom: 56px">
+                                        <p class="color_red">Os Cardápios Modelo além de padronizar as refeições,
+                                            elimina erros e reduzem o trabalho de criar um cardápio para cada dia do ano
+                                            letivo. Com o NutriGOV, você pode criar cardápios para diferentes períodos e
+                                            reutilizá-los conforme necessário, garantindo consistência e praticidade na
+                                            gestão da alimentação escolar. Adapte rapidamente os modelos para atender às
+                                            variações sazonais e preferências regionais.</p>
+                                    </div>
+                                    <button onclick="slideDown(1)" class="float_button waves-effect waves-light"><span
+                                            class="material-symbols-outlined color_red">remove</span></button>
+                                </div>
+                            </div>
+                            <div id="alm_flux_2" class="item fluxes">
+                                <div class="cartao bg_color_yellow">
+                                    <div class="flux_content">
+                                        <h3>Planejamento Anual</h3>
+                                        <p>Crie planejamentos para o ano letivo e saiba quanto precisará de cada
+                                            ingrediente para atender todas as escolas o ano inteiro.</p>
+                                    </div>
+                                    <button onclick="slideUp(2)" class="float_button waves-effect waves-light"><span
+                                            class="material-symbols-outlined color_yellow">add</span></button>
+                                </div>
+                                <div class="overlay bg_color_white">
+                                    <div class="flux_content" style="padding-bottom: 56px">
+                                        <p class="color_yellow">Planeje o ano letivo com confiança e precisão. Com o
+                                            NutriGOV, você pode prever a quantidade exata de insumos necessários para
+                                            todo o ano, evitando desperdícios e garantindo que nada falte nas refeições
+                                            dos alunos. Este planejamento antecipado permite otimizar compras e
+                                            logística, além de facilitar o controle do orçamento, assegurando que todas
+                                            as escolas sejam atendidas de forma eficiente durante todo o período letivo.
+                                        </p>
+                                    </div>
+                                    <button onclick="slideDown(2)" class="float_button waves-effect waves-light"><span
+                                            class="material-symbols-outlined color_yellow">remove</span></button>
+                                </div>
+                            </div>
+                            <div class="break"></div>
+
+                            <div id="alm_flux_3" class="item fluxes">
+                                <div class="cartao bg_color_beige">
+                                    <div class="flux_content">
+                                        <h3>Remessas</h3>
+                                        <p>Crie uma remessa com poucos cliques, indique um período do planejamento e nós
+                                            geramos a remessa para você.</p>
+                                    </div>
+                                    <button onclick="slideUp(3)" class="float_button waves-effect waves-light"><span
+                                            class="material-symbols-outlined color_beige">add</span></button>
+                                </div>
+                                <div class="overlay bg_color_white">
+                                    <div class="flux_content" style="padding-bottom: 56px">
+                                        <p class="color_beige">Simplifique a emissão de requisições e ordens de compra
+                                            de gêneros alimentícios com o recurso de Remessas do NutriGOV. Basta
+                                            selecionar o período do planejamento e nossa plataforma gera automaticamente
+                                            a remessa e consequentemente as requisições e autorizações de compra
+                                            necessárias para atender a remessa. Isso garante que os insumos certos sejam
+                                            entregues no momento certo, reduzindo o trabalho manual e aumentando a
+                                            eficiência operacional.</p>
+                                    </div>
+                                    <button onclick="slideDown(3)" class="float_button waves-effect waves-light"><span
+                                            class="material-symbols-outlined color_beige">remove</span></button>
+                                </div>
+                            </div>
+                            <div id="alm_flux_4" class="item fluxes">
+                                <div class="cartao bg_color_rose">
+                                    <div class="flux_content">
+                                        <h3>Execução de Cardápio</h3>
+                                        <p>Informe o número de alunos e os pratos a serem executados, nós geramos a
+                                            ficha de consumo de estoque.</p>
+                                    </div>
+                                    <button onclick="slideUp(4)" class="float_button waves-effect waves-light"><span
+                                            class="material-symbols-outlined color_rose">add</span></button>
+                                </div>
+                                <div class="overlay bg_color_white">
+                                    <div class="flux_content" style="padding-bottom: 56px">
+                                        <p class="color_rose">Facilite a execução diária dos cardápios com o NutriGOV.
+                                            Informe o número de alunos e selecione os pratos do dia, e nossa plataforma
+                                            calculará automaticamente a quantidade de ingredientes necessária, gerando
+                                            uma ficha detalhada de consumo de estoque. Isso assegura que todos os alunos
+                                            sejam atendidos com refeições frescas e nutritivas, enquanto o controle de
+                                            estoque permanece preciso e eficiente.</p>
+                                    </div>
+                                    <button onclick="slideDown(4)" class="float_button waves-effect waves-light"><span
+                                            class="material-symbols-outlined color_rose">remove</span></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="titulo">
+                            <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> -->
+                            <button class="main_btn big_btn prim_btn waves-effect waves-light">Conheça os
+                                Planos</button>
+                        </div>
+                    </section>
+
+                    <!-- RECURSOS -->
+                    <section id="recursos" class="w-full md:w-[80dvw] max-w-[1600px]">
+                        <div class="">
+                            <div class="titulo">
+                                <h2>Principais Recursos</h2>
+                                <p>Automações que facilitam o dia a dia dos Nutricionais.</p>
+                            </div>
+                            <div class="recursos">
+                                <div id="scale" class="item large bg_color_orange">
+                                    <h3>Tabela TACO</h3>
+                                    <p>Importe alimentos diretos da tabela taco</p>
+                                    <p>Além de utilizar alimentos padronizados, você reduzirá consideravelmente o tempo
+                                        no cadastro de alimentos.</p>
+                                </div>
+                                <div id="scale" class="item mid bg_color_purple">
+                                    <h3>Fator de Correção e Cocção</h3>
+                                    <p>O NutriGOV calcula tudo para você</p>
+                                    <p>Calcular manualmente os fatores de correção e cocção, além de aumentar a margem
+                                        de erro toma muito tempo.</p>
+                                </div>
+                                <div id="scale" class="item mid bg_color_salmon">
+                                    <h3>Alimentos Preparados</h3>
+                                    <p>Um alimento preparado é um coringa na criação de pratos</p>
+                                    <p>Alimentos que se repetem em vários pratos podem ser cadastrados como alimentos
+                                        preparados, acelerando muito a criação de pratos.</p>
+                                </div>
+                                <div class="break">
+                                </div>
+                                <div id="scale" class="item mid bg_color_peach">
                                     <h3>Planejamento Anual</h3>
-                                    <p>Crie planejamentos para o ano letivo e saiba quanto precisará de cada ingrediente para atender todas as escolas o ano inteiro.</p>
+                                    <p>Organize e projete as necessidades alimentares para todo o ano letivo.</p>
+                                    <p>O Planejamento anual proporciona uma visão clara e abrangente de todas as
+                                        demandas alimentares das escolas ao longo do ano letivo.</p>
                                 </div>
-                                <button onclick="slideUp(2)" class="float_button waves-effect waves-light"><span class="material-symbols-outlined color_yellow">add</span></button>
-                            </div>
-                            <div class="overlay bg_color_white">
-                                <div class="flux_content" style="padding-bottom: 56px">
-                                    <p class="color_yellow">Planeje o ano letivo com confiança e precisão. Com o NutriGOV, você pode prever a quantidade exata de insumos necessários para todo o ano, evitando desperdícios e garantindo que nada falte nas refeições dos alunos. Este planejamento antecipado permite otimizar compras e logística, além de facilitar o controle do orçamento, assegurando que todas as escolas sejam atendidas de forma eficiente durante todo o período letivo.</p>
+                                <div id="scale" class="item large bg_color_green">
+                                    <h3 class="warn">Requisições e Autorizações de Compra</h3>
+                                    <p class="warn">Aperfeiçoe o processo de compra de alimentos com precisão e
+                                        eficiência</p>
+                                    <p class="warn">A partir da remessa e considerando os saldos de estoque de cada
+                                        escola, o NutriGOV gera automaticamente as requisições e autorizações de compra,
+                                        evitando o excesso de estoque e o desperdício dos gêneros alimentícios,
+                                        garantindo que as compras sejam feitas de forma precisa e alinhadas às
+                                        necessidades reais das unidades escolares.</p>
                                 </div>
-                                <button onclick="slideDown(2)" class="float_button waves-effect waves-light"><span class="material-symbols-outlined color_yellow">remove</span></button>
-                            </div>
-                        </div>
-                        <div class="break"></div>
-
-                        <div id="alm_flux_3" class="item fluxes">
-                            <div class="cartao bg_color_beige">
-                                <div class="flux_content">
-                                    <h3>Remessas</h3>
-                                    <p>Crie uma remessa com poucos cliques, indique um período do planejamento e nós geramos a remessa para você.</p>
-                                </div>
-                                <button onclick="slideUp(3)" class="float_button waves-effect waves-light"><span class="material-symbols-outlined color_beige">add</span></button>
-                            </div>
-                            <div class="overlay bg_color_white">
-                                <div class="flux_content" style="padding-bottom: 56px">
-                                    <p class="color_beige">Simplifique a emissão de requisições e ordens de compra de gêneros alimentícios com o recurso de Remessas do NutriGOV. Basta selecionar o período do planejamento e nossa plataforma gera automaticamente a remessa e consequentemente as requisições e autorizações de compra necessárias para atender a remessa. Isso garante que os insumos certos sejam entregues no momento certo, reduzindo o trabalho manual e aumentando a eficiência operacional.</p>
-                                </div>
-                                <button onclick="slideDown(3)" class="float_button waves-effect waves-light"><span class="material-symbols-outlined color_beige">remove</span></button>
-                            </div>
-                        </div>
-                        <div id="alm_flux_4" class="item fluxes">
-                            <div class="cartao bg_color_rose">
-                                <div class="flux_content">
-                                    <h3>Execução de Cardápio</h3>
-                                    <p>Informe o número de alunos e os pratos a serem executados, nós geramos a ficha de consumo de estoque.</p>
-                                </div>
-                                <button onclick="slideUp(4)" class="float_button waves-effect waves-light"><span class="material-symbols-outlined color_rose">add</span></button>
-                            </div>
-                            <div class="overlay bg_color_white">
-                                <div class="flux_content" style="padding-bottom: 56px">
-                                    <p class="color_rose">Facilite a execução diária dos cardápios com o NutriGOV. Informe o número de alunos e selecione os pratos do dia, e nossa plataforma calculará automaticamente a quantidade de ingredientes necessária, gerando uma ficha detalhada de consumo de estoque. Isso assegura que todos os alunos sejam atendidos com refeições frescas e nutritivas, enquanto o controle de estoque permanece preciso e eficiente.</p>
-                                </div>
-                                <button onclick="slideDown(4)" class="float_button waves-effect waves-light"><span class="material-symbols-outlined color_rose">remove</span></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="titulo">
-                        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p> -->
-                        <button class="main_btn big_btn prim_btn waves-effect waves-light">Conheça os Planos</button>
-                    </div>
-                </section>
-
-                <!-- RECURSOS -->
-                <section id="recursos">
-                    <div class="">
-                        <div class="titulo">
-                            <h2>Principais Recursos</h2>
-                            <p>Automações que facilitam o dia a dia dos Nutricionais.</p>
-                        </div>
-                        <div class="recursos">
-                            <div id="scale" class="item large bg_color_orange">
-                                <h3>Tabela TACO</h3>
-                                <p>Importe alimentos diretos da tabela taco</p>
-                                <p>Além de utilizar alimentos padronizados, você reduzirá consideravelmente o tempo no cadastro de alimentos.</p>
-                            </div>
-                            <div id="scale" class="item mid bg_color_purple">
-                                <h3>Fator de Correção e Cocção</h3>
-                                <p>O NutriGOV calcula tudo para você</p>
-                                <p>Calcular manualmente os fatores de correção e cocção, além de aumentar a margem de erro toma muito tempo.</p>
-                            </div>
-                            <div id="scale" class="item mid bg_color_salmon">
-                                <h3>Alimentos Preparados</h3>
-                                <p>Um alimento preparado é um coringa na criação de pratos</p>
-                                <p>Alimentos que se repetem em vários pratos podem ser cadastrados como alimentos preparados, acelerando muito a criação de pratos.</p>
-                            </div>
-                            <div class="break">
-                            </div>
-                            <div id="scale" class="item mid bg_color_peach">
-                                <h3>Planejamento Anual</h3>
-                                <p>Organize e projete as necessidades alimentares para todo o ano letivo.</p>
-                                <p>O Planejamento anual proporciona uma visão clara e abrangente de todas as demandas alimentares das escolas ao longo do ano letivo.</p>
-                            </div>
-                            <div id="scale" class="item large bg_color_green">
-                                <h3 class="warn">Requisições e Autorizações de Compra</h3>
-                                <p class="warn">Aperfeiçoe o processo de compra de alimentos com precisão e eficiência</p>
-                                <p class="warn">A partir da remessa e considerando os saldos de estoque de cada escola, o NutriGOV gera automaticamente as requisições e autorizações de compra, evitando o excesso de estoque e o desperdício dos gêneros alimentícios, garantindo que as compras sejam feitas de forma precisa e alinhadas às necessidades reais das unidades escolares.</p>
-                            </div>
-                            <div class="vertical_item">
-                                <div id="scale" class="small bg_color_cyan">
-                                    <h3>Registro de Preço e Contratos</h3>
-                                    <p>Controle os saldos dos contratos e dos registros de preços.</p>
-                                    <p>Mantenha o controle absoluto sobre os registros de preços e contratos com o NutriGOV.</p>
-                                </div>
-                                <div id="scale" class="small bg_color_green">
+                                <div class="vertical_item">
+                                    <div id="scale" class="small bg_color_cyan">
+                                        <h3>Registro de Preço e Contratos</h3>
+                                        <p>Controle os saldos dos contratos e dos registros de preços.</p>
+                                        <p>Mantenha o controle absoluto sobre os registros de preços e contratos com o
+                                            NutriGOV.</p>
+                                    </div>
+                                    <div id="scale" class="small bg_color_green">
 
 
-                                    <h3 class="warn">Pedido de Compra/Licitação</h3>
-                                    <p class="warn">Gere o pedidos de compra/licitação anual a partir do planejamento anual</p>
-                                    <p class="warn">Simplifique o processo de aquisição de insumos para atender a demanda de gêneros alimentícios anual.</p>
+                                        <h3 class="warn">Pedido de Compra/Licitação</h3>
+                                        <p class="warn">Gere o pedidos de compra/licitação anual a partir do
+                                            planejamento anual</p>
+                                        <p class="warn">Simplifique o processo de aquisição de insumos para atender a
+                                            demanda de gêneros alimentícios anual.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="titulo">
+                                <button class="main_btn big_btn prim_btn waves-effect waves-light">Conheça os
+                                    Planos</button>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- SISTEMAS INTEGRADOS -->
+
+                    <section class="w-full md:w-[80dvw] max-w-[1600px]">
+                        <div class="parceiros">
+                            <div class="titulo">
+                                <h2 class="">Sistemas Integrados</h2>
+                                <p class="">Para uma gestão integrada e mais eficiente, contamos com diversos parceiros
+                                    que compartilham informações com nosso sistema por meio das nossas APIs.</p>
+                            </div>
+                            <div class="content_scroll">
+                                <div class="item_carousel bg_color_cyan">
+                                    <img src="/images/geweb_positivo.svg" alt="">
+                                </div>
+                                <div class="item_carousel bg_color_yellow">
+                                    <img src="/images/cgov_positivo.svg" alt="">
+                                </div>
+                                <div class="item_carousel bg_color_beige">
+                                    <img src="/images/estoqgov_positivo.svg" alt="">
+                                </div>
+                                <div class="item_carousel bg_color_red">
+                                    <p>Financeiro</p>
+                                    <p> <span>Em Breve</span></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="titulo">
-                            <button class="main_btn big_btn prim_btn waves-effect waves-light">Conheça os Planos</button>
-                        </div>
-                    </div>
-                </section>
+                    </section>
 
-                <!-- SISTEMAS INTEGRADOS -->
+                    <!-- PLANOS -->
 
-                <section style="position: relative; max-width: 100%">
-                    <div class="parceiros">
-                        <div class="titulo">
-                            <h2 class="">Sistemas Integrados</h2>
-                            <p class="">Para uma gestão integrada e mais eficiente, contamos com diversos parceiros que compartilham informações com nosso sistema por meio das nossas APIs.</p>
-                        </div>
-                        <div class="content_scroll">
-                            <div class="item_carousel bg_color_cyan">
-                                <img src="/images/geweb_positivo.svg" alt="">
+                    <section id="planos" class="w-full md:w-[80dvw] max-w-[1600px]">
+                        <div class="planos bg_color_green">
+                            <div class="titulo">
+                                <h2 class="warn">Planos e Preços</h2>
+                                <p class="warn">Lorem Ipsum é simplesmente uma simulação de texto da indústria
+                                    tipográfica e de impressos.</p>
                             </div>
-                            <div class="item_carousel bg_color_yellow">
-                                <img src="/images/cgov_positivo.svg" alt="">
-                            </div>
-                            <div class="item_carousel bg_color_beige">
-                                <img src="/images/estoqgov_positivo.svg" alt="">
-                            </div>
-                            <div class="item_carousel bg_color_red">
-                                <p>Financeiro</p>
-                                <p> <span>Em Breve</span></p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                            <div class="plano">
+                                <div id="scale" class="plano_item bg_color_yellow">
+                                    <div style="display: flex; flex-direction:column; gap: 16px">
+                                        <p class="small first">Órgãos de Pequeno Porte (Essencial)</p>
+                                        <p class="big">R$ 10.000,00 / Ano</p>
+                                        <p class="small">Até 5.000 Alunos</p>
+                                        <p class="small">Usuários Ilimitados</p>
+                                        <p class="small">Movimentações Ilimitados</p>
+                                        <p class="small">Onboarding remoto com um especialista</p>
+                                        <p class="small">Treinamento remoto via curso online com certificado</p>
+                                        <p class="small">Suporte Remoto com SLA por gravidade</p>
+                                    </div>
 
-                <!-- PLANOS -->
-
-                <section id="planos" class="">
-                    <div class="planos bg_color_green">
-                        <div class="titulo">
-                            <h2 class="warn">Planos e Preços</h2>
-                            <p class="warn">Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos.</p>
-                        </div>
-                        <div class="plano">
-                            <div id="scale" class="plano_item bg_color_yellow">
-                                <div style="display: flex; flex-direction:column; gap: 16px">
-                                    <p class="small first">Órgãos de Pequeno Porte (Essencial)</p>
-                                    <p class="big">R$ 10.000,00 / Ano</p>
-                                    <p class="small">Até 5.000 Alunos</p>
-                                    <p class="small">Usuários Ilimitados</p>
-                                    <p class="small">Movimentações Ilimitados</p>
-                                    <p class="small">Onboarding remoto com um especialista</p>
-                                    <p class="small">Treinamento remoto via curso online com certificado</p>
-                                    <p class="small">Suporte Remoto com SLA por gravidade</p>
+                                    <a href="https://app.nutrigov.com/auth/formulario_externo?option=1"
+                                        target="_blank"><button
+                                            class="main_btn big_btn prim_btn waves-effect waves-light">Contrate</button></a>
                                 </div>
+                                <div id="scale" class="plano_item bg_color_yellow">
+                                    <div style="display: flex; flex-direction:column; gap: 16px">
+                                        <p class="small first">Órgãos de Médio Porte (Avançado)</p>
+                                        <p class="big">R$ 18.000,00 / Ano</p>
+                                        <p class="small">Até 10.000 Alunos</p>
+                                        <p class="small">Usuários Ilimitados</p>
+                                        <p class="small">Movimentações Ilimitados</p>
+                                        <p class="small">Onboarding remoto com um especialista</p>
+                                        <p class="small">Treinamento remoto via curso online com certificado</p>
+                                        <p class="small">Suporte Remoto com SLA por gravidade</p>
+                                        <p class="small">Adicional por Entidade R$ 225,00 / Ano</p>
+                                        <p class="small">Adicional por Departamento: R$ 45,00 / Ano</p>
+                                    </div>
 
-                                <a href="https://app.nutrigov.com/auth/formulario_externo?option=1" target="_blank"><button class="main_btn big_btn prim_btn waves-effect waves-light">Contrate</button></a>
-                            </div>
-                            <div id="scale" class="plano_item bg_color_yellow">
-                                <div style="display: flex; flex-direction:column; gap: 16px">
-                                    <p class="small first">Órgãos de Médio Porte (Avançado)</p>
-                                    <p class="big">R$ 18.000,00 / Ano</p>
-                                    <p class="small">Até 10.000 Alunos</p>
-                                    <p class="small">Usuários Ilimitados</p>
-                                    <p class="small">Movimentações Ilimitados</p>
-                                    <p class="small">Onboarding remoto com um especialista</p>
-                                    <p class="small">Treinamento remoto via curso online com certificado</p>
-                                    <p class="small">Suporte Remoto com SLA por gravidade</p>
-                                    <p class="small">Adicional por Entidade R$ 225,00 / Ano</p>
-                                    <p class="small">Adicional por Departamento: R$ 45,00 / Ano</p>
+                                    <a href="https://app.nutrigov.com/auth/formulario_externo?option=2"
+                                        target="_blank"><button
+                                            class="main_btn big_btn prim_btn waves-effect waves-light">Contrate</button></a>
                                 </div>
+                                <div id="scale" class="plano_item bg_color_yellow">
+                                    <div style="display: flex; flex-direction:column; gap: 16px">
+                                        <p class="small first">Órgãos de Grande Porte (Premium)</p>
+                                        <p class="big">R$ 30.000,00 / Ano</p>
+                                        <p class="small">Até 20.000 Alunos</p>
+                                        <p class="small">Até 20 Departamentos por entidade</p>
+                                        <p class="small">Usuários Ilimitados</p>
+                                        <p class="small">Movimentações Ilimitados</p>
+                                        <p class="small">Onboarding remoto com um especialista</p>
+                                        <p class="small">Treinamento remoto via curso online com certificado</p>
+                                        <p class="small">Suporte Remoto com SLA por gravidade</p>
+                                        <p class="small">Adicional por Entidade R$ 200,00 / Ano</p>
+                                        <p class="small">Adicional por Departamento: R$ 40,00 / Ano</p>
+                                    </div>
 
-                                <a href="https://app.nutrigov.com/auth/formulario_externo?option=2" target="_blank"><button class="main_btn big_btn prim_btn waves-effect waves-light">Contrate</button></a>
-                            </div>
-                            <div id="scale" class="plano_item bg_color_yellow">
-                                <div style="display: flex; flex-direction:column; gap: 16px">
-                                    <p class="small first">Órgãos de Grande Porte (Premium)</p>
-                                    <p class="big">R$ 30.000,00 / Ano</p>
-                                    <p class="small">Até 20.000 Alunos</p>
-                                    <p class="small">Até 20 Departamentos por entidade</p>
-                                    <p class="small">Usuários Ilimitados</p>
-                                    <p class="small">Movimentações Ilimitados</p>
-                                    <p class="small">Onboarding remoto com um especialista</p>
-                                    <p class="small">Treinamento remoto via curso online com certificado</p>
-                                    <p class="small">Suporte Remoto com SLA por gravidade</p>
-                                    <p class="small">Adicional por Entidade R$ 200,00 / Ano</p>
-                                    <p class="small">Adicional por Departamento: R$ 40,00 / Ano</p>
+                                    <a href="https://app.nutrigov.com/auth/formulario_externo?option=3"
+                                        target="_blank"><button
+                                            class="main_btn big_btn prim_btn waves-effect waves-light">Contrate</button></a>
                                 </div>
+                                <div id="scale" class="plano_item bg_color_yellow">
+                                    <div style="display: flex; flex-direction:column; gap: 16px">
+                                        <p class="small first">Governo <br> (Elite)</p>
+                                        <p class="big">Preço Sob Consulta</p>
+                                        <p class="small">Entidades Ilimitadas</p>
+                                        <p class="small">Até 25 Departamentos por entidade</p>
+                                        <p class="small">Usuários Ilimitados</p>
+                                        <p class="small">Movimentações Ilimitados</p>
+                                        <p class="small">Onboarding remoto com um especialista</p>
+                                        <p class="small">Treinamento remoto via curso online com certificado</p>
+                                        <p class="small">Suporte Remoto com SLA por gravidade</p>
+                                        <p class="small">Adicional por Departamento: R$ 30,00 / Ano</p>
+                                    </div>
 
-                                <a href="https://app.nutrigov.com/auth/formulario_externo?option=3" target="_blank"><button class="main_btn big_btn prim_btn waves-effect waves-light">Contrate</button></a>
-                            </div>
-                            <div id="scale" class="plano_item bg_color_yellow">
-                                <div style="display: flex; flex-direction:column; gap: 16px">
-                                    <p class="small first">Governo <br> (Elite)</p>
-                                    <p class="big">Preço Sob Consulta</p>
-                                    <p class="small">Entidades Ilimitadas</p>
-                                    <p class="small">Até 25 Departamentos por entidade</p>
-                                    <p class="small">Usuários Ilimitados</p>
-                                    <p class="small">Movimentações Ilimitados</p>
-                                    <p class="small">Onboarding remoto com um especialista</p>
-                                    <p class="small">Treinamento remoto via curso online com certificado</p>
-                                    <p class="small">Suporte Remoto com SLA por gravidade</p>
-                                    <p class="small">Adicional por Departamento: R$ 30,00 / Ano</p>
+                                    <a href="https://app.nutrigov.com/auth/formulario_externo?option=4"
+                                        target="_blank"><button
+                                            class="main_btn big_btn prim_btn waves-effect waves-light">Contrate</button></a>
                                 </div>
-
-                                <a href="https://app.nutrigov.com/auth/formulario_externo?option=4" target="_blank"><button class="main_btn big_btn prim_btn waves-effect waves-light">Contrate</button></a>
                             </div>
-                        </div>
-                        <!-- <div class="titulo">
+                            <!-- <div class="titulo">
                             <a href="docs" target="_blank"><button class="main_btn big_btn sec_btn waves-effect waves-light">Certidões</button></a>
                         </div> -->
-                    </div>
-                </section>
+                        </div>
+                    </section>
 
 
-                <footer style="width: 100%;">
-                    <article id="perguntas" class="">
-                        <div class="faq">
-                            <div class="titulo">
-                                <h2 class="primary-color"><span>Perguntas</span></h2>
-                                <p class="primary-color">Veja aqui as principais perguntas</p>
+                    <footer class="w-full md:w-[80dvw] max-w-[1600px]">
+                        <article id="perguntas" class="">
+                            <div class="faq">
+                                <div class="titulo">
+                                    <h2 class="primary-color"><span>Perguntas</span></h2>
+                                    <p class="primary-color">Veja aqui as principais perguntas</p>
+                                </div>
+
+
+                                <ul class="collapsible">
+                                    <li>
+                                        <div class="collapsible-header primary-color">01 - O que é o NutriGOV?</div>
+                                        <div class="collapsible-body primary-color"><span>O NutriGOV é uma plataforma
+                                                especializada na gestão da alimentação escolar para o setor público. Ele
+                                                foi desenvolvido para otimizar o planejamento, aquisição, distribuição e
+                                                monitoramento de alimentos nas escolas, garantindo que cada escola
+                                                receba a quantidade exata de alimentos para atender as demandas dos
+                                                cardápios escolares.</span></div>
+                                    </li>
+                                    <li>
+                                        <div class="collapsible-header primary-color">02 - Quais são os principais
+                                            benefícios de usar o NutriGOV?</div>
+                                        <div class="collapsible-body primary-color"><span>O NutriGOV oferece automação
+                                                de processos, redução de erros, integração completa entre as etapas de
+                                                planejamento e execução. Isso resulta em uma gestão mais eficiente e
+                                                transparente.</span></div>
+                                    </li>
+                                    <li>
+                                        <div class="collapsible-header primary-color">03 - Como o NutriGOV facilita o
+                                            planejamento anual da alimentação escolar?</div>
+                                        <div class="collapsible-body primary-color"><span>A plataforma permite que os
+                                                gestores planejem o consumo de alimentos calculando automaticamente as
+                                                quantidades necessárias para o ano letivo inteiro. Isso assegura que
+                                                todas as escolas recebam os insumos necessários, evitando
+                                                desperdícios.</span></div>
+                                    </li>
+                                    <li>
+                                        <div class="collapsible-header primary-color">04 - O NutriGOV pode ser integrado
+                                            com outros sistemas usados pelo meu órgão?</div>
+                                        <div class="collapsible-body primary-color"><span>Sim, o NutriGOV foi projetado
+                                                para integrar-se facilmente com outros sistemas de gestão pública, como
+                                                sistemas acadêmicos, gestão de compras, finanças e almoxarifado,
+                                                garantindo um fluxo de trabalho contínuo e sem interrupções.</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="collapsible-header primary-color">05 - Como o NutriGOV ajuda a
+                                            evitar o desperdício de alimentos?</div>
+                                        <div class="collapsible-body primary-color"><span>Através da automação de
+                                                requisições e autorizações de compra baseadas nas remessas planejadas e
+                                                nos saldos de estoque das escolas, o NutriGOV garante que os alimentos
+                                                sejam adquiridos de acordo com a necessidade real das escolas, evitando
+                                                excessos e desperdícios.</span></div>
+                                    </li>
+                                    <li>
+                                        <div class="collapsible-header primary-color">06 - Como o NutriGOV melhora a
+                                            eficiência operacional?</div>
+                                        <div class="collapsible-body primary-color"><span>Ao automatizar processos como
+                                                a geração de requisições, autorizações de compra e gestão de estoque, o
+                                                NutriGOV reduz o tempo gasto em tarefas administrativas, minimiza erros
+                                                humanos e melhora o fluxo de trabalho entre as diferentes etapas da
+                                                gestão de alimentação escolar.</span></div>
+                                    </li>
+                                    <li>
+                                        <div class="collapsible-header primary-color">07 - O NutriGOV é adequado para
+                                            secretarias de educação de qualquer tamanho?</div>
+                                        <div class="collapsible-body primary-color"><span>Sim, o NutriGOV foi
+                                                desenvolvido para atender secretarias de educação de todos os tamanhos,
+                                                desde pequenas até grandes redes de ensino. A plataforma é escalável e
+                                                pode ser adaptada para suportar um grande número de escolas e
+                                                usuários.</span></div>
+                                    </li>
+                                    <li>
+                                        <div class="collapsible-header primary-color">08 - Como o NutriGOV ajuda na
+                                            conformidade com as regulamentações legais?</div>
+                                        <div class="collapsible-body primary-color"><span>O NutriGOV é atualizado
+                                                constantemente para garantir que as operações de alimentação escolar
+                                                estejam em conformidade com as leis e regulamentações aplicáveis. A
+                                                plataforma também oferece recursos para a auditoria e documentação de
+                                                todos os processos.</span></div>
+                                    </li>
+                                    <li>
+                                        <div class="collapsible-header primary-color">09 - O NutriGOV gera relatórios?
+                                        </div>
+                                        <div class="collapsible-body primary-color"><span>Sim, o NutriGOV gera
+                                                relatórios diversos, desde fichas tecnicas de alimentos ou pratos até
+                                                mapa de entrega de alimentos nas escolas. Esses relatórios são
+                                                essenciais para a tomada de decisões e para a auditoria dos processos de
+                                                gestão de alimentação escolar.</span></div>
+                                    </li>
+                                    <li>
+                                        <div class="collapsible-header primary-color">10 - O que é, e como é realizado o
+                                            onboarding ?</div>
+                                        <div class="collapsible-body primary-color"><span>O onboarding é o processo
+                                                inicial de configuração do NutriGOV para o seu órgão. Durante esse
+                                                período, nossa equipe de especialistas trabalhará junto aos responsáveis
+                                                técnicos da sua organização para ajustar o NutriGOV às características
+                                                específicas do seu órgão, assegurando que todas as funcionalidades da
+                                                plataforma estejam plenamente alinhadas às suas expectativas.
+                                                O onboarding no NutriGOV é conduzido remotamente, com o suporte direto
+                                                de um especialista. Esse processo envolve a personalização completa do
+                                                sistema, além de capacitar sua equipe para criar perfis de acesso e
+                                                adicionar usuários. Tudo é feito com o propósito de garantir que sua
+                                                equipe comece a usar a plataforma de forma segura e eficiente. O
+                                                objetivo final do onboarding é que você possa explorar e utilizar todos
+                                                os recursos do NutriGOV ao máximo desde o início.
+                                            </span></div>
+                                    </li>
+                                    <li>
+                                        <div class="collapsible-header primary-color">11 - O NutriGOV oferece
+                                            treinamento para os usuários?</div>
+                                        <div class="collapsible-body primary-color"><span>Sim, oferecemos treinamento
+                                                completo para todos os usuários do NutriGOV, garantindo que sua equipe
+                                                esteja preparada para utilizar a plataforma de maneira eficaz desde o
+                                                primeiro dia. O treinamento inclui um cursos online completo que abrange
+                                                todas as funcionalidades do sistema, permitindo que os participantes
+                                                possam aprender no seu próprio ritmo, com acesso a vídeos, materiais de
+                                                apoio e exercícios práticos Ao final do curso, recebem um certificado de
+                                                conclusão, e nossa equipe de suporte permanece disponível para
+                                                esclarecer dúvidas e fornecer orientações adicionais.</span></div>
+                                    </li>
+                                    <li>
+                                        <div class="collapsible-header primary-color">12 - O NutriGOV oferece suporte
+                                            técnico?</div>
+                                        <div class="collapsible-body primary-color"><span>Sim, o NutriGOV oferece
+                                                suporte técnico especializado para todos os seus usuários. Trabalhamos
+                                                com um SLA (Service Level Agreement) baseado na gravidade do problema.
+                                                Isso significa que quanto mais crítica for a questão, mais rápido será o
+                                                tempo de resposta e resolução. Nossa equipe está disponível para ajudar
+                                                com dúvidas, problemas técnicos e orientações sobre como usar a
+                                                plataforma de maneira mais eficiente.</span></div>
+                                    </li>
+                                </ul>
+
+                                <div class="titulo">
+                                    <p class="seccondary-color">Não encontrou o que você procura? entre em contato com
+                                        nossa equipe!</p>
+                                    <div style="display: flex; flex-direction: row; gap: 16px; justify-content:center;">
+                                        <button class="main_btn big_btn prim_btn waves-effect waves-light">Fale
+                                            conosco</button>
+                                        <a href="#inicio" class="float-button main_btn waves-effect waves-light "><span
+                                                class="material-symbols-outlined">arrow_upward</span></a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </article>
+                    </footer>
+
+                    <div class="py-[40px] w-[100dvw] flex flex-col items-center"
+                        style="background-color: var(--primary-color);">
+                        <div class="w-full md:w-[80dvw] max-w-[1600px] p-6">
+                            <div class="flex items-center w-full justify-start mb-8">
+                                <img src="/images/nutrigov_white.svg" alt="Nutrigov" class="h-[32px] w-auto">
                             </div>
 
-                            
-                            <ul class="collapsible">
-                                <li>
-                                    <div class="collapsible-header primary-color">01 - O que é o NutriGOV?</div>
-                                    <div class="collapsible-body primary-color"><span>O NutriGOV é uma plataforma especializada na gestão da alimentação escolar para o setor público. Ele foi desenvolvido para otimizar o planejamento, aquisição, distribuição e monitoramento de alimentos nas escolas, garantindo que cada escola receba a quantidade exata de alimentos para atender as demandas dos cardápios escolares.</span></div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-header primary-color">02 - Quais são os principais benefícios de usar o NutriGOV?</div>
-                                    <div class="collapsible-body primary-color"><span>O NutriGOV oferece automação de processos, redução de erros, integração completa entre as etapas de planejamento e execução. Isso resulta em uma gestão mais eficiente e transparente.</span></div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-header primary-color">03 - Como o NutriGOV facilita o planejamento anual da alimentação escolar?</div>
-                                    <div class="collapsible-body primary-color"><span>A plataforma permite que os gestores planejem o consumo de alimentos calculando automaticamente as quantidades necessárias para o ano letivo inteiro. Isso assegura que todas as escolas recebam os insumos necessários, evitando desperdícios.</span></div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-header primary-color">04 - O NutriGOV pode ser integrado com outros sistemas usados pelo meu órgão?</div>
-                                    <div class="collapsible-body primary-color"><span>Sim, o NutriGOV foi projetado para integrar-se facilmente com outros sistemas de gestão pública, como sistemas acadêmicos, gestão de compras, finanças e almoxarifado, garantindo um fluxo de trabalho contínuo e sem interrupções.</span></div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-header primary-color">05 - Como o NutriGOV ajuda a evitar o desperdício de alimentos?</div>
-                                    <div class="collapsible-body primary-color"><span>Através da automação de requisições e autorizações de compra baseadas nas remessas planejadas e nos saldos de estoque das escolas, o NutriGOV garante que os alimentos sejam adquiridos de acordo com a necessidade real das escolas, evitando excessos e desperdícios.</span></div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-header primary-color">06 - Como o NutriGOV melhora a eficiência operacional?</div>
-                                    <div class="collapsible-body primary-color"><span>Ao automatizar processos como a geração de requisições, autorizações de compra e gestão de estoque, o NutriGOV reduz o tempo gasto em tarefas administrativas, minimiza erros humanos e melhora o fluxo de trabalho entre as diferentes etapas da gestão de alimentação escolar.</span></div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-header primary-color">07 - O NutriGOV é adequado para secretarias de educação de qualquer tamanho?</div>
-                                    <div class="collapsible-body primary-color"><span>Sim, o NutriGOV foi desenvolvido para atender secretarias de educação de todos os tamanhos, desde pequenas até grandes redes de ensino. A plataforma é escalável e pode ser adaptada para suportar um grande número de escolas e usuários.</span></div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-header primary-color">08 - Como o NutriGOV ajuda na conformidade com as regulamentações legais?</div>
-                                    <div class="collapsible-body primary-color"><span>O NutriGOV é atualizado constantemente para garantir que as operações de alimentação escolar estejam em conformidade com as leis e regulamentações aplicáveis. A plataforma também oferece recursos para a auditoria e documentação de todos os processos.</span></div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-header primary-color">09 - O NutriGOV gera relatórios?</div>
-                                    <div class="collapsible-body primary-color"><span>Sim, o NutriGOV gera relatórios diversos, desde fichas tecnicas de alimentos ou pratos até mapa de entrega de alimentos nas escolas. Esses relatórios são essenciais para a tomada de decisões e para a auditoria dos processos de gestão de alimentação escolar.</span></div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-header primary-color">10 - O que é, e como é realizado o onboarding ?</div>
-                                    <div class="collapsible-body primary-color"><span>O onboarding é o processo inicial de configuração do NutriGOV para o seu órgão. Durante esse período, nossa equipe de especialistas trabalhará junto aos responsáveis técnicos da sua organização para ajustar o NutriGOV às características específicas do seu órgão, assegurando que todas as funcionalidades da plataforma estejam plenamente alinhadas às suas expectativas.
-                            O onboarding no NutriGOV é conduzido remotamente, com o suporte direto de um especialista. Esse processo envolve a personalização completa do sistema, além de capacitar sua equipe para criar perfis de acesso e adicionar usuários. Tudo é feito com o propósito de garantir que sua equipe comece a usar a plataforma de forma segura e eficiente. O objetivo final do onboarding é que você possa explorar e utilizar todos os recursos do NutriGOV ao máximo desde o início.
-                            </span></div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-header primary-color">11 - O NutriGOV oferece treinamento para os usuários?</div>
-                                    <div class="collapsible-body primary-color"><span>Sim, oferecemos treinamento completo para todos os usuários do NutriGOV, garantindo que sua equipe esteja preparada para utilizar a plataforma de maneira eficaz desde o primeiro dia. O treinamento inclui um cursos online completo que abrange todas as funcionalidades do sistema, permitindo que os participantes possam aprender no seu próprio ritmo, com acesso a vídeos, materiais de apoio e exercícios práticos Ao final do curso, recebem um certificado de conclusão, e nossa equipe de suporte permanece disponível para esclarecer dúvidas e fornecer orientações adicionais.</span></div>
-                                </li>
-                                <li>
-                                    <div class="collapsible-header primary-color">12 - O NutriGOV oferece suporte técnico?</div>
-                                    <div class="collapsible-body primary-color"><span>Sim, o NutriGOV oferece suporte técnico especializado para todos os seus usuários. Trabalhamos com um SLA (Service Level Agreement) baseado na gravidade do problema. Isso significa que quanto mais crítica for a questão, mais rápido será o tempo de resposta e resolução. Nossa equipe está disponível para ajudar com dúvidas, problemas técnicos e orientações sobre como usar a plataforma de maneira mais eficiente.</span></div>
-                                </li>
-                            </ul>
+                            <!-- Menus -->
+                            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8"
+                                style="color: var(--accent-color); font-family: 'Montserrat', sans-serif;">
+                                <!-- WEBSITE -->
+                                <div>
+                                    <h4 class="!font-bold mb-2"
+                                        style="color: var(--neutral-color); font-family: 'Montserrat', sans-serif; font-size: 20px;">
+                                        WEBSITE</h4>
+                                    <ul class="space-y-1">
+                                        <li><a href="#inicio" class="hover:underline font-light text-[1.6rem] !text-white">Início</a>
+                                        </li>
+                                        <li><a href="#planos" class="hover:underline font-light text-[1.6rem] !text-white">Preços</a>
+                                        </li>
+                                        <li><a href="#recursos" class="hover:underline font-light text-[1.6rem] !text-white">Recursos</a>
+                                        </li>
+                                        <li><a href="#fluxo" class="hover:underline font-light text-[1.6rem] !text-white">Fluxo</a>
+                                        </li>
+                                        <li><a href="#suporte" class="hover:underline font-light text-[1.6rem] !text-white">Suporte</a>
+                                        </li>
+                                    </ul>
+                                </div>
 
-                            <div class="titulo">
-                                <p class="seccondary-color">Não encontrou o que você procura? entre em contato com nossa equipe!</p>
-                                <div style="display: flex; flex-direction: row; gap: 16px; justify-content:center;">
-                                    <button class="main_btn big_btn prim_btn waves-effect waves-light">Fale conosco</button>
-                                    <a href="#inicio" class="float-button main_btn waves-effect waves-light "><span class="material-symbols-outlined">arrow_upward</span></a>
+                                <!-- RECURSOS -->
+                                <div>
+                                    <h4 class="!font-bold mb-2"
+                                        style="color: var(--neutral-color); font-family: 'Montserrat', sans-serif; font-size: 20px;">
+                                        RECURSOS</h4>
+                                    <ul class="space-y-1">
+                                        <li><a href="#recursos" class="hover:underline font-light !text-white text-[1.6rem]">Tabela
+                                                TACO</a></li>
+                                        <li><a href="#recursos" class="hover:underline font-light !text-white text-[1.6rem]">Fator
+                                                de Correção e Cocção</a></li>
+                                        <li><a href="#recursos" class="hover:underline font-light !text-white text-[1.6rem]">Alimentos
+                                                Preparados</a></li>
+                                        <li><a href="#recursos" class="hover:underline font-light !text-white text-[1.6rem]">Planejamento
+                                                Anual</a></li>
+                                        <li><a href="#recursos" class="hover:underline font-light !text-white text-[1.6rem]">Requisições
+                                                e Autorizações</a></li>
+                                        <li><a href="#recursos" class="hover:underline font-light !text-white text-[1.6rem]">Registro
+                                                de Preço e Contratos</a></li>
+                                        <li><a href="#recursos" class="hover:underline font-light !text-white text-[1.6rem]">Pedido
+                                                de Compra/Licitação</a></li>
+                                    </ul>
+                                </div>
+
+                                <!-- ACESSO -->
+                                <div>
+                                    <h4 class="!font-bold mb-2"
+                                        style="color: var(--neutral-color); font-family: 'Montserrat', sans-serif; font-size: 20px;">
+                                        ACESSO</h4>
+                                    <ul class="space-y-2">
+                                        <li>
+                                            <a href="http://app.nutrigov.com/auth" target="_blank" class="font-light text-[1.6rem] !text-white">
+                                                Login
+                                            </a>
+                                        </li>
+                                        <li><a href="#planos" class="hover:underline font-light text-[1.6rem] !text-white">Contratar
+                                                plano</a></li>
+                                    </ul>
+                                </div>
+
+                                <!-- JURÍDICO -->
+                                <div>
+                                    <h4 class="!font-bold mb-2"
+                                        style="color: var(--neutral-color); font-family: 'Montserrat', sans-serif; font-size: 20px;">
+                                        JURÍDICO</h4>
+                                    <ul class="space-y-1">
+                                        <li><a href="/termos-condicoes" class="hover:underline font-light text-[1.6rem] !text-white">Termos
+                                                de uso</a></li>
+                                        <li><a href="/politica-privacidade" class="hover:underline font-light text-[1.6rem] !text-white">Política
+                                                de privacidade</a></li>
+                                        <li><a href="#" class="hover:underline font-light text-[1.6rem] !text-white">Política
+                                                de Cookies</a></li>
+                                    </ul>
                                 </div>
                             </div>
 
+                            <!-- Copyright -->
+                            <div class="flex flex-col md:flex-row items-center justify-center w-full gap-2">
+                                <span class="text-sm font-bold"
+                                    style="color: var(--neutral-color); font-family: 'Montserrat', sans-serif; font-size: 14px;">
+                                    © 2025 Nutrigov - Todos os direitos reservados
+                                </span>
+                            </div>
                         </div>
-                    </article>
 
-                    <div class="w-full px-4 py-10 mb-4 rounded-[var(--curve)]" style="background-color: var(--primary-color);">
-  <!-- Logo -->
-  <div class="flex items-center w-full justify-start mb-8">
-    <img src="/images/nutrigov_white.svg" alt="Nutrigov" class="h-[32px] w-auto">
-  </div>
+                    </div>
 
-  <!-- Menus -->
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8" style="color: var(--accent-color); font-family: 'Montserrat', sans-serif;">
-    <!-- WEBSITE -->
-    <div>
-      <h4 class="!font-bold mb-2" style="color: var(--neutral-color); font-family: 'Montserrat', sans-serif; font-size: 20px;">WEBSITE</h4>
-      <ul class="space-y-1">
-        <li><a href="#inicio" class="hover:underline font-bold" style="color: var(--accent-color); font-family: 'Montserrat', sans-serif; font-size: 16px;">Início</a></li>
-        <li><a href="#planos" class="hover:underline font-bold" style="color: var(--accent-color); font-family: 'Montserrat', sans-serif; font-size: 16px;">Preços</a></li>
-        <li><a href="#recursos" class="hover:underline font-bold" style="color: var(--accent-color); font-family: 'Montserrat', sans-serif; font-size: 16px;">Recursos</a></li>
-        <li><a href="#fluxo" class="hover:underline font-bold" style="color: var(--accent-color); font-family: 'Montserrat', sans-serif; font-size: 16px;">Fluxo</a></li>
-        <li><a href="#suporte" class="hover:underline font-bold" style="color: var(--accent-color); font-family: 'Montserrat', sans-serif; font-size: 16px;">Suporte</a></li>
-      </ul>
-    </div>
 
-    <!-- RECURSOS -->
-    <div>
-      <h4 class="!font-bold mb-2" style="color: var(--neutral-color); font-family: 'Montserrat', sans-serif; font-size: 20px;">RECURSOS</h4>
-      <ul class="space-y-1">
-        <li><a href="#recursos" class="hover:underline font-bold" style="color: var(--accent-color); font-family: 'Montserrat', sans-serif; font-size: 14px;">Tabela TACO</a></li>
-        <li><a href="#recursos" class="hover:underline font-bold" style="color: var(--accent-color); font-family: 'Montserrat', sans-serif; font-size: 14px;">Fator de Correção e Cocção</a></li>
-        <li><a href="#recursos" class="hover:underline font-bold" style="color: var(--accent-color); font-family: 'Montserrat', sans-serif; font-size: 14px;">Alimentos Preparados</a></li>
-        <li><a href="#recursos" class="hover:underline font-bold" style="color: var(--accent-color); font-family: 'Montserrat', sans-serif; font-size: 14px;">Planejamento Anual</a></li>
-        <li><a href="#recursos" class="hover:underline font-bold" style="color: var(--accent-color); font-family: 'Montserrat', sans-serif; font-size: 14px;">Requisições e Autorizações</a></li>
-        <li><a href="#recursos" class="hover:underline font-bold" style="color: var(--accent-color); font-family: 'Montserrat', sans-serif; font-size: 14px;">Registro de Preço e Contratos</a></li>
-        <li><a href="#recursos" class="hover:underline font-bold" style="color: var(--accent-color); font-family: 'Montserrat', sans-serif; font-size: 14px;">Pedido de Compra/Licitação</a></li>
-      </ul>
-    </div>
 
-    <!-- ACESSO -->
-    <div>
-      <h4 class="!font-bold mb-2" style="color: var(--neutral-color); font-family: 'Montserrat', sans-serif; font-size: 20px;">ACESSO</h4>
-      <ul class="space-y-2">
-        <li>
-          <a href="http://app.nutrigov.com/auth" target="_blank" 
-          class="font-bold"
-             style="color: var(--accent-color); font-family: 'Montserrat', sans-serif !important; font-size: 16px;">
-            Login
-          </a>
-        </li>
-        <li><a href="#planos" class="hover:underline font-bold" style="color: var(--accent-color); font-family: 'Montserrat', sans-serif; font-size: 16px;">Contratar plano</a></li>
-      </ul>
-    </div>
+                </article>
+            </div>
 
-    <!-- JURÍDICO -->
-    <div>
-      <h4 class="!font-bold mb-2" style="color: var(--neutral-color); font-family: 'Montserrat', sans-serif; font-size: 20px;">JURÍDICO</h4>
-      <ul class="space-y-1">
-        <li><a href="/termos-condicoes" class="hover:underline font-bold" style="color: var(--accent-color); font-family: 'Montserrat', sans-serif; font-size: 16px;">Termos de uso</a></li>
-        <li><a href="/politica-privacidade" class="hover:underline font-bold" style="color: var(--accent-color); font-family: 'Montserrat', sans-serif; font-size: 16px;">Política de privacidade</a></li>
-        <li><a href="#" class="hover:underline font-bold" style="color: var(--accent-color); font-family: 'Montserrat', sans-serif; font-size: 16px;">Política de Cookies</a></li>
-      </ul>
-    </div>
-  </div>
 
-  <!-- Copyright -->
-  <div class="flex flex-col md:flex-row items-center justify-center w-full gap-2">
-    <span class="text-sm font-bold" style="color: var(--neutral-color); font-family: 'Montserrat', sans-serif; font-size: 14px;">
-      © 2025 Nutrigov - Todos os direitos reservados
-    </span>
-  </div>
-</div>
-
-                </footer>
-
-                
-
-            </article>
+        </div>
+        <div class="rodape" id="cookie-banner">
+            <p>Esta página web utiliza cookis para aprimorar sua experiência. Clique em aceitar para permitir a ativação
+                destes elementos.</p>
+            <div style="display: flex; gap: 16px">
+                <button id="cookie-banner-btn">Aceitar</button>
+            </div>
         </div>
 
-
-    </div>
-    <div class="rodape" id="cookie-banner">
-        <p>Esta página web utiliza cookis para aprimorar sua experiência. Clique em aceitar para permitir a ativação destes elementos.</p>
-        <div style="display: flex; gap: 16px">
-            <button id="cookie-banner-btn">Aceitar</button>
-        </div>
-    </div>
-
-</body>
+    </body>
 
 
 
-<%- footer%>
+    <%- footer%>
