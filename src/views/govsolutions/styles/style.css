@@ -1,0 +1,83 @@
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+:root {
+    --primary-color: #1976D2;
+    --accent: #D1A719;
+    --warn: #fd095b;
+
+    --primary-background: #f5f5f5;
+    --seccondary-background: #d9d9d9;
+    --tertiary-background: #45a675;
+
+    --primary-text: #212121;
+    --seccondary-text: #757575;
+
+    --main-padding: 16px;
+    --main-margin: 16px;
+    --main-gap: 16px;
+    --main-curve: 1.5rem;
+    font-size: 100%;
+
+}
+
+:focus {
+    outline: none;
+    border: none;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+    width: 100dvw;
+    position: relative;
+}
+
+
+.fix{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.inner{
+    position: relative;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 100%;
+    background-color: var(--primary-background);
+    overflow: hidden;
+    /* font-family: 'Montserrat', sans-serif; */
+    font-family: 'Nunito', sans-serif;
+}
+
+.inner .scroll{
+    position: relative;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth !important;
+}
+
+.inner .scroll.quem-somos{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scroll-behavior: smooth !important;
+}
+
+.inner .scroll.quem-somos::-webkit-scrollbar {
+    display: none;
+}
+

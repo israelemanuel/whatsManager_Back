@@ -1,0 +1,270 @@
+/* Configurações do Banner 3 */
+.banner3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    width: 100%;
+}
+
+.banner3 .centro {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+}
+
+.banner3 .direita {
+    flex: 1;
+    display: block;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+
+.banner3 .direita .preview {
+    display: block;
+    height: 100% !important;
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.banner3 .esquerda {
+    flex: 1;
+    display: block;
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+
+.banner3 .esquerda .preview {
+    display: block;
+    height: 100% !important;
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+
+@media (max-width: 600px) and (orientation: portrait){
+
+    .banner3 {
+        flex-direction: column-reverse;
+        align-items: center;
+        height: 100%;
+    }
+
+    .banner3 .esquerda {
+        flex: 2 !important;
+        display: block;
+        position: relative;
+        max-width: 248px;
+        aspect-ratio: 1/1;
+    }
+
+    .banner3 .esquerda .preview {
+        display: block;
+        height: 100% !important;
+        width: 100% !important;
+        background-size: 100%;
+        background-position: center;
+    }
+
+    .banner3 .centro {
+        flex: 1;
+        gap: 8px;
+        justify-content: center;
+    }
+
+    .banner3 .direita {
+        flex: 2;
+        display: none;
+    }
+}
+
+@media (max-width: 800px) and (orientation: landscape){
+
+
+    .banner3 {
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+    }
+
+    .banner3 .esquerda {
+        flex: 2 !important;
+        display: block;
+        position: relative;
+        max-width: 200px;
+        aspect-ratio: 1/1;
+    }
+
+    .banner3 .esquerda .preview {
+        display: block;
+        height: 100% !important;
+        width: 100% !important;
+        background-size: 100% !important;
+        padding: 16px !important;
+        background-position: center;
+    }
+
+    .banner3 .centro {
+        flex: 1;
+        gap: 8px;
+        justify-content: center;
+    }
+
+    .banner3 .direita {
+        flex: 2;
+        display: none;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait){
+
+
+    
+
+    .banner3 {
+        flex-direction: column-reverse;
+        align-items: center;
+        height: 100%;
+    }
+
+
+    .banner3 .direita {
+        flex: 2;
+        display: none;
+    }
+
+    .banner3 .centro {
+        flex: 1;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .banner3 .esquerda {
+        flex: 2;
+        display: block;
+        position: relative;
+        width: 100%;
+        aspect-ratio: 1/1;
+    }
+
+    .banner3 .esquerda .preview {
+        display: block;
+        aspect-ratio: 1/1;
+        height: 100% !important;
+        width: 100% !important;
+        background-size: 98%;
+        background-position: center;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1111px) and (orientation: landscape){
+
+    
+
+    
+
+    .banner3 {
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+    }
+
+    .banner3 .esquerda .preview {
+        display: block;
+        height: 100% !important;
+        width: 100% !important;
+        background-size: 90% !important;
+        padding: 16px !important;
+        aspect-ratio: 1/1;
+        background-position: center;
+    }
+
+    .banner3 .direita {
+        flex: 2;
+        display: none;
+    }
+}
+
+@media (min-width: 1112px) and (max-width: 1366px) and (orientation: landscape){
+
+    
+
+    
+
+    .banner3 {
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+    }
+
+    .banner3 .esquerda .preview {
+        display: block;
+        height: 100% !important;
+        width: 100% !important;
+        background-size: 80% !important;
+        padding: 16px !important;
+        aspect-ratio: 1/1;
+        background-position: center;
+    }
+
+    .banner3 .direita {
+        flex: 2;
+        display: none;
+    }
+}
+
+@media (min-width: 1367px) and (max-width: 1600px) and (orientation: landscape){
+
+    
+
+    
+
+    .banner3 {
+        flex-direction: row;
+        align-items: center;
+        height: 100%;
+    }
+
+    .banner3 .esquerda {
+        flex: 1;
+        display: block;
+        position: relative;
+        width: 100%;
+        aspect-ratio: 1/1;
+    }
+
+    .banner3 .esquerda .preview {
+        display: block;
+        height: 100% !important;
+        width: 100% !important;
+        background-size: 80% !important;
+        padding: 16px !important;
+        aspect-ratio: 1/1;
+        background-position: center;
+    }
+
+    .banner3 .direita {
+        flex: 1;
+    }
+
+    .banner3 .direita .preview {
+        display: block;
+        height: 100% !important;
+        width: 100% !important;
+        background-size: 80% !important;
+        padding: 16px !important;
+        aspect-ratio: 1/1;
+        background-position: center;
+    }
+}

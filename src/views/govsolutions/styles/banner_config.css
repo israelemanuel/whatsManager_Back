@@ -1,0 +1,62 @@
+.owl-carousel{
+    font-size: 62.5% !important;
+}
+
+.banner {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding: 16px;
+}
+
+.banner p {
+    font-family: 'Nunito', sans-serif !important;
+    margin: 0px !important;
+}
+
+.banner .high {
+    font-size: 3.8em !important;
+    line-height: 1.2em !important;
+    font-weight: bold;
+    margin: 0px;
+    text-align: center;
+    width: 100%;
+}
+
+@media(max-width: 640px){
+    .banner .high{
+        font-size: 2.8em !important;
+        line-height: 1.2em !important;
+    }
+}
+
+.banner .subtitle {
+    font-size: 1.6em;
+    font-weight: bold;
+    margin: 0px;
+    text-align: center;
+}
+
+.banner .common_text {
+    font-size: 0.8em;
+    font-weight: 400;
+    margin: 0px;
+    text-align: center;
+}
+
+.almoxarifado{
+    background: radial-gradient(ellipse at right, #f7dabd 0%, transparent 60%);
+}
+
+.geweb{
+    background: radial-gradient(ellipse at left, #d2d8fd 0%, transparent 60%); 
+}
+
+.lotagovrh{
+    background: radial-gradient(ellipse at center, #d7e1dc 0%, transparent 60%); 
+}
+
+.nutrigov{
+    background: radial-gradient(ellipse at left, rgb(255, 239, 229) 0%, transparent 60%); 
+}
+
