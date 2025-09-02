@@ -1,0 +1,40 @@
+/* MAIN COLORS */
+
+
+.background_1{
+    background-color: var(--background-page);
+    color:var(--warn-color);
+}
+
+.background_2{
+    background-color: var(--background-green);
+    color: var(--primary-color) !important;
+}
+
+.background_2:not(.row){
+    background-color: var(--background-green);
+}
+
+.background_3{
+    background-color: var(--background-page);
+    color: var(--primary-color) !important;
+}
+
+.background_4{
+    background-color: #9fa29340;
+    color: var(--primary-color) !important;
+}
+
+.form_color{
+    color: var(--primary-color) !important;
+}
+
+
+.rh_badge_numeric_1{
+    background-color: var(--background-marrom);
+}
+
+.rh_badge_numeric_2{
+    background-color: var(--background-darkgreen)
+}
+

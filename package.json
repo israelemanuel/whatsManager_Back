@@ -29,6 +29,9 @@
 
     "govsolutions:taiwind:watch": "npx tailwindcss -i src/views/govsolutions/output.css -o src/views/govsolutions/styles/tailwind.css --watch",
     "govsolutions:taiwind:build": "npx tailwindcss -i src/views/govsolutions/output.css -o src/views/govsolutions/styles/tailwind.css",
+
+    "lotagovrh:taiwind:watch": "npx tailwindcss -i src/views/lotagovrh/output.css -o src/views/lotagovrh/styles/tailwind.css --watch",
+    "lotagovrh:taiwind:build": "npx tailwindcss -i src/views/lotagovrh/output.css -o src/views/lotagovrh/styles/tailwind.css",
   
 
     "start:dev": "npm-run-all --parallel  scss:watch taiwind:watch prod:server",
@@ -49,6 +52,9 @@
 
     "govsolutions:start:dev": "npm-run-all --parallel govsolutions:taiwind:watch prod:server",
     "govsolutions:start:macdev": "npm-run-all --parallel govsolutions:taiwind:watch prod:macserver",
+
+    "lotagovrh:start:dev": "npm-run-all --parallel lotagovrh:taiwind:watch prod:server",
+    "lotagovrh:start:macdev": "npm-run-all --parallel lotagovrh:taiwind:watch prod:macserver",
 
     "build": "npx tsc",
     "copy:files": "copyfiles -u 2 src/views/**/* ../siteConnectDeploy/views",

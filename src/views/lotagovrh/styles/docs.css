@@ -1,0 +1,141 @@
+:root {
+    --background-green: #9FA293;
+    --background-marrom: #BE7C61;
+    --background-darkgreen: #465451;
+
+    --primary-color: #465451;
+    --seccondary-color: #E3DACA;
+    --warn-color: #BE7C61;
+    --accent-color: #EFE0D9;
+
+    --background-page: #EEEBE9;
+    --positive-color: black;
+    --negative-color: white;
+
+    --curve: 16px;
+    --filter-multiply: rgba(0, 0, 0, 0.7);
+    -webkit-font-smoothing: antialiased;
+    font-size: 62.5% !important;
+
+    font-size: 62.5% !important;
+    -webkit-font-smoothing: antialiased;
+}
+
+.header {
+    background-color: var(--primary-color);
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    color: var(--primary-color) !important;
+}
+
+.header img {
+    width: 200px;
+}
+
+@media(max-width: 600px) {
+    .header img {
+        width: 40vw;
+    }
+}
+
+.docs_area {
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    background-color: white;
+    padding: 16px;
+    margin: 20px;
+    border-radius: 16px;
+}
+
+.docs_area .title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    padding: 16px;
+}
+
+.docs_area .title h2 {
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.docs_area .title p {
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin: 0px;
+}
+
+.docs_list {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 16px;
+    transform: translate(0px, 100px);
+    opacity: 0;
+    transition: all .6s ease-in-out;
+}
+
+.docs_list.active{
+    transform: translate(0px, 0px);
+    opacity: 1;
+}
+
+.docs_list .list_item {
+    display: flex;
+    flex-direction: row;
+    border-radius: 8px;
+    overflow: hidden;
+    min-height: 56px;
+    width: 100%;
+    -webkit-box-shadow: 0px 0px 0px 1px var(--primary-color);
+    -moz-box-shadow: 0px 0px 0px 1px var(--primary-color);
+    box-shadow: 0px 0px 0px 1px var(--primary-color);
+    transition: all .2s ease-in-out;
+}
+
+.docs_list .list_item:hover {
+    scale: 1.02;
+}
+
+.list_item .item_picture {
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    padding: 20px;
+    height: 56px !important;
+}
+
+.list_item .item_picture span {
+    font-size: 2.4rem;
+    color: white;
+    transform: rotate(45deg);
+    font-weight: 700;
+    opacity: 0.8;
+
+}
+
+.list_item .item_text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    width: 100%;
+    color: var(--primary-color);
+}
+
+.list_item .item_text p {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 0px;
+}
