@@ -1,0 +1,294 @@
+:root {
+    --primary-color: #6A40D5 !important;
+    --seccondary-color: #250083;
+    --accent-color: #E5DDF7;
+    --warn-color: #FFD643;
+    --page-background: #f3effb;
+
+    --filter-multiply: rgba(0, 0, 0, 0.7);
+    -webkit-font-smoothing: antialiased;
+    --curve: 16px;
+    font-size: 62.5% !important;
+}
+
+/* Para navegadores Webkit (Chrome, Safari, Opera) */
+::-webkit-scrollbar {
+    width: 5px;
+    /* Largura da barra de rolagem */
+    background-color: transparent;
+    /* Cor de fundo transparente */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #888;
+    /* Cor da barra de rolagem */
+}
+
+/* Para navegadores Firefox */
+::-moz-scrollbar {
+    width: 5px;
+    /* Largura da barra de rolagem */
+    background-color: transparent;
+    /* Cor de fundo transparente */
+}
+
+::-moz-scrollbar-thumb {
+    background-color: #888;
+    /* Cor da barra de rolagem */
+}
+
+html {
+    background-color: var(--page-background);
+}
+
+
+body {
+    display: flex !important;
+    width: 100%;
+    height: 100vh !important;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.main_content {
+    flex: 1;
+    width: 100%;
+    height: 100vh;
+    padding-bottom: 64px;
+    overflow: auto !important;
+    scroll-behavior: smooth;
+    position: relative;
+}
+
+.header {
+    background-color: var(--primary-color);
+    height: 25vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.header img{
+    width: 400px;
+    height: 100%;
+}
+
+@media(max-width: 600px){
+    .header img{
+        width: 60vw;
+        height: 100%;
+    }
+}
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title h1 {
+    font-size: 2.4em;
+    font-weight: 700;
+    color: #6A40D5;
+}
+
+.title p {
+    font-size: 1.6em;
+    font-weight: 400;
+    color: #6A40D5;
+}
+
+@media (max-width: 600px) {
+    .title p {
+        font-size: 1.6em;
+        font-weight: 400;
+        color: #6A40D5;
+        text-align: center;
+    }
+}
+
+.dual-input{
+    display: flex;
+    flex-direction: row;
+    gap: 1.6rem;
+    width: 100%;
+}
+
+.dual-input .select-wrapper{
+    flex: 3 !important;
+}
+
+.dual-input .select-wrapper{
+    flex: 7 !important;
+}
+
+@media(max-width: 600px){
+    .dual-input{
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+    }
+    
+    .dual-input select{
+        flex: 100%!important;
+    }
+    
+    .dual-input .input-field{
+        flex: 100% !important;
+    }
+}
+
+
+/* Inputs */
+/* label color */
+input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
+    color: #6A40D5 !important;
+}
+
+
+
+.input-field label {
+    color: var(--primary-color) !important;
+}
+
+/* label focus color */
+.input-field input[type=text]:focus+label {
+    color: var(--primary-color) !important;
+}
+
+/* label underline focus color */
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid var(--primary-color) !important;
+    box-shadow: 0 1px 0 0 var(--primary-color) !important;
+}
+
+/* valid color */
+.input-field input[type=text].valid {
+    border-bottom: 1px solid var(--primary-color) !important;
+    box-shadow: 0 1px 0 0 var(--primary-color) !important;
+}
+
+/* invalid color */
+.input-field input[type=text].invalid {
+    border-bottom: 1px solid red !important;
+    box-shadow: 0 1px 0 0 red !important;
+}
+
+/* icon prefix focus color */
+.input-field .prefix.active {
+    color: var(--primary-color) !important;
+}
+
+
+
+/* select */
+
+.select-wrapper input.select-dropdown{
+    height: 40px !important;
+}
+
+.dropdown-content li>a, .dropdown-content li>span {
+    font-size: 16px;
+    color: var(--primary-color) !important;
+    display: block;
+    line-height: 22px;
+    padding: 14px 16px;
+    flex: 1;
+}
+
+.dropdown-content{
+    border-radius: 16px;
+}
+
+.dropdown-content::-webkit-scrollbar {
+    width: 16px;
+    /* width of the entire scrollbar */
+}
+
+.dropdown-content::-webkit-scrollbar-track {
+    background: transparent;
+    /* color of the tracking area */
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    /* color of the scroll thumb */
+    border-radius: 10px;
+    /* roundness of the scroll thumb */
+    border: 6px solid white;
+    /* creates padding around scroll thumb */
+}
+
+.dropdown-content::-moz-scrollbar {
+    background-color: transparent;
+    /* Cor de fundo transparente */
+}
+
+.dropdown-content::-moz-scrollbar-thumb {
+    background-color: var(--primary-color);
+    /* Cor da barra de rolagem */
+    border-radius: 10px;
+    /* roundness of the scroll thumb */
+    border: 6px solid white;
+    /* creates padding around scroll thumb */
+}
+
+
+/* Button */
+.dock_button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn {
+    height: 56px !important;
+    width: 200px !important;
+    padding: 16px !important;
+    border-radius: 56px !important;
+    background-color: var(--primary-color) !important;
+    color: white;
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 700;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    -webkit-box-shadow: 0px 0px 0px 1px var(--primary-color);
+    -moz-box-shadow: 0px 0px 0px 1px var(--primary-color);
+    box-shadow: 0px 0px 0px 1px var(--primary-color);
+    padding: 16px;
+    border-radius: 16px;
+    margin: 16px 0px;
+    transform: translate(0px, 100px);
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.formulario.active {
+    transform: translate(0px, 0px);
+    opacity: 1;
+}
+
+.formulario h2{
+    font-size: 4.4rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.formulario p:not(.title){
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0px;
+}

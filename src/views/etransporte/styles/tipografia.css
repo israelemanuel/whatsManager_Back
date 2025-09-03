@@ -1,0 +1,90 @@
+/* ========================================
+                    Tipografia 
+===========================================*/
+
+
+/*Definindo Valor Raiz para REM*/
+
+html {
+    font-size: 62.5% !important;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+.highlight p {
+    font-size: 2.6rem !important;
+    margin: 8px 0px !important;
+    line-height: 38px !important;
+}
+
+.highlight h2 {
+    font-size: 3.6rem !important;
+    margin: 8px 0px !important;
+    line-height: 34px !important;
+}
+
+.highlight span {
+    font-size: 3.6rem !important;
+    margin: 8px 0px !important;
+    line-height: 34px !important;
+}
+
+/*Variações de tamanhos para tags*/
+
+.lowlight {
+    color: var(--main-text-color) !important
+}
+
+.w400 {
+    font-weight: 400 !important
+}
+
+h1,
+h2,
+h3,
+h4,
+a,
+p,
+span:not(.material-symbols-outlined) {
+    font-weight: 700 !important;
+    font-family: 'Lato', sans-serif !important;
+}
+
+.fix16 {
+    font-size: 1.6rem !important
+}
+
+
+/* formatação */
+.title {
+    padding: 24px 0px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title p {
+    margin: 8px;
+    text-align: center;
+}
+
+
+.alignment-center {
+    text-align: center !important;
+    display: flex;
+    justify-content: center;
+
+}
+
+.alignment-right {
+    text-align: right !important;
+}
+
+.alignment-left {
+    text-align: left !important;
+}
+
+.justify-center {
+    text-align: justify;
+    text-justify: inter-word;
+}

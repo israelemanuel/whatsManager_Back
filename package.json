@@ -32,6 +32,9 @@
 
     "lotagovrh:taiwind:watch": "npx tailwindcss -i src/views/lotagovrh/output.css -o src/views/lotagovrh/styles/tailwind.css --watch",
     "lotagovrh:taiwind:build": "npx tailwindcss -i src/views/lotagovrh/output.css -o src/views/lotagovrh/styles/tailwind.css",
+
+    "etransporte:taiwind:watch": "npx tailwindcss -i src/views/etransporte/output.css -o src/views/etransporte/styles/tailwind.css --watch",
+    "etransporte:taiwind:build": "npx tailwindcss -i src/views/etransporte/output.css -o src/views/etransporte/styles/tailwind.css",
   
 
     "start:dev": "npm-run-all --parallel  scss:watch taiwind:watch prod:server",
@@ -55,6 +58,9 @@
 
     "lotagovrh:start:dev": "npm-run-all --parallel lotagovrh:taiwind:watch prod:server",
     "lotagovrh:start:macdev": "npm-run-all --parallel lotagovrh:taiwind:watch prod:macserver",
+
+    "etransporte:start:dev": "npm-run-all --parallel etransporte:taiwind:watch prod:server",
+    "etransporte:start:macdev": "npm-run-all --parallel etransporte:taiwind:watch prod:macserver",
 
     "build": "npx tsc",
     "copy:files": "copyfiles -u 2 src/views/**/* ../siteConnectDeploy/views",

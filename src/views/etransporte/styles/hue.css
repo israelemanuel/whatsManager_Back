@@ -1,0 +1,35 @@
+.bg_color_lilaz{
+    background-color: #E5DDF7;
+}
+
+.bg_color_yellow{
+    background-color: #FFD643 ; 
+}
+
+.bg_color_purple{
+    background-color: #250083 !important;
+}
+
+.bg_color_roxo{
+    background-color: #6A40D5;
+}
+
+.color_roxo{
+    color: #6A40D5 !important;
+}
+
+.color_purple{
+    color: #250083 !important;
+}
+
+.color_yellow{
+    color: #FFD643 !important;
+}
+
+.bg_degrade_lilaz_top{
+    background: linear-gradient(180deg, #E5DDF7 0%, #6D44D6 60%, #6D44D6 100%) !important;
+}
+
+.bg_degrade_lilaz_bottom{
+    background: linear-gradient(0deg, #E5DDF7 0%, #6D44D6 60%, #6D44D6 100%) !important;
+}
