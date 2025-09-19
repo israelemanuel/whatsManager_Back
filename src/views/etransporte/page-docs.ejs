@@ -1,48 +1,116 @@
 <%- header%>
 
-<script>
-  $(window).on("load", function () {
-    // Adicione a classe 'animated' ao elemento desejado
-    $(".docs_list").addClass("active");
-  });
-</script>
-
-<body class="docs_page">
-  <div class="main_logo">
-    <a href="nutrigov">
-      <img
-        style="width: 180px"
-        alt="nutrigov"
-        src="/images/nutrigov_logo.svg"
-      />
+  <body>
+    <a href="/">
+      <div class="header">
+        <img src="/images/logo_white_animated.svg"
+          alt="">
+      </div>
     </a>
-  </div>
-  <div class="header">
-    <div>
+    <div class="docs_area">
       <div class="title">
         <h2>Documentos</h2>
-        <p>Encontre aqui todos os documentos</p>
+        <p>encontre aqui todos os documentos</p>
       </div>
-    </div>
-  </div>
-  <div class="docs_area">
-    <div class="docs_list">
-      <a
-        target="_blank"
-        href="/files/proposta.pdf"
-      >
-        <div class="list_item">
-          <div class="item_picture">
-            <span class="material-symbols-outlined"> description </span>
-          </div>
-          <div class="item_text">
-            <p>Nome do arquivo</p>
-            <span class="material-symbols-outlined"> download </span>
-          </div>
-        </div>
-      </a>
 
-      
+      <docs class="docs_list">
+        <a target="_blank" href="/files/proposta.pdf" onmouseover="addDeph()">
+          <div class="list_item">
+            <div class="item_picture">
+              <span class="material-symbols-outlined">
+                attach_file
+              </span>
+            </div>
+            <div class="item_text">
+              <p>Nome do arquivo</p>
+              <span class="material-symbols-outlined">
+                download
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a target="_blank" href="/files/proposta.pdf" onmouseover="addDeph()">
+          <div class="list_item">
+            <div class="item_picture">
+              <span class="material-symbols-outlined">
+                attach_file
+              </span>
+            </div>
+            <div class="item_text">
+              <p>Nome do arquivo</p>
+              <span class="material-symbols-outlined">
+                download
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a target="_blank" href="/files/proposta.pdf" onmouseover="addDeph()">
+          <div class="list_item">
+            <div class="item_picture">
+              <span class="material-symbols-outlined">
+                attach_file
+              </span>
+            </div>
+            <div class="item_text">
+              <p>Nome do arquivo</p>
+              <span class="material-symbols-outlined">
+                download
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a target="_blank" href="/files/proposta.pdf" onmouseover="addDeph()">
+          <div class="list_item">
+            <div class="item_picture">
+              <span class="material-symbols-outlined">
+                attach_file
+              </span>
+            </div>
+            <div class="item_text">
+              <p>Nome do arquivo</p>
+              <span class="material-symbols-outlined">
+                download
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a target="_blank" href="/files/proposta.pdf" onmouseover="addDeph()">
+          <div class="list_item">
+            <div class="item_picture">
+              <span class="material-symbols-outlined">
+                attach_file
+              </span>
+            </div>
+            <div class="item_text">
+              <p>Nome do arquivo</p>
+              <span class="material-symbols-outlined">
+                download
+              </span>
+            </div>
+          </div>
+        </a>
+
+        <a target="_blank" href="/files/proposta.pdf" onmouseover="addDeph()">
+          <div class="list_item">
+            <div class="item_picture">
+              <span class="material-symbols-outlined">
+                attach_file
+              </span>
+            </div>
+            <div class="item_text">
+              <p>Nome do arquivo</p>
+              <span class="material-symbols-outlined">
+                download
+              </span>
+            </div>
+          </div>
+        </a>
+
+      </docs>
     </div>
-  </div>
-<%- footer%>
+  </body>
+  <%- footer%>

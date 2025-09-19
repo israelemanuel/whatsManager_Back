@@ -35,6 +35,9 @@
 
     "etransporte:taiwind:watch": "npx tailwindcss -i src/views/etransporte/output.css -o src/views/etransporte/styles/tailwind.css --watch",
     "etransporte:taiwind:build": "npx tailwindcss -i src/views/etransporte/output.css -o src/views/etransporte/styles/tailwind.css",
+
+    "geweb:taiwind:watch": "npx tailwindcss -i src/views/geweb/output.css -o src/views/geweb/styles/tailwind.css --watch",
+    "geweb:taiwind:build": "npx tailwindcss -i src/views/geweb/output.css -o src/views/geweb/styles/tailwind.css",
   
 
     "start:dev": "npm-run-all --parallel  scss:watch taiwind:watch prod:server",
@@ -45,7 +48,6 @@
 
     "connectdesk:start:dev": "npm-run-all --parallel  connectdesk:scss:watch connectdesk:taiwind:watch prod:server",
     "connectdesk:start:macdev": "npm-run-all --parallel  connectdesk:scss:watch connectdesk:taiwind:watch prod:macserver",
-
 
     "estoqgov:start:dev": "npm-run-all --parallel estoqgov:taiwind:watch prod:server",
     "estoqgov:start:macdev": "npm-run-all --parallel estoqgov:taiwind:watch prod:macserver",
@@ -61,6 +63,9 @@
 
     "etransporte:start:dev": "npm-run-all --parallel etransporte:taiwind:watch prod:server",
     "etransporte:start:macdev": "npm-run-all --parallel etransporte:taiwind:watch prod:macserver",
+
+    "geweb:start:dev": "npm-run-all --parallel geweb:taiwind:watch prod:server",
+    "geweb:start:macdev": "npm-run-all --parallel geweb:taiwind:watch prod:macserver",
 
     "build": "npx tsc",
     "copy:files": "copyfiles -u 2 src/views/**/* ../siteConnectDeploy/views",

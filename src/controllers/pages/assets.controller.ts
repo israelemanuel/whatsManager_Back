@@ -174,6 +174,7 @@ export default class AssetsController {
         ".gif",
         ".bmp",
         ".svg",
+        ".webp",
       ];
 
       if (!allowedExtensions.includes(fileExtension)) {
@@ -182,10 +183,14 @@ export default class AssetsController {
 
       const image = fs.readFileSync(filePath);
 
-      const mimeType =
-        fileExtension === ".svg"
-          ? "image/svg+xml"
-          : `image/${fileExtension.slice(1)}`;
+      let mimeType;
+      if (fileExtension === ".svg") {
+        mimeType = "image/svg+xml";
+      } else if (fileExtension === ".webp") {
+        mimeType = "image/webp";
+      } else {
+        mimeType = `image/${fileExtension.slice(1)}`;
+      }
       res.setHeader("Content-Type", `${mimeType}`);
 
       res.send(image);

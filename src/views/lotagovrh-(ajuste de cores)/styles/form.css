@@ -1,0 +1,375 @@
+:root {
+    --background-green: #9FA293;
+    --background-marrom: #BE7C61;
+    --background-darkgreen: #465451;
+
+    --primary-color: #465451;
+    --seccondary-color: #E3DACA;
+    --warn-color: #BE7C61;
+    --accent-color: #EFE0D9;
+
+    --background-page: #EEEBE9;
+    --positive-color: black;
+    --negative-color: white;
+
+    --curve: 16px;
+    --filter-multiply: rgba(0, 0, 0, 0.7);
+    -webkit-font-smoothing: antialiased;
+    font-size: 62.5% !important;
+
+    font-size: 62.5% !important;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Para navegadores Webkit (Chrome, Safari, Opera) */
+::-webkit-scrollbar {
+    width: 5px;
+    /* Largura da barra de rolagem */
+    background-color: transparent;
+    /* Cor de fundo transparente */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #888;
+    /* Cor da barra de rolagem */
+}
+
+/* Para navegadores Firefox */
+::-moz-scrollbar {
+    width: 5px;
+    /* Largura da barra de rolagem */
+    background-color: transparent;
+    /* Cor de fundo transparente */
+}
+
+::-moz-scrollbar-thumb {
+    background-color: #888;
+    /* Cor da barra de rolagem */
+}
+
+::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgba(0, 0, 0, 0.500) !important;
+    opacity: 0.8;
+    /* Firefox */
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: rgba(0, 0, 0, 0.500) !important;
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: rgba(0, 0, 0, 0.500) !important;
+}
+
+html {
+    background-color: var(--page-background);
+}
+
+
+body {
+    display: flex !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+.header {
+    height: 56px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background-color: var(--seccondary-color);
+    position: relative;
+    z-index: 0;
+}
+
+.header a img {
+    height: 32px;
+}
+
+.background {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    z-index: -1;
+    align-items: flex-end;
+    background-color: #ebebeb;
+    width: 50vw;
+    color: #ebebeb;
+}
+
+@media(max-width: 600px) {
+    .background {
+        display: none;
+    }
+}
+
+.main_content {
+    display: block !important;
+    position: relative !important;
+    z-index: 3;
+
+    width: 100% !important;
+    height: 100vh;
+    
+    overflow: auto;
+    
+
+    scroll-behavior: smooth;
+}
+
+.center-stage {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: row;
+    height: 100%;
+}
+
+@media(max-width: 600px){
+    .center-stage {
+        align-content: center;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+}
+
+.formulary {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    align-items: center;
+}
+
+@media(max-width: 600px) {
+    .formulary {
+        display: flex;
+        flex-direction: column;
+        gap: 16px !important;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 16px 0px 16px 0px;
+    }
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    background-color: var(--background-green);
+    padding: 16px;
+    border-radius: var(--curve);
+    transform: translate(0px, 100px);
+    text-align: center;
+    transition: all .7s ease-in-out;
+    opacity: 0;
+    height: 100%;
+}
+
+.title.active {
+    transform: translate(0px, 0px);
+    opacity: 1;
+}
+
+.title h1 {
+    font-size: 2.4em;
+    font-weight: 700;
+}
+
+.title p {
+    font-size: 1.6em;
+    font-weight: 400;
+}
+
+@media (max-width: 600px) {
+    .title p {
+        font-size: 1.6em;
+        font-weight: 400;
+        color: var(--primary-color);
+        text-align: center;
+    }
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    -webkit-box-shadow: 0px 0px 0px 1px var(--primary-color);
+    -moz-box-shadow: 0px 0px 0px 1px var(--primary-color);
+    box-shadow: 0px 0px 0px 1px var(--primary-color);
+    padding: 16px;
+    border-radius: var(--curve);
+    transform: translate(0px, 100px);
+    opacity: 0;
+    transition: all 0.8s ease-in-out;
+    width: 100%;
+}
+
+.formulario.active {
+    transform: translate(0px, 0px);
+    opacity: 1;
+}
+
+.formulario h1 {
+    font-size: 4.4rem;
+    font-weight: 400;
+    color: var(--primary-color);
+}
+
+/* Inputs */
+/* label color */
+input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
+    color: var(--primary-color) !important;
+}
+
+
+
+.input-field label {
+    color: var(--primary-color) !important;
+}
+
+/* label focus color */
+.input-field input[type=text]:focus+label {
+    color: var(--primary-color) !important;
+}
+
+/* label underline focus color */
+.input-field input[type=text]:focus {
+    border-bottom: 1px solid var(--primary-color) !important;
+    box-shadow: 0 1px 0 0 var(--primary-color) !important;
+}
+
+/* valid color */
+.input-field input[type=text].valid {
+    border-bottom: 1px solid var(--primary-color) !important;
+    box-shadow: 0 1px 0 0 var(--primary-color) !important;
+}
+
+/* invalid color */
+.input-field input[type=text].invalid {
+    border-bottom: 1px solid red !important;
+    box-shadow: 0 1px 0 0 red !important;
+}
+
+/* icon prefix focus color */
+.input-field .prefix.active {
+    color: var(--primary-color) !important;
+}
+
+
+
+/* select */
+
+.dual-input{
+    display: flex;
+    flex-direction: row;
+    gap: 1.6rem;
+    width: 100%;
+}
+
+.dual-input .select-wrapper{
+    flex: 3 !important;
+}
+
+.dual-input .select-wrapper{
+    flex: 7 !important;
+}
+
+@media(max-width: 600px){
+    .dual-input{
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+    }
+    
+    .dual-input select{
+        flex: 100%!important;
+    }
+    
+    .dual-input .input-field{
+        flex: 100% !important;
+    }
+}
+
+.dropdown-content li>a, .dropdown-content li>span {
+    font-size: 16px;
+    color: var(--primary-color) !important;
+    display: block;
+    line-height: 22px;
+    padding: 14px 16px;
+}
+
+.dropdown-content {
+    border-radius: var(--curve);
+    z-index: 3;
+}
+
+.dropdown-content::-webkit-scrollbar {
+    width: 16px;
+    /* width of the entire scrollbar */
+}
+
+.dropdown-content::-webkit-scrollbar-track {
+    background: transparent;
+    /* color of the tracking area */
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    /* color of the scroll thumb */
+    border-radius: 16px;
+    /* roundness of the scroll thumb */
+    border: 6px solid white;
+    /* creates padding around scroll thumb */
+}
+
+.dropdown-content::-moz-scrollbar {
+    background-color: transparent;
+    /* Cor de fundo transparente */
+}
+
+.dropdown-content::-moz-scrollbar-thumb {
+    background-color: var(--primary-color);
+    /* Cor da barra de rolagem */
+    border-radius: 16px;
+    /* roundness of the scroll thumb */
+    border: 6px solid white;
+    /* creates padding around scroll thumb */
+}
+
+
+/* Button */
+.dock_button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn {
+    height: 56px !important;
+    width: 200px !important;
+    padding: 16px !important;
+    border-radius: 56px !important;
+    background-color: var(--primary-color) !important;
+    color: white;
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 700;
+}

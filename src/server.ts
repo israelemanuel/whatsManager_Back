@@ -39,6 +39,11 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Servir imagens estaticamente do diretório govsolutions
+app.use('/images', express.static(
+    path.join(__dirname, 'views', 'govsolutions', 'images')
+));
+
 app.use(Routes);
 
 //STATIC ASSETS

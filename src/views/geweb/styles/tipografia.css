@@ -1,0 +1,83 @@
+/* ========================================
+                    Tipografia 
+===========================================*/
+
+
+/*Definindo Valor Raiz para REM*/
+
+html:not(.material-symbols-outlined) {
+    font-size: 62.5% !important;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Nunito', sans-serif !important;
+}
+
+.highlight{
+    color: var(--primary-color) !important
+}
+
+.lowlight{
+    color: var(--main-text-color) !important
+}
+
+.w400{
+    font-weight: 400 !important
+}
+
+.w400 .light-green p{
+    font-weight: 400 !important;
+    background-color: transparent !important;
+    color: #6D8A61 !important
+}
+
+h1,
+h2,
+h3,
+h4,
+a,
+p,
+span{
+    font-weight: 700 !important;
+    margin: 0px;
+}
+
+.fix16{
+    font-size: 1.6rem !important
+}
+
+
+/* formatação */
+.title{
+    margin: 24px 0px !important;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.subtitle{
+    font-size: 1.6em;
+}
+
+.title p{
+    margin: 8px
+}
+
+
+.alignment-center{
+    text-align: center !important;
+}
+
+.alignment-right{
+    text-align: right !important;
+}
+
+.alignment-left{
+    text-align: left !important;
+}
+
+.justify-center{
+    text-align: justify;
+    text-justify: inter-word;
+}

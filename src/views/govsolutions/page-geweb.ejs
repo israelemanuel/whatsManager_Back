@@ -1,0 +1,1815 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEWEB</title>
+    <meta name="description" content="A mais completa plataforma de gestão escolar para redes públicas de ensino." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="http://www.govsolutions.com.br/geweb" />
+    <link rel="icon" href="http://www.govsolutions.com.br/images/favicon.png"
+        onerror="this.href='https://placehold.co/32x32/6a2480/FFFFFF?text=G'">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts e Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Lato:wght@900&family=Montserrat:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        // Configuração do Tailwind CSS com a nova paleta de cores
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-primary': '#111827', // Cinza escuro para texto e botões principais
+                        'brand-purple': '#A78BFA', // Lavanda suave
+                        'brand-pink': '#FBCFE8',   // Rosa suave
+                        'brand-orange': '#FDBA74', // Laranja suave
+                        'brand-light': '#F9FAFB',  // Fundo off-white
+                        'brand-text': '#374151',   // Cor principal de texto
+                    },
+                    fontFamily: {
+                        'nunito': ['Nunito', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root{
+            --primary-text: #3e4b67;
+        }
+
+        /* Estilos para o header */
+        #header {
+            will-change: transform, position, width, border-radius;
+            transition: none; /* GSAP vai controlar as transições */
+        }
+
+        /* Container do header para manter layout consistente */
+        #header .container {
+            transition: padding 0.4s ease;
+        }
+
+        /* Responsividade para o header flutuante */
+        @media (max-width: 1600px) {
+            #header {
+                max-width: calc(100vw - 32px) !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            #header {
+                max-width: calc(100vw - 16px) !important;
+            }
+        }
+
+        /* Garantir que o header não interfira com outros elementos */
+        #header.floating {
+            pointer-events: auto;
+        }
+
+        .feature-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .feature-item.active .feature-content {
+            max-height: 20rem;
+            /* Aumentado para garantir que textos maiores caibam */
+        }
+
+        .feature-item .plus-icon {
+            display: block;
+        }
+
+        .feature-item .minus-icon {
+            display: none;
+        }
+
+        .feature-item.active .plus-icon {
+            display: none;
+        }
+
+        .feature-item.active .minus-icon {
+            display: block;
+        }
+
+        /* Estilos para sliders arrastáveis */
+        .draggable-slider {
+            cursor: grab;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .draggable-slider.dragging {
+            cursor: grabbing;
+        }
+
+        .draggable-slider * {
+            pointer-events: auto;
+        }
+
+        .draggable-slider.dragging * {
+            pointer-events: none;
+        }
+
+        .slider-container {
+            will-change: transform;
+        }
+
+        /* Garantir que os slides não interferem com o drag */
+        .draggable-slider > * {
+            pointer-events: none;
+        }
+
+        .draggable-slider:not(.dragging) > * {
+            pointer-events: auto;
+        }
+
+        /* Estilos para dropdown customizado */
+        .custom-select {
+            position: relative;
+            display: block;
+            width: 100%;
+        }
+
+        /* botão que abre o dropdown */
+        .custom-select-button {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 12px;
+            background: #ffffff;
+            border: 1px solid rgba(15,23,42,0.06);
+            cursor: pointer;
+        }
+
+        .custom-select-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 50 !important;
+            background: #ffffff; /* fundo sólido */
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            max-height: 240px;
+            overflow-y: auto;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: all 0.2s ease;
+        }
+
+        .custom-select-button:focus {
+            outline: none;
+            border-color: #2a66b8;
+            box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1);
+        }
+
+        /* duplicate invalid block removed */
+
+        .custom-select.open .custom-select-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .custom-select-option {
+            display: block;
+            width: 100%;
+            padding: 12px 16px;
+            text-align: left;
+            color: #374151;
+            cursor: pointer;
+            transition: background-color 0.15s ease;
+            border: none;
+            background: none;
+        }
+
+        .custom-select-option:hover {
+            background-color: #acc8ea;
+        }
+
+        .custom-select-option.selected {
+            background-color: #acc8ea;
+            color: #4273b8;
+            font-weight: 500;
+        }
+
+        .custom-select-icon {
+            transition: transform 0.2s ease;
+        }
+
+        .custom-select.open .custom-select-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Estilos para animações GSAP */
+        .gsap-fade-up,
+        .gsap-stagger-up,
+        .gsap-slide-in {
+            will-change: transform, opacity;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Otimizações de performance para animações */
+        * {
+            backface-visibility: hidden;
+            perspective: 1000px;
+        }
+
+        /* Efeitos hover aprimorados */
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body class="font-nunito text-[var(--primary-text)]" style="background-image: linear-gradient(0deg, #4273b8, #acc8ea, #f7fbff);">
+
+    <!-- Botão Flutuante para Voltar ao Topo -->
+    <a id="fab_top" href="#inicio"
+        class="fixed bottom-5 right-5 z-40 bg-brand-primary text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:bg-gray-700 transition-opacity duration-300 opacity-0">
+        <span class="material-symbols-outlined">arrow_upward</span>
+    </a>
+
+    <!-- Cabeçalho e Navegação -->
+    <header id="header" class="flex items-center justify-center">
+        <nav class="max-w-[80dvw] px-4 w-full">
+            <div class="flex justify-between items-center py-3">
+                <a href="#inicio" class="shrink-0 w-[100px]">
+                    <img class="w-34" src="/images/preferencial.svg" alt="Logo GEWEB">
+                </a>
+                <ul class="hidden lg:flex items-center space-x-8">
+                    <li><a href="#modulos" class="font-bold text-[var(--primary-text)]">Vantagens</a></li>
+                    <li><a href="#recursos" class="font-bold text-[var(--primary-text)]">Recursos</a></li>
+                    <li><a href="#representantes"
+                            class="font-bold text-[var(--primary-text)]">Representantes</a></li>
+                    <li><a href="#perguntas" class="font-bold text-[var(--primary-text)]">Perguntas</a></li>
+                    <li class="px-6 py-4 rounded-ful "></li>
+                </ul>
+                <button id="mobile-menu-button" class="lg:hidden text-[var(--primary-text)]">
+                    <i class="material-symbols-outlined text-3xl">menu</i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Menu Lateral Móvel -->
+    <div id="mobile-menu"
+        class="fixed top-0 left-0 w-64 h-full bg-white shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out z-50">
+        <ul class="py-8 px-4">
+            <li><a href="#modulos"
+                    class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Vantagens</a>
+            </li>
+            <li><a href="#recursos"
+                    class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Recursos</a>
+            </li>
+            <li><a href="#representantes"
+                    class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Representantes</a>
+            </li>
+            <li><a href="#perguntas"
+                    class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Perguntas</a>
+            </li>
+        </ul>
+    </div>
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+
+    <!-- Conteúdo Principal -->
+    <main>
+        <!-- Seção Banner Carrossel -->
+        <section id="inicio" class="relative w-full overflow-hidden">
+            <div id="banner-carousel"
+                class="flex transition-transform duration-500 ease-in-out draggable-slider slider-container">
+                <!-- Slide 1 -->
+                <div class="w-full flex-shrink-0">
+                    <div class="container mx-auto px-4 py-12 sm:py-16 md:py-24">
+                        <div class="flex flex-col md:flex-row items-center gap-8">
+                            <div class="md:w-1/2 text-left">
+                                <h1
+                                    class="font-lato text-3xl sm:text-4xl md:text-6xl font-black text-[var(--primary-text)] leading-tight">
+                                    A mais completa plataforma de gestão escolar</h1>
+                                <p class="mt-4 text-lg text-[var(--primary-text)]">Matrículas online, gestão de turmas, censo
+                                    escolar, diário de classe, e aplicativo para alunos e responsáveis.</p>
+                            </div>
+                            <div class="md:w-1/2 mt-8 md:mt-0"><img
+                                    src="/images/banner_1_full.png"
+                                    alt="Plataforma de gestão escolar" class="rounded-[20px] shadow-xl"
+                                    onerror="this.onerror=null;this.src='https://placehold.co/600x400/CCCCCC/FFFFFF?text=Banner+1';">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="w-full flex-shrink-0">
+                    <div class="container mx-auto px-4 py-12 sm:py-16 md:py-24">
+                        <div class="flex flex-col md:flex-row items-center gap-8">
+                            <div class="md:w-1/2 text-left">
+                                <h1
+                                    class="font-lato text-3xl sm:text-4xl md:text-6xl font-black text-[var(--primary-text)] leading-tight">
+                                    Agilidade e eficiência na documentação</h1>
+                                <p class="mt-4 text-lg text-[var(--primary-text)]">Processos automatizados para emissão de
+                                    históricos, declarações e certificados, economizando tempo e recursos.</p>
+                            </div>
+                            <div class="md:w-1/2 mt-8 md:mt-0"><img
+                                    src="/images/banner_2_full.png"
+                                    alt="Documentação escolar" class="rounded-[20px] shadow-xl"
+                                    onerror="this.onerror=null;this.src='https://placehold.co/600x400/CCCCCC/FFFFFF?text=Banner+2';">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 3 -->
+                <div class="w-full flex-shrink-0">
+                    <div class="container mx-auto px-4 py-12 sm:py-16 md:py-24">
+                        <div class="flex flex-col md:flex-row items-center gap-8">
+                            <div class="md:w-1/2 text-left">
+                                <h1
+                                    class="font-lato text-3xl sm:text-4xl md:text-6xl font-black text-[var(--primary-text)] leading-tight">
+                                    Experiência digital completa e conectada</h1>
+                                <p class="mt-4 text-lg text-[var(--primary-text)]">Conteúdos, atividades e notificações em um
+                                    aplicativo que proporciona uma experiência educacional moderna.</p>
+                            </div>
+                            <div class="md:w-1/2 mt-8 md:mt-0"><img
+                                    src="/images/banner_3_full.png"
+                                    alt="Experiência digital" class="rounded-[20px] shadow-xl"
+                                    onerror="this.onerror=null;this.src='https://placehold.co/600x400/CCCCCC/FFFFFF?text=Banner+3';">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Slide 4 -->
+                <div class="w-full flex-shrink-0">
+                    <div class="container mx-auto px-4 py-12 sm:py-16 md:py-24">
+                        <div class="flex flex-col md:flex-row items-center gap-8">
+                            <div class="md:w-1/2 text-left">
+                                <h1
+                                    class="font-lato text-3xl sm:text-4xl md:text-6xl font-black text-[var(--primary-text)] leading-tight">
+                                    Reduza retrabalhos e ganhe eficiência</h1>
+                                <p class="mt-4 text-lg text-[var(--primary-text)]">Múltiplas integrações com diversas áreas
+                                    administrativas promovem redução de tempo e esforço.</p>
+                            </div>
+                            <div class="md:w-1/2 mt-8 md:mt-0"><img
+                                    src="/images/banner_4_full.png"
+                                    alt="Eficiência na gestão" class="rounded-[20px] shadow-xl"
+                                    onerror="this.onerror=null;this.src='https://placehold.co/600x400/CCCCCC/FFFFFF?text=Banner+4';">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="carousel-dots" class="absolute bottom-5 left-1/2 -translate-x-1/2 flex space-x-2"></div>
+        </section>
+
+        <!-- Seção Vantagens (Novo Layout de Cards) -->
+        <section id="modulos" class="py-12 md:py-24">
+            <div class="container mx-auto px-4">
+                <div class="text-center max-w-3xl mx-auto gsap-fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[var(--primary-text)] mb-4">Resolvendo os Desafios da Gestão
+                        Educacional</h2>
+                    <p class="text-[var(--primary-text)]">Descubra como o GEWEB transforma a administração da sua rede de ensino
+                        através de soluções focadas em seus maiores desafios.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                    <!-- Card Eficiência -->
+                    <div
+                        class="bg-white p-6 md:p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-shadow duration-300 gsap-fade-up">
+                        <span
+                            class="material-symbols-outlined text-5xl text-[#2d81f6] bg-[#acc8ea] p-4 rounded-full">speed</span>
+                        <h3 class="font-bold text-2xl text-[var(--primary-text)] mt-6">Eficiência Operacional</h3>
+                        <p class="text-[var(--primary-text)] mt-2">Agilize processos, reduza o uso de papel e acelere tarefas como
+                            o envio de dados para o censo escolar.</p>
+                    </div>
+                    <!-- Card Controle -->
+                    <div
+                        class="bg-white p-6 md:p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-shadow duration-300 gsap-fade-up">
+                        <span
+                            class="material-symbols-outlined text-5xl text-[#2d81f6] bg-[#acc8ea] p-4 rounded-full">visibility</span>
+                        <h3 class="font-bold text-2xl text-[var(--primary-text)] mt-6">Controle e Transparência</h3>
+                        <p class="text-[var(--primary-text)] mt-2">Tenha acesso rápido a dados de alunos e docentes, gerencie
+                            horários e espaços com total visibilidade.</p>
+                    </div>
+                    <!-- Card Modernização -->
+                    <div
+                        class="bg-white p-6 md:p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-shadow duration-300 gsap-fade-up">
+                        <span
+                            class="material-symbols-outlined text-5xl text-[#2d81f6] bg-[#acc8ea] p-4 rounded-full">devices</span>
+                        <h3 class="font-bold text-2xl text-[var(--primary-text)] mt-6">Modernização</h3>
+                        <p class="text-[var(--primary-text)] mt-2">Ofereça matrículas online e utilize uma plataforma adaptável a
+                            qualquer unidade de ensino, com ou sem internet.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Urgência e CTA Principal -->
+        <section class="py-12 md:py-24 gsap-fade-up">
+            <div class="container mx-auto px-4 text-center w-full">
+                <h2 class="text-3xl md:text-4xl font-bold text-[var(--primary-text)]">Transforme Sua Gestão Educacional Agora
+                </h2>
+                <p class="mt-4 text-lg text-[var(--primary-text)]">A janela de oportunidade para modernizar sua rede de ensino para
+                    o próximo semestre está aberta. Não perca a chance de sair na frente.</p>
+                <div class="mt-10">
+                    <a href="#representantes"
+                        class="bg-brand-primary text-white font-bold py-4 px-10 rounded-xl text-lg sm:text-xl hover:bg-gray-700 transition-colors shadow-lg animate-pulse gsap-cta-button">
+                        Fale com um Especialista Agora
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Recursos -->
+        <article id="recursos" class="py-12 md:py-24">
+            <div class="container mx-auto">
+
+                <!-- Layout Mobile: Slider 9:16 com Gestos e Peek -->
+                <div class="sm:hidden gsap-fade-up">
+                    <div class="text-center mb-12">
+                        <h2 class="text-3xl font-bold text-[var(--primary-text)]">Uma Plataforma Completa de Recursos</h2>
+                    </div>
+                    <div class="relative">
+                        <div id="mobile-slider-wrapper" class="overflow-hidden">
+                            <div id="mobile-feature-slider"
+                                class="flex transition-transform duration-500 ease-in-out gap-4 draggable-slider slider-container p-[24px]">
+                                <!-- Slides serão injetados aqui pelo JS -->
+                            </div>
+                        </div>
+                        <div id="mobile-slider-dots"
+                            class="absolute -bottom-8 left-1/2 -translate-x-1/2 flex space-x-2"></div>
+                    </div>
+                </div>
+
+
+                <!-- Layout Tablet/Desktop: Apple Style -->
+                <div class="hidden sm:block font-inter gsap-fade-up">
+                    <header class="text-center mb-12 lg:mb-16">
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--primary-text)]">
+                            Explore os detalhes.
+                        </h2>
+                    </header>
+
+                    <main class="bg-white rounded-3xl shadow-sm p-6 lg:p-10">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+                            <!-- Coluna da Esquerda: Features -->
+                            <div class="lg:col-span-4">
+                                <div class="space-y-3" id="feature-list">
+                                    <!-- Os itens do acordeão serão inseridos aqui pelo JS -->
+                                </div>
+                            </div>
+                            <!-- Coluna da Direita: Imagem Principal -->
+                            <div
+                                class="lg:col-span-8 flex flex-col items-center justify-center h-[500px] lg:h-[650px] bg-gray-100 rounded-3xl py-4">
+                                <div id="feature-display"
+                                    class="w-full h-full flex flex-col items-center justify-center text-center transition-opacity duration-500 ease-in-out">
+                                    <img id="featureImage" src="" alt="Imagem do recurso em destaque"
+                                        class="max-h-[70%] object-contain">
+                                    <h3 id="featureTitle" class="text-2xl font-bold mt-4 text-[var(--primary-text)]"></h3>
+                                </div>
+                            </div>
+                        </div>
+                    </main>
+                </div>
+            </div>
+        </article>
+
+        <!-- Seção Sistemas Integrados (Logos) -->
+        <article id="sistemas_integrados" class="py-12 md:py-24 gsap-fade-up">
+            <div class="container mx-auto flex flex-col gap-6">
+                <div class="text-center max-w-3xl mx-auto !text-white flex flex-col gap-6 gsap-fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold mt-1">Ecossistema de Soluções
+                        Integradas</h2>
+                    <p class="">O GEWEB é o centro da sua gestão. Conecte-o a outras áreas e ganhe
+                        uma visão 360º do seu município.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-8 place-items-center gsap-stagger-up px-6">
+                    <button data-modal-target="avaliaedu-modal"
+                        class="bg-white rounded-2xl w-full h-[200px] flex items-center justify-center p-6 modal-trigger transition-transform hover:scale-110"><img
+                            src="/images/avaliaedu_min.svg" alt="Logo AvaliaEDU"
+                            class="h-full"
+                            onerror="this.onerror=null;this.src='https://placehold.co/150x80?text=AvaliaEDU';"></button>
+                    <button data-modal-target="estoqgov-modal"
+                        class="bg-white rounded-2xl w-full h-[200px] flex items-center justify-center p-6 modal-trigger transition-transform hover:scale-110"><img
+                            src="/images/estoqgov_min.svg" alt="Logo EstoqGOV" class="h-full"
+                            onerror="this.onerror=null;this.src='https://placehold.co/150x80?text=EstoqGOV';"></button>
+                    <button data-modal-target="etransporte-modal"
+                        class="bg-white rounded-2xl w-full h-[200px] flex items-center justify-center p-6 modal-trigger transition-transform hover:scale-110"><img
+                            src="/images/etransporte_min.svg" alt="Logo e-Transporte"
+                            class="h-full"
+                            onerror="this.onerror=null;this.src='https://placehold.co/150x80?text=e-Transporte';"></button>
+                    <button data-modal-target="lotagovrh-modal"
+                        class="bg-white rounded-2xl w-full h-[200px] flex items-center justify-center p-6 modal-trigger transition-transform hover:scale-110"><img
+                            src="/images/lotagovrh_min.svg" alt="Logo LotaGOV RH"
+                            class="h-full"
+                            onerror="this.onerror=null;this.src='https://placehold.co/150x80?text=LotaGOV+RH';"></button>
+                    <button data-modal-target="nutrigov-modal"
+                        class="bg-white rounded-2xl w-full h-[200px] flex items-center justify-center p-6 modal-trigger transition-transform hover:scale-110"><img
+                            src="/images/nutrigov_min.svg" alt="Logo NutriGOV" class="h-full"
+                            onerror="this.onerror=null;this.src='https://placehold.co/150x80?text=NutriGOV';"></button>
+                    <button data-modal-target="comprasgov-modal"
+                        class="bg-white rounded-2xl w-full h-[200px] flex items-center justify-center p-6 modal-trigger transition-transform hover:scale-110"><img
+                            src="/images/comprasgov_min.svg" alt="Logo ComprasGOV"
+                            class="h-full"
+                            onerror="this.onerror=null;this.src='https://placehold.co/150x80?text=ComprasGOV';"></button>
+                </div>
+            </div>
+        </article>
+
+        <!-- Seção Representantes -->
+        <article id="representantes" class="py-12 md:py-24 gsap-fade-up">
+            <div class="container mx-auto px-4">
+                <div class="text-center max-w-3xl mx-auto gsap-fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mt-1">Fale com um Especialista na Sua
+                        Região</h2>
+                </div>
+                <div class="w-full mx-auto mt-12 bg-white p-8 rounded-3xl shadow-xl">
+                    <p class="text-[var(--primary-text)] mb-6 text-center">Nossos representantes estão aptos a capacitar sua equipe
+                        para se tornarem autônomos no uso de nossos sistemas.</p>
+                    <div class="w-full">
+                        <label for="estado-select" class="block text-sm font-medium text-[var(--primary-text)] mb-2">Selecione seu
+                            estado</label>
+                        
+                        <!-- Dropdown Customizado -->
+                        <div class="custom-select" id="estado-custom-select">
+                            <button type="button" class="custom-select-button" id="estado-select-button">
+                                <span id="estado-selected-text">Pará</span>
+                                <span class="custom-select-icon">
+                                    <svg class="w-5 h-5 text-[var(--primary-text)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    </svg>
+                                </span>
+                            </button>
+                            
+                            <div class="custom-select-dropdown" id="estado-dropdown">
+                                <button type="button" class="custom-select-option" data-value="ceara">Ceará</button>
+                                <button type="button" class="custom-select-option" data-value="maranhao">Maranhão</button>
+                                <button type="button" class="custom-select-option selected" data-value="para">Pará</button>
+                                <button type="button" class="custom-select-option" data-value="minasgerais">Minas Gerais</button>
+                                <button type="button" class="custom-select-option" data-value="riograndedosul">Rio Grande do Sul</button>
+                                <button type="button" class="custom-select-option" data-value="santacatarina">Santa Catarina</button>
+                                <button type="button" class="custom-select-option" data-value="tocantins">Tocantins</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Input hidden para manter compatibilidade -->
+                        <input type="hidden" id="estado-select" value="para">
+                    </div>
+                    <div id="rev-grid" class="relative mt-8 grid grid-cols-1 md:grid-cols-2 gap-6" style="z-index: -1 !important;"></div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Rodapé com Perguntas Frequentes e Novo Layout -->
+    <footer class="bg-white text-[var(--primary-text)]">
+        <article id="perguntas" class="container mx-auto px-4 py-12 md:py-24 gsap-fade-up">
+            <div class="w-full">
+                <div class="text-center gsap-fade-up">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[var(--primary-text)]">Perguntas Frequentes</h2>
+                </div>
+                <div id="faq-accordion" class="mt-12 space-y-4 gsap-stagger-up">
+                    <div class="border border-gray-200 rounded-2xl">
+                        <button
+                            class="accordion-header w-full flex justify-between items-center text-left p-5 font-bold text-lg"><span>Como
+                                funciona a implantação?</span><span
+                                class="material-symbols-outlined transition-transform duration-300">expand_more</span></button>
+                        <div class="accordion-body max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                            <p class="p-5 pt-0 text-[var(--primary-text)]">Nossa equipe realiza todo o processo, desde a migração
+                                de dados até o treinamento completo dos usuários, garantindo uma transição suave.</p>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-2xl">
+                        <button
+                            class="accordion-header w-full flex justify-between items-center text-left p-5 font-bold text-lg"><span>O
+                                sistema é seguro?</span><span
+                                class="material-symbols-outlined transition-transform duration-300">expand_more</span></button>
+                        <div class="accordion-body max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                            <p class="p-5 pt-0 text-[var(--primary-text)]">Sim, a segurança é nossa prioridade. Utilizamos
+                                servidores robustos, criptografia e seguimos as melhores práticas de segurança de dados.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="border border-gray-200 rounded-2xl">
+                        <button
+                            class="accordion-header w-full flex justify-between items-center text-left p-5 font-bold text-lg"><span>Existe
+                                suporte técnico?</span><span
+                                class="material-symbols-outlined transition-transform duration-300">expand_more</span></button>
+                        <div class="accordion-body max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
+                            <p class="p-5 pt-0 text-[var(--primary-text)]">Oferecemos suporte técnico contínuo através de nossos
+                                representantes locais, com atendimento por telefone, e-mail e chat.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Novo Rodapé Estruturado -->
+        <div class="container mx-auto px-4 pt-12 pb-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
+                <!-- Coluna 1: Logo e Missão -->
+                <div class="md:col-span-1 flex flex-col items-center md:items-start">
+                    <a href="#inicio" class="shrink-0 mb-4 inline-block">
+                        <img class="w-36" src="/images/preferencial.svg" alt="GEWEB"
+                            onerror="this.onerror=null;this.src='https://placehold.co/150x50/FFFFFF/111827?text=GEWEB';">
+                    </a>
+                    <p class="text-sm text-[var(--primary-text)]">Transformando a gestão pública educacional com tecnologia e
+                        inovação.</p>
+                </div>
+                <!-- Coluna 2: Navegação -->
+                <div>
+                    <h4 class="font-bold text-[var(--primary-text)] mb-4">Navegação</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#modulos" class="hover:underline">Vantagens</a></li>
+                        <li><a href="#recursos" class="hover:underline">Recursos</a></li>
+                        <li><a href="#sistemas_integrados" class="hover:underline">Ecossistema</a></li>
+                        <li><a href="#representantes" class="hover:underline">Representantes</a></li>
+                    </ul>
+                </div>
+                <!-- Coluna 3: Soluções -->
+                <div>
+                    <h4 class="font-bold text-[var(--primary-text)] mb-4">Soluções</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="modal-trigger hover:underline"
+                                data-modal-target="avaliaedu-modal">AvaliaEDU</a></li>
+                        <li><a href="#" class="modal-trigger hover:underline"
+                                data-modal-target="estoqgov-modal">EstoqGOV</a></li>
+                        <li><a href="#" class="modal-trigger hover:underline"
+                                data-modal-target="etransporte-modal">e-Transporte</a></li>
+                        <li><a href="#" class="modal-trigger hover:underline"
+                                data-modal-target="lotagovrh-modal">LotaGOV RH</a></li>
+                        <li><a href="#" class="modal-trigger hover:underline"
+                                data-modal-target="nutrigov-modal">NutriGOV</a></li>
+                        <li><a href="#" class="modal-trigger hover:underline"
+                                data-modal-target="comprasgov-modal">ComprasGOV</a></li>
+                    </ul>
+                </div>
+                <!-- Coluna 4: Contato -->
+                <div>
+                    <h4 class="font-bold text-[var(--primary-text)] mb-4">Contato</h4>
+                    <address class="not-italic text-sm space-y-2">
+                        <p>GOVSOLUTIONS</p>
+                        <p>contato@govsolutions.com.br</p>
+                        <p>(91) 99999-9999</p>
+                    </address>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t text-center py-6 text-sm text-[var(--primary-text)]">© 2025 GEWEB by GOVSOLUTIONS. Todos os direitos
+            reservados.</div>
+    </footer>
+
+    <!-- Banner de Cookies -->
+    <div id="cookie-banner"
+        class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 z-[100] transform translate-y-full transition-transform duration-500">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-sm">Esta página utiliza cookies para aprimorar sua experiência. Clique em aceitar para
+                permitir a ativação.</p>
+            <button id="cookie-banner-btn"
+                class="bg-brand-primary hover:bg-gray-700 text-white font-bold py-2 px-6 rounded whitespace-nowrap">Aceitar</button>
+        </div>
+    </div>
+
+    <!-- Estrutura dos Modais -->
+    <div id="modal-overlay" class="fixed inset-0 bg-black bg-opacity-60 z-[99] hidden transition-opacity duration-300">
+    </div>
+
+    <div id="avaliaedu-modal" class="modal fixed inset-0 flex items-center justify-center z-[100] hidden p-4">
+        <div
+            class="bg-white rounded-2xl shadow-xl max-w-lg w-full transform transition-all duration-300 scale-95 opacity-0">
+            <div class="p-6 border-b flex justify-between items-center">
+                <h3 class="text-2xl font-bold text-[var(--primary-text)]">AvaliaEDU</h3><button
+                    class="modal-close-btn text-gray-500 hover:text-[var(--primary-text)] text-3xl">&times;</button>
+            </div>
+            <div class="p-6">
+                <p class="text-[var(--primary-text)]">Uma plataforma completa para criar, aplicar e analisar avaliações
+                    pedagógicas. A integração com o GEWEB permite que os resultados sejam lançados diretamente no
+                    histórico dos alunos, fornecendo uma visão completa do desempenho acadêmico.</p>
+            </div>
+            <div class="p-6 bg-gray-50 rounded-b-2xl text-right"><a href="http://www.govsolutions.com.br/avaliaedu"
+                    target="_blank"
+                    class="bg-brand-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-700 transition-colors">Visitar
+                    Site</a></div>
+        </div>
+    </div>
+    <div id="estoqgov-modal" class="modal fixed inset-0 flex items-center justify-center z-[100] hidden p-4">
+        <div
+            class="bg-white rounded-2xl shadow-xl max-w-lg w-full transform transition-all duration-300 scale-95 opacity-0">
+            <div class="p-6 border-b flex justify-between items-center">
+                <h3 class="text-2xl font-bold text-[var(--primary-text)]">EstoqGOV</h3><button
+                    class="modal-close-btn text-gray-500 hover:text-[var(--primary-text)] text-3xl">&times;</button>
+            </div>
+            <div class="p-6">
+                <p class="text-[var(--primary-text)]">Controle total sobre o estoque da sua rede de ensino. Gerencie a entrada e
+                    saída de merenda e materiais, crie alertas de reposição e gere relatórios de consumo por escola.</p>
+            </div>
+            <div class="p-6 bg-gray-50 rounded-b-2xl text-right"><a href="http://www.govsolutions.com.br/estoqgov"
+                    target="_blank"
+                    class="bg-brand-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-700 transition-colors">Visitar
+                    Site</a></div>
+        </div>
+    </div>
+    <div id="etransporte-modal" class="modal fixed inset-0 flex items-center justify-center z-[100] hidden p-4">
+        <div
+            class="bg-white rounded-2xl shadow-xl max-w-lg w-full transform transition-all duration-300 scale-95 opacity-0">
+            <div class="p-6 border-b flex justify-between items-center">
+                <h3 class="text-2xl font-bold text-[var(--primary-text)]">e-Transporte</h3><button
+                    class="modal-close-btn text-gray-500 hover:text-[var(--primary-text)] text-3xl">&times;</button>
+            </div>
+            <div class="p-6">
+                <p class="text-[var(--primary-text)]">Otimize e gerencie toda a logística do transporte escolar. Planeje as rotas
+                    mais eficientes, monitore os veículos em tempo real e garanta a segurança no deslocamento dos
+                    alunos.</p>
+            </div>
+            <div class="p-6 bg-gray-50 rounded-b-2xl text-right"><a href="http://www.govsolutions.com.br/etransporte"
+                    target="_blank"
+                    class="bg-brand-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-700 transition-colors">Visitar
+                    Site</a></div>
+        </div>
+    </div>
+    <div id="lotagovrh-modal" class="modal fixed inset-0 flex items-center justify-center z-[100] hidden p-4">
+        <div
+            class="bg-white rounded-2xl shadow-xl max-w-lg w-full transform transition-all duration-300 scale-95 opacity-0">
+            <div class="p-6 border-b flex justify-between items-center">
+                <h3 class="text-2xl font-bold text-[var(--primary-text)]">LotaGOV RH</h3><button
+                    class="modal-close-btn text-gray-500 hover:text-[var(--primary-text)] text-3xl">&times;</button>
+            </div>
+            <div class="p-6">
+                <p class="text-[var(--primary-text)]">A solução definitiva para a gestão de recursos humanos na educação.
+                    Administre a lotação de professores e funcionários e integre todas as informações de pessoal ao
+                    GEWEB.</p>
+            </div>
+            <div class="p-6 bg-gray-50 rounded-b-2xl text-right"><a href="http://www.govsolutions.com.br/lotagovrh"
+                    target="_blank"
+                    class="bg-brand-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-700 transition-colors">Visitar
+                    Site</a></div>
+        </div>
+    </div>
+    <div id="nutrigov-modal" class="modal fixed inset-0 flex items-center justify-center z-[100] hidden p-4">
+        <div
+            class="bg-white rounded-2xl shadow-xl max-w-lg w-full transform transition-all duration-300 scale-95 opacity-0">
+            <div class="p-6 border-b flex justify-between items-center">
+                <h3 class="text-2xl font-bold text-[var(--primary-text)]">NutriGOV</h3><button
+                    class="modal-close-btn text-gray-500 hover:text-[var(--primary-text)] text-3xl">&times;</button>
+            </div>
+            <div class="p-6">
+                <p class="text-[var(--primary-text)]">Planejamento nutricional simplificado e eficiente. Desenvolva cardápios
+                    balanceados, controle a qualidade da merenda escolar e garanta uma alimentação saudável para todos
+                    os alunos.</p>
+            </div>
+            <div class="p-6 bg-gray-50 rounded-b-2xl text-right"><a href="http://www.govsolutions.com.br/nutrigov"
+                    target="_blank"
+                    class="bg-brand-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-700 transition-colors">Visitar
+                    Site</a></div>
+        </div>
+    </div>
+    <div id="comprasgov-modal" class="modal fixed inset-0 flex items-center justify-center z-[100] hidden p-4">
+        <div
+            class="bg-white rounded-2xl shadow-xl max-w-lg w-full transform transition-all duration-300 scale-95 opacity-0">
+            <div class="p-6 border-b flex justify-between items-center">
+                <h3 class="text-2xl font-bold text-[var(--primary-text)]">ComprasGOV</h3><button
+                    class="modal-close-btn text-gray-500 hover:text-[var(--primary-text)] text-3xl">&times;</button>
+            </div>
+            <div class="p-6">
+                <p class="text-[var(--primary-text)]">Transparência e economia para as compras da educação. Centralize os processos
+                    de licitação, gerencie contratos com fornecedores e controle o fluxo de compras.</p>
+            </div>
+            <div class="p-6 bg-gray-50 rounded-b-2xl text-right"><a href="http://www.govsolutions.com.br/comprasgov"
+                    target="_blank"
+                    class="bg-brand-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-700 transition-colors">Visitar
+                    Site</a></div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS INTERNOS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // --- GSAP ANIMAÇÕES COM SCROLL TRIGGER ---
+            // Registrar o plugin ScrollTrigger
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Configurações globais para melhor performance
+            gsap.config({ 
+                force3D: true,
+                nullTargetWarn: false 
+            });
+
+            // Função para criar animações fade-up
+            function createFadeUpAnimation(selector, options = {}) {
+                const elements = document.querySelectorAll(selector);
+                if (elements.length === 0) return;
+
+                elements.forEach((element, index) => {
+                    gsap.fromTo(element, 
+                        {
+                            opacity: 0,
+                            y: 50,
+                            scale: 0.95
+                        },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            scale: 1,
+                            duration: options.duration || 0.8,
+                            ease: options.ease || "power2.out",
+                            delay: options.stagger ? index * 0.2 : 0,
+                            scrollTrigger: {
+                                trigger: element,
+                                start: options.start || "top 85%",
+                                end: options.end || "bottom 15%",
+                                toggleActions: "play none none reverse",
+                                ...options.scrollTrigger
+                            }
+                        }
+                    );
+                });
+            }
+
+            // Função para criar animações staggered
+            function createStaggerAnimation(selector, options = {}) {
+                const container = document.querySelector(selector);
+                if (!container) return;
+
+                const children = container.children;
+                if (children.length === 0) return;
+
+                gsap.fromTo(children,
+                    {
+                        opacity: 0,
+                        y: 50,
+                        scale: 0.9
+                    },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        scale: 1,
+                        duration: 0.6,
+                        ease: "power2.out",
+                        stagger: 0.15,
+                        scrollTrigger: {
+                            trigger: container,
+                            start: "top 80%",
+                            end: "bottom 20%",
+                            toggleActions: "play none none reverse",
+                            ...options.scrollTrigger
+                        }
+                    }
+                );
+            }
+
+            // Aplicar animações aos elementos
+            // Elementos com fade-up básico
+            createFadeUpAnimation('.gsap-fade-up', {
+                duration: 0.8,
+                start: "top 80%"
+            });
+
+            // Elementos com stagger (aparecem em sequência)
+            createStaggerAnimation('.gsap-stagger-up', {
+                scrollTrigger: {
+                    start: "top 75%"
+                }
+            });
+
+            // Animação especial para o banner principal (fade-in mais lento)
+            gsap.fromTo('#banner-carousel', 
+                {
+                    opacity: 0,
+                    scale: 0.98
+                },
+                {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 1.2,
+                    ease: "power2.out",
+                    delay: 0.3
+                }
+            );
+
+            // Animação para cards de vantagens com hover effect
+            const advantageCards = document.querySelectorAll('#modulos .grid > div');
+            if (advantageCards.length > 0) {
+                advantageCards.forEach((card, index) => {
+                    // Animação de entrada
+                    gsap.fromTo(card,
+                        {
+                            opacity: 0,
+                            y: 60,
+                            rotationY: 15
+                        },
+                        {
+                            opacity: 1,
+                            y: 0,
+                            rotationY: 0,
+                            duration: 0.8,
+                            ease: "power2.out",
+                            delay: index * 0.2,
+                            scrollTrigger: {
+                                trigger: card,
+                                start: "top 85%",
+                                toggleActions: "play none none reverse"
+                            }
+                        }
+                    );
+
+                    // Efeito hover aprimorado
+                    card.addEventListener('mouseenter', () => {
+                        gsap.to(card, {
+                            scale: 1.05,
+                            y: -10,
+                            duration: 0.3,
+                            ease: "power2.out"
+                        });
+                    });
+
+                    card.addEventListener('mouseleave', () => {
+                        gsap.to(card, {
+                            scale: 1,
+                            y: 0,
+                            duration: 0.3,
+                            ease: "power2.out"
+                        });
+                    });
+                });
+            }
+
+            // Animação para logos dos sistemas integrados
+            const logoButtons = document.querySelectorAll('#sistemas_integrados button');
+            if (logoButtons.length > 0) {
+                logoButtons.forEach((button, index) => {
+                    gsap.fromTo(button,
+                        {
+                            opacity: 0,
+                            scale: 0.8,
+                            y: 30
+                        },
+                        {
+                            opacity: 1,
+                            scale: 1,
+                            y: 0,
+                            duration: 0.6,
+                            ease: "back.out(1.2)",
+                            delay: index * 0.1,
+                            scrollTrigger: {
+                                trigger: button,
+                                start: "top 90%",
+                                toggleActions: "play none none reverse"
+                            }
+                        }
+                    );
+                });
+            }
+
+            // Animação para FAQs
+            const faqItems = document.querySelectorAll('#faq-accordion > div');
+            if (faqItems.length > 0) {
+                faqItems.forEach((item, index) => {
+                    gsap.fromTo(item,
+                        {
+                            opacity: 0,
+                            x: -50
+                        },
+                        {
+                            opacity: 1,
+                            x: 0,
+                            duration: 0.6,
+                            ease: "power2.out",
+                            delay: index * 0.1,
+                            scrollTrigger: {
+                                trigger: item,
+                                start: "top 90%",
+                                toggleActions: "play none none reverse"
+                            }
+                        }
+                    );
+                });
+            }
+
+            // Parallax suave para seções de fundo
+            gsap.to('#sistemas_integrados', {
+                y: -50,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: '#sistemas_integrados',
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1
+                }
+            });
+
+            // Animação especial para o botão CTA principal
+            const ctaButton = document.querySelector('.gsap-cta-button');
+            if (ctaButton) {
+                gsap.fromTo(ctaButton,
+                    {
+                        opacity: 0,
+                        scale: 0.8,
+                        y: 30
+                    },
+                    {
+                        opacity: 1,
+                        scale: 1,
+                        y: 0,
+                        duration: 0.8,
+                        ease: "back.out(1.2)",
+                        scrollTrigger: {
+                            trigger: ctaButton,
+                            start: "top 90%",
+                            toggleActions: "play none none reverse"
+                        }
+                    }
+                );
+
+                // Efeito hover melhorado para o CTA
+                ctaButton.addEventListener('mouseenter', () => {
+                    gsap.to(ctaButton, {
+                        scale: 1.05,
+                        y: -3,
+                        duration: 0.3,
+                        ease: "power2.out"
+                    });
+                });
+
+                ctaButton.addEventListener('mouseleave', () => {
+                    gsap.to(ctaButton, {
+                        scale: 1,
+                        y: 0,
+                        duration: 0.3,
+                        ease: "power2.out"
+                    });
+                });
+            }
+
+            // Refresh ScrollTrigger após carregamento completo
+            window.addEventListener('load', () => {
+                ScrollTrigger.refresh();
+            });
+
+            // --- RESTO DO CÓDIGO EXISTENTE ---
+
+            // --- MENU MÓVEL ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+            const navLinks = document.querySelectorAll('.nav-link-mobile');
+            function toggleMenu() {
+                mobileMenu.classList.toggle('-translate-x-full');
+                mobileMenuOverlay.classList.toggle('hidden');
+                document.body.classList.toggle('overflow-hidden');
+            }
+            mobileMenuButton.addEventListener('click', toggleMenu);
+            mobileMenuOverlay.addEventListener('click', toggleMenu);
+            navLinks.forEach(link => { link.addEventListener('click', () => { if (!mobileMenu.classList.contains('-translate-x-full')) { toggleMenu(); } }); });
+
+            // --- BANNER DE COOKIES COM GSAP ---
+            const cookieBanner = document.getElementById('cookie-banner');
+            const cookieAcceptBtn = document.getElementById('cookie-banner-btn');
+            
+            // Verificar se já aceitou cookies
+            if (!localStorage.getItem('cookiesAccepted')) {
+                // Mostrar banner após 1.5s com animação GSAP
+                gsap.to(cookieBanner, {
+                    y: 0,
+                    duration: 0.5,
+                    ease: "power2.out",
+                    delay: 1.5
+                });
+            }
+            
+            // Evento de aceitar cookies
+            cookieAcceptBtn.addEventListener('click', () => {
+                localStorage.setItem('cookiesAccepted', 'true');
+                
+                // Esconder com animação GSAP
+                gsap.to(cookieBanner, {
+                    y: "100%",
+                    duration: 0.5,
+                    ease: "power2.in"
+                });
+            });
+
+            // --- BOTÃO VOLTAR AO TOPO ---
+            const fabTop = document.getElementById('fab_top');
+            window.addEventListener('scroll', () => { window.scrollY > 300 ? fabTop.classList.remove('opacity-0') : fabTop.classList.add('opacity-0'); });
+
+            // --- ACORDEÃO (FAQ) ---
+            document.querySelectorAll('.accordion-header').forEach(header => {
+                header.addEventListener('click', () => {
+                    const body = header.nextElementSibling;
+                    const icon = header.querySelector('.material-symbols-outlined');
+                    const isOpen = body.style.maxHeight;
+                    document.querySelectorAll('.accordion-body').forEach(b => { b.style.maxHeight = null; b.previousElementSibling.querySelector('.material-symbols-outlined').classList.remove('rotate-180'); });
+                    if (!isOpen) { body.style.maxHeight = body.scrollHeight + "px"; icon.classList.add('rotate-180'); }
+                });
+            });
+
+            // --- CLASSE UTILITÁRIA PARA SLIDERS ARRASTÁVEIS ---
+            class DraggableSlider {
+                constructor(container, config = {}) {
+                    this.container = container;
+                    this.config = {
+                        autoPlay: config.autoPlay || false,
+                        autoPlayInterval: config.autoPlayInterval || 5000,
+                        snapToSlide: config.snapToSlide !== false,
+                        resistance: config.resistance || 0.25,
+                        threshold: config.threshold || 50,
+                        onSlideChange: config.onSlideChange || null,
+                        slideWidth: config.slideWidth || null,
+                        loop: config.loop || false,
+                        customTransform: config.customTransform || null,
+                        onResize: config.onResize || null,
+                        ...config
+                    };
+                    
+                    this.currentIndex = 0;
+                    this.slides = Array.from(this.container.children);
+                    this.slideCount = this.slides.length;
+                    this.containerWidth = 0;
+                    this.slideWidth = 0;
+                    this.isDragging = false;
+                    this.startX = 0;
+                    this.currentX = 0;
+                    this.initialTransform = 0;
+                    this.animationId = null;
+                    this.autoPlayTimer = null;
+                    this.resizeTimer = null;
+                    
+                    this.init();
+                }
+
+                init() {
+                    if (this.slideCount <= 1) return;
+                    
+                    this.updateDimensions();
+                    this.bindEvents();
+                    this.goToSlide(this.currentIndex, false);
+                    
+                    if (this.config.autoPlay) {
+                        this.startAutoPlay();
+                    }
+                }
+
+                updateDimensions() {
+                    this.containerWidth = this.container.parentElement.offsetWidth;
+                    if (this.config.customTransform) {
+                        // Para sliders customizados, recalcular na própria função
+                        this.slideWidth = this.config.slideWidth || this.containerWidth;
+                    } else {
+                        this.slideWidth = this.config.slideWidth || this.containerWidth;
+                    }
+                }
+
+                // Função de debounce para resize
+                debounce(func, wait) {
+                    return (...args) => {
+                        clearTimeout(this.resizeTimer);
+                        this.resizeTimer = setTimeout(() => func.apply(this, args), wait);
+                    };
+                }
+
+                bindEvents() {
+                    // Mouse events
+                    this.container.addEventListener('mousedown', this.handleStart.bind(this));
+                    document.addEventListener('mousemove', this.handleMove.bind(this));
+                    document.addEventListener('mouseup', this.handleEnd.bind(this));
+
+                    // Touch events
+                    this.container.addEventListener('touchstart', this.handleStart.bind(this), { passive: true });
+                    this.container.addEventListener('touchmove', this.handleMove.bind(this), { passive: false });
+                    this.container.addEventListener('touchend', this.handleEnd.bind(this));
+
+                    // Prevent context menu and text selection
+                    this.container.addEventListener('contextmenu', e => e.preventDefault());
+                    this.container.addEventListener('selectstart', e => e.preventDefault());
+
+                    // Resize com debounce
+                    const debouncedResize = this.debounce(() => {
+                        this.handleResize();
+                    }, 150);
+                    
+                    window.addEventListener('resize', debouncedResize);
+                    window.addEventListener('orientationchange', debouncedResize);
+                }
+
+                handleResize() {
+                    // Callback personalizado antes do resize
+                    if (this.config.onResize) {
+                        this.config.onResize();
+                    }
+                    
+                    // Atualizar dimensões
+                    this.updateDimensions();
+                    
+                    // Reposicionar no slide atual sem animação
+                    this.goToSlide(this.currentIndex, false);
+                    
+                    // Reiniciar autoplay se estava ativo
+                    if (this.config.autoPlay && !this.autoPlayTimer) {
+                        this.startAutoPlay();
+                    }
+                }
+
+                handleStart(e) {
+                    this.isDragging = true;
+                    this.startX = this.getEventX(e);
+                    this.initialTransform = this.getCurrentTransform();
+                    
+                    this.container.style.transition = 'none';
+                    this.container.classList.add('dragging');
+                    
+                    this.stopAutoPlay();
+                    
+                    if (e.type === 'mousedown') {
+                        e.preventDefault();
+                    }
+                }
+
+                handleMove(e) {
+                    if (!this.isDragging) return;
+
+                    this.currentX = this.getEventX(e);
+                    const diff = this.currentX - this.startX;
+                    
+                    let newTransform = this.initialTransform + diff;
+                    
+                    // Apply resistance at boundaries
+                    let maxTransform, minTransform;
+                    
+                    if (this.config.customTransform) {
+                        // Para sliders customizados (como mobile), calcular limites dinamicamente
+                        maxTransform = this.config.customTransform(0);
+                        minTransform = this.config.customTransform(this.slideCount - 1);
+                    } else {
+                        // Para sliders padrão
+                        maxTransform = 0;
+                        minTransform = -((this.slideCount - 1) * this.slideWidth);
+                    }
+                    
+                    if (newTransform > maxTransform) {
+                        newTransform = maxTransform + (newTransform - maxTransform) * this.config.resistance;
+                    } else if (newTransform < minTransform) {
+                        newTransform = minTransform + (newTransform - minTransform) * this.config.resistance;
+                    }
+
+                    this.container.style.transform = `translateX(${newTransform}px)`;
+                    
+                    if (e.type === 'touchmove') {
+                        e.preventDefault();
+                    }
+                }
+
+                handleEnd(e) {
+                    if (!this.isDragging) return;
+
+                    this.isDragging = false;
+                    this.container.classList.remove('dragging');
+
+                    const diff = this.currentX - this.startX;
+                    const threshold = this.config.threshold;
+
+                    if (Math.abs(diff) > threshold) {
+                        if (diff > 0 && this.currentIndex > 0) {
+                            this.currentIndex--;
+                        } else if (diff < 0 && this.currentIndex < this.slideCount - 1) {
+                            this.currentIndex++;
+                        }
+                    }
+
+                    this.goToSlide(this.currentIndex, true);
+                    
+                    if (this.config.autoPlay) {
+                        this.startAutoPlay();
+                    }
+                }
+
+                getEventX(e) {
+                    return e.type.includes('mouse') ? e.clientX : e.changedTouches[0].clientX;
+                }
+
+                getCurrentTransform() {
+                    const style = window.getComputedStyle(this.container);
+                    const matrix = new DOMMatrix(style.transform);
+                    return matrix.m41;
+                }
+
+                goToSlide(index, animate = true) {
+                    this.currentIndex = Math.max(0, Math.min(index, this.slideCount - 1));
+                    
+                    // Para mobile slider com gap, usar cálculo personalizado
+                    let transform;
+                    if (this.config.customTransform) {
+                        transform = this.config.customTransform(this.currentIndex);
+                    } else {
+                        transform = -(this.currentIndex * this.slideWidth);
+                    }
+
+                    if (animate) {
+                        this.container.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                    } else {
+                        this.container.style.transition = 'none';
+                    }
+
+                    this.container.style.transform = `translateX(${transform}px)`;
+
+                    if (this.config.onSlideChange) {
+                        this.config.onSlideChange(this.currentIndex);
+                    }
+                }
+
+                nextSlide() {
+                    if (this.currentIndex < this.slideCount - 1) {
+                        this.goToSlide(this.currentIndex + 1);
+                    } else if (this.config.loop) {
+                        this.goToSlide(0);
+                    }
+                }
+
+                prevSlide() {
+                    if (this.currentIndex > 0) {
+                        this.goToSlide(this.currentIndex - 1);
+                    } else if (this.config.loop) {
+                        this.goToSlide(this.slideCount - 1);
+                    }
+                }
+
+                startAutoPlay() {
+                    if (!this.config.autoPlay) return;
+                    this.stopAutoPlay();
+                    this.autoPlayTimer = setInterval(() => {
+                        this.nextSlide();
+                    }, this.config.autoPlayInterval);
+                }
+
+                stopAutoPlay() {
+                    if (this.autoPlayTimer) {
+                        clearInterval(this.autoPlayTimer);
+                        this.autoPlayTimer = null;
+                    }
+                }
+
+                destroy() {
+                    this.stopAutoPlay();
+                    // Remove event listeners would go here
+                }
+            }
+
+            // --- CARROSSEL DO BANNER COM DRAG ---
+            const carousel = document.getElementById('banner-carousel');
+            const dotsContainer = document.getElementById('carousel-dots');
+            
+            if (carousel && dotsContainer) {
+                const slides = Array.from(carousel.children);
+                let bannerSlider = null;
+
+                function createDots() {
+                    if (slides.length <= 1) return;
+                    slides.forEach((_, i) => {
+                        const dot = document.createElement('button');
+                        dot.classList.add('w-3', 'h-3', 'rounded-full', 'transition-colors');
+                        dot.addEventListener('click', () => bannerSlider?.goToSlide(i));
+                        dotsContainer.appendChild(dot);
+                    });
+                }
+
+                function updateDots(index) {
+                    if (slides.length <= 1) return;
+                    Array.from(dotsContainer.children).forEach((dot, i) => {
+                        dot.classList.toggle('bg-brand-primary', i === index);
+                        dot.classList.toggle('bg-gray-400', i !== index);
+                    });
+                }
+
+                createDots();
+                
+                if (slides.length > 1) {
+                    bannerSlider = new DraggableSlider(carousel, {
+                        autoPlay: true,
+                        autoPlayInterval: 5000,
+                        loop: true,
+                        slideWidth: carousel.parentElement.offsetWidth,
+                        onSlideChange: updateDots,
+                        onResize: () => {
+                            // Recalcular largura do slide no resize
+                            bannerSlider.config.slideWidth = carousel.parentElement.offsetWidth;
+                        }
+                    });
+                }
+            }
+
+            // --- HEADER SCROLL BEHAVIOR COM GSAP ---
+            const header = document.getElementById('header');
+
+            if (!header) {
+                console.error('Header element not found!');
+                return;
+            }
+
+            // Registrar plugin (já pode estar registrado, mas não faz mal garantir)
+            gsap.registerPlugin(ScrollTrigger);
+
+            // NÃO limpar className do header — preservamos utilitários Tailwind para layout
+
+            // Removido GSAP/ScrollTrigger do header por solicitação.
+            // Implementação simples com CSS/JS puro:
+            // - header permanece `position: fixed` com `top: 8px`
+            // - adicionamos/removemos a classe `.pill` quando scrollY >= 56
+            // - estilos visuais da classe `.pill` devem ser definidos no CSS
+
+            // Função utilitária para aplicar dois modos de header
+            function applyHeaderMode(mode) {
+                header.style.position = 'sticky'; // usa sticky conforme solicitado
+                header.style.zIndex = '50';
+                header.style.backdropFilter = 'blur(12px)';
+                header.style.boxShadow = '0 1px 6px rgba(0,0,0,0.08)';
+                header.style.transform = '';
+                header.style.margin = '0';
+                header.style.justifySelf = 'center';
+                header.style.transition = 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            
+
+                if (mode === 'pill') {
+                    // centraliza e limita largura
+                    header.style.width = '80dvw';
+                    header.style.borderRadius = '9999px';
+                    header.style.boxShadow = '0 6px 30px rgba(0,0,0,0.12)';
+                    header.style.backgroundColor = 'rgba(255,255,255,0.6)';
+                    header.style.top = '8px';
+                } else {
+                    // modo full (padrão)
+                    header.style.width = '100dvw';
+                    header.style.borderRadius = '0';
+                    header.style.boxShadow = '0 1px 6px rgba(0,0,0,0.08)';
+                    header.style.backgroundColor = 'rgba(255,255,255,0.6)';
+                    header.style.top = '0px';
+                    header.style.backgroundColor = 'rgba(255,255,255,1)';
+                }
+            }
+
+            const pillDistance = 56;
+
+            function checkHeaderPill() {
+                if (window.scrollY >= pillDistance) {
+                    // alterna para o modo pill
+                    header.classList.add('pill');
+                    applyHeaderMode('pill');
+                } else {
+                    header.classList.remove('pill');
+                    applyHeaderMode('full');
+                }
+            }
+
+            // Inicializar estado e escutar scroll
+            checkHeaderPill();
+            window.addEventListener('scroll', () => {
+                // uso de requestAnimationFrame para performance
+                if (window.__headerScrollRaf) return;
+                window.__headerScrollRaf = requestAnimationFrame(() => {
+                    checkHeaderPill();
+                    window.__headerScrollRaf = null;
+                });
+            }, { passive: true });
+
+
+            // --- LÓGICA DOS MODAIS ---
+            const modalTriggers = document.querySelectorAll('.modal-trigger');
+            const modalOverlay = document.getElementById('modal-overlay');
+            const allModals = document.querySelectorAll('.modal');
+
+            function openModal(modalId) {
+                const modal = document.getElementById(modalId);
+                if (!modal) return;
+
+                modal.classList.remove('hidden');
+                modalOverlay.classList.remove('hidden');
+                setTimeout(() => {
+                    modal.querySelector('div').classList.remove('scale-95', 'opacity-0');
+                    modalOverlay.classList.remove('opacity-0');
+                }, 10);
+                document.body.classList.add('overflow-hidden');
+            }
+
+            function closeModal() {
+                allModals.forEach(modal => {
+                    modal.querySelector('div').classList.add('scale-95', 'opacity-0');
+                    modalOverlay.classList.add('opacity-0');
+                    setTimeout(() => {
+                        modal.classList.add('hidden');
+                        modalOverlay.classList.add('hidden');
+                    }, 300);
+                });
+                document.body.classList.remove('overflow-hidden');
+            }
+
+            modalTriggers.forEach(trigger => {
+                trigger.addEventListener('click', () => {
+                    const modalId = trigger.getAttribute('data-modal-target');
+                    openModal(modalId);
+                });
+            });
+
+            const modalCloseButtons = document.querySelectorAll('.modal-close-btn');
+            modalCloseButtons.forEach(btn => btn.addEventListener('click', closeModal));
+            modalOverlay.addEventListener('click', closeModal);
+
+
+            // --- LÓGICA DOS REPRESENTANTES ---
+            const revData = {
+                para: [{ nome: 'GOV PA Soluções', cidade: 'Belém', fone: '(91) 3222-0000', email: 'contato@govpa.com.br' }, { nome: 'Norte Gestão', cidade: 'Santarém', fone: '(93) 3522-1111', email: 'contato@nortegestao.com.br' }],
+                maranhao: [{ nome: 'MA Gestão Pública', cidade: 'São Luís', fone: '(98) 3232-2222', email: 'contato@magestao.com.br' }],
+                ceara: [{ nome: 'CE Soluções', cidade: 'Fortaleza', fone: '(85) 3434-3333', email: 'contato@cesolucoes.com.br' }],
+                minasgerais: [{ nome: 'Minas Soluções Gov', cidade: 'Belo Horizonte', fone: '(31) 3333-4444', email: 'contato@minasgov.com.br' }],
+                riograndedosul: [{ nome: 'Sul Gestão Pública', cidade: 'Porto Alegre', fone: '(51) 3456-7890', email: 'contato@sulgestao.com.br' }],
+                santacatarina: [{ nome: 'SC Gov Systems', cidade: 'Florianópolis', fone: '(48) 3210-9876', email: 'contato@scgov.com.br' }],
+                tocantins: [{ nome: 'Tocantins Soluções', cidade: 'Palmas', fone: '(63) 3215-1234', email: 'contato@tosolucoes.com.br' }]
+            };
+            
+            // --- LÓGICA DO DROPDOWN CUSTOMIZADO ---
+            const selectEstado = document.getElementById('estado-select');
+            const customSelect = document.getElementById('estado-custom-select');
+            const selectButton = document.getElementById('estado-select-button');
+            const selectedText = document.getElementById('estado-selected-text');
+            const dropdown = document.getElementById('estado-dropdown');
+            const options = dropdown.querySelectorAll('.custom-select-option');
+            const revGrid = document.getElementById('rev-grid');
+            
+            // Função para fechar dropdown ao clicar fora
+            function closeDropdown() {
+                customSelect.classList.remove('open');
+            }
+            
+            // Abrir/fechar dropdown
+            selectButton.addEventListener('click', (e) => {
+                e.stopPropagation();
+                customSelect.classList.toggle('open');
+            });
+            
+            // Fechar dropdown ao clicar fora
+            document.addEventListener('click', closeDropdown);
+            
+            // Prevenir fechamento ao clicar no dropdown
+            dropdown.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+            
+            // Lógica das opções
+            options.forEach(option => {
+                option.addEventListener('click', () => {
+                    // Remover seleção anterior
+                    options.forEach(opt => opt.classList.remove('selected'));
+                    
+                    // Selecionar nova opção
+                    option.classList.add('selected');
+                    
+                    // Atualizar texto e valor
+                    const value = option.dataset.value;
+                    const text = option.textContent;
+                    
+                    selectedText.textContent = text;
+                    selectEstado.value = value;
+                    
+                    // Fechar dropdown
+                    customSelect.classList.remove('open');
+                    
+                    // Disparar evento de mudança
+                    mostrarConce(value);
+                });
+            });
+            
+            function mostrarConce(estado) {
+                revGrid.innerHTML = '';
+                const representantes = revData[estado] || [];
+                if (representantes.length === 0) {
+                    revGrid.innerHTML = '<p class="text-[var(--primary-text)] md:col-span-2 text-center">Nenhum representante encontrado.</p>';
+                    return;
+                }
+                representantes.forEach(rep => {
+                    revGrid.innerHTML += `<div class="border border-gray-200 rounded-2xl p-4 bg-white hover:shadow-md transition-shadow"><h4 class="font-bold text-lg text-[var(--primary-text)]">${rep.nome}</h4><p class="text-sm text-[var(--primary-text)] mt-1">${rep.cidade}</p><p class="text-sm text-[var(--primary-text)] mt-2"><strong>Fone:</strong> ${rep.fone}</p><p class="text-sm text-[var(--primary-text)]"><strong>Email:</strong> ${rep.email}</p></div>`;
+                });
+            }
+            
+            // Inicializar com valor padrão
+            mostrarConce(selectEstado.value);
+
+            // --- DADOS DOS RECURSOS ---
+            const featureData = {
+                'gestao-escolas': { title: 'Gestão de Escolas', imgSrc: '/images/gestao_escolas.webp', description: 'Permite gerenciar por ano letivo as informações de infraestrutura, dependência administrativa e físicas, equipamentos, modalidades de ensino, turnos, autorização de ensino, entre outras.' },
+                'espacos-pedagogicos': { title: 'Espaços Pedagógicos', imgSrc: '/images/espacos_pedagogicos.webp', description: 'Devidamente autorizado pela secretaria de educação, permite a criação de espaços pedagógicos na escola para o controle da lotação de docentes readaptados ou não nesses espaços.' },
+                'documentos-escolares': { title: 'Documentos Escolares', imgSrc: '/images/documentos_escolares.webp', description: 'Permite a criação e gerenciamento de todos os documentos escolares, como históricos, declarações e certificados, de forma digital e segura.' },
+                'censo-escolar': { title: 'Gestão de Censo Escolar', imgSrc: '/images/gestao_censo.webp', description: 'Nossa ferramenta simplifica o processo de submetimento das informações de todos alunos, orientando você durante a correção de dados conforme o layout exigido pelo MEC/INEP.' },
+                'gestao-alunos': { title: 'Gestão de Alunos', imgSrc: '/images/gestao_alunos.webp', description: 'Permite gerenciar os dados pessoais, endereço, pais e responsáveis, além de gerenciar toda a vida escolar dos alunos com emissão dos documentos escolares, declarações, ressalvas entre outros.' },
+                'calendarios-escolares': { title: 'Calendários Escolares', imgSrc: '/images/gestao_calendario.webp', description: 'Permite gerenciar por ano letivo os vários calendários escolares de uma rede de ensino, com previsão de dias letivos, feriados, projetos e feiras.' },
+                'gestao-matriculas': { title: 'Gestão de Matrículas', imgSrc: '/images/gestao_matriculas.webp', description: 'Permite gerenciar todo o processo de rematrícula e matrículas novas, funcionando como uma central de matrículas para monitorar todas as vagas.' },
+                'quadro-funcional': { title: 'Quadro Funcional', imgSrc: '/images/quadro_funcional.webp', description: 'Permite gerenciar por ano letivo as informações de cargos, funções, situação funcional, carga horária, hora-atividade, cedência, dos docentes e dos não docentes.' },
+                'frequencia-funcional': { title: 'Frequência Funcional', imgSrc: '/images/Frequencia_funcionario.webp', description: 'Permite gerenciar por ano letivo e competência as informações de cargo, carga-horária, hora-atividade e situação funcional, dos docentes e não docentes.' },
+                'gestao-horarios': { title: 'Gestão de Horários', imgSrc: '/images/horario_de_aula.webp', description: 'Faz o controle dos horários de aulas e docentes, evitando conflitos. Disponibiliza todos os horários nos aplicativos do aluno/responsável e do servidor.' },
+                'historicos-escolares': { title: 'Históricos Escolares', imgSrc: '/images/historico_escolar.webp', description: 'Primeira plataforma a disponibilizar a emissão de Histórico Escolar com assinatura eletrônica, possibilitando maior agilidade, mobilidade e comodidade.' },
+            };
+
+            // --- LÓGICA DO EXPLORADOR DE RECURSOS (DESKTOP) ---
+            const featureListContainer = document.getElementById('feature-list');
+            if (featureListContainer) {
+                const featureImage = document.getElementById('featureImage');
+                const featureTitle = document.getElementById('featureTitle');
+                const featureDisplay = document.getElementById('feature-display');
+
+                Object.keys(featureData).forEach((key, index) => {
+                    const feature = featureData[key];
+                    const isActive = index === 0 ? 'active' : '';
+                    const itemHTML = `
+                    <div class="feature-item ${isActive}" data-feature="${key}">
+                        <div class="feature-header bg-gray-100 rounded-full flex justify-between items-center p-3 cursor-pointer">
+                            <span class="font-semibold ml-2">${feature.title}</span>
+                            <div class="w-6 h-6 flex items-center justify-center">
+                                <svg class="plus-icon w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                                <svg class="minus-icon w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path></svg>
+                            </div>
+                        </div>
+                        <div class="feature-content">
+                            <p class="text-[var(--primary-text)] p-4">${feature.description}</p>
+                        </div>
+                    </div>
+                `;
+                    featureListContainer.innerHTML += itemHTML;
+                });
+
+                const featureItems = document.querySelectorAll('.feature-item');
+
+                function changeFeatureDisplay(newSrc, newTitle) {
+                    if (!newSrc || !newTitle) {
+                        return;
+                    }
+                    
+                    featureDisplay.style.opacity = '0';
+                    
+                    setTimeout(() => {
+                        featureImage.src = newSrc;
+                        featureImage.onerror = () => { 
+                            featureImage.src = 'https://placehold.co/500x500?text=Imagem+Indisponível' 
+                        };
+                        featureTitle.textContent = newTitle;
+                        featureDisplay.style.opacity = '1';
+                    }, 300);
+                }
+
+                featureItems.forEach(item => {
+                    const header = item.querySelector('.feature-header');
+                    header.addEventListener('click', () => {
+                        const wasActive = item.classList.contains('active');
+                        featureItems.forEach(i => i.classList.remove('active'));
+                        if (!wasActive) {
+                            item.classList.add('active');
+                            const featureName = item.dataset.feature;
+                            const data = featureData[featureName];
+                            if (data) {
+                                changeFeatureDisplay(data.imgSrc, data.title);
+                            }
+                        }
+                    });
+                });
+
+                // Inicializar com o primeiro item
+                const firstFeatureKey = Object.keys(featureData)[0];
+                const firstFeatureData = featureData[firstFeatureKey];
+                if (firstFeatureData) {
+                    // Aguardar um pouco para garantir que o DOM está pronto
+                    setTimeout(() => {
+                        changeFeatureDisplay(firstFeatureData.imgSrc, firstFeatureData.title);
+                    }, 100);
+                }
+            }
+
+            // --- LÓGICA DO SLIDER DE RECURSOS (MOBILE) COM DRAG ---
+            const mobileSliderWrapper = document.getElementById('mobile-slider-wrapper');
+            if (mobileSliderWrapper) {
+                const mobileSliderContainer = document.getElementById('mobile-feature-slider');
+                const mobileSliderDotsContainer = document.getElementById('mobile-slider-dots');
+                const features = Object.keys(featureData);
+                let mobileSlider = null;
+
+                // Criar slides
+                features.forEach(key => {
+                    const feature = featureData[key];
+                    const slideHTML = `
+                    <div class="w-4/5 flex-shrink-0 aspect-[9/16] flex flex-col justify-center items-center text-center p-6 bg-white rounded-3xl shadow-lg">
+                        <img src="${feature.imgSrc}" alt="${feature.title}" class="w-2/3 max-w-[150px] object-contain mb-4" onerror="this.onerror=null;this.src='https://placehold.co/300x200?text=Imagem'">
+                        <h3 class="font-bold text-xl text-[var(--primary-text)] mt-4">${feature.title}</h3>
+                        <p class="text-[var(--primary-text)] mt-2 text-sm px-4">${feature.description}</p>
+                    </div>
+                `;
+                    mobileSliderContainer.innerHTML += slideHTML;
+                });
+
+                // Criar dots
+                features.forEach((_, index) => {
+                    const dot = document.createElement('button');
+                    dot.classList.add('w-2.5', 'h-2.5', 'rounded-full', 'transition-colors');
+                    dot.addEventListener('click', () => mobileSlider?.goToSlide(index));
+                    mobileSliderDotsContainer.appendChild(dot);
+                });
+
+                // Função para atualizar dots
+                function updateMobileDots(index) {
+                    Array.from(mobileSliderDotsContainer.children).forEach((dot, i) => {
+                        dot.classList.toggle('bg-brand-primary', i === index);
+                        dot.classList.toggle('bg-[rgba(0,0,0,0.2)]', i !== index);
+                    });
+                }
+
+                // Função para calcular a largura do slide
+                function calculateSlideWidth() {
+                    const slides = Array.from(mobileSliderContainer.children);
+                    if (slides.length === 0) return 0;
+                    
+                    const slide = slides[0];
+                    const slideWidth = slide.offsetWidth;
+                    const gap = parseInt(window.getComputedStyle(mobileSliderContainer).gap) || 16;
+                    
+                    return slideWidth + gap;
+                }
+
+                // Função para calcular a transformação personalizada para o mobile
+                function customMobileTransform(index) {
+                    const slides = Array.from(mobileSliderContainer.children);
+                    if (slides.length === 0) return 0;
+                    
+                    const slide = slides[0];
+                    const wrapperWidth = mobileSliderWrapper.offsetWidth;
+                    const slideWidth = slide.offsetWidth;
+                    const gap = parseInt(window.getComputedStyle(mobileSliderContainer).gap) || 16;
+                    
+                    // Centralizar o primeiro slide
+                    const initialOffset = (wrapperWidth - slideWidth) / 2;
+                    const totalSlideWidth = slideWidth + gap;
+                    
+                    return initialOffset - (index * totalSlideWidth);
+                }
+
+                // Configurar slider customizado para mobile
+                if (features.length > 1) {
+                    mobileSlider = new DraggableSlider(mobileSliderContainer, {
+                        slideWidth: calculateSlideWidth(),
+                        customTransform: customMobileTransform,
+                        onSlideChange: updateMobileDots,
+                        resistance: 0.3,
+                        threshold: 30,
+                        onResize: () => {
+                            // Recalcular dimensões do mobile slider no resize
+                            mobileSlider.config.slideWidth = calculateSlideWidth();
+                            
+                            // Aguardar um frame para garantir que o DOM foi atualizado
+                            requestAnimationFrame(() => {
+                                mobileSlider.updateDimensions();
+                                mobileSlider.goToSlide(mobileSlider.currentIndex, false);
+                            });
+                        }
+                    });
+
+                    // Inicializar posição após o load
+                    window.addEventListener('load', () => {
+                        if (mobileSlider) {
+                            // Recalcular após todas as imagens carregarem
+                            setTimeout(() => {
+                                mobileSlider.config.slideWidth = calculateSlideWidth();
+                                mobileSlider.updateDimensions();
+                                mobileSlider.goToSlide(0, false);
+                            }, 100);
+                        }
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
