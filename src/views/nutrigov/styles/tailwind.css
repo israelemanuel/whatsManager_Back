@@ -698,9 +698,6 @@
   .mx-auto {
     margin-inline: auto;
   }
-  .my-4 {
-    margin-block: calc(var(--spacing) * 4);
-  }
   .my-5 {
     margin-block: calc(var(--spacing) * 5);
   }
@@ -845,6 +842,9 @@
   .h-96 {
     height: calc(var(--spacing) * 96);
   }
+  .h-\[24px\] {
+    height: 24px;
+  }
   .h-\[32px\] {
     height: 32px;
   }
@@ -886,9 +886,6 @@
   }
   .h-\[240px\] {
     height: 240px;
-  }
-  .h-\[24px\] {
-    height: 24px;
   }
   .h-\[300dvh\] {
     height: 300dvh;
@@ -1427,12 +1424,6 @@
   .bg-\[rgba\(0\,0\,0\,0\.2\)\] {
     background-color: rgba(0,0,0,0.2);
   }
-  .bg-\[var\(--alm-prim_color\)\] {
-    background-color: var(--alm-prim_color);
-  }
-  .bg-\[var\(--alm-sec_color\)\] {
-    background-color: var(--alm-sec_color);
-  }
   .bg-\[var\(--mat-sys-background\)\] {
     background-color: var(--mat-sys-background);
   }
@@ -1880,9 +1871,6 @@
   .opacity-80 {
     opacity: 80%;
   }
-  .opacity-90 {
-    opacity: 90%;
-  }
   .opacity-100 {
     opacity: 100%;
   }
@@ -2022,16 +2010,6 @@
       }
     }
   }
-  .hover\:scale-105 {
-    &:hover {
-      @media (hover: hover) {
-        --tw-scale-x: 105%;
-        --tw-scale-y: 105%;
-        --tw-scale-z: 105%;
-        scale: var(--tw-scale-x) var(--tw-scale-y);
-      }
-    }
-  }
   .hover\:scale-110 {
     &:hover {
       @media (hover: hover) {
@@ -2039,20 +2017,6 @@
         --tw-scale-y: 110%;
         --tw-scale-z: 110%;
         scale: var(--tw-scale-x) var(--tw-scale-y);
-      }
-    }
-  }
-  .hover\:bg-\[var\(--alm-prim_color\)\] {
-    &:hover {
-      @media (hover: hover) {
-        background-color: var(--alm-prim_color);
-      }
-    }
-  }
-  .hover\:bg-\[var\(--alm-sec_color\)\] {
-    &:hover {
-      @media (hover: hover) {
-        background-color: var(--alm-sec_color);
       }
     }
   }
