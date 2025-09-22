@@ -50,10 +50,6 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-    <!-- GSAP CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
     <script>
         // Configuração do Tailwind CSS com a nova paleta de cores
         tailwind.config = {
@@ -82,25 +78,12 @@
         /* Estilos para o header */
         #header {
             will-change: transform, position, width, border-radius;
-            transition: none; /* GSAP vai controlar as transições */
+            transition: all 0.3s ease;
         }
 
         /* Container do header para manter layout consistente */
         #header .container {
             transition: padding 0.4s ease;
-        }
-
-        /* Responsividade para o header flutuante */
-        @media (max-width: 1600px) {
-            #header {
-                max-width: calc(100vw - 32px) !important;
-            }
-        }
-
-        @media (max-width: 768px) {
-            #header {
-                max-width: calc(100vw - 16px) !important;
-            }
         }
 
         /* Garantir que o header não interfira com outros elementos */
@@ -215,6 +198,25 @@
 
         /* duplicate invalid block removed */
 
+        /* CTA animation personalizada (respeita prefers-reduced-motion) */
+        @keyframes ctaPulse {
+            0% { transform: translateY(0) scale(1); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+            50% { transform: translateY(-3px) scale(1.02); box-shadow: 0 14px 30px rgba(0,0,0,0.14); }
+            100% { transform: translateY(0) scale(1); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+        }
+
+        .cta-animate {
+            animation: ctaPulse 2.2s ease-in-out infinite;
+            will-change: transform, box-shadow;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .cta-animate {
+                animation: none !important;
+                transition: transform 150ms ease, box-shadow 150ms ease;
+            }
+        }
+
         .custom-select.open .custom-select-dropdown {
             opacity: 1;
             visibility: visible;
@@ -251,22 +253,9 @@
             transform: rotate(180deg);
         }
 
-        /* Estilos para animações GSAP */
-        .gsap-fade-up,
-        .gsap-stagger-up,
-        .gsap-slide-in {
-            will-change: transform, opacity;
-        }
-
         /* Smooth scrolling */
         html {
             scroll-behavior: smooth;
-        }
-
-        /* Otimizações de performance para animações */
-        * {
-            backface-visibility: hidden;
-            perspective: 1000px;
         }
 
         /* Efeitos hover aprimorados */
@@ -283,15 +272,9 @@
 
 <body class="font-nunito text-[var(--primary-text)]" style="background-image: linear-gradient(0deg, #4273b8, #acc8ea, #f7fbff);">
 
-    <!-- Botão Flutuante para Voltar ao Topo -->
-    <a id="fab_top" href="#inicio"
-        class="fixed bottom-5 right-5 z-40 bg-brand-primary text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:bg-gray-700 transition-opacity duration-300 opacity-0">
-        <span class="material-symbols-outlined">arrow_upward</span>
-    </a>
-
     <!-- Cabeçalho e Navegação -->
-    <header id="header" class="flex items-center justify-center">
-        <nav class="max-w-[80dvw] px-4 w-full">
+    <header id="header" class="flex items-center justify-center box-border">
+        <nav class="max-w-[1440px] px-4 w-full box-border">
             <div class="flex justify-between items-center py-3">
                 <a href="#inicio" class="shrink-0 w-[100px]">
                     <img class="w-34" src="/images/preferencial.svg" alt="Logo GEWEB">
@@ -302,30 +285,50 @@
                     <li><a href="#representantes"
                             class="font-bold text-[var(--primary-text)]">Representantes</a></li>
                     <li><a href="#perguntas" class="font-bold text-[var(--primary-text)]">Perguntas</a></li>
-                    <li class="px-6 py-4 rounded-ful "></li>
+                    <li class="px-4 py-2 rounded-full bg-[#4273b8] text-white font-bold uppercase">LOGIN</li>
                 </ul>
-                <button id="mobile-menu-button" class="lg:hidden text-[var(--primary-text)]">
+                <button id="mobile-menu-button" class="block lg:hidden text-[var(--primary-text)]">
                     <i class="material-symbols-outlined text-3xl">menu</i>
                 </button>
             </div>
         </nav>
     </header>
 
+    <!-- Botão Flutuante para Voltar ao Topo (fica sempre 'pinned' na tela) -->
+    <a id="fab_top" href="#inicio"
+        class="fixed bottom-[8px] right-[8px] z-[9999] inline-flex pointer-events-auto bg-brand-primary text-white rounded-full w-14 h-14 items-center justify-center shadow-lg hover:bg-gray-700 transition-opacity duration-300 opacity-0 transform scale-95"
+        style="display:inline-flex;" aria-label="Voltar ao topo" role="button" title="Voltar ao topo (pressione para ir ao início)" aria-hidden="true">
+        <span class="material-symbols-outlined">arrow_upward</span>
+    </a>
+
+    <!-- Banner de Cookies -->
+    <div
+        class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 z-[100] transform translate-y-full transition-transform duration-500">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-sm">Esta página utiliza cookies para aprimorar sua experiência. Clique em aceitar para
+                permitir a ativação.</p>
+            <button id="cookie-banner-btn"
+                class="bg-brand-primary hover:bg-gray-700 text-white font-bold py-2 px-6 rounded whitespace-nowrap">Aceitar</button>
+        </div>
+    </div>
+
     <!-- Menu Lateral Móvel -->
     <div id="mobile-menu"
         class="fixed top-0 left-0 w-64 h-full bg-white shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out z-50">
-        <ul class="py-8 px-4">
-            <li><a href="#modulos"
-                    class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Vantagens</a>
-            </li>
-            <li><a href="#recursos"
-                    class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Recursos</a>
-            </li>
-            <li><a href="#representantes"
-                    class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Representantes</a>
-            </li>
-            <li><a href="#perguntas"
-                    class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Perguntas</a>
+        <ul class="py-8 px-4 flex flex-col justify-between h-full">
+            <div class="flex flex-col gap-4">
+                <li><a href="#modulos" class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Vantagens</a>
+                </li>
+                <li><a href="#recursos" class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Recursos</a>
+                </li>
+                <li><a href="#representantes"
+                        class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Representantes</a>
+                </li>
+                <li><a href="#perguntas" class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Perguntas</a>
+                </li>
+            </div>
+            <li class="px-4 py-2 rounded-full bg-[#4273b8] text-white font-bold uppercase flex items-center justify-center">
+                <span>LOGIN</span>
             </li>
         </ul>
     </div>
@@ -420,7 +423,7 @@
         <!-- Seção Vantagens (Novo Layout de Cards) -->
         <section id="modulos" class="py-12 md:py-24">
             <div class="container mx-auto px-4">
-                <div class="text-center max-w-3xl mx-auto gsap-fade-up">
+                <div class="text-center max-w-3xl mx-auto">
                     <h2 class="text-3xl md:text-4xl font-bold text-[var(--primary-text)] mb-4">Resolvendo os Desafios da Gestão
                         Educacional</h2>
                     <p class="text-[var(--primary-text)]">Descubra como o GEWEB transforma a administração da sua rede de ensino
@@ -430,7 +433,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
                     <!-- Card Eficiência -->
                     <div
-                        class="bg-white p-6 md:p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-shadow duration-300 gsap-fade-up">
+                        class="bg-white p-6 md:p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
                         <span
                             class="material-symbols-outlined text-5xl text-[#2d81f6] bg-[#acc8ea] p-4 rounded-full">speed</span>
                         <h3 class="font-bold text-2xl text-[var(--primary-text)] mt-6">Eficiência Operacional</h3>
@@ -439,7 +442,7 @@
                     </div>
                     <!-- Card Controle -->
                     <div
-                        class="bg-white p-6 md:p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-shadow duration-300 gsap-fade-up">
+                        class="bg-white p-6 md:p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
                         <span
                             class="material-symbols-outlined text-5xl text-[#2d81f6] bg-[#acc8ea] p-4 rounded-full">visibility</span>
                         <h3 class="font-bold text-2xl text-[var(--primary-text)] mt-6">Controle e Transparência</h3>
@@ -448,7 +451,7 @@
                     </div>
                     <!-- Card Modernização -->
                     <div
-                        class="bg-white p-6 md:p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-shadow duration-300 gsap-fade-up">
+                        class="bg-white p-6 md:p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-shadow duration-300">
                         <span
                             class="material-symbols-outlined text-5xl text-[#2d81f6] bg-[#acc8ea] p-4 rounded-full">devices</span>
                         <h3 class="font-bold text-2xl text-[var(--primary-text)] mt-6">Modernização</h3>
@@ -460,15 +463,15 @@
         </section>
 
         <!-- Seção de Urgência e CTA Principal -->
-        <section class="py-12 md:py-24 gsap-fade-up">
-            <div class="container mx-auto px-4 text-center w-full">
+        <section class="py-12 md:py-24">
+            <div class="container mx-auto px-4 text-center w-full flex items-center flex-col">
                 <h2 class="text-3xl md:text-4xl font-bold text-[var(--primary-text)]">Transforme Sua Gestão Educacional Agora
                 </h2>
-                <p class="mt-4 text-lg text-[var(--primary-text)]">A janela de oportunidade para modernizar sua rede de ensino para
+                <p class="mt-4 text-lg text-[var(--primary-text)]">A janela de oportunidade para modernizar sua rede de ensino para <br>
                     o próximo semestre está aberta. Não perca a chance de sair na frente.</p>
-                <div class="mt-10">
+                <div class="mt-10 w-fit bg-[var(--primary-text)] text-white rounded-2xl min-h-[56px] flex items-center justify-center animate-bounce duration-300 px-6">
                     <a href="#representantes"
-                        class="bg-brand-primary text-white font-bold py-4 px-10 rounded-xl text-lg sm:text-xl hover:bg-gray-700 transition-colors shadow-lg animate-pulse gsap-cta-button">
+                        class="upddercase font-bold">
                         Fale com um Especialista Agora
                     </a>
                 </div>
@@ -480,7 +483,7 @@
             <div class="container mx-auto">
 
                 <!-- Layout Mobile: Slider 9:16 com Gestos e Peek -->
-                <div class="sm:hidden gsap-fade-up">
+                <div class="sm:hidden">
                     <div class="text-center mb-12">
                         <h2 class="text-3xl font-bold text-[var(--primary-text)]">Uma Plataforma Completa de Recursos</h2>
                     </div>
@@ -498,7 +501,7 @@
 
 
                 <!-- Layout Tablet/Desktop: Apple Style -->
-                <div class="hidden sm:block font-inter gsap-fade-up">
+                <div class="hidden sm:block font-inter">
                     <header class="text-center mb-12 lg:mb-16">
                         <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--primary-text)]">
                             Explore os detalhes.
@@ -530,40 +533,34 @@
         </article>
 
         <!-- Seção Sistemas Integrados (Logos) -->
-        <article id="sistemas_integrados" class="py-12 md:py-24 gsap-fade-up">
+        <article id="sistemas_integrados" class="py-12 md:py-24">
             <div class="container mx-auto flex flex-col gap-6">
-                <div class="text-center max-w-3xl mx-auto !text-white flex flex-col gap-6 gsap-fade-up">
+                <div class="text-center max-w-3xl mx-auto !text-white flex flex-col gap-6">
                     <h2 class="text-3xl md:text-4xl font-bold mt-1">Ecossistema de Soluções
                         Integradas</h2>
                     <p class="">O GEWEB é o centro da sua gestão. Conecte-o a outras áreas e ganhe
                         uma visão 360º do seu município.</p>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-8 place-items-center gsap-stagger-up px-6">
-                    <button data-modal-target="avaliaedu-modal"
-                        class="bg-white rounded-2xl w-full h-[200px] flex items-center justify-center p-6 modal-trigger transition-transform hover:scale-110"><img
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-8 place-items-center px-6">
+                    <button class="bg-white rounded-2xl w-full h-[200px] flex items-center justify-center p-6 transition-transform hover:scale-110"><img
                             src="/images/avaliaedu_min.svg" alt="Logo AvaliaEDU"
                             class="h-full"
                             onerror="this.onerror=null;this.src='https://placehold.co/150x80?text=AvaliaEDU';"></button>
-                    <button data-modal-target="estoqgov-modal"
-                        class="bg-white rounded-2xl w-full h-[200px] flex items-center justify-center p-6 modal-trigger transition-transform hover:scale-110"><img
+                    <button class="bg-white rounded-2xl w-full h-[200px] flex items-center justify-center p-6 transition-transform hover:scale-110"><img
                             src="/images/estoqgov_min.svg" alt="Logo EstoqGOV" class="h-full"
                             onerror="this.onerror=null;this.src='https://placehold.co/150x80?text=EstoqGOV';"></button>
-                    <button data-modal-target="etransporte-modal"
-                        class="bg-white rounded-2xl w-full h-[200px] flex items-center justify-center p-6 modal-trigger transition-transform hover:scale-110"><img
+                    <button class="bg-white rounded-2xl w-full h-[200px] flex items-center justify-center p-6 transition-transform hover:scale-110"><img
                             src="/images/etransporte_min.svg" alt="Logo e-Transporte"
                             class="h-full"
                             onerror="this.onerror=null;this.src='https://placehold.co/150x80?text=e-Transporte';"></button>
-                    <button data-modal-target="lotagovrh-modal"
-                        class="bg-white rounded-2xl w-full h-[200px] flex items-center justify-center p-6 modal-trigger transition-transform hover:scale-110"><img
+                    <button class="bg-white rounded-2xl w-full h-[200px] flex items-center justify-center p-6 transition-transform hover:scale-110"><img
                             src="/images/lotagovrh_min.svg" alt="Logo LotaGOV RH"
                             class="h-full"
                             onerror="this.onerror=null;this.src='https://placehold.co/150x80?text=LotaGOV+RH';"></button>
-                    <button data-modal-target="nutrigov-modal"
-                        class="bg-white rounded-2xl w-full h-[200px] flex items-center justify-center p-6 modal-trigger transition-transform hover:scale-110"><img
+                    <button class="bg-white rounded-2xl w-full h-[200px] flex items-center justify-center p-6 transition-transform hover:scale-110"><img
                             src="/images/nutrigov_min.svg" alt="Logo NutriGOV" class="h-full"
                             onerror="this.onerror=null;this.src='https://placehold.co/150x80?text=NutriGOV';"></button>
-                    <button data-modal-target="comprasgov-modal"
-                        class="bg-white rounded-2xl w-full h-[200px] flex items-center justify-center p-6 modal-trigger transition-transform hover:scale-110"><img
+                    <button class="bg-white rounded-2xl w-full h-[200px] flex items-center justify-center p-6 transition-transform hover:scale-110"><img
                             src="/images/comprasgov_min.svg" alt="Logo ComprasGOV"
                             class="h-full"
                             onerror="this.onerror=null;this.src='https://placehold.co/150x80?text=ComprasGOV';"></button>
@@ -572,9 +569,9 @@
         </article>
 
         <!-- Seção Representantes -->
-        <article id="representantes" class="py-12 md:py-24 gsap-fade-up">
+        <article id="representantes" class="py-12 md:py-24">
             <div class="container mx-auto px-4">
-                <div class="text-center max-w-3xl mx-auto gsap-fade-up">
+                <div class="text-center max-w-3xl mx-auto">
                     <h2 class="text-3xl md:text-4xl font-bold text-white mt-1">Fale com um Especialista na Sua
                         Região</h2>
                 </div>
@@ -610,7 +607,7 @@
                         <!-- Input hidden para manter compatibilidade -->
                         <input type="hidden" id="estado-select" value="para">
                     </div>
-                    <div id="rev-grid" class="relative mt-8 grid grid-cols-1 md:grid-cols-2 gap-6" style="z-index: -1 !important;"></div>
+                    <div id="rev-grid" class="relative mt-8 grid grid-cols-1 md:grid-cols-2 gap-6"></div>
                 </div>
             </div>
         </article>
@@ -618,12 +615,12 @@
 
     <!-- Rodapé com Perguntas Frequentes e Novo Layout -->
     <footer class="bg-white text-[var(--primary-text)]">
-        <article id="perguntas" class="container mx-auto px-4 py-12 md:py-24 gsap-fade-up">
+        <article id="perguntas" class="container mx-auto px-4 py-12 md:py-24">
             <div class="w-full">
-                <div class="text-center gsap-fade-up">
+                <div class="text-center">
                     <h2 class="text-3xl md:text-4xl font-bold text-[var(--primary-text)]">Perguntas Frequentes</h2>
                 </div>
-                <div id="faq-accordion" class="mt-12 space-y-4 gsap-stagger-up">
+                <div id="faq-accordion" class="mt-12 space-y-4">
                     <div class="border border-gray-200 rounded-2xl">
                         <button
                             class="accordion-header w-full flex justify-between items-center text-left p-5 font-bold text-lg"><span>Como
@@ -685,18 +682,12 @@
                 <div>
                     <h4 class="font-bold text-[var(--primary-text)] mb-4">Soluções</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="#" class="modal-trigger hover:underline"
-                                data-modal-target="avaliaedu-modal">AvaliaEDU</a></li>
-                        <li><a href="#" class="modal-trigger hover:underline"
-                                data-modal-target="estoqgov-modal">EstoqGOV</a></li>
-                        <li><a href="#" class="modal-trigger hover:underline"
-                                data-modal-target="etransporte-modal">e-Transporte</a></li>
-                        <li><a href="#" class="modal-trigger hover:underline"
-                                data-modal-target="lotagovrh-modal">LotaGOV RH</a></li>
-                        <li><a href="#" class="modal-trigger hover:underline"
-                                data-modal-target="nutrigov-modal">NutriGOV</a></li>
-                        <li><a href="#" class="modal-trigger hover:underline"
-                                data-modal-target="comprasgov-modal">ComprasGOV</a></li>
+                        <li><a href="http://www.govsolutions.com.br/avaliaedu" target="_blank" class="hover:underline">AvaliaEDU</a></li>
+                        <li><a href="http://www.govsolutions.com.br/estoqgov" target="_blank" class="hover:underline">EstoqGOV</a></li>
+                        <li><a href="http://www.govsolutions.com.br/etransporte" target="_blank" class="hover:underline">e-Transporte</a></li>
+                        <li><a href="http://www.govsolutions.com.br/lotagovrh" target="_blank" class="hover:underline">LotaGOV RH</a></li>
+                        <li><a href="http://www.govsolutions.com.br/nutrigov" target="_blank" class="hover:underline">NutriGOV</a></li>
+                        <li><a href="http://www.govsolutions.com.br/comprasgov" target="_blank" class="hover:underline">ComprasGOV</a></li>
                     </ul>
                 </div>
                 <!-- Coluna 4: Contato -->
@@ -715,392 +706,11 @@
             reservados.</div>
     </footer>
 
-    <!-- Banner de Cookies -->
-    <div id="cookie-banner"
-        class="fixed bottom-0 left-0 right-0 bg-gray-900 text-white p-4 z-[100] transform translate-y-full transition-transform duration-500">
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-sm">Esta página utiliza cookies para aprimorar sua experiência. Clique em aceitar para
-                permitir a ativação.</p>
-            <button id="cookie-banner-btn"
-                class="bg-brand-primary hover:bg-gray-700 text-white font-bold py-2 px-6 rounded whitespace-nowrap">Aceitar</button>
-        </div>
-    </div>
-
-    <!-- Estrutura dos Modais -->
-    <div id="modal-overlay" class="fixed inset-0 bg-black bg-opacity-60 z-[99] hidden transition-opacity duration-300">
-    </div>
-
-    <div id="avaliaedu-modal" class="modal fixed inset-0 flex items-center justify-center z-[100] hidden p-4">
-        <div
-            class="bg-white rounded-2xl shadow-xl max-w-lg w-full transform transition-all duration-300 scale-95 opacity-0">
-            <div class="p-6 border-b flex justify-between items-center">
-                <h3 class="text-2xl font-bold text-[var(--primary-text)]">AvaliaEDU</h3><button
-                    class="modal-close-btn text-gray-500 hover:text-[var(--primary-text)] text-3xl">&times;</button>
-            </div>
-            <div class="p-6">
-                <p class="text-[var(--primary-text)]">Uma plataforma completa para criar, aplicar e analisar avaliações
-                    pedagógicas. A integração com o GEWEB permite que os resultados sejam lançados diretamente no
-                    histórico dos alunos, fornecendo uma visão completa do desempenho acadêmico.</p>
-            </div>
-            <div class="p-6 bg-gray-50 rounded-b-2xl text-right"><a href="http://www.govsolutions.com.br/avaliaedu"
-                    target="_blank"
-                    class="bg-brand-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-700 transition-colors">Visitar
-                    Site</a></div>
-        </div>
-    </div>
-    <div id="estoqgov-modal" class="modal fixed inset-0 flex items-center justify-center z-[100] hidden p-4">
-        <div
-            class="bg-white rounded-2xl shadow-xl max-w-lg w-full transform transition-all duration-300 scale-95 opacity-0">
-            <div class="p-6 border-b flex justify-between items-center">
-                <h3 class="text-2xl font-bold text-[var(--primary-text)]">EstoqGOV</h3><button
-                    class="modal-close-btn text-gray-500 hover:text-[var(--primary-text)] text-3xl">&times;</button>
-            </div>
-            <div class="p-6">
-                <p class="text-[var(--primary-text)]">Controle total sobre o estoque da sua rede de ensino. Gerencie a entrada e
-                    saída de merenda e materiais, crie alertas de reposição e gere relatórios de consumo por escola.</p>
-            </div>
-            <div class="p-6 bg-gray-50 rounded-b-2xl text-right"><a href="http://www.govsolutions.com.br/estoqgov"
-                    target="_blank"
-                    class="bg-brand-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-700 transition-colors">Visitar
-                    Site</a></div>
-        </div>
-    </div>
-    <div id="etransporte-modal" class="modal fixed inset-0 flex items-center justify-center z-[100] hidden p-4">
-        <div
-            class="bg-white rounded-2xl shadow-xl max-w-lg w-full transform transition-all duration-300 scale-95 opacity-0">
-            <div class="p-6 border-b flex justify-between items-center">
-                <h3 class="text-2xl font-bold text-[var(--primary-text)]">e-Transporte</h3><button
-                    class="modal-close-btn text-gray-500 hover:text-[var(--primary-text)] text-3xl">&times;</button>
-            </div>
-            <div class="p-6">
-                <p class="text-[var(--primary-text)]">Otimize e gerencie toda a logística do transporte escolar. Planeje as rotas
-                    mais eficientes, monitore os veículos em tempo real e garanta a segurança no deslocamento dos
-                    alunos.</p>
-            </div>
-            <div class="p-6 bg-gray-50 rounded-b-2xl text-right"><a href="http://www.govsolutions.com.br/etransporte"
-                    target="_blank"
-                    class="bg-brand-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-700 transition-colors">Visitar
-                    Site</a></div>
-        </div>
-    </div>
-    <div id="lotagovrh-modal" class="modal fixed inset-0 flex items-center justify-center z-[100] hidden p-4">
-        <div
-            class="bg-white rounded-2xl shadow-xl max-w-lg w-full transform transition-all duration-300 scale-95 opacity-0">
-            <div class="p-6 border-b flex justify-between items-center">
-                <h3 class="text-2xl font-bold text-[var(--primary-text)]">LotaGOV RH</h3><button
-                    class="modal-close-btn text-gray-500 hover:text-[var(--primary-text)] text-3xl">&times;</button>
-            </div>
-            <div class="p-6">
-                <p class="text-[var(--primary-text)]">A solução definitiva para a gestão de recursos humanos na educação.
-                    Administre a lotação de professores e funcionários e integre todas as informações de pessoal ao
-                    GEWEB.</p>
-            </div>
-            <div class="p-6 bg-gray-50 rounded-b-2xl text-right"><a href="http://www.govsolutions.com.br/lotagovrh"
-                    target="_blank"
-                    class="bg-brand-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-700 transition-colors">Visitar
-                    Site</a></div>
-        </div>
-    </div>
-    <div id="nutrigov-modal" class="modal fixed inset-0 flex items-center justify-center z-[100] hidden p-4">
-        <div
-            class="bg-white rounded-2xl shadow-xl max-w-lg w-full transform transition-all duration-300 scale-95 opacity-0">
-            <div class="p-6 border-b flex justify-between items-center">
-                <h3 class="text-2xl font-bold text-[var(--primary-text)]">NutriGOV</h3><button
-                    class="modal-close-btn text-gray-500 hover:text-[var(--primary-text)] text-3xl">&times;</button>
-            </div>
-            <div class="p-6">
-                <p class="text-[var(--primary-text)]">Planejamento nutricional simplificado e eficiente. Desenvolva cardápios
-                    balanceados, controle a qualidade da merenda escolar e garanta uma alimentação saudável para todos
-                    os alunos.</p>
-            </div>
-            <div class="p-6 bg-gray-50 rounded-b-2xl text-right"><a href="http://www.govsolutions.com.br/nutrigov"
-                    target="_blank"
-                    class="bg-brand-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-700 transition-colors">Visitar
-                    Site</a></div>
-        </div>
-    </div>
-    <div id="comprasgov-modal" class="modal fixed inset-0 flex items-center justify-center z-[100] hidden p-4">
-        <div
-            class="bg-white rounded-2xl shadow-xl max-w-lg w-full transform transition-all duration-300 scale-95 opacity-0">
-            <div class="p-6 border-b flex justify-between items-center">
-                <h3 class="text-2xl font-bold text-[var(--primary-text)]">ComprasGOV</h3><button
-                    class="modal-close-btn text-gray-500 hover:text-[var(--primary-text)] text-3xl">&times;</button>
-            </div>
-            <div class="p-6">
-                <p class="text-[var(--primary-text)]">Transparência e economia para as compras da educação. Centralize os processos
-                    de licitação, gerencie contratos com fornecedores e controle o fluxo de compras.</p>
-            </div>
-            <div class="p-6 bg-gray-50 rounded-b-2xl text-right"><a href="http://www.govsolutions.com.br/comprasgov"
-                    target="_blank"
-                    class="bg-brand-primary text-white font-bold py-2 px-6 rounded-lg hover:bg-gray-700 transition-colors">Visitar
-                    Site</a></div>
-        </div>
-    </div>
+    
 
     <!-- SCRIPTS INTERNOS -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-
-            // --- GSAP ANIMAÇÕES COM SCROLL TRIGGER ---
-            // Registrar o plugin ScrollTrigger
-            gsap.registerPlugin(ScrollTrigger);
-
-            // Configurações globais para melhor performance
-            gsap.config({ 
-                force3D: true,
-                nullTargetWarn: false 
-            });
-
-            // Função para criar animações fade-up
-            function createFadeUpAnimation(selector, options = {}) {
-                const elements = document.querySelectorAll(selector);
-                if (elements.length === 0) return;
-
-                elements.forEach((element, index) => {
-                    gsap.fromTo(element, 
-                        {
-                            opacity: 0,
-                            y: 50,
-                            scale: 0.95
-                        },
-                        {
-                            opacity: 1,
-                            y: 0,
-                            scale: 1,
-                            duration: options.duration || 0.8,
-                            ease: options.ease || "power2.out",
-                            delay: options.stagger ? index * 0.2 : 0,
-                            scrollTrigger: {
-                                trigger: element,
-                                start: options.start || "top 85%",
-                                end: options.end || "bottom 15%",
-                                toggleActions: "play none none reverse",
-                                ...options.scrollTrigger
-                            }
-                        }
-                    );
-                });
-            }
-
-            // Função para criar animações staggered
-            function createStaggerAnimation(selector, options = {}) {
-                const container = document.querySelector(selector);
-                if (!container) return;
-
-                const children = container.children;
-                if (children.length === 0) return;
-
-                gsap.fromTo(children,
-                    {
-                        opacity: 0,
-                        y: 50,
-                        scale: 0.9
-                    },
-                    {
-                        opacity: 1,
-                        y: 0,
-                        scale: 1,
-                        duration: 0.6,
-                        ease: "power2.out",
-                        stagger: 0.15,
-                        scrollTrigger: {
-                            trigger: container,
-                            start: "top 80%",
-                            end: "bottom 20%",
-                            toggleActions: "play none none reverse",
-                            ...options.scrollTrigger
-                        }
-                    }
-                );
-            }
-
-            // Aplicar animações aos elementos
-            // Elementos com fade-up básico
-            createFadeUpAnimation('.gsap-fade-up', {
-                duration: 0.8,
-                start: "top 80%"
-            });
-
-            // Elementos com stagger (aparecem em sequência)
-            createStaggerAnimation('.gsap-stagger-up', {
-                scrollTrigger: {
-                    start: "top 75%"
-                }
-            });
-
-            // Animação especial para o banner principal (fade-in mais lento)
-            gsap.fromTo('#banner-carousel', 
-                {
-                    opacity: 0,
-                    scale: 0.98
-                },
-                {
-                    opacity: 1,
-                    scale: 1,
-                    duration: 1.2,
-                    ease: "power2.out",
-                    delay: 0.3
-                }
-            );
-
-            // Animação para cards de vantagens com hover effect
-            const advantageCards = document.querySelectorAll('#modulos .grid > div');
-            if (advantageCards.length > 0) {
-                advantageCards.forEach((card, index) => {
-                    // Animação de entrada
-                    gsap.fromTo(card,
-                        {
-                            opacity: 0,
-                            y: 60,
-                            rotationY: 15
-                        },
-                        {
-                            opacity: 1,
-                            y: 0,
-                            rotationY: 0,
-                            duration: 0.8,
-                            ease: "power2.out",
-                            delay: index * 0.2,
-                            scrollTrigger: {
-                                trigger: card,
-                                start: "top 85%",
-                                toggleActions: "play none none reverse"
-                            }
-                        }
-                    );
-
-                    // Efeito hover aprimorado
-                    card.addEventListener('mouseenter', () => {
-                        gsap.to(card, {
-                            scale: 1.05,
-                            y: -10,
-                            duration: 0.3,
-                            ease: "power2.out"
-                        });
-                    });
-
-                    card.addEventListener('mouseleave', () => {
-                        gsap.to(card, {
-                            scale: 1,
-                            y: 0,
-                            duration: 0.3,
-                            ease: "power2.out"
-                        });
-                    });
-                });
-            }
-
-            // Animação para logos dos sistemas integrados
-            const logoButtons = document.querySelectorAll('#sistemas_integrados button');
-            if (logoButtons.length > 0) {
-                logoButtons.forEach((button, index) => {
-                    gsap.fromTo(button,
-                        {
-                            opacity: 0,
-                            scale: 0.8,
-                            y: 30
-                        },
-                        {
-                            opacity: 1,
-                            scale: 1,
-                            y: 0,
-                            duration: 0.6,
-                            ease: "back.out(1.2)",
-                            delay: index * 0.1,
-                            scrollTrigger: {
-                                trigger: button,
-                                start: "top 90%",
-                                toggleActions: "play none none reverse"
-                            }
-                        }
-                    );
-                });
-            }
-
-            // Animação para FAQs
-            const faqItems = document.querySelectorAll('#faq-accordion > div');
-            if (faqItems.length > 0) {
-                faqItems.forEach((item, index) => {
-                    gsap.fromTo(item,
-                        {
-                            opacity: 0,
-                            x: -50
-                        },
-                        {
-                            opacity: 1,
-                            x: 0,
-                            duration: 0.6,
-                            ease: "power2.out",
-                            delay: index * 0.1,
-                            scrollTrigger: {
-                                trigger: item,
-                                start: "top 90%",
-                                toggleActions: "play none none reverse"
-                            }
-                        }
-                    );
-                });
-            }
-
-            // Parallax suave para seções de fundo
-            gsap.to('#sistemas_integrados', {
-                y: -50,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: '#sistemas_integrados',
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: 1
-                }
-            });
-
-            // Animação especial para o botão CTA principal
-            const ctaButton = document.querySelector('.gsap-cta-button');
-            if (ctaButton) {
-                gsap.fromTo(ctaButton,
-                    {
-                        opacity: 0,
-                        scale: 0.8,
-                        y: 30
-                    },
-                    {
-                        opacity: 1,
-                        scale: 1,
-                        y: 0,
-                        duration: 0.8,
-                        ease: "back.out(1.2)",
-                        scrollTrigger: {
-                            trigger: ctaButton,
-                            start: "top 90%",
-                            toggleActions: "play none none reverse"
-                        }
-                    }
-                );
-
-                // Efeito hover melhorado para o CTA
-                ctaButton.addEventListener('mouseenter', () => {
-                    gsap.to(ctaButton, {
-                        scale: 1.05,
-                        y: -3,
-                        duration: 0.3,
-                        ease: "power2.out"
-                    });
-                });
-
-                ctaButton.addEventListener('mouseleave', () => {
-                    gsap.to(ctaButton, {
-                        scale: 1,
-                        y: 0,
-                        duration: 0.3,
-                        ease: "power2.out"
-                    });
-                });
-            }
-
-            // Refresh ScrollTrigger após carregamento completo
-            window.addEventListener('load', () => {
-                ScrollTrigger.refresh();
-            });
 
             // --- RESTO DO CÓDIGO EXISTENTE ---
 
@@ -1118,36 +728,110 @@
             mobileMenuOverlay.addEventListener('click', toggleMenu);
             navLinks.forEach(link => { link.addEventListener('click', () => { if (!mobileMenu.classList.contains('-translate-x-full')) { toggleMenu(); } }); });
 
-            // --- BANNER DE COOKIES COM GSAP ---
-            const cookieBanner = document.getElementById('cookie-banner');
+            // --- BANNER DE COOKIES ---
+            const cookieBanner = document.querySelector('.fixed.bottom-0.left-0.right-0.bg-gray-900');
             const cookieAcceptBtn = document.getElementById('cookie-banner-btn');
             
             // Verificar se já aceitou cookies
-            if (!localStorage.getItem('cookiesAccepted')) {
-                // Mostrar banner após 1.5s com animação GSAP
-                gsap.to(cookieBanner, {
-                    y: 0,
-                    duration: 0.5,
-                    ease: "power2.out",
-                    delay: 1.5
-                });
+            if (cookieBanner && !localStorage.getItem('cookiesAccepted')) {
+                // Mostrar banner após 1.5s com transição CSS
+                setTimeout(() => {
+                    cookieBanner.style.transform = 'translateY(0)';
+                }, 1500);
             }
             
             // Evento de aceitar cookies
-            cookieAcceptBtn.addEventListener('click', () => {
-                localStorage.setItem('cookiesAccepted', 'true');
-                
-                // Esconder com animação GSAP
-                gsap.to(cookieBanner, {
-                    y: "100%",
-                    duration: 0.5,
-                    ease: "power2.in"
+            if (cookieAcceptBtn) {
+                cookieAcceptBtn.addEventListener('click', () => {
+                    localStorage.setItem('cookiesAccepted', 'true');
+                    
+                    // Esconder com transição CSS
+                    if (cookieBanner) {
+                        cookieBanner.style.transform = 'translateY(100%)';
+                    }
                 });
-            });
+            }
 
-            // --- BOTÃO VOLTAR AO TOPO ---
-            const fabTop = document.getElementById('fab_top');
-            window.addEventListener('scroll', () => { window.scrollY > 300 ? fabTop.classList.remove('opacity-0') : fabTop.classList.add('opacity-0'); });
+            // --- BOTÃO VOLTAR AO TOPO (aparece em 50% do scroll total) ---
+            (function() {
+                const fab = document.getElementById('fab_top');
+                if (!fab) return;
+
+                // Prefer reduced motion
+                const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+                // Ensure transitions exist (in case CSS classes not present)
+                if (!reduceMotion) {
+                    fab.style.transition = 'opacity 200ms ease, transform 180ms ease';
+                } else {
+                    fab.style.transition = 'none';
+                }
+
+                // Helpers
+                function getScrollFraction() {
+                    const doc = document.documentElement;
+                    const scrollTop = window.pageYOffset || doc.scrollTop || document.body.scrollTop || 0;
+                    const scrollHeight = Math.max(doc.scrollHeight, document.body.scrollHeight || 0);
+                    const clientHeight = doc.clientHeight || window.innerHeight;
+                    const maxScroll = Math.max(0, scrollHeight - clientHeight);
+                    if (maxScroll === 0) return 0;
+                    return scrollTop / maxScroll;
+                }
+
+                // Hysteresis thresholds
+                const SHOW_THRESHOLD = 0.5; // show when >= 50%
+                const HIDE_THRESHOLD = 0.48; // hide when < 48%
+
+                let ticking = false;
+                let isVisible = false;
+                function setFabVisible(visible) {
+                    if (visible === isVisible) return;
+                    isVisible = visible;
+                    if (visible) {
+                        fab.classList.remove('opacity-0');
+                        fab.classList.add('visible');
+                        fab.style.pointerEvents = 'auto';
+                        if (!reduceMotion) fab.style.transform = 'scale(1)';
+                        fab.setAttribute('aria-hidden', 'false');
+                    } else {
+                        fab.classList.add('opacity-0');
+                        fab.classList.remove('visible');
+                        fab.style.pointerEvents = 'none';
+                        if (!reduceMotion) fab.style.transform = 'scale(0.95)';
+                        fab.setAttribute('aria-hidden', 'true');
+                    }
+                }
+
+                function onScroll() {
+                    if (ticking) return;
+                    ticking = true;
+                    requestAnimationFrame(() => {
+                        const frac = getScrollFraction();
+                        if (!isVisible && frac >= SHOW_THRESHOLD) {
+                            setFabVisible(true);
+                        } else if (isVisible && frac < HIDE_THRESHOLD) {
+                            setFabVisible(false);
+                        }
+                        ticking = false;
+                    });
+                }
+
+                // Inicial check (com pequeno atraso para permitir layout com outros elementos)
+                setTimeout(onScroll, 120);
+                window.addEventListener('scroll', onScroll, { passive: true });
+
+                // Clique suave para o topo (para compatibilidade, rolar para o elemento #inicio quando presente)
+                fab.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector('#inicio') || document.documentElement;
+                    if (!target) {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        return;
+                    }
+                    const top = window.scrollY + (target.getBoundingClientRect ? target.getBoundingClientRect().top : 0);
+                    window.scrollTo({ top: top, behavior: 'smooth' });
+                });
+            })();
 
             // --- ACORDEÃO (FAQ) ---
             document.querySelectorAll('.accordion-header').forEach(header => {
@@ -1453,7 +1137,7 @@
                 }
             }
 
-            // --- HEADER SCROLL BEHAVIOR COM GSAP ---
+            // --- HEADER SCROLL BEHAVIOR ---
             const header = document.getElementById('header');
 
             if (!header) {
@@ -1461,12 +1145,6 @@
                 return;
             }
 
-            // Registrar plugin (já pode estar registrado, mas não faz mal garantir)
-            gsap.registerPlugin(ScrollTrigger);
-
-            // NÃO limpar className do header — preservamos utilitários Tailwind para layout
-
-            // Removido GSAP/ScrollTrigger do header por solicitação.
             // Implementação simples com CSS/JS puro:
             // - header permanece `position: fixed` com `top: 8px`
             // - adicionamos/removemos a classe `.pill` quando scrollY >= 56
@@ -1482,11 +1160,15 @@
                 header.style.margin = '0';
                 header.style.justifySelf = 'center';
                 header.style.transition = 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-            
+
+                // Escolhe largura responsiva para o modo 'pill':
+                // - viewport > 640px  => 80dvw
+                // - viewport <= 640px => 90dvw
+                const isDesktopWidth = (typeof window !== 'undefined') ? window.matchMedia('(min-width: 641px)').matches : true;
 
                 if (mode === 'pill') {
-                    // centraliza e limita largura
-                    header.style.width = '80dvw';
+                    // centraliza e limita largura responsiva
+                    header.style.width = isDesktopWidth ? '80dvw' : '90dvw';
                     header.style.borderRadius = '9999px';
                     header.style.boxShadow = '0 6px 30px rgba(0,0,0,0.12)';
                     header.style.backgroundColor = 'rgba(255,255,255,0.6)';
@@ -1501,6 +1183,23 @@
                     header.style.backgroundColor = 'rgba(255,255,255,1)';
                 }
             }
+
+            // Reavaliar larguras no resize para garantir responsividade dinâmica
+            (function setupHeaderResizeListener() {
+                let resizeTimer = null;
+                function onResize() {
+                    clearTimeout(resizeTimer);
+                    resizeTimer = setTimeout(() => {
+                        // Reaplica o modo atual (verifica se header tem a classe 'pill')
+                        const currentMode = header.classList.contains('pill') ? 'pill' : 'full';
+                        applyHeaderMode(currentMode);
+                    }, 120);
+                }
+
+                window.addEventListener('resize', onResize);
+                // Também reagir a mudanças de orientação
+                window.addEventListener('orientationchange', onResize);
+            })();
 
             const pillDistance = 56;
 
@@ -1525,48 +1224,6 @@
                     window.__headerScrollRaf = null;
                 });
             }, { passive: true });
-
-
-            // --- LÓGICA DOS MODAIS ---
-            const modalTriggers = document.querySelectorAll('.modal-trigger');
-            const modalOverlay = document.getElementById('modal-overlay');
-            const allModals = document.querySelectorAll('.modal');
-
-            function openModal(modalId) {
-                const modal = document.getElementById(modalId);
-                if (!modal) return;
-
-                modal.classList.remove('hidden');
-                modalOverlay.classList.remove('hidden');
-                setTimeout(() => {
-                    modal.querySelector('div').classList.remove('scale-95', 'opacity-0');
-                    modalOverlay.classList.remove('opacity-0');
-                }, 10);
-                document.body.classList.add('overflow-hidden');
-            }
-
-            function closeModal() {
-                allModals.forEach(modal => {
-                    modal.querySelector('div').classList.add('scale-95', 'opacity-0');
-                    modalOverlay.classList.add('opacity-0');
-                    setTimeout(() => {
-                        modal.classList.add('hidden');
-                        modalOverlay.classList.add('hidden');
-                    }, 300);
-                });
-                document.body.classList.remove('overflow-hidden');
-            }
-
-            modalTriggers.forEach(trigger => {
-                trigger.addEventListener('click', () => {
-                    const modalId = trigger.getAttribute('data-modal-target');
-                    openModal(modalId);
-                });
-            });
-
-            const modalCloseButtons = document.querySelectorAll('.modal-close-btn');
-            modalCloseButtons.forEach(btn => btn.addEventListener('click', closeModal));
-            modalOverlay.addEventListener('click', closeModal);
 
 
             // --- LÓGICA DOS REPRESENTANTES ---
@@ -1633,19 +1290,55 @@
             });
             
             function mostrarConce(estado) {
+                if (!revGrid) return;
+                // Limpar grid
                 revGrid.innerHTML = '';
-                const representantes = revData[estado] || [];
-                if (representantes.length === 0) {
-                    revGrid.innerHTML = '<p class="text-[var(--primary-text)] md:col-span-2 text-center">Nenhum representante encontrado.</p>';
+
+                const representantes = (estado && revData[estado]) ? revData[estado] : [];
+
+                if (!Array.isArray(representantes) || representantes.length === 0) {
+                    const p = document.createElement('p');
+                    p.className = 'text-[var(--primary-text)] md:col-span-2 text-center';
+                    p.textContent = 'Nenhum representante encontrado.';
+                    revGrid.appendChild(p);
                     return;
                 }
+
                 representantes.forEach(rep => {
-                    revGrid.innerHTML += `<div class="border border-gray-200 rounded-2xl p-4 bg-white hover:shadow-md transition-shadow"><h4 class="font-bold text-lg text-[var(--primary-text)]">${rep.nome}</h4><p class="text-sm text-[var(--primary-text)] mt-1">${rep.cidade}</p><p class="text-sm text-[var(--primary-text)] mt-2"><strong>Fone:</strong> ${rep.fone}</p><p class="text-sm text-[var(--primary-text)]"><strong>Email:</strong> ${rep.email}</p></div>`;
+                    const card = document.createElement('div');
+                    card.className = 'border border-gray-200 rounded-2xl p-4 bg-white hover:shadow-md transition-shadow';
+
+                    const h4 = document.createElement('h4');
+                    h4.className = 'font-bold text-lg text-[var(--primary-text)]';
+                    h4.textContent = rep.nome || '—';
+
+                    const cidade = document.createElement('p');
+                    cidade.className = 'text-sm text-[var(--primary-text)] mt-1';
+                    cidade.textContent = rep.cidade || '';
+
+                    const fone = document.createElement('p');
+                    fone.className = 'text-sm text-[var(--primary-text)] mt-2';
+                    fone.innerHTML = '<strong>Fone:</strong> ' + (rep.fone || '—');
+
+                    const email = document.createElement('p');
+                    email.className = 'text-sm text-[var(--primary-text)]';
+                    email.innerHTML = '<strong>Email:</strong> ' + (rep.email || '—');
+
+                    card.appendChild(h4);
+                    card.appendChild(cidade);
+                    card.appendChild(fone);
+                    card.appendChild(email);
+
+                    revGrid.appendChild(card);
                 });
             }
             
-            // Inicializar com valor padrão
-            mostrarConce(selectEstado.value);
+            // Inicializar com valor padrão (proteção caso selectEstado não exista)
+            if (selectEstado && selectEstado.value) {
+                mostrarConce(selectEstado.value);
+            } else {
+                mostrarConce('para');
+            }
 
             // --- DADOS DOS RECURSOS ---
             const featureData = {
@@ -1669,6 +1362,7 @@
                 const featureTitle = document.getElementById('featureTitle');
                 const featureDisplay = document.getElementById('feature-display');
 
+                // Gerar itens do menu de recursos
                 Object.keys(featureData).forEach((key, index) => {
                     const feature = featureData[key];
                     const isActive = index === 0 ? 'active' : '';
@@ -1689,46 +1383,62 @@
                     featureListContainer.innerHTML += itemHTML;
                 });
 
-                const featureItems = document.querySelectorAll('.feature-item');
-
+                // Função robusta para trocar imagem e título
                 function changeFeatureDisplay(newSrc, newTitle) {
-                    if (!newSrc || !newTitle) {
-                        return;
-                    }
-                    
+                    if (!featureDisplay || !featureImage || !featureTitle) return;
+
+                    // Fallbacks
+                    const placeholder = 'https://placehold.co/500x500?text=Imagem+Indisponível';
+                    const srcToUse = newSrc || placeholder;
+                    const titleToUse = newTitle || '';
+
+                    // Fade out
+                    featureDisplay.style.transition = 'opacity 0.25s ease';
                     featureDisplay.style.opacity = '0';
-                    
+
+                    // Alterar src e title com um pequeno delay para efeito
                     setTimeout(() => {
-                        featureImage.src = newSrc;
-                        featureImage.onerror = () => { 
-                            featureImage.src = 'https://placehold.co/500x500?text=Imagem+Indisponível' 
-                        };
-                        featureTitle.textContent = newTitle;
+                        // Definir handler onerror antes de trocar src
+                        featureImage.onerror = () => { featureImage.src = placeholder; };
+                        try {
+                            featureImage.src = srcToUse;
+                        } catch (e) {
+                            featureImage.src = placeholder;
+                        }
+                        featureImage.alt = titleToUse || 'Imagem do recurso';
+                        featureTitle.textContent = titleToUse;
+                        // Fade in
                         featureDisplay.style.opacity = '1';
-                    }, 300);
+                    }, 120);
                 }
 
-                featureItems.forEach(item => {
-                    const header = item.querySelector('.feature-header');
-                    header.addEventListener('click', () => {
-                        const wasActive = item.classList.contains('active');
-                        featureItems.forEach(i => i.classList.remove('active'));
-                        if (!wasActive) {
-                            item.classList.add('active');
-                            const featureName = item.dataset.feature;
-                            const data = featureData[featureName];
-                            if (data) {
-                                changeFeatureDisplay(data.imgSrc, data.title);
-                            }
+                // Usar event delegation para lidar com cliques no header
+                featureListContainer.addEventListener('click', (ev) => {
+                    const header = ev.target.closest('.feature-header');
+                    if (!header) return;
+
+                    const item = header.closest('.feature-item');
+                    if (!item) return;
+
+                    const wasActive = item.classList.contains('active');
+                    // remover active de todos
+                    featureListContainer.querySelectorAll('.feature-item').forEach(i => i.classList.remove('active'));
+
+                    if (!wasActive) {
+                        item.classList.add('active');
+                        const featureName = item.dataset.feature;
+                        const data = featureData[featureName];
+                        if (data) {
+                            changeFeatureDisplay(data.imgSrc, data.title);
                         }
-                    });
+                    }
                 });
 
-                // Inicializar com o primeiro item
+                // Inicializar com o primeiro item disponível
                 const firstFeatureKey = Object.keys(featureData)[0];
                 const firstFeatureData = featureData[firstFeatureKey];
                 if (firstFeatureData) {
-                    // Aguardar um pouco para garantir que o DOM está pronto
+                    // Pequeno timeout para garantir renderização
                     setTimeout(() => {
                         changeFeatureDisplay(firstFeatureData.imgSrc, firstFeatureData.title);
                     }, 100);
