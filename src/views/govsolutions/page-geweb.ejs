@@ -282,6 +282,7 @@
                 <ul class="hidden lg:flex items-center space-x-8">
                     <li><a href="#modulos" class="font-bold text-[var(--primary-text)]">Vantagens</a></li>
                     <li><a href="#recursos" class="font-bold text-[var(--primary-text)]">Recursos</a></li>
+                    <li><a href="#plans" class="font-bold text-[var(--primary-text)]">Planos</a></li>
                     <li><a href="#representantes"
                             class="font-bold text-[var(--primary-text)]">Representantes</a></li>
                     <li><a href="#perguntas" class="font-bold text-[var(--primary-text)]">Perguntas</a></li>
@@ -298,7 +299,7 @@
 
     <!-- Botão Flutuante para Voltar ao Topo (fica sempre 'pinned' na tela) -->
     <a id="fab_top" href="#inicio"
-        class="fixed bottom-[8px] right-[8px] z-[9999] inline-flex pointer-events-auto bg-brand-primary text-white rounded-full w-14 h-14 items-center justify-center shadow-lg hover:bg-gray-700 transition-opacity duration-300 opacity-0 transform scale-95"
+        class="fixed bottom-[8px] right-[8px] z-[9999] inline-flex pointer-events-auto bg-[var(--primary-text)] text-white rounded-full w-14 h-14 items-center justify-center shadow-lg hover:bg-gray-700 transition-opacity duration-300 opacity-0 transform scale-95"
         style="display:inline-flex;" aria-label="Voltar ao topo" role="button" title="Voltar ao topo (pressione para ir ao início)" aria-hidden="true">
         <span class="material-symbols-outlined">arrow_upward</span>
     </a>
@@ -310,7 +311,7 @@
             <p class="text-sm">Esta página utiliza cookies para aprimorar sua experiência. Clique em aceitar para
                 permitir a ativação.</p>
             <button id="cookie-banner-btn"
-                class="bg-brand-primary hover:bg-gray-700 text-white font-bold py-2 px-6 rounded whitespace-nowrap">Aceitar</button>
+                class="bg-[var(--primary-text)] hover:bg-gray-700 text-white font-bold py-2 px-6 rounded whitespace-nowrap">Aceitar</button>
         </div>
     </div>
 
@@ -322,6 +323,8 @@
                 <li><a href="#modulos" class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Vantagens</a>
                 </li>
                 <li><a href="#recursos" class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Recursos</a>
+                </li>
+                <li><a href="#plans" class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Planos</a>
                 </li>
                 <li><a href="#representantes"
                         class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Representantes</a>
@@ -613,6 +616,295 @@
                 </div>
             </div>
         </article>
+
+        <!-- Seção Planos -->
+        <article id="plans" class="py-12 md:py-24">
+            <div class="container mx-auto md:px-4">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mt-1">Escolha o Plano Ideal para Sua Rede</h2>
+                    <p class="text-white mt-4">Soluções escaláveis que crescem junto com sua instituição de ensino</p>
+                </div>
+
+                <!-- Layout Desktop: Grid de 3 colunas -->
+                <div class="hidden md:grid md:grid-cols-3 gap-8">
+                    <!-- Plano Básico -->
+                    <div class="bg-white rounded-3xl p-8 shadow-xl relative">
+                        <div class="text-center mb-6">
+                            <h3 class="text-2xl font-bold text-[var(--primary-text)] mb-2">Básico</h3>
+                            <div class="text-4xl font-black text-brand-primary mb-4">R$ 2.500<span class="text-lg font-normal">/ano</span></div>
+                        </div>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span class="text-[var(--primary-text)]">Até 10 Entidades</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span class="text-[var(--primary-text)]">Até 03 Departamentos por entidade</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span class="text-[var(--primary-text)]">Usuários Ilimitados</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span class="text-[var(--primary-text)]">Movimentações Ilimitadas</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span class="text-[var(--primary-text)]">Onboarding remoto com especialista</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span class="text-[var(--primary-text)]">Suporte Remoto básico</span>
+                            </li>
+                        </ul>
+                        <button class="w-full bg-[var(--primary-text)] text-white font-bold py-3 px-6 rounded-xl hover:bg-gray-700 transition-colors">
+                            Começar Agora
+                        </button>
+                        <div class="mt-4 text-sm text-gray-600 text-center">
+                            <p>Adicional por Entidade: R$ 200/ano</p>
+                            <p>Adicional por Departamento: R$ 50/ano</p>
+                        </div>
+                    </div>
+
+                    <!-- Plano Médio (Destaque) -->
+                    <div class="bg-white rounded-3xl p-8 shadow-2xl relative transform scale-105">
+                        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                            <span class="bg-[var(--primary-text)] text-white px-6 py-2 rounded-full text-sm font-bold">
+                                <span class="text-nowrap">MAIS POPULAR</span>
+                            </span>
+                        </div>
+                        <div class="text-center mb-6">
+                            <h3 class="text-2xl font-bold text-[var(--primary-text)] mb-2">Médio</h3>
+                            <div class="text-4xl font-black text-brand-primary mb-4">R$ 4.500<span class="text-lg font-normal">/ano</span></div>
+                        </div>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span class="text-[var(--primary-text)]">Até 30 Entidades</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span class="text-[var(--primary-text)]">Até 05 Departamentos por entidade</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span class="text-[var(--primary-text)]">Usuários Ilimitados</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span class="text-[var(--primary-text)]">Movimentações Ilimitadas</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span class="text-[var(--primary-text)]">Onboarding remoto com especialista</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span class="text-[var(--primary-text)]">Treinamento remoto via curso online</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span class="text-[var(--primary-text)]">Suporte Remoto com SLA por gravidade</span>
+                            </li>
+                        </ul>
+                        <button class="w-full bg-[var(--primary-text)] text-white font-bold py-3 px-6 rounded-xl hover:bg-gray-700 transition-colors">
+                            Começar Agora
+                        </button>
+                        <div class="mt-4 text-sm text-gray-600 text-center">
+                            <p>Adicional por Entidade: R$ 350/ano</p>
+                            <p>Adicional por Departamento: R$ 70/ano</p>
+                        </div>
+                    </div>
+
+                    <!-- Plano Avançado -->
+                    <div class="bg-white rounded-3xl p-8 shadow-xl relative">
+                        <div class="text-center mb-6">
+                            <h3 class="text-2xl font-bold text-[var(--primary-text)] mb-2">Avançado</h3>
+                            <div class="text-4xl font-black text-brand-primary mb-4">R$ 7.500<span class="text-lg font-normal">/ano</span></div>
+                        </div>
+                        <ul class="space-y-4 mb-8">
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span class="text-[var(--primary-text)]">Entidades Ilimitadas</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span class="text-[var(--primary-text)]">Departamentos Ilimitados</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span class="text-[var(--primary-text)]">Usuários Ilimitados</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span class="text-[var(--primary-text)]">Movimentações Ilimitadas</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span class="text-[var(--primary-text)]">Onboarding presencial especializado</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span class="text-[var(--primary-text)]">Treinamento presencial + certificado</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span class="text-[var(--primary-text)]">Suporte Premium 24/7</span>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span class="text-[var(--primary-text)]">Consultoria personalizada</span>
+                            </li>
+                        </ul>
+                        <button class="w-full bg-[var(--primary-text)] text-white font-bold py-3 px-6 rounded-xl hover:bg-gray-700 transition-colors">
+                            Começar Agora
+                        </button>
+                        <div class="mt-4 text-sm text-gray-600 text-center">
+                            <p>Sem custos adicionais</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Layout Mobile: Slider -->
+                <div class="md:hidden">
+                    <div class="relative">
+                        <div id="plans-slider-wrapper" class="overflow-hidden">
+                            <div id="plans-slider" class="flex transition-transform duration-500 ease-in-out gap-4 draggable-slider slider-container p-6">
+                                <!-- Plano Básico Mobile -->
+                                <div class="w-4/5 flex-shrink-0 bg-white rounded-3xl p-6 shadow-xl">
+                                    <div class="text-center mb-6">
+                                        <h3 class="text-xl font-bold text-[var(--primary-text)] mb-2">Básico</h3>
+                                        <div class="text-3xl font-black text-brand-primary mb-4">R$ 2.500<span class="text-base font-normal">/ano</span></div>
+                                    </div>
+                                    <ul class="space-y-3 mb-6 text-sm">
+                                        <li class="flex items-start gap-2">
+                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span class="text-[var(--primary-text)]">Até 10 Entidades</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span class="text-[var(--primary-text)]">Até 03 Departamentos por entidade</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span class="text-[var(--primary-text)]">Usuários Ilimitados</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span class="text-[var(--primary-text)]">Movimentações Ilimitadas</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span class="text-[var(--primary-text)]">Onboarding remoto</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span class="text-[var(--primary-text)]">Suporte Básico</span>
+                                        </li>
+                                    </ul>
+                                    <button class="w-full bg-[var(--primary-text)] text-white font-bold py-3 px-4 rounded-xl hover:bg-gray-700 transition-colors text-sm">
+                                        Começar Agora
+                                    </button>
+                                    <div class="mt-3 text-xs text-gray-600 text-center">
+                                        <p>+ R$ 200/entidade | + R$ 50/depto</p>
+                                    </div>
+                                </div>
+
+                                <!-- Plano Médio Mobile -->
+                                <div class="w-4/5 flex-shrink-0 bg-white rounded-3xl p-6 shadow-xl relative">
+                                    <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                                        <span class="bg-[var(--primary-text)] text-white px-4 py-1 rounded-full text-xs font-bold">POPULAR</span>
+                                    </div>
+                                    <div class="text-center mb-6 mt-2">
+                                        <h3 class="text-xl font-bold text-[var(--primary-text)] mb-2">Médio</h3>
+                                        <div class="text-3xl font-black text-brand-primary mb-4">R$ 4.500<span class="text-base font-normal">/ano</span></div>
+                                    </div>
+                                    <ul class="space-y-3 mb-6 text-sm">
+                                        <li class="flex items-start gap-2">
+                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span class="text-[var(--primary-text)]">Até 30 Entidades</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span class="text-[var(--primary-text)]">Até 05 Departamentos</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span class="text-[var(--primary-text)]">Usuários Ilimitados</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span class="text-[var(--primary-text)]">Movimentações Ilimitadas</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span class="text-[var(--primary-text)]">Onboarding + Treinamento</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span class="text-[var(--primary-text)]">Suporte com SLA</span>
+                                        </li>
+                                    </ul>
+                                    <button class="w-full bg-[var(--primary-text)] text-white font-bold py-3 px-4 rounded-xl hover:bg-gray-700 transition-colors text-sm">
+                                        Começar Agora
+                                    </button>
+                                    <div class="mt-3 text-xs text-gray-600 text-center">
+                                        <p>+ R$ 350/entidade | + R$ 70/depto</p>
+                                    </div>
+                                </div>
+
+                                <!-- Plano Avançado Mobile -->
+                                <div class="w-4/5 flex-shrink-0 bg-white rounded-3xl p-6 shadow-xl">
+                                    <div class="text-center mb-6">
+                                        <h3 class="text-xl font-bold text-[var(--primary-text)] mb-2">Avançado</h3>
+                                        <div class="text-3xl font-black text-brand-primary mb-4">R$ 7.500<span class="text-base font-normal">/ano</span></div>
+                                    </div>
+                                    <ul class="space-y-3 mb-6 text-sm">
+                                        <li class="flex items-start gap-2">
+                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span class="text-[var(--primary-text)]">Entidades Ilimitadas</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span class="text-[var(--primary-text)]">Departamentos Ilimitados</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span class="text-[var(--primary-text)]">Usuários Ilimitados</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span class="text-[var(--primary-text)]">Movimentações Ilimitadas</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span class="text-[var(--primary-text)]">Onboarding Presencial</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span class="text-[var(--primary-text)]">Suporte Premium 24/7</span>
+                                        </li>
+                                        <li class="flex items-start gap-2">
+                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span class="text-[var(--primary-text)]">Consultoria Personalizada</span>
+                                        </li>
+                                    </ul>
+                                    <button class="w-full bg-[var(--primary-text)] text-white font-bold py-3 px-4 rounded-xl hover:bg-gray-700 transition-colors text-sm">
+                                        Começar Agora
+                                    </button>
+                                    <div class="mt-3 text-xs text-gray-600 text-center">
+                                        <p>Sem custos adicionais</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="plans-slider-dots" class="absolute -bottom-2 left-1/2 -translate-x-1/2 flex space-x-2"></div>
+                    </div>
+                </div>
+            </div>
+        </article>
     </main>
 
     <!-- Rodapé com Perguntas Frequentes e Novo Layout -->
@@ -673,9 +965,10 @@
                 <!-- Coluna 2: Navegação -->
                 <div>
                     <h4 class="font-bold text-[var(--primary-text)] mb-4">Navegação</h4>
-                    <ul class="space-y-2 text-sm">
+                    <ul class="space-y-2 text-sm flex flex-col gap-4">
                         <li><a href="#modulos" class="hover:underline">Vantagens</a></li>
                         <li><a href="#recursos" class="hover:underline">Recursos</a></li>
+                        <li><a href="#plans" class="hover:underline">Planos</a></li>
                         <li><a href="#sistemas_integrados" class="hover:underline">Ecossistema</a></li>
                         <li><a href="#representantes" class="hover:underline">Representantes</a></li>
                         <li><a class="px-4 py-2 rounded-[8px] bg-[#4273b8] text-white font-bold uppercase cursor-pointer" href="https://gestorescolarweb.com.br" class="hover:underline">LOGIN</a></li>
@@ -699,7 +992,6 @@
                     <address class="not-italic text-sm space-y-2">
                         <p>GOVSOLUTIONS</p>
                         <p>contato@govsolutions.com.br</p>
-                        <p>(91) 99999-9999</p>
                     </address>
                 </div>
             </div>
@@ -1118,7 +1410,7 @@
                 function updateDots(index) {
                     if (slides.length <= 1) return;
                     Array.from(dotsContainer.children).forEach((dot, i) => {
-                        dot.classList.toggle('bg-brand-primary', i === index);
+                        dot.classList.toggle('bg-[var(--primary-text)]', i === index);
                         dot.classList.toggle('bg-gray-400', i !== index);
                     });
                 }
@@ -1480,7 +1772,7 @@
                 // Função para atualizar dots
                 function updateMobileDots(index) {
                     Array.from(mobileSliderDotsContainer.children).forEach((dot, i) => {
-                        dot.classList.toggle('bg-brand-primary', i === index);
+                        dot.classList.toggle('bg-[var(--primary-text)]', i === index);
                         dot.classList.toggle('bg-[rgba(0,0,0,0.2)]', i !== index);
                     });
                 }
@@ -1542,6 +1834,93 @@
                                 mobileSlider.config.slideWidth = calculateSlideWidth();
                                 mobileSlider.updateDimensions();
                                 mobileSlider.goToSlide(0, false);
+                            }, 100);
+                        }
+                    });
+                }
+            }
+
+            // --- LÓGICA DO SLIDER DE PLANOS (MOBILE) COM DRAG ---
+            const plansSliderWrapper = document.getElementById('plans-slider-wrapper');
+            if (plansSliderWrapper) {
+                const plansSliderContainer = document.getElementById('plans-slider');
+                const plansSliderDotsContainer = document.getElementById('plans-slider-dots');
+                const planSlides = Array.from(plansSliderContainer.children);
+                let plansSlider = null;
+
+                // Criar dots para os planos
+                planSlides.forEach((_, index) => {
+                    const dot = document.createElement('button');
+                    dot.classList.add('w-2.5', 'h-2.5', 'rounded-full', 'transition-colors');
+                    dot.addEventListener('click', () => plansSlider?.goToSlide(index));
+                    plansSliderDotsContainer.appendChild(dot);
+                });
+
+                // Função para atualizar dots dos planos
+                function updatePlansDots(index) {
+                    Array.from(plansSliderDotsContainer.children).forEach((dot, i) => {
+                        dot.classList.toggle('bg-[var(--primary-text)]', i === index);
+                        dot.classList.toggle('bg-[rgba(255,255,255,0.4)]', i !== index);
+                    });
+                }
+
+                // Função para calcular a largura do slide dos planos
+                function calculatePlanSlideWidth() {
+                    const slides = Array.from(plansSliderContainer.children);
+                    if (slides.length === 0) return 0;
+                    
+                    const slide = slides[0];
+                    const slideWidth = slide.offsetWidth;
+                    const gap = parseInt(window.getComputedStyle(plansSliderContainer).gap) || 16;
+                    
+                    return slideWidth + gap;
+                }
+
+                // Função para calcular a transformação personalizada para os planos mobile
+                function customPlansTransform(index) {
+                    const slides = Array.from(plansSliderContainer.children);
+                    if (slides.length === 0) return 0;
+                    
+                    const slide = slides[0];
+                    const wrapperWidth = plansSliderWrapper.offsetWidth;
+                    const slideWidth = slide.offsetWidth;
+                    const gap = parseInt(window.getComputedStyle(plansSliderContainer).gap) || 16;
+                    
+                    // Centralizar o primeiro slide
+                    const initialOffset = (wrapperWidth - slideWidth) / 2;
+                    const totalSlideWidth = slideWidth + gap;
+                    
+                    return initialOffset - (index * totalSlideWidth);
+                }
+
+                // Configurar slider customizado para planos mobile
+                if (planSlides.length > 1) {
+                    plansSlider = new DraggableSlider(plansSliderContainer, {
+                        slideWidth: calculatePlanSlideWidth(),
+                        customTransform: customPlansTransform,
+                        onSlideChange: updatePlansDots,
+                        resistance: 0.3,
+                        threshold: 30,
+                        onResize: () => {
+                            // Recalcular dimensões do plans slider no resize
+                            plansSlider.config.slideWidth = calculatePlanSlideWidth();
+                            
+                            // Aguardar um frame para garantir que o DOM foi atualizado
+                            requestAnimationFrame(() => {
+                                plansSlider.updateDimensions();
+                                plansSlider.goToSlide(plansSlider.currentIndex, false);
+                            });
+                        }
+                    });
+
+                    // Inicializar posição após o load
+                    window.addEventListener('load', () => {
+                        if (plansSlider) {
+                            // Recalcular após o layout estar pronto
+                            setTimeout(() => {
+                                plansSlider.config.slideWidth = calculatePlanSlideWidth();
+                                plansSlider.updateDimensions();
+                                plansSlider.goToSlide(0, false);
                             }, 100);
                         }
                     });
