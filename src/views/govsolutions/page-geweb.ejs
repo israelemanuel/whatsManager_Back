@@ -23,14 +23,16 @@
 
     <!-- Meta tags Schema.org -->
     <meta itemprop="name" content="GEWEB - Plataforma de Gestão Escolar | GovSolutions" />
-    <meta itemprop="description" content="A mais completa plataforma de gestão escolar para redes públicas de ensino." />
+    <meta itemprop="description"
+        content="A mais completa plataforma de gestão escolar para redes públicas de ensino." />
     <meta itemprop="image" content="/images/geweb_logo.png" />
     <meta itemprop="url" content="https://govsolutions.com.br/geweb" />
 
     <!-- Meta tags Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content="GEWEB - Plataforma de Gestão Escolar | GovSolutions" />
-    <meta property="og:description" content="A mais completa plataforma de gestão escolar para redes públicas de ensino." />
+    <meta property="og:description"
+        content="A mais completa plataforma de gestão escolar para redes públicas de ensino." />
     <meta property="og:image" content="/images/geweb_thumbicon.png" />
     <meta property="og:url" content="https://govsolutions.com.br/geweb" />
     <meta property="og:site_name" content="GovSOLUTIONS" />
@@ -42,10 +44,11 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Google Fonts e Icons -->
-    <link   rel="preconnect" href="https://fonts.googleapis.com">
-    <link   rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link   href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Lato:wght@900&family=Montserrat:wght@400;700&display=swap"
-            rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Lato:wght@900&family=Montserrat:wght@400;700&display=swap"
+        rel="stylesheet">
 
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -71,7 +74,7 @@
         }
     </script>
     <style>
-        :root{
+        :root {
             --primary-text: #3e4b67;
         }
 
@@ -144,11 +147,11 @@
         }
 
         /* Garantir que os slides não interferem com o drag */
-        .draggable-slider > * {
+        .draggable-slider>* {
             pointer-events: none;
         }
 
-        .draggable-slider:not(.dragging) > * {
+        .draggable-slider:not(.dragging)>* {
             pointer-events: auto;
         }
 
@@ -168,7 +171,7 @@
             padding: 12px 16px;
             border-radius: 12px;
             background: #ffffff;
-            border: 1px solid rgba(15,23,42,0.06);
+            border: 1px solid rgba(15, 23, 42, 0.06);
             cursor: pointer;
         }
 
@@ -178,7 +181,8 @@
             left: 0;
             right: 0;
             z-index: 50 !important;
-            background: #ffffff; /* fundo sólido */
+            background: #ffffff;
+            /* fundo sólido */
             overflow: hidden;
             border-radius: 12px;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -200,9 +204,20 @@
 
         /* CTA animation personalizada (respeita prefers-reduced-motion) */
         @keyframes ctaPulse {
-            0% { transform: translateY(0) scale(1); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
-            50% { transform: translateY(-3px) scale(1.02); box-shadow: 0 14px 30px rgba(0,0,0,0.14); }
-            100% { transform: translateY(0) scale(1); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+            0% {
+                transform: translateY(0) scale(1);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            }
+
+            50% {
+                transform: translateY(-3px) scale(1.02);
+                box-shadow: 0 14px 30px rgba(0, 0, 0, 0.14);
+            }
+
+            100% {
+                transform: translateY(0) scale(1);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+            }
         }
 
         .cta-animate {
@@ -270,7 +285,8 @@
     </style>
 </head>
 
-<body class="font-nunito text-[var(--primary-text)]" style="background-image: linear-gradient(0deg, #4273b8, #acc8ea, #f7fbff);">
+<body class="font-nunito text-[var(--primary-text)]"
+    style="background-image: linear-gradient(0deg, #4273b8, #acc8ea, #f7fbff);">
 
     <!-- Cabeçalho e Navegação -->
     <header id="header" class="flex items-center justify-center box-border">
@@ -283,12 +299,12 @@
                     <li><a href="#modulos" class="font-bold text-[var(--primary-text)]">Vantagens</a></li>
                     <li><a href="#recursos" class="font-bold text-[var(--primary-text)]">Recursos</a></li>
                     <li><a href="#plans" class="font-bold text-[var(--primary-text)]">Planos</a></li>
-                    <li><a href="#representantes"
-                            class="font-bold text-[var(--primary-text)]">Representantes</a></li>
+                    <li><a href="#representantes" class="font-bold text-[var(--primary-text)]">Representantes</a></li>
                     <li><a href="#perguntas" class="font-bold text-[var(--primary-text)]">Perguntas</a></li>
-                    
-                    <li><a target="_blank" class="px-4 py-2 rounded-full bg-[#4273b8] text-white font-bold uppercase cursor-pointer"
-                        href="https://gestorescolarweb.com.br/">LOGIN</a></li>
+
+                    <li><a target="_blank"
+                            class="px-4 py-2 rounded-full bg-[#4273b8] text-white font-bold uppercase cursor-pointer"
+                            href="https://gestorescolarweb.com.br/">LOGIN</a></li>
                 </ul>
                 <button id="mobile-menu-button" class="block lg:hidden text-[var(--primary-text)]">
                     <i class="material-symbols-outlined text-3xl">menu</i>
@@ -300,7 +316,8 @@
     <!-- Botão Flutuante para Voltar ao Topo (fica sempre 'pinned' na tela) -->
     <a id="fab_top" href="#inicio"
         class="fixed bottom-[8px] right-[8px] z-[9999] inline-flex pointer-events-auto bg-[var(--primary-text)] text-white rounded-full w-14 h-14 items-center justify-center shadow-lg hover:bg-gray-700 transition-opacity duration-300 opacity-0 transform scale-95"
-        style="display:inline-flex;" aria-label="Voltar ao topo" role="button" title="Voltar ao topo (pressione para ir ao início)" aria-hidden="true">
+        style="display:inline-flex;" aria-label="Voltar ao topo" role="button"
+        title="Voltar ao topo (pressione para ir ao início)" aria-hidden="true">
         <span class="material-symbols-outlined">arrow_upward</span>
     </a>
 
@@ -320,19 +337,24 @@
         class="fixed top-0 left-0 w-64 h-full bg-white shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out z-50">
         <ul class="py-8 px-4 flex flex-col justify-between h-full">
             <div class="flex flex-col gap-4">
-                <li><a href="#modulos" class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Vantagens</a>
+                <li><a href="#modulos"
+                        class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Vantagens</a>
                 </li>
-                <li><a href="#recursos" class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Recursos</a>
+                <li><a href="#recursos"
+                        class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Recursos</a>
                 </li>
-                <li><a href="#plans" class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Planos</a>
+                <li><a href="#plans"
+                        class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Planos</a>
                 </li>
                 <li><a href="#representantes"
                         class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Representantes</a>
                 </li>
-                <li><a href="#perguntas" class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Perguntas</a>
+                <li><a href="#perguntas"
+                        class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Perguntas</a>
                 </li>
             </div>
-            <li class="px-4 py-2 rounded-full bg-[#4273b8] text-white font-bold uppercase flex items-center justify-center">
+            <li
+                class="px-4 py-2 rounded-full bg-[#4273b8] text-white font-bold uppercase flex items-center justify-center">
                 <span>LOGIN</span>
             </li>
         </ul>
@@ -353,11 +375,11 @@
                                 <h1
                                     class="font-lato text-3xl sm:text-4xl md:text-6xl font-black text-[var(--primary-text)] leading-tight">
                                     A mais completa plataforma de gestão escolar</h1>
-                                <p class="mt-4 text-lg text-[var(--primary-text)]">Matrículas online, gestão de turmas, censo
+                                <p class="mt-4 text-lg text-[var(--primary-text)]">Matrículas online, gestão de turmas,
+                                    censo
                                     escolar, diário de classe, e aplicativo para alunos e responsáveis.</p>
                             </div>
-                            <div class="md:w-1/2 mt-8 md:mt-0"><img
-                                    src="/images/banner_1_full.png"
+                            <div class="md:w-1/2 mt-8 md:mt-0"><img src="/images/banner_1_full.png"
                                     alt="Plataforma de gestão escolar" class="rounded-[20px] shadow-xl"
                                     onerror="this.onerror=null;this.src='https://placehold.co/600x400/CCCCCC/FFFFFF?text=Banner+1';">
                             </div>
@@ -372,11 +394,11 @@
                                 <h1
                                     class="font-lato text-3xl sm:text-4xl md:text-6xl font-black text-[var(--primary-text)] leading-tight">
                                     Agilidade e eficiência na documentação</h1>
-                                <p class="mt-4 text-lg text-[var(--primary-text)]">Processos automatizados para emissão de
+                                <p class="mt-4 text-lg text-[var(--primary-text)]">Processos automatizados para emissão
+                                    de
                                     históricos, declarações e certificados, economizando tempo e recursos.</p>
                             </div>
-                            <div class="md:w-1/2 mt-8 md:mt-0"><img
-                                    src="/images/banner_2_full.png"
+                            <div class="md:w-1/2 mt-8 md:mt-0"><img src="/images/banner_2_full.png"
                                     alt="Documentação escolar" class="rounded-[20px] shadow-xl"
                                     onerror="this.onerror=null;this.src='https://placehold.co/600x400/CCCCCC/FFFFFF?text=Banner+2';">
                             </div>
@@ -391,11 +413,11 @@
                                 <h1
                                     class="font-lato text-3xl sm:text-4xl md:text-6xl font-black text-[var(--primary-text)] leading-tight">
                                     Experiência digital completa e conectada</h1>
-                                <p class="mt-4 text-lg text-[var(--primary-text)]">Conteúdos, atividades e notificações em um
+                                <p class="mt-4 text-lg text-[var(--primary-text)]">Conteúdos, atividades e notificações
+                                    em um
                                     aplicativo que proporciona uma experiência educacional moderna.</p>
                             </div>
-                            <div class="md:w-1/2 mt-8 md:mt-0"><img
-                                    src="/images/banner_3_full.png"
+                            <div class="md:w-1/2 mt-8 md:mt-0"><img src="/images/banner_3_full.png"
                                     alt="Experiência digital" class="rounded-[20px] shadow-xl"
                                     onerror="this.onerror=null;this.src='https://placehold.co/600x400/CCCCCC/FFFFFF?text=Banner+3';">
                             </div>
@@ -410,11 +432,11 @@
                                 <h1
                                     class="font-lato text-3xl sm:text-4xl md:text-6xl font-black text-[var(--primary-text)] leading-tight">
                                     Reduza retrabalhos e ganhe eficiência</h1>
-                                <p class="mt-4 text-lg text-[var(--primary-text)]">Múltiplas integrações com diversas áreas
+                                <p class="mt-4 text-lg text-[var(--primary-text)]">Múltiplas integrações com diversas
+                                    áreas
                                     administrativas promovem redução de tempo e esforço.</p>
                             </div>
-                            <div class="md:w-1/2 mt-8 md:mt-0"><img
-                                    src="/images/banner_4_full.png"
+                            <div class="md:w-1/2 mt-8 md:mt-0"><img src="/images/banner_4_full.png"
                                     alt="Eficiência na gestão" class="rounded-[20px] shadow-xl"
                                     onerror="this.onerror=null;this.src='https://placehold.co/600x400/CCCCCC/FFFFFF?text=Banner+4';">
                             </div>
@@ -429,9 +451,11 @@
         <section id="modulos" class="py-12 md:py-24">
             <div class="container mx-auto px-4">
                 <div class="text-center max-w-3xl mx-auto">
-                    <h2 class="text-3xl md:text-4xl font-bold text-[var(--primary-text)] mb-4">Resolvendo os Desafios da Gestão
+                    <h2 class="text-3xl md:text-4xl font-bold text-[var(--primary-text)] mb-4">Resolvendo os Desafios da
+                        Gestão
                         Educacional</h2>
-                    <p class="text-[var(--primary-text)]">Descubra como o GEWEB transforma a administração da sua rede de ensino
+                    <p class="text-[var(--primary-text)]">Descubra como o GEWEB transforma a administração da sua rede
+                        de ensino
                         através de soluções focadas em seus maiores desafios.</p>
                 </div>
 
@@ -442,7 +466,8 @@
                         <span
                             class="material-symbols-outlined text-5xl text-[#2d81f6] bg-[#acc8ea] p-4 rounded-full">speed</span>
                         <h3 class="font-bold text-2xl text-[var(--primary-text)] mt-6">Eficiência Operacional</h3>
-                        <p class="text-[var(--primary-text)] mt-2">Agilize processos, reduza o uso de papel e acelere tarefas como
+                        <p class="text-[var(--primary-text)] mt-2">Agilize processos, reduza o uso de papel e acelere
+                            tarefas como
                             o envio de dados para o censo escolar.</p>
                     </div>
                     <!-- Card Controle -->
@@ -451,7 +476,8 @@
                         <span
                             class="material-symbols-outlined text-5xl text-[#2d81f6] bg-[#acc8ea] p-4 rounded-full">visibility</span>
                         <h3 class="font-bold text-2xl text-[var(--primary-text)] mt-6">Controle e Transparência</h3>
-                        <p class="text-[var(--primary-text)] mt-2">Tenha acesso rápido a dados de alunos e docentes, gerencie
+                        <p class="text-[var(--primary-text)] mt-2">Tenha acesso rápido a dados de alunos e docentes,
+                            gerencie
                             horários e espaços com total visibilidade.</p>
                     </div>
                     <!-- Card Modernização -->
@@ -460,7 +486,8 @@
                         <span
                             class="material-symbols-outlined text-5xl text-[#2d81f6] bg-[#acc8ea] p-4 rounded-full">devices</span>
                         <h3 class="font-bold text-2xl text-[var(--primary-text)] mt-6">Modernização</h3>
-                        <p class="text-[var(--primary-text)] mt-2">Ofereça matrículas online e utilize uma plataforma adaptável a
+                        <p class="text-[var(--primary-text)] mt-2">Ofereça matrículas online e utilize uma plataforma
+                            adaptável a
                             qualquer unidade de ensino, com ou sem internet.</p>
                     </div>
                 </div>
@@ -470,13 +497,15 @@
         <!-- Seção de Urgência e CTA Principal -->
         <section class="py-12 md:py-24">
             <div class="container mx-auto px-4 text-center w-full flex items-center flex-col">
-                <h2 class="text-3xl md:text-4xl font-bold text-[var(--primary-text)]">Transforme Sua Gestão Educacional Agora
+                <h2 class="text-3xl md:text-4xl font-bold text-[var(--primary-text)]">Transforme Sua Gestão Educacional
+                    Agora
                 </h2>
-                <p class="mt-4 text-lg text-[var(--primary-text)]">A janela de oportunidade para modernizar sua rede de ensino para <br>
+                <p class="mt-4 text-lg text-[var(--primary-text)]">A janela de oportunidade para modernizar sua rede de
+                    ensino para <br>
                     o próximo semestre está aberta. Não perca a chance de sair na frente.</p>
-                <div class="mt-10 w-fit bg-[var(--primary-text)] text-white rounded-2xl min-h-[56px] flex items-center justify-center animate-bounce duration-300 px-6">
-                    <a href="#representantes"
-                        class="upddercase font-bold">
+                <div
+                    class="mt-10 w-fit bg-[var(--primary-text)] text-white rounded-2xl min-h-[56px] flex items-center justify-center animate-bounce duration-300 px-6">
+                    <a href="#representantes" class="upddercase font-bold">
                         Fale com um Especialista Agora
                     </a>
                 </div>
@@ -490,7 +519,8 @@
                 <!-- Layout Mobile: Slider 9:16 com Gestos e Peek -->
                 <div class="sm:hidden">
                     <div class="text-center mb-12">
-                        <h2 class="text-3xl font-bold text-[var(--primary-text)]">Uma Plataforma Completa de Recursos</h2>
+                        <h2 class="text-3xl font-bold text-[var(--primary-text)]">Uma Plataforma Completa de Recursos
+                        </h2>
                     </div>
                     <div class="relative">
                         <div id="mobile-slider-wrapper" class="overflow-hidden">
@@ -508,7 +538,8 @@
                 <!-- Layout Tablet/Desktop: Apple Style -->
                 <div class="hidden sm:block font-inter">
                     <header class="text-center mb-12 lg:mb-16">
-                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--primary-text)]">
+                        <h2
+                            class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[var(--primary-text)]">
                             Explore os detalhes.
                         </h2>
                     </header>
@@ -528,7 +559,8 @@
                                     class="w-full h-full flex flex-col items-center justify-center text-center transition-opacity duration-500 ease-in-out">
                                     <img id="featureImage" src="" alt="Imagem do recurso em destaque"
                                         class="max-h-[70%] object-contain">
-                                    <h3 id="featureTitle" class="text-2xl font-bold mt-4 text-[var(--primary-text)]"></h3>
+                                    <h3 id="featureTitle" class="text-2xl font-bold mt-4 text-[var(--primary-text)]">
+                                    </h3>
                                 </div>
                             </div>
                         </div>
@@ -546,28 +578,31 @@
                     <p class="">O GEWEB é o centro da sua gestão. Conecte-o a outras áreas e ganhe
                         uma visão 360º do seu município.</p>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-8 place-items-center px-6">
-                    <button class="bg-white rounded-2xl w-full h-[200px] flex items-center justify-center p-6 transition-transform hover:scale-110"><img
-                            src="/images/avaliaedu_min.svg" alt="Logo AvaliaEDU"
-                            class="h-full"
+                <div
+                    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-8 place-items-center px-6">
+                    <button
+                        class="bg-white rounded-2xl w-full h-[200px] flex items-center justify-center p-6 transition-transform hover:scale-110"><img
+                            src="/images/avaliaedu_min.svg" alt="Logo AvaliaEDU" class="h-full"
                             onerror="this.onerror=null;this.src='https://placehold.co/150x80?text=AvaliaEDU';"></button>
-                    <button class="bg-white rounded-2xl w-full h-[200px] flex items-center justify-center p-6 transition-transform hover:scale-110"><img
+                    <button
+                        class="bg-white rounded-2xl w-full h-[200px] flex items-center justify-center p-6 transition-transform hover:scale-110"><img
                             src="/images/estoqgov_min.svg" alt="Logo EstoqGOV" class="h-full"
                             onerror="this.onerror=null;this.src='https://placehold.co/150x80?text=EstoqGOV';"></button>
-                    <button class="bg-white rounded-2xl w-full h-[200px] flex items-center justify-center p-6 transition-transform hover:scale-110"><img
-                            src="/images/etransporte_min.svg" alt="Logo e-Transporte"
-                            class="h-full"
+                    <button
+                        class="bg-white rounded-2xl w-full h-[200px] flex items-center justify-center p-6 transition-transform hover:scale-110"><img
+                            src="/images/etransporte_min.svg" alt="Logo e-Transporte" class="h-full"
                             onerror="this.onerror=null;this.src='https://placehold.co/150x80?text=e-Transporte';"></button>
-                    <button class="bg-white rounded-2xl w-full h-[200px] flex items-center justify-center p-6 transition-transform hover:scale-110"><img
-                            src="/images/lotagovrh_min.svg" alt="Logo LotaGOV RH"
-                            class="h-full"
+                    <button
+                        class="bg-white rounded-2xl w-full h-[200px] flex items-center justify-center p-6 transition-transform hover:scale-110"><img
+                            src="/images/lotagovrh_min.svg" alt="Logo LotaGOV RH" class="h-full"
                             onerror="this.onerror=null;this.src='https://placehold.co/150x80?text=LotaGOV+RH';"></button>
-                    <button class="bg-white rounded-2xl w-full h-[200px] flex items-center justify-center p-6 transition-transform hover:scale-110"><img
+                    <button
+                        class="bg-white rounded-2xl w-full h-[200px] flex items-center justify-center p-6 transition-transform hover:scale-110"><img
                             src="/images/nutrigov_min.svg" alt="Logo NutriGOV" class="h-full"
                             onerror="this.onerror=null;this.src='https://placehold.co/150x80?text=NutriGOV';"></button>
-                    <button class="bg-white rounded-2xl w-full h-[200px] flex items-center justify-center p-6 transition-transform hover:scale-110"><img
-                            src="/images/comprasgov_min.svg" alt="Logo ComprasGOV"
-                            class="h-full"
+                    <button
+                        class="bg-white rounded-2xl w-full h-[200px] flex items-center justify-center p-6 transition-transform hover:scale-110"><img
+                            src="/images/comprasgov_min.svg" alt="Logo ComprasGOV" class="h-full"
                             onerror="this.onerror=null;this.src='https://placehold.co/150x80?text=ComprasGOV';"></button>
                 </div>
             </div>
@@ -581,34 +616,44 @@
                         Região</h2>
                 </div>
                 <div class="w-full mx-auto mt-12 bg-white p-8 rounded-3xl shadow-xl">
-                    <p class="text-[var(--primary-text)] mb-6 text-center">Nossos representantes estão aptos a capacitar sua equipe
+                    <p class="text-[var(--primary-text)] mb-6 text-center">Nossos representantes estão aptos a capacitar
+                        sua equipe
                         para se tornarem autônomos no uso de nossos sistemas.</p>
                     <div class="w-full">
-                        <label for="estado-select" class="block text-sm font-medium text-[var(--primary-text)] mb-2">Selecione seu
+                        <label for="estado-select"
+                            class="block text-sm font-medium text-[var(--primary-text)] mb-2">Selecione seu
                             estado</label>
-                        
+
                         <!-- Dropdown Customizado -->
                         <div class="custom-select" id="estado-custom-select">
                             <button type="button" class="custom-select-button" id="estado-select-button">
                                 <span id="estado-selected-text">Pará</span>
                                 <span class="custom-select-icon">
-                                    <svg class="w-5 h-5 text-[var(--primary-text)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                    <svg class="w-5 h-5 text-[var(--primary-text)]" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 9l-7 7-7-7"></path>
                                     </svg>
                                 </span>
                             </button>
-                            
+
                             <div class="custom-select-dropdown" id="estado-dropdown">
                                 <button type="button" class="custom-select-option" data-value="ceara">Ceará</button>
-                                <button type="button" class="custom-select-option" data-value="maranhao">Maranhão</button>
-                                <button type="button" class="custom-select-option selected" data-value="para">Pará</button>
-                                <button type="button" class="custom-select-option" data-value="minasgerais">Minas Gerais</button>
-                                <button type="button" class="custom-select-option" data-value="riograndedosul">Rio Grande do Sul</button>
-                                <button type="button" class="custom-select-option" data-value="santacatarina">Santa Catarina</button>
-                                <button type="button" class="custom-select-option" data-value="tocantins">Tocantins</button>
+                                <button type="button" class="custom-select-option"
+                                    data-value="maranhao">Maranhão</button>
+                                <button type="button" class="custom-select-option selected"
+                                    data-value="para">Pará</button>
+                                <button type="button" class="custom-select-option" data-value="minasgerais">Minas
+                                    Gerais</button>
+                                <button type="button" class="custom-select-option" data-value="riograndedosul">Rio
+                                    Grande do Sul</button>
+                                <button type="button" class="custom-select-option" data-value="santacatarina">Santa
+                                    Catarina</button>
+                                <button type="button" class="custom-select-option"
+                                    data-value="tocantins">Tocantins</button>
                             </div>
                         </div>
-                        
+
                         <!-- Input hidden para manter compatibilidade -->
                         <input type="hidden" id="estado-select" value="para">
                     </div>
@@ -631,35 +676,43 @@
                     <div class="bg-white rounded-3xl p-8 shadow-xl relative">
                         <div class="text-center mb-6">
                             <h3 class="text-2xl font-bold text-[var(--primary-text)] mb-2">Básico</h3>
-                            <div class="text-4xl font-black text-brand-primary mb-4">R$ 2.500<span class="text-lg font-normal">/ano</span></div>
+                            <div class="text-4xl font-black text-brand-primary mb-4">R$ 2.500<span
+                                    class="text-lg font-normal">/ano</span></div>
                         </div>
                         <ul class="space-y-4 mb-8">
                             <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span
+                                    class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
                                 <span class="text-[var(--primary-text)]">Até 10 Entidades</span>
                             </li>
                             <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span
+                                    class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
                                 <span class="text-[var(--primary-text)]">Até 03 Departamentos por entidade</span>
                             </li>
                             <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span
+                                    class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
                                 <span class="text-[var(--primary-text)]">Usuários Ilimitados</span>
                             </li>
                             <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span
+                                    class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
                                 <span class="text-[var(--primary-text)]">Movimentações Ilimitadas</span>
                             </li>
                             <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span
+                                    class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
                                 <span class="text-[var(--primary-text)]">Onboarding remoto com especialista</span>
                             </li>
                             <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span
+                                    class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
                                 <span class="text-[var(--primary-text)]">Suporte Remoto básico</span>
                             </li>
                         </ul>
-                        <button class="w-full bg-[var(--primary-text)] text-white font-bold py-3 px-6 rounded-xl hover:bg-gray-700 transition-colors">
+                        <button
+                            class="w-full bg-[var(--primary-text)] text-white font-bold py-3 px-6 rounded-xl hover:bg-gray-700 transition-colors">
                             Começar Agora
                         </button>
                         <div class="mt-4 text-sm text-gray-600 text-center">
@@ -677,39 +730,48 @@
                         </div>
                         <div class="text-center mb-6">
                             <h3 class="text-2xl font-bold text-[var(--primary-text)] mb-2">Médio</h3>
-                            <div class="text-4xl font-black text-brand-primary mb-4">R$ 4.500<span class="text-lg font-normal">/ano</span></div>
+                            <div class="text-4xl font-black text-brand-primary mb-4">R$ 4.500<span
+                                    class="text-lg font-normal">/ano</span></div>
                         </div>
                         <ul class="space-y-4 mb-8">
                             <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span
+                                    class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
                                 <span class="text-[var(--primary-text)]">Até 30 Entidades</span>
                             </li>
                             <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span
+                                    class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
                                 <span class="text-[var(--primary-text)]">Até 05 Departamentos por entidade</span>
                             </li>
                             <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span
+                                    class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
                                 <span class="text-[var(--primary-text)]">Usuários Ilimitados</span>
                             </li>
                             <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span
+                                    class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
                                 <span class="text-[var(--primary-text)]">Movimentações Ilimitadas</span>
                             </li>
                             <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span
+                                    class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
                                 <span class="text-[var(--primary-text)]">Onboarding remoto com especialista</span>
                             </li>
                             <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span
+                                    class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
                                 <span class="text-[var(--primary-text)]">Treinamento remoto via curso online</span>
                             </li>
                             <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span
+                                    class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
                                 <span class="text-[var(--primary-text)]">Suporte Remoto com SLA por gravidade</span>
                             </li>
                         </ul>
-                        <button class="w-full bg-[var(--primary-text)] text-white font-bold py-3 px-6 rounded-xl hover:bg-gray-700 transition-colors">
+                        <button
+                            class="w-full bg-[var(--primary-text)] text-white font-bold py-3 px-6 rounded-xl hover:bg-gray-700 transition-colors">
                             Começar Agora
                         </button>
                         <div class="mt-4 text-sm text-gray-600 text-center">
@@ -722,43 +784,53 @@
                     <div class="bg-white rounded-3xl p-8 shadow-xl relative">
                         <div class="text-center mb-6">
                             <h3 class="text-2xl font-bold text-[var(--primary-text)] mb-2">Avançado</h3>
-                            <div class="text-4xl font-black text-brand-primary mb-4">R$ 7.500<span class="text-lg font-normal">/ano</span></div>
+                            <div class="text-4xl font-black text-brand-primary mb-4">R$ 7.500<span
+                                    class="text-lg font-normal">/ano</span></div>
                         </div>
                         <ul class="space-y-4 mb-8">
                             <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span
+                                    class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
                                 <span class="text-[var(--primary-text)]">Entidades Ilimitadas</span>
                             </li>
                             <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span
+                                    class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
                                 <span class="text-[var(--primary-text)]">Departamentos Ilimitados</span>
                             </li>
                             <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span
+                                    class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
                                 <span class="text-[var(--primary-text)]">Usuários Ilimitados</span>
                             </li>
                             <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span
+                                    class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
                                 <span class="text-[var(--primary-text)]">Movimentações Ilimitadas</span>
                             </li>
                             <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span
+                                    class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
                                 <span class="text-[var(--primary-text)]">Onboarding presencial especializado</span>
                             </li>
                             <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span
+                                    class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
                                 <span class="text-[var(--primary-text)]">Treinamento presencial + certificado</span>
                             </li>
                             <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span
+                                    class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
                                 <span class="text-[var(--primary-text)]">Suporte Premium 24/7</span>
                             </li>
                             <li class="flex items-start gap-3">
-                                <span class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
+                                <span
+                                    class="material-symbols-outlined text-green-600 text-xl mt-0.5">check_circle</span>
                                 <span class="text-[var(--primary-text)]">Consultoria personalizada</span>
                             </li>
                         </ul>
-                        <button class="w-full bg-[var(--primary-text)] text-white font-bold py-3 px-6 rounded-xl hover:bg-gray-700 transition-colors">
+                        <button
+                            class="w-full bg-[var(--primary-text)] text-white font-bold py-3 px-6 rounded-xl hover:bg-gray-700 transition-colors">
                             Começar Agora
                         </button>
                         <div class="mt-4 text-sm text-gray-600 text-center">
@@ -771,40 +843,50 @@
                 <div class="md:hidden">
                     <div class="relative">
                         <div id="plans-slider-wrapper" class="overflow-hidden">
-                            <div id="plans-slider" class="flex transition-transform duration-500 ease-in-out gap-4 draggable-slider slider-container p-6">
+                            <div id="plans-slider"
+                                class="flex transition-transform duration-500 ease-in-out gap-4 draggable-slider slider-container p-6">
                                 <!-- Plano Básico Mobile -->
                                 <div class="w-4/5 flex-shrink-0 bg-white rounded-3xl p-6 shadow-xl">
                                     <div class="text-center mb-6">
                                         <h3 class="text-xl font-bold text-[var(--primary-text)] mb-2">Básico</h3>
-                                        <div class="text-3xl font-black text-brand-primary mb-4">R$ 2.500<span class="text-base font-normal">/ano</span></div>
+                                        <div class="text-3xl font-black text-brand-primary mb-4">R$ 2.500<span
+                                                class="text-base font-normal">/ano</span></div>
                                     </div>
                                     <ul class="space-y-3 mb-6 text-sm">
                                         <li class="flex items-start gap-2">
-                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span
+                                                class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
                                             <span class="text-[var(--primary-text)]">Até 10 Entidades</span>
                                         </li>
                                         <li class="flex items-start gap-2">
-                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
-                                            <span class="text-[var(--primary-text)]">Até 03 Departamentos por entidade</span>
+                                            <span
+                                                class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span class="text-[var(--primary-text)]">Até 03 Departamentos por
+                                                entidade</span>
                                         </li>
                                         <li class="flex items-start gap-2">
-                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span
+                                                class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
                                             <span class="text-[var(--primary-text)]">Usuários Ilimitados</span>
                                         </li>
                                         <li class="flex items-start gap-2">
-                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span
+                                                class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
                                             <span class="text-[var(--primary-text)]">Movimentações Ilimitadas</span>
                                         </li>
                                         <li class="flex items-start gap-2">
-                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span
+                                                class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
                                             <span class="text-[var(--primary-text)]">Onboarding remoto</span>
                                         </li>
                                         <li class="flex items-start gap-2">
-                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span
+                                                class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
                                             <span class="text-[var(--primary-text)]">Suporte Básico</span>
                                         </li>
                                     </ul>
-                                    <button class="w-full bg-[var(--primary-text)] text-white font-bold py-3 px-4 rounded-xl hover:bg-gray-700 transition-colors text-sm">
+                                    <button
+                                        class="w-full bg-[var(--primary-text)] text-white font-bold py-3 px-4 rounded-xl hover:bg-gray-700 transition-colors text-sm">
                                         Começar Agora
                                     </button>
                                     <div class="mt-3 text-xs text-gray-600 text-center">
@@ -815,39 +897,48 @@
                                 <!-- Plano Médio Mobile -->
                                 <div class="w-4/5 flex-shrink-0 bg-white rounded-3xl p-6 shadow-xl relative">
                                     <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                                        <span class="bg-[var(--primary-text)] text-white px-4 py-1 rounded-full text-xs font-bold">POPULAR</span>
+                                        <span
+                                            class="bg-[var(--primary-text)] text-white px-4 py-1 rounded-full text-xs font-bold">POPULAR</span>
                                     </div>
                                     <div class="text-center mb-6 mt-2">
                                         <h3 class="text-xl font-bold text-[var(--primary-text)] mb-2">Médio</h3>
-                                        <div class="text-3xl font-black text-brand-primary mb-4">R$ 4.500<span class="text-base font-normal">/ano</span></div>
+                                        <div class="text-3xl font-black text-brand-primary mb-4">R$ 4.500<span
+                                                class="text-base font-normal">/ano</span></div>
                                     </div>
                                     <ul class="space-y-3 mb-6 text-sm">
                                         <li class="flex items-start gap-2">
-                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span
+                                                class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
                                             <span class="text-[var(--primary-text)]">Até 30 Entidades</span>
                                         </li>
                                         <li class="flex items-start gap-2">
-                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span
+                                                class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
                                             <span class="text-[var(--primary-text)]">Até 05 Departamentos</span>
                                         </li>
                                         <li class="flex items-start gap-2">
-                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span
+                                                class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
                                             <span class="text-[var(--primary-text)]">Usuários Ilimitados</span>
                                         </li>
                                         <li class="flex items-start gap-2">
-                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span
+                                                class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
                                             <span class="text-[var(--primary-text)]">Movimentações Ilimitadas</span>
                                         </li>
                                         <li class="flex items-start gap-2">
-                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span
+                                                class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
                                             <span class="text-[var(--primary-text)]">Onboarding + Treinamento</span>
                                         </li>
                                         <li class="flex items-start gap-2">
-                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span
+                                                class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
                                             <span class="text-[var(--primary-text)]">Suporte com SLA</span>
                                         </li>
                                     </ul>
-                                    <button class="w-full bg-[var(--primary-text)] text-white font-bold py-3 px-4 rounded-xl hover:bg-gray-700 transition-colors text-sm">
+                                    <button
+                                        class="w-full bg-[var(--primary-text)] text-white font-bold py-3 px-4 rounded-xl hover:bg-gray-700 transition-colors text-sm">
                                         Começar Agora
                                     </button>
                                     <div class="mt-3 text-xs text-gray-600 text-center">
@@ -859,39 +950,48 @@
                                 <div class="w-4/5 flex-shrink-0 bg-white rounded-3xl p-6 shadow-xl">
                                     <div class="text-center mb-6">
                                         <h3 class="text-xl font-bold text-[var(--primary-text)] mb-2">Avançado</h3>
-                                        <div class="text-3xl font-black text-brand-primary mb-4">R$ 7.500<span class="text-base font-normal">/ano</span></div>
+                                        <div class="text-3xl font-black text-brand-primary mb-4">R$ 7.500<span
+                                                class="text-base font-normal">/ano</span></div>
                                     </div>
                                     <ul class="space-y-3 mb-6 text-sm">
                                         <li class="flex items-start gap-2">
-                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span
+                                                class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
                                             <span class="text-[var(--primary-text)]">Entidades Ilimitadas</span>
                                         </li>
                                         <li class="flex items-start gap-2">
-                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span
+                                                class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
                                             <span class="text-[var(--primary-text)]">Departamentos Ilimitados</span>
                                         </li>
                                         <li class="flex items-start gap-2">
-                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span
+                                                class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
                                             <span class="text-[var(--primary-text)]">Usuários Ilimitados</span>
                                         </li>
                                         <li class="flex items-start gap-2">
-                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span
+                                                class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
                                             <span class="text-[var(--primary-text)]">Movimentações Ilimitadas</span>
                                         </li>
                                         <li class="flex items-start gap-2">
-                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span
+                                                class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
                                             <span class="text-[var(--primary-text)]">Onboarding Presencial</span>
                                         </li>
                                         <li class="flex items-start gap-2">
-                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span
+                                                class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
                                             <span class="text-[var(--primary-text)]">Suporte Premium 24/7</span>
                                         </li>
                                         <li class="flex items-start gap-2">
-                                            <span class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
+                                            <span
+                                                class="material-symbols-outlined text-green-600 text-lg mt-0.5">check_circle</span>
                                             <span class="text-[var(--primary-text)]">Consultoria Personalizada</span>
                                         </li>
                                     </ul>
-                                    <button class="w-full bg-[var(--primary-text)] text-white font-bold py-3 px-4 rounded-xl hover:bg-gray-700 transition-colors text-sm">
+                                    <button
+                                        class="w-full bg-[var(--primary-text)] text-white font-bold py-3 px-4 rounded-xl hover:bg-gray-700 transition-colors text-sm">
                                         Começar Agora
                                     </button>
                                     <div class="mt-3 text-xs text-gray-600 text-center">
@@ -900,7 +1000,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="plans-slider-dots" class="absolute -bottom-2 left-1/2 -translate-x-1/2 flex space-x-2"></div>
+                        <div id="plans-slider-dots" class="absolute -bottom-2 left-1/2 -translate-x-1/2 flex space-x-2">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -921,7 +1022,8 @@
                                 funciona a implantação?</span><span
                                 class="material-symbols-outlined transition-transform duration-300">expand_more</span></button>
                         <div class="accordion-body max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                            <p class="p-5 pt-0 text-[var(--primary-text)]">Nossa equipe realiza todo o processo, desde a migração
+                            <p class="p-5 pt-0 text-[var(--primary-text)]">Nossa equipe realiza todo o processo, desde a
+                                migração
                                 de dados até o treinamento completo dos usuários, garantindo uma transição suave.</p>
                         </div>
                     </div>
@@ -931,7 +1033,8 @@
                                 sistema é seguro?</span><span
                                 class="material-symbols-outlined transition-transform duration-300">expand_more</span></button>
                         <div class="accordion-body max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                            <p class="p-5 pt-0 text-[var(--primary-text)]">Sim, a segurança é nossa prioridade. Utilizamos
+                            <p class="p-5 pt-0 text-[var(--primary-text)]">Sim, a segurança é nossa prioridade.
+                                Utilizamos
                                 servidores robustos, criptografia e seguimos as melhores práticas de segurança de dados.
                             </p>
                         </div>
@@ -942,7 +1045,8 @@
                                 suporte técnico?</span><span
                                 class="material-symbols-outlined transition-transform duration-300">expand_more</span></button>
                         <div class="accordion-body max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                            <p class="p-5 pt-0 text-[var(--primary-text)]">Oferecemos suporte técnico contínuo através de nossos
+                            <p class="p-5 pt-0 text-[var(--primary-text)]">Oferecemos suporte técnico contínuo através
+                                de nossos
                                 representantes locais, com atendimento por telefone, e-mail e chat.</p>
                         </div>
                     </div>
@@ -952,14 +1056,15 @@
 
         <!-- Novo Rodapé Estruturado -->
         <div class="container mx-auto px-4 pt-12 pb-8">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-8 text-center md:text-left">
                 <!-- Coluna 1: Logo e Missão -->
                 <div class="md:col-span-1 flex flex-col items-center md:items-start">
                     <a href="#inicio" class="shrink-0 mb-4 inline-block">
                         <img class="w-36" src="/images/preferencial.svg" alt="GEWEB"
                             onerror="this.onerror=null;this.src='https://placehold.co/150x50/FFFFFF/111827?text=GEWEB';">
                     </a>
-                    <p class="text-sm text-[var(--primary-text)]">Transformando a gestão pública educacional com tecnologia e
+                    <p class="text-sm text-[var(--primary-text)]">Transformando a gestão pública educacional com
+                        tecnologia e
                         inovação.</p>
                 </div>
                 <!-- Coluna 2: Navegação -->
@@ -971,37 +1076,54 @@
                         <li><a href="#plans" class="hover:underline">Planos</a></li>
                         <li><a href="#sistemas_integrados" class="hover:underline">Ecossistema</a></li>
                         <li><a href="#representantes" class="hover:underline">Representantes</a></li>
-                        <li><a target="_blank" class="px-4 py-2 rounded-[8px] bg-[#4273b8] text-white font-bold uppercase cursor-pointer" href="https://gestorescolarweb.com.br" class="hover:underline">LOGIN</a></li>
+                        <li><a target="_blank"
+                                class="px-4 py-2 rounded-[8px] bg-[#4273b8] text-white font-bold uppercase cursor-pointer"
+                                href="https://gestorescolarweb.com.br" class="hover:underline">LOGIN</a></li>
                     </ul>
                 </div>
                 <!-- Coluna 3: Soluções -->
                 <div>
                     <h4 class="font-bold text-[var(--primary-text)] mb-4">Soluções</h4>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="http://www.govsolutions.com.br/avaliaedu" target="_blank" class="hover:underline">AvaliaEDU</a></li>
-                        <li><a href="http://www.govsolutions.com.br/estoqgov" target="_blank" class="hover:underline">EstoqGOV</a></li>
-                        <li><a href="http://www.govsolutions.com.br/etransporte" target="_blank" class="hover:underline">e-Transporte</a></li>
-                        <li><a href="http://www.govsolutions.com.br/lotagovrh" target="_blank" class="hover:underline">LotaGOV RH</a></li>
-                        <li><a href="http://www.govsolutions.com.br/nutrigov" target="_blank" class="hover:underline">NutriGOV</a></li>
-                        <li><a href="http://www.govsolutions.com.br/comprasgov" target="_blank" class="hover:underline">ComprasGOV</a></li>
+                        <li><a href="http://www.govsolutions.com.br/avaliaedu" target="_blank"
+                                class="hover:underline">AvaliaEDU</a></li>
+                        <li><a href="http://www.govsolutions.com.br/estoqgov" target="_blank"
+                                class="hover:underline">EstoqGOV</a></li>
+                        <li><a href="http://www.govsolutions.com.br/etransporte" target="_blank"
+                                class="hover:underline">e-Transporte</a></li>
+                        <li><a href="http://www.govsolutions.com.br/lotagovrh" target="_blank"
+                                class="hover:underline">LotaGOV RH</a></li>
+                        <li><a href="http://www.govsolutions.com.br/nutrigov" target="_blank"
+                                class="hover:underline">NutriGOV</a></li>
+                        <li><a href="http://www.govsolutions.com.br/comprasgov" target="_blank"
+                                class="hover:underline">ComprasGOV</a></li>
                     </ul>
                 </div>
                 <!-- Coluna 4: Contato -->
-                <div>
+                <div class="flex flex-col w-full">
                     <h4 class="font-bold text-[var(--primary-text)] mb-4">Contato</h4>
                     <address class="not-italic text-sm space-y-2">
                         <p>GOVSOLUTIONS</p>
                         <p>contato@govsolutions.com.br</p>
                     </address>
                 </div>
+
+                <div class="flex flex-col w-full">
+                    <h4 class="font-bold text-[var(--primary-text)] mb-4">Termos e Políticas</h4>
+                    <address class="not-italic text-sm space-y-2 flex flex-col">
+                        <a href="/geweb-terms">Termos de serviço</a>
+                        <a href="/geweb-privacy">Políticas de privacidade</a>
+                    </address>
+                </div>
             </div>
         </div>
 
-        <div class="border-t text-center py-6 text-sm text-[var(--primary-text)]">© 2025 GEWEB by GOVSOLUTIONS. Todos os direitos
+        <div class="border-t text-center py-6 text-sm text-[var(--primary-text)]">© 2025 GEWEB by GOVSOLUTIONS. Todos os
+            direitos
             reservados.</div>
     </footer>
 
-    
+
 
     <!-- SCRIPTS INTERNOS -->
     <script>
@@ -1026,7 +1148,7 @@
             // --- BANNER DE COOKIES ---
             const cookieBanner = document.querySelector('.fixed.bottom-0.left-0.right-0.bg-gray-900');
             const cookieAcceptBtn = document.getElementById('cookie-banner-btn');
-            
+
             // Verificar se já aceitou cookies
             if (cookieBanner && !localStorage.getItem('cookiesAccepted')) {
                 // Mostrar banner após 1.5s com transição CSS
@@ -1034,12 +1156,12 @@
                     cookieBanner.style.transform = 'translateY(0)';
                 }, 1500);
             }
-            
+
             // Evento de aceitar cookies
             if (cookieAcceptBtn) {
                 cookieAcceptBtn.addEventListener('click', () => {
                     localStorage.setItem('cookiesAccepted', 'true');
-                    
+
                     // Esconder com transição CSS
                     if (cookieBanner) {
                         cookieBanner.style.transform = 'translateY(100%)';
@@ -1048,7 +1170,7 @@
             }
 
             // --- BOTÃO VOLTAR AO TOPO (aparece em 50% do scroll total) ---
-            (function() {
+            (function () {
                 const fab = document.getElementById('fab_top');
                 if (!fab) return;
 
@@ -1156,7 +1278,7 @@
                         onResize: config.onResize || null,
                         ...config
                     };
-                    
+
                     this.currentIndex = 0;
                     this.slides = Array.from(this.container.children);
                     this.slideCount = this.slides.length;
@@ -1169,17 +1291,17 @@
                     this.animationId = null;
                     this.autoPlayTimer = null;
                     this.resizeTimer = null;
-                    
+
                     this.init();
                 }
 
                 init() {
                     if (this.slideCount <= 1) return;
-                    
+
                     this.updateDimensions();
                     this.bindEvents();
                     this.goToSlide(this.currentIndex, false);
-                    
+
                     if (this.config.autoPlay) {
                         this.startAutoPlay();
                     }
@@ -1222,7 +1344,7 @@
                     const debouncedResize = this.debounce(() => {
                         this.handleResize();
                     }, 150);
-                    
+
                     window.addEventListener('resize', debouncedResize);
                     window.addEventListener('orientationchange', debouncedResize);
                 }
@@ -1232,13 +1354,13 @@
                     if (this.config.onResize) {
                         this.config.onResize();
                     }
-                    
+
                     // Atualizar dimensões
                     this.updateDimensions();
-                    
+
                     // Reposicionar no slide atual sem animação
                     this.goToSlide(this.currentIndex, false);
-                    
+
                     // Reiniciar autoplay se estava ativo
                     if (this.config.autoPlay && !this.autoPlayTimer) {
                         this.startAutoPlay();
@@ -1249,12 +1371,12 @@
                     this.isDragging = true;
                     this.startX = this.getEventX(e);
                     this.initialTransform = this.getCurrentTransform();
-                    
+
                     this.container.style.transition = 'none';
                     this.container.classList.add('dragging');
-                    
+
                     this.stopAutoPlay();
-                    
+
                     if (e.type === 'mousedown') {
                         e.preventDefault();
                     }
@@ -1265,12 +1387,12 @@
 
                     this.currentX = this.getEventX(e);
                     const diff = this.currentX - this.startX;
-                    
+
                     let newTransform = this.initialTransform + diff;
-                    
+
                     // Apply resistance at boundaries
                     let maxTransform, minTransform;
-                    
+
                     if (this.config.customTransform) {
                         // Para sliders customizados (como mobile), calcular limites dinamicamente
                         maxTransform = this.config.customTransform(0);
@@ -1280,7 +1402,7 @@
                         maxTransform = 0;
                         minTransform = -((this.slideCount - 1) * this.slideWidth);
                     }
-                    
+
                     if (newTransform > maxTransform) {
                         newTransform = maxTransform + (newTransform - maxTransform) * this.config.resistance;
                     } else if (newTransform < minTransform) {
@@ -1288,7 +1410,7 @@
                     }
 
                     this.container.style.transform = `translateX(${newTransform}px)`;
-                    
+
                     if (e.type === 'touchmove') {
                         e.preventDefault();
                     }
@@ -1312,7 +1434,7 @@
                     }
 
                     this.goToSlide(this.currentIndex, true);
-                    
+
                     if (this.config.autoPlay) {
                         this.startAutoPlay();
                     }
@@ -1330,7 +1452,7 @@
 
                 goToSlide(index, animate = true) {
                     this.currentIndex = Math.max(0, Math.min(index, this.slideCount - 1));
-                    
+
                     // Para mobile slider com gap, usar cálculo personalizado
                     let transform;
                     if (this.config.customTransform) {
@@ -1392,7 +1514,7 @@
             // --- CARROSSEL DO BANNER COM DRAG ---
             const carousel = document.getElementById('banner-carousel');
             const dotsContainer = document.getElementById('carousel-dots');
-            
+
             if (carousel && dotsContainer) {
                 const slides = Array.from(carousel.children);
                 let bannerSlider = null;
@@ -1416,7 +1538,7 @@
                 }
 
                 createDots();
-                
+
                 if (slides.length > 1) {
                     bannerSlider = new DraggableSlider(carousel, {
                         autoPlay: true,
@@ -1531,7 +1653,7 @@
                 santacatarina: [{ nome: 'SC Gov Systems', cidade: 'Florianópolis', fone: '(48) 3210-9876', email: 'contato@scgov.com.br' }],
                 tocantins: [{ nome: 'Tocantins Soluções', cidade: 'Palmas', fone: '(63) 3215-1234', email: 'contato@tosolucoes.com.br' }]
             };
-            
+
             // --- LÓGICA DO DROPDOWN CUSTOMIZADO ---
             const selectEstado = document.getElementById('estado-select');
             const customSelect = document.getElementById('estado-custom-select');
@@ -1540,50 +1662,50 @@
             const dropdown = document.getElementById('estado-dropdown');
             const options = dropdown.querySelectorAll('.custom-select-option');
             const revGrid = document.getElementById('rev-grid');
-            
+
             // Função para fechar dropdown ao clicar fora
             function closeDropdown() {
                 customSelect.classList.remove('open');
             }
-            
+
             // Abrir/fechar dropdown
             selectButton.addEventListener('click', (e) => {
                 e.stopPropagation();
                 customSelect.classList.toggle('open');
             });
-            
+
             // Fechar dropdown ao clicar fora
             document.addEventListener('click', closeDropdown);
-            
+
             // Prevenir fechamento ao clicar no dropdown
             dropdown.addEventListener('click', (e) => {
                 e.stopPropagation();
             });
-            
+
             // Lógica das opções
             options.forEach(option => {
                 option.addEventListener('click', () => {
                     // Remover seleção anterior
                     options.forEach(opt => opt.classList.remove('selected'));
-                    
+
                     // Selecionar nova opção
                     option.classList.add('selected');
-                    
+
                     // Atualizar texto e valor
                     const value = option.dataset.value;
                     const text = option.textContent;
-                    
+
                     selectedText.textContent = text;
                     selectEstado.value = value;
-                    
+
                     // Fechar dropdown
                     customSelect.classList.remove('open');
-                    
+
                     // Disparar evento de mudança
                     mostrarConce(value);
                 });
             });
-            
+
             function mostrarConce(estado) {
                 if (!revGrid) return;
                 // Limpar grid
@@ -1627,7 +1749,7 @@
                     revGrid.appendChild(card);
                 });
             }
-            
+
             // Inicializar com valor padrão (proteção caso selectEstado não exista)
             if (selectEstado && selectEstado.value) {
                 mostrarConce(selectEstado.value);
@@ -1781,11 +1903,11 @@
                 function calculateSlideWidth() {
                     const slides = Array.from(mobileSliderContainer.children);
                     if (slides.length === 0) return 0;
-                    
+
                     const slide = slides[0];
                     const slideWidth = slide.offsetWidth;
                     const gap = parseInt(window.getComputedStyle(mobileSliderContainer).gap) || 16;
-                    
+
                     return slideWidth + gap;
                 }
 
@@ -1793,16 +1915,16 @@
                 function customMobileTransform(index) {
                     const slides = Array.from(mobileSliderContainer.children);
                     if (slides.length === 0) return 0;
-                    
+
                     const slide = slides[0];
                     const wrapperWidth = mobileSliderWrapper.offsetWidth;
                     const slideWidth = slide.offsetWidth;
                     const gap = parseInt(window.getComputedStyle(mobileSliderContainer).gap) || 16;
-                    
+
                     // Centralizar o primeiro slide
                     const initialOffset = (wrapperWidth - slideWidth) / 2;
                     const totalSlideWidth = slideWidth + gap;
-                    
+
                     return initialOffset - (index * totalSlideWidth);
                 }
 
@@ -1817,7 +1939,7 @@
                         onResize: () => {
                             // Recalcular dimensões do mobile slider no resize
                             mobileSlider.config.slideWidth = calculateSlideWidth();
-                            
+
                             // Aguardar um frame para garantir que o DOM foi atualizado
                             requestAnimationFrame(() => {
                                 mobileSlider.updateDimensions();
@@ -1868,11 +1990,11 @@
                 function calculatePlanSlideWidth() {
                     const slides = Array.from(plansSliderContainer.children);
                     if (slides.length === 0) return 0;
-                    
+
                     const slide = slides[0];
                     const slideWidth = slide.offsetWidth;
                     const gap = parseInt(window.getComputedStyle(plansSliderContainer).gap) || 16;
-                    
+
                     return slideWidth + gap;
                 }
 
@@ -1880,16 +2002,16 @@
                 function customPlansTransform(index) {
                     const slides = Array.from(plansSliderContainer.children);
                     if (slides.length === 0) return 0;
-                    
+
                     const slide = slides[0];
                     const wrapperWidth = plansSliderWrapper.offsetWidth;
                     const slideWidth = slide.offsetWidth;
                     const gap = parseInt(window.getComputedStyle(plansSliderContainer).gap) || 16;
-                    
+
                     // Centralizar o primeiro slide
                     const initialOffset = (wrapperWidth - slideWidth) / 2;
                     const totalSlideWidth = slideWidth + gap;
-                    
+
                     return initialOffset - (index * totalSlideWidth);
                 }
 
@@ -1904,7 +2026,7 @@
                         onResize: () => {
                             // Recalcular dimensões do plans slider no resize
                             plansSlider.config.slideWidth = calculatePlanSlideWidth();
-                            
+
                             // Aguardar um frame para garantir que o DOM foi atualizado
                             requestAnimationFrame(() => {
                                 plansSlider.updateDimensions();

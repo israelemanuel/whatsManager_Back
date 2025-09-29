@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth" itemscope itemtype="https://schema.org/WebSite">
+
+<head>
+    <!-- Meta tags básicas -->
+    <meta charset="UTF-8">
+    <meta name="mit" content="2017-11-29T17:14:42-02:00+32580">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0,user-scalable=0">
+    <meta name="description" content="Termos de Serviço do GEWEB - Plataforma de Gestão Escolar | GovSolutions" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Título da página -->
+    <title>Termos de Serviço - GEWEB | GovSolutions</title>
+
+    <!-- Links canônicos e base -->
+    <link rel="base" href="https://govsolutions.com.br" />
+    <link rel="canonical" href="https://govsolutions.com.br/geweb/termos" />
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="/images/geweb_favicon.png" />
+    <link rel="icon" href="/images/geweb_favicon.png"
+        onerror="this.href='https://placehold.co/32x32/6a2480/FFFFFF?text=G'">
+
+    <!-- Meta tags Schema.org -->
+    <meta itemprop="name" content="Termos de Serviço - GEWEB | GovSolutions" />
+    <meta itemprop="description" content="Termos de Serviço do GEWEB - Plataforma de Gestão Escolar | GovSolutions" />
+    <meta itemprop="image" content="/images/geweb_logo.png" />
+    <meta itemprop="url" content="https://govsolutions.com.br/geweb/termos" />
+
+    <!-- Meta tags Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Termos de Serviço - GEWEB | GovSolutions" />
+    <meta property="og:description" content="Termos de Serviço do GEWEB - Plataforma de Gestão Escolar | GovSolutions" />
+    <meta property="og:image" content="/images/geweb_thumbicon.png" />
+    <meta property="og:url" content="https://govsolutions.com.br/geweb/termos" />
+    <meta property="og:site_name" content="GovSOLUTIONS" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="article:author" content="https://govsolutions.com.br/autor" />
+    <meta property="article:publisher" content="https://govsolutions.com.br" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts e Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Lato:wght@900&family=Montserrat:wght@400;700&display=swap"
+            rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <script>
+        // Configuração do Tailwind CSS com a nova paleta de cores
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-primary': '#111827', // Cinza escuro para texto e botões principais
+                        'brand-purple': '#A78BFA', // Lavanda suave
+                        'brand-pink': '#FBCFE8',   // Rosa suave
+                        'brand-orange': '#FDBA74', // Laranja suave
+                        'brand-light': '#F9FAFB',  // Fundo off-white
+                        'brand-text': '#374151',   // Cor principal de texto
+                    },
+                    fontFamily: {
+                        'nunito': ['Nunito', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root{
+            --primary-text: #3e4b67;
+        }
+
+        /* Estilos para o header */
+        #header {
+            will-change: transform, position, width, border-radius;
+            transition: all 0.3s ease;
+        }
+
+        /* Container do header para manter layout consistente */
+        #header .container {
+            transition: padding 0.4s ease;
+        }
+
+        /* Garantir que o header não interfira com outros elementos */
+        #header.floating {
+            pointer-events: auto;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Estilos para conteúdo de texto */
+        .terms-content h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-text);
+        }
+
+        .terms-content h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-text);
+        }
+
+        .terms-content h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary-text);
+        }
+
+        .terms-content p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        .terms-content ul {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        .terms-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        .terms-signature {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e5e7eb;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body class="font-nunito text-[var(--primary-text)]" style="background-image: linear-gradient(0deg, #4273b8, #acc8ea, #f7fbff);">
+
+    <!-- Cabeçalho e Navegação -->
+    <header id="header" class="flex items-center justify-center box-border">
+        <nav class="max-w-[1440px] px-4 w-full box-border">
+            <div class="flex justify-between items-center py-3">
+                <a href="/" class="shrink-0 w-[100px]">
+                    <img class="w-34" src="/images/preferencial.svg" alt="Logo GEWEB">
+                </a>
+                <ul class="hidden lg:flex items-center space-x-8">
+                    <li><a href="/" class="font-bold text-[var(--primary-text)]">Início</a></li>
+                    <li><a href="/#modulos" class="font-bold text-[var(--primary-text)]">Vantagens</a></li>
+                    <li><a href="/#recursos" class="font-bold text-[var(--primary-text)]">Recursos</a></li>
+                    <li><a href="/#plans" class="font-bold text-[var(--primary-text)]">Planos</a></li>
+                    <li><a href="/#representantes" class="font-bold text-[var(--primary-text)]">Representantes</a></li>
+                    
+                    <li><a class="px-4 py-2 rounded-full bg-[#4273b8] text-white font-bold uppercase cursor-pointer"
+                        href="https://gestorescolarweb.com.br/">LOGIN</a></li>
+                </ul>
+                <button id="mobile-menu-button" class="block lg:hidden text-[var(--primary-text)]">
+                    <i class="material-symbols-outlined text-3xl">menu</i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Botão Flutuante para Voltar ao Topo -->
+    <a id="fab_top" href="#inicio"
+        class="fixed bottom-[8px] right-[8px] z-[9999] inline-flex pointer-events-auto bg-[var(--primary-text)] text-white rounded-full w-14 h-14 items-center justify-center shadow-lg hover:bg-gray-700 transition-opacity duration-300 opacity-0 transform scale-95"
+        style="display:inline-flex;" aria-label="Voltar ao topo" role="button" title="Voltar ao topo (pressione para ir ao início)" aria-hidden="true">
+        <span class="material-symbols-outlined">arrow_upward</span>
+    </a>
+
+    <!-- Menu Lateral Móvel -->
+    <div id="mobile-menu"
+        class="fixed top-0 left-0 w-64 h-full bg-white shadow-2xl transform -translate-x-full transition-transform duration-300 ease-in-out z-50">
+        <ul class="py-8 px-4 flex flex-col justify-between h-full">
+            <div class="flex flex-col gap-4">
+                <li><a href="/" class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Início</a></li>
+                <li><a href="/#modulos" class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Vantagens</a></li>
+                <li><a href="/#recursos" class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Recursos</a></li>
+                <li><a href="/#plans" class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Planos</a></li>
+                <li><a href="/#representantes" class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Representantes</a></li>
+            </div>
+            <li class="px-4 py-2 rounded-full bg-[#4273b8] text-white font-bold uppercase flex items-center justify-center">
+                <a href="https://gestorescolarweb.com.br/" class="text-white">LOGIN</a>
+            </li>
+        </ul>
+    </div>
+    <div id="mobile-menu-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+
+    <!-- Conteúdo Principal -->
+    <main id="inicio" class="min-h-screen">
+        <!-- Seção Termos de Serviço -->
+        <section class="py-12 md:py-24">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <div class="bg-white rounded-3xl shadow-xl p-8 md:p-12">
+                    <div class="terms-content">
+                        <h1 class="text-center mb-8">TERMOS DE SERVIÇO – GESTOR ESCOLAR WEB</h1>
+                        <p class="text-center text-lg mb-8 font-semibold">Versão 3.0 – Revisada em 06 de janeiro de 2020</p>
+
+                        <h2>1. Considerações Gerais</h2>
+                        <p>Este documento estabelece as regras e condições para utilização da plataforma Gestor Escolar WEB, desenvolvida e mantida pela GovSOLUTIONS, inscrita no CNPJ nº 30.982.475/0001-91, com sede na Alameda Rio Negro, nº 503, Sala 2020, Bairro Alphaville (Centro Industrial e Empresarial), Barueri/SP, CEP 06454-000.</p>
+                        <p>Ao acessar e utilizar o Gestor Escolar WEB, o usuário declara estar ciente e de acordo com os presentes Termos de Serviço, em conjunto com a Política de Privacidade aplicável.</p>
+
+                        <h2>2. Propósito da Plataforma</h2>
+                        <p>O Gestor Escolar WEB foi concebido exclusivamente para a educação pública, oferecendo recursos de gestão educacional integrada. Entre suas principais funções estão:</p>
+                        <ul>
+                            <li>Controle de escolas, docentes, matrículas e turmas;</li>
+                            <li>Cadastro e acompanhamento de alunos;</li>
+                            <li>Diário de classe online e offline;</li>
+                            <li>Gestão e transmissão do Censo Escolar;</li>
+                            <li>Administração de documentos escolares, com suporte a assinaturas eletrônicas quando exigidas;</li>
+                            <li>Portais externos para matrículas online;</li>
+                            <li>Portal do aluno e responsável, garantindo acesso facilitado às informações acadêmicas.</li>
+                        </ul>
+
+                        <h2>3. Relação Entre as Partes</h2>
+                        <p><strong>Provedora do Serviço:</strong> GovSOLUTIONS, responsável pela operação, manutenção e suporte técnico da plataforma.</p>
+                        <p><strong>Contratante:</strong> o órgão público da educação (secretaria ou equivalente) que adquire o direito de uso do sistema.</p>
+                        <p><strong>Usuários Autorizados:</strong> servidores, gestores e demais profissionais da rede pública de ensino devidamente cadastrados pelo órgão contratante.</p>
+
+                        <h2>4. Obrigações da GovSOLUTIONS</h2>
+                        <p>Compete à GovSOLUTIONS:</p>
+                        <ul>
+                            <li>Disponibilizar a plataforma de forma estável e contínua, salvo em casos de manutenção programada ou força maior;</li>
+                            <li>Empregar medidas técnicas e organizacionais para segurança dos dados;</li>
+                            <li>Prestar atendimento técnico pelos canais oficiais;</li>
+                            <li>Atuar como operadora de dados pessoais, nos termos da LGPD, obedecendo sempre às orientações do órgão público contratante.</li>
+                        </ul>
+
+                        <h2>5. Obrigações do Órgão Contratante e dos Usuários</h2>
+                        <p>O órgão contratante e seus usuários autorizados comprometem-se a:</p>
+                        <ul>
+                            <li>Utilizar o sistema exclusivamente para fins institucionais de gestão educacional;</li>
+                            <li>Garantir que as informações inseridas sejam corretas, atualizadas e pertinentes;</li>
+                            <li>Definir os perfis de acesso e gerenciar as credenciais de seus servidores;</li>
+                            <li>Manter a confidencialidade de senhas e acessos;</li>
+                            <li>Respeitar integralmente a legislação brasileira, incluindo a LGPD (Lei nº 13.709/2018) e o Marco Civil da Internet (Lei nº 12.965/2014).</li>
+                        </ul>
+
+                        <h2>6. Responsabilidades</h2>
+                        <p><strong>Do Órgão Contratante:</strong> assegurar a base legal para o tratamento de dados, zelar pela conformidade dos registros inseridos e responder pelo uso da plataforma em sua instância.</p>
+                        <p><strong>Da GovSOLUTIONS:</strong> garantir a operação técnica da solução, proteger os dados sob sua responsabilidade e cumprir o contrato firmado.</p>
+
+                        <h2>7. Propriedade dos Dados</h2>
+                        <p>Todos os registros de alunos, docentes, turmas, matrículas, documentos e demais informações armazenadas no Gestor Escolar WEB pertencem ao órgão público contratante.</p>
+                        <p>A GovSOLUTIONS não se responsabiliza pelo conteúdo desses registros, limitando-se a fornecer a tecnologia necessária para sua gestão.</p>
+
+                        <h2>8. Direitos de Propriedade Intelectual</h2>
+                        <p>A plataforma Gestor Escolar WEB, incluindo seu código-fonte, layout, manuais, documentação e marca, é protegida por direitos de propriedade intelectual e pertence à detentora da sua propriedade intelectual.</p>
+                        <p>É vedada a reprodução, modificação, cópia, redistribuição ou criação de sistemas derivados sem prévia e expressa autorização da empresa.</p>
+
+                        <h2>9. Licenciamento e Comercialização</h2>
+                        <p>A GovSOLUTIONS é a única detentora do direito de exploração comercial da plataforma Gestor Escolar WEB, podendo, a seu critério, conceder a concessionárias ou parceiros autorizados o direito de comercializar licenças de uso da plataforma.</p>
+                        <p>Qualquer negociação, sublicenciamento ou distribuição só poderá ocorrer mediante autorização formal e expressa da GovSOLUTIONS.</p>
+
+                        <h2>10. Suporte e Comunicação</h2>
+                        <p>O suporte técnico será oferecido pela Central GovSOLUTIONS, por meio dos canais oficiais de contato, preferencialmente via e-mail institucional.</p>
+                        <p>Outros canais, como WhatsApp Business API ou perfis corporativos, poderão ser utilizados para comunicações institucionais, sendo desaconselhado o envio de informações pessoais ou sensíveis por tais meios.</p>
+
+                        <h2>11. Suspensão e Cancelamento de Acesso</h2>
+                        <p>A GovSOLUTIONS poderá suspender ou cancelar acessos em caso de:</p>
+                        <ul>
+                            <li>Descumprimento destes Termos;</li>
+                            <li>Violação da legislação vigente;</li>
+                            <li>Determinação judicial ou administrativa;</li>
+                            <li>Práticas que comprometam a integridade, segurança ou funcionamento da plataforma.</li>
+                        </ul>
+                        <p>O órgão contratante mantém o direito de revogar o acesso de usuários cadastrados a qualquer tempo.</p>
+
+                        <h2>12. Privacidade e Proteção de Dados</h2>
+                        <p>O tratamento de dados pessoais dentro da plataforma será regido pela Política de Privacidade do Gestor Escolar WEB, que integra o presente Termo.</p>
+                        <p>A utilização contínua do sistema implica concordância com essa política.</p>
+
+                        <h2>13. Foro e Legislação Aplicável</h2>
+                        <p>Estes Termos são regidos pela legislação brasileira. Fica eleito o foro da comarca de Barueri/SP para resolução de quaisquer disputas, salvo convenção diversa com o órgão contratante.</p>
+
+                        <h2>14. Atualizações dos Termos</h2>
+                        <p>A GovSOLUTIONS poderá modificar estes Termos de Serviço sempre que necessário, garantindo a publicação das versões atualizadas no mesmo local.</p>
+                        <p>Em caso de alterações significativas, os órgãos contratantes serão formalmente comunicados.</p>
+
+                        <div class="terms-signature">
+                            <p class="font-semibold">Barueri/SP, 06 de janeiro de 2020</p>
+                            <br>
+                            <p class="font-bold text-lg">GovSOLUTIONS</p>
+                            <p class="font-semibold">CNPJ nº 30.982.475/0001-91</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-white text-[var(--primary-text)]">
+        <!-- Novo Rodapé Estruturado -->
+        <div class="container mx-auto px-4 pt-12 pb-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-center md:text-left">
+                <!-- Coluna 1: Logo e Missão -->
+                <div class="md:col-span-1 flex flex-col items-center md:items-start">
+                    <a href="/" class="shrink-0 mb-4 inline-block">
+                        <img class="w-36" src="/images/preferencial.svg" alt="GEWEB"
+                            onerror="this.onerror=null;this.src='https://placehold.co/150x50/FFFFFF/111827?text=GEWEB';">
+                    </a>
+                    <p class="text-sm text-[var(--primary-text)]">Transformando a gestão pública educacional com tecnologia e
+                        inovação.</p>
+                </div>
+                <!-- Coluna 2: Navegação -->
+                <div>
+                    <h4 class="font-bold text-[var(--primary-text)] mb-4">Navegação</h4>
+                    <ul class="space-y-2 text-sm flex flex-col gap-4">
+                        <li><a href="/" class="hover:underline">Início</a></li>
+                        <li><a href="/#modulos" class="hover:underline">Vantagens</a></li>
+                        <li><a href="/#recursos" class="hover:underline">Recursos</a></li>
+                        <li><a href="/#plans" class="hover:underline">Planos</a></li>
+                        <li><a href="/#representantes" class="hover:underline">Representantes</a></li>
+                        <li><a class="px-4 py-2 rounded-[8px] bg-[#4273b8] text-white font-bold uppercase cursor-pointer" href="https://gestorescolarweb.com.br" class="hover:underline">LOGIN</a></li>
+                    </ul>
+                </div>
+                <!-- Coluna 3: Soluções -->
+                <div>
+                    <h4 class="font-bold text-[var(--primary-text)] mb-4">Soluções</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="http://www.govsolutions.com.br/avaliaedu" target="_blank" class="hover:underline">AvaliaEDU</a></li>
+                        <li><a href="http://www.govsolutions.com.br/estoqgov" target="_blank" class="hover:underline">EstoqGOV</a></li>
+                        <li><a href="http://www.govsolutions.com.br/etransporte" target="_blank" class="hover:underline">e-Transporte</a></li>
+                        <li><a href="http://www.govsolutions.com.br/lotagovrh" target="_blank" class="hover:underline">LotaGOV RH</a></li>
+                        <li><a href="http://www.govsolutions.com.br/nutrigov" target="_blank" class="hover:underline">NutriGOV</a></li>
+                        <li><a href="http://www.govsolutions.com.br/comprasgov" target="_blank" class="hover:underline">ComprasGOV</a></li>
+                    </ul>
+                </div>
+                <!-- Coluna 4: Contato -->
+                <div>
+                    <h4 class="font-bold text-[var(--primary-text)] mb-4">Contato</h4>
+                    <address class="not-italic text-sm space-y-2">
+                        <p>GOVSOLUTIONS</p>
+                        <p>contato@govsolutions.com.br</p>
+                    </address>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t text-center py-6 text-sm text-[var(--primary-text)]">© 2025 GEWEB by GOVSOLUTIONS. Todos os direitos reservados.</div>
+    </footer>
+
+    <!-- SCRIPTS INTERNOS -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- MENU MÓVEL ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
+            const navLinks = document.querySelectorAll('.nav-link-mobile');
+            
+            function toggleMenu() {
+                mobileMenu.classList.toggle('-translate-x-full');
+                mobileMenuOverlay.classList.toggle('hidden');
+                document.body.classList.toggle('overflow-hidden');
+            }
+            
+            mobileMenuButton.addEventListener('click', toggleMenu);
+            mobileMenuOverlay.addEventListener('click', toggleMenu);
+            navLinks.forEach(link => { 
+                link.addEventListener('click', () => { 
+                    if (!mobileMenu.classList.contains('-translate-x-full')) { 
+                        toggleMenu(); 
+                    } 
+                }); 
+            });
+
+            // --- BOTÃO VOLTAR AO TOPO ---
+            (function() {
+                const fab = document.getElementById('fab_top');
+                if (!fab) return;
+
+                // Prefer reduced motion
+                const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+                // Ensure transitions exist (in case CSS classes not present)
+                if (!reduceMotion) {
+                    fab.style.transition = 'opacity 200ms ease, transform 180ms ease';
+                } else {
+                    fab.style.transition = 'none';
+                }
+
+                // Helpers
+                function getScrollFraction() {
+                    const doc = document.documentElement;
+                    const scrollTop = window.pageYOffset || doc.scrollTop || document.body.scrollTop || 0;
+                    const scrollHeight = Math.max(doc.scrollHeight, document.body.scrollHeight || 0);
+                    const clientHeight = doc.clientHeight || window.innerHeight;
+                    const maxScroll = Math.max(0, scrollHeight - clientHeight);
+                    if (maxScroll === 0) return 0;
+                    return scrollTop / maxScroll;
+                }
+
+                // Hysteresis thresholds
+                const SHOW_THRESHOLD = 0.2; // show when >= 20%
+                const HIDE_THRESHOLD = 0.18; // hide when < 18%
+
+                let ticking = false;
+                let isVisible = false;
+                function setFabVisible(visible) {
+                    if (visible === isVisible) return;
+                    isVisible = visible;
+                    if (visible) {
+                        fab.classList.remove('opacity-0');
+                        fab.classList.add('visible');
+                        fab.style.pointerEvents = 'auto';
+                        if (!reduceMotion) fab.style.transform = 'scale(1)';
+                        fab.setAttribute('aria-hidden', 'false');
+                    } else {
+                        fab.classList.add('opacity-0');
+                        fab.classList.remove('visible');
+                        fab.style.pointerEvents = 'none';
+                        if (!reduceMotion) fab.style.transform = 'scale(0.95)';
+                        fab.setAttribute('aria-hidden', 'true');
+                    }
+                }
+
+                function onScroll() {
+                    if (ticking) return;
+                    ticking = true;
+                    requestAnimationFrame(() => {
+                        const frac = getScrollFraction();
+                        if (!isVisible && frac >= SHOW_THRESHOLD) {
+                            setFabVisible(true);
+                        } else if (isVisible && frac < HIDE_THRESHOLD) {
+                            setFabVisible(false);
+                        }
+                        ticking = false;
+                    });
+                }
+
+                // Inicial check (com pequeno atraso para permitir layout com outros elementos)
+                setTimeout(onScroll, 120);
+                window.addEventListener('scroll', onScroll, { passive: true });
+
+                // Clique suave para o topo
+                fab.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector('#inicio') || document.documentElement;
+                    if (!target) {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        return;
+                    }
+                    const top = window.scrollY + (target.getBoundingClientRect ? target.getBoundingClientRect().top : 0);
+                    window.scrollTo({ top: top, behavior: 'smooth' });
+                });
+            })();
+
+            // --- HEADER SCROLL BEHAVIOR ---
+            const header = document.getElementById('header');
+
+            if (!header) {
+                console.error('Header element not found!');
+                return;
+            }
+
+            // Função utilitária para aplicar dois modos de header
+            function applyHeaderMode(mode) {
+                header.style.position = 'sticky';
+                header.style.zIndex = '50';
+                header.style.backdropFilter = 'blur(12px)';
+                header.style.boxShadow = '0 1px 6px rgba(0,0,0,0.08)';
+                header.style.transform = '';
+                header.style.margin = '0';
+                header.style.justifySelf = 'center';
+                header.style.transition = 'all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+
+                // Escolhe largura responsiva para o modo 'pill':
+                const isDesktopWidth = (typeof window !== 'undefined') ? window.matchMedia('(min-width: 641px)').matches : true;
+
+                if (mode === 'pill') {
+                    // centraliza e limita largura responsiva
+                    header.style.width = isDesktopWidth ? '80dvw' : '90dvw';
+                    header.style.borderRadius = '9999px';
+                    header.style.boxShadow = '0 6px 30px rgba(0,0,0,0.12)';
+                    header.style.backgroundColor = 'rgba(255,255,255,0.6)';
+                    header.style.top = '8px';
+                } else {
+                    // modo full (padrão)
+                    header.style.width = '100dvw';
+                    header.style.borderRadius = '0';
+                    header.style.boxShadow = '0 1px 6px rgba(0,0,0,0.08)';
+                    header.style.backgroundColor = 'rgba(255,255,255,0.6)';
+                    header.style.top = '0px';
+                    header.style.backgroundColor = 'rgba(255,255,255,1)';
+                }
+            }
+
+            // Reavaliar larguras no resize
+            (function setupHeaderResizeListener() {
+                let resizeTimer = null;
+                function onResize() {
+                    clearTimeout(resizeTimer);
+                    resizeTimer = setTimeout(() => {
+                        const currentMode = header.classList.contains('pill') ? 'pill' : 'full';
+                        applyHeaderMode(currentMode);
+                    }, 120);
+                }
+
+                window.addEventListener('resize', onResize);
+                window.addEventListener('orientationchange', onResize);
+            })();
+
+            const pillDistance = 56;
+
+            function checkHeaderPill() {
+                if (window.scrollY >= pillDistance) {
+                    header.classList.add('pill');
+                    applyHeaderMode('pill');
+                } else {
+                    header.classList.remove('pill');
+                    applyHeaderMode('full');
+                }
+            }
+
+            // Inicializar estado e escutar scroll
+            checkHeaderPill();
+            window.addEventListener('scroll', () => {
+                if (window.__headerScrollRaf) return;
+                window.__headerScrollRaf = requestAnimationFrame(() => {
+                    checkHeaderPill();
+                    window.__headerScrollRaf = null;
+                });
+            }, { passive: true });
+        });
+    </script>
+</body>
+
+</html>
