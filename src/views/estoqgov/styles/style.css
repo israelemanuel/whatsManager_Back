@@ -22,33 +22,32 @@ Este tema, como o WordPress, está licenciado sob a GPL.
 
 
 
-::-webkit-scrollbar {
-    width: 4px;
+*::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
 }
 
-::-webkit-scrollbar-track {
-
-    background: transparent !important;
+*::-webkit-scrollbar-track {
+    background: transparent;
     border-radius: 8px;
-
 }
 
-::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb {
     border-radius: 100px;
-    background-color: #888;
+    background-color: var(--alm-sec_color, #FF8200);
     background-clip: content-box;
+    border: 2px solid transparent;
 }
 
 body {
     display: flex !important;
     width: 100%;
-    height: 100vh !important;
+    min-height: 100vh;
     flex-direction: column;
-    overflow: hidden;
-
-    
-    scrollbar-width: thin !important;
-    scrollbar-color: #888 transparent;
+    /* permitir rolagem em dispositivos móveis e layouts responsivos */
+    overflow: auto;
+    box-sizing: border-box;
+    scroll-behavior: smooth !important;
 }
 
 .main_menu {
@@ -63,7 +62,7 @@ body {
     flex: 1;
     width: 100%;
     height: calc(100dvh - 64px);
-    overflow-y: auto !important;
+    overflow-y: hidden !important;
     overflow-x: hidden !important;
     scroll-behavior: smooth;
     gap: var(--main-gap);
@@ -251,7 +250,7 @@ body {
 
 
 .z-depth-2 {
-    webkit-box-shadow: 0 4px 5px 0 rgb(0 0 0 / 1%), 0 1px 10px 0 rgb(0 0 0 / 7%), 0 2px 4px -1px rgb(0 0 0 / 2%) !important;
+    -webkit-box-shadow: 0 4px 5px 0 rgb(0 0 0 / 1%), 0 1px 10px 0 rgb(0 0 0 / 7%), 0 2px 4px -1px rgb(0 0 0 / 2%) !important;
     box-shadow: 0 4px 5px 0 rgb(0 0 0 / 1%), 0 1px 10px 0 rgb(0 0 0 / 7%), 0 2px 4px -1px rgb(0 0 0 / 2%) !important;
 }
 

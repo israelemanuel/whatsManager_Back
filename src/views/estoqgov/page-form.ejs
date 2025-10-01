@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Inscrição Estoqgov</title>
+    <!-- Incluindo Tailwind CSS -->
+
+    <link rel="shortcut icon" href="/images/fav_icon.png" />
+
+    <link rel="base" href="https://www.estoqgov.com" />
+    <link rel="canonical" href="https://www.estoqgov.com" />
+
+    <link rel="stylesheet" href="/styles/tailwind.css">
+
+    <!-- Scripts principais -->
+    <script src="/scripts/jquery.js"></script>
+    <script src="/scripts/jquery.form.js"></script>
+
+    <!-- Scripts de terceiros -->
+
+
+    <!-- Incluindo a fonte Nunito do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<style>
+    :root {
+        --alm-prim_color: #7b3212;
+        --alm-sec_color: #FF8200 !important;
+        --warn-color: #FF8200;
+        --curve: 16px;
+        --main-padding: 16px !important;
+        --main-gap: 16px !important;
+
+        font-family: 'Nunito', sans-serif;
+    }
+
+    /* estilos para o efeito typewriter */
+    .typewriter {
+        max-width: 340px;
+        font-size: 1rem;
+        line-height: 1.3;
+        font-weight: 600;
+    }
+
+    .typewriter .cursor {
+        display: inline-block;
+        width: 2px;
+        height: 36px;
+        background: rgba(255,255,255,0.95);
+        margin-left: 6px;
+        vertical-align: bottom;
+        animation: tw-blink 1s steps(2, start) infinite;
+    }
+
+    @keyframes tw-blink {
+        50% { opacity: 0 }
+    }
+
+    /* Sidenav (mobile) fallback styles quando Materialize não está disponível */
+    .sidenav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 280px;
+        max-width: 85vw;
+        background: #fff;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+        transform: translateX(-110%);
+        transition: transform 240ms ease-in-out;
+        z-index: 1001;
+        overflow-y: auto;
+        padding: 24px 12px;
+    }
+
+    .sidenav.open {
+        transform: translateX(0);
+    }
+
+    .sidenav .nav-link {
+        display: block;
+        padding: 12px 8px;
+        color: var(--alm-prim_color);
+        text-decoration: none;
+    }
+
+    .sidenav-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.48);
+        z-index: 1000;
+        opacity: 0;
+        transition: opacity 160ms ease-in-out;
+        pointer-events: none;
+    }
+
+    .sidenav-backdrop.visible {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+
+
+    ::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+
+        background: transparent !important;
+        border-radius: 8px;
+
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 100px;
+        background-color: #888;
+        background-clip: content-box;
+    }
+
+    /* Usar as cores do :root para inputs, selects e foco */
+    input, select, textarea {
+        border-color: var(--alm-prim_color, #7b3212) !important;
+    }
+
+    input:focus, textarea:focus {
+        border-color: var(--alm-sec_color) !important;
+        box-shadow: 0 0 0 4px rgba(255,130,0,0.12) !important;
+    }
+
+    /* Ocultar select nativo quando tem wrapper customizado */
+    .custom-select-wrapper select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-image: none;
+        cursor: pointer;
+        color: transparent;
+        text-shadow: 0 0 0 var(--alm-prim_color);
+    }
+
+    .custom-select-wrapper select:disabled {
+        color: transparent;
+        text-shadow: 0 0 0 rgba(0,0,0,0.4);
+        cursor: not-allowed;
+    }
+
+    /* success message usa tom secundário/verde claro ajustado */
+    #success-message {
+        background-color: rgba(34,197,94,0.95); /* mantido verde para sucesso */
+    }
+
+    /* botão secundário (se usado) */
+    .btn-secondary {
+        background: var(--alm-sec_color);
+        color: #fff;
+    }
+
+    /* Estilos do dropdown custom para selects (.custom-select) */
+    .custom-select-wrapper {
+        position: relative;
+    }
+
+    /* Display customizado sobreposto ao select */
+    .custom-select-display {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 0.75rem 1rem;
+        background: #fff;
+        border: 1px solid var(--alm-prim_color);
+        border-radius: 0.5rem;
+        color: var(--alm-prim_color);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .custom-select-wrapper:hover .custom-select-display {
+        border-color: var(--alm-sec_color);
+    }
+
+    .custom-select-wrapper.disabled .custom-select-display {
+        background: #f3f4f6;
+        color: rgba(0,0,0,0.4);
+        border-color: rgba(0,0,0,0.06);
+        cursor: not-allowed;
+    }
+
+    .custom-select-caret {
+        width: 0;
+        height: 0;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 4px solid currentColor;
+        transition: transform 0.2s;
+    }
+
+    .custom-select-wrapper.open .custom-select-caret {
+        transform: rotate(180deg);
+    }
+
+    .custom-select-dropdown {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: calc(100% + 6px);
+        background: #fff;
+        border: 1px solid var(--alm-prim_color);
+        border-radius: 0.5rem;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+        z-index: 50;
+        max-height: 220px;
+        overflow: auto;
+        padding: 8px 0;
+    }
+
+    /* Dropdown posicionado acima quando não há espaço abaixo */
+    .custom-select-dropdown.dropdown-above {
+        top: auto;
+        bottom: calc(100% + 6px);
+        box-shadow: 0 -8px 24px rgba(0,0,0,0.08);
+    }
+
+    .custom-select-item {
+        padding: 0.75rem 1rem;
+        cursor: pointer;
+        color: var(--alm-prim_color);
+        transition: background-color 0.15s;
+    }
+
+    .custom-select-item:hover {
+        background: rgba(255,130,0,0.08);
+    }
+
+    .custom-select-item.active {
+        background: var(--alm-sec_color);
+        color: #fff;
+    }
+
+    .custom-select-item.disabled {
+        color: rgba(0,0,0,0.4);
+        cursor: not-allowed;
+        background: none !important;
+    }
+</style>
+
+<body class="bg-gray-100 flex flex-col items-center h-[100dvh] w-full relative">
+
+    <div class="main_menu w-full bg-transparent">
+        <nav class="w-full bg-white shadow-sm">
+            <div class="mx-auto max-w-[1440px] px-4 flex items-center justify-between h-16">
+                <div class="flex items-center gap-4">
+                    <!-- Mobile menu button (visible on small screens) -->
+                    <button aria-label="Abrir menu" data-target="mobile-demo" class="sidenav-trigger text-black lg:hidden p-2">
+                        <i class="material-symbols-outlined">menu</i>
+                    </button>
+
+                    <!-- Logo -->
+                    <a href="/" class="brand-logo inline-block">
+                        <img class="w-[150px] h-auto" alt="estoqgov" src="/images/estoq_gov_logo.svg">
+                    </a>
+                </div>
+
+                <!-- Desktop links -->
+                <ul class="hidden lg:flex items-center h-[56px]">
+                    <li><a class="h-[56px] flex items-center justify-center text-gray-700 hover:text-[var(--alm-prim_color)] nav-link text-[16px] px-4 font-bold" href="/"><span>Inicio</span></a></li>
+                    <li><a class="h-[56px] flex items-center justify-center text-gray-700 hover:text-[var(--alm-prim_color)] nav-link text-[16px] px-4 font-bold" href="/#recursos"><span>Recursos</span></a></li>
+                    <li><a class="h-[56px] flex items-center justify-center text-gray-700 hover:text-[var(--alm-prim_color)] nav-link text-[16px] px-4 font-bold" href="/#sistemas_integrados"><span>Sistemas Integrados</span></a></li>
+                    <li><a class="h-[56px] flex items-center justify-center text-gray-700 hover:text-[var(--alm-prim_color)] nav-link text-[16px] px-4 font-bold" href="/#planos_contratos"><span>Preços</span></a></li>
+                    <li class="h-full flex items-center justify-center">
+                        <a class="rounded-full px-4 bg-[var(--alm-sec_color)] text-white h-[32px] flex items-center justify-center font-bold text-[16px] uppercase" href="http://app.estoqgov.com/auth" target="_blank"><span>Login</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Mobile sidenav (styled with Tailwind utility classes; visibility toggled by JS) -->
+        <ul id="mobile-demo" class="sidenav lg:hidden fixed left-0 top-0 h-full w-64 max-w-[85vw] bg-white shadow-lg transform -translate-x-full transition-transform duration-200 z-50 p-6">
+            <li><a class="nav-link block py-2 px-4 text-base text-gray-700 text-[16px] font-bold" href="/">Inicio</a></li>
+            <li><a class="nav-link block py-2 px-4 text-base text-gray-700 text-[16px] font-bold" href="/#recursos">Recursos</a></li>
+            <li><a class="nav-link block py-2 px-4 text-base text-gray-700 text-[16px] font-bold" href="/#sistemas_integrados">Sistemas Integrados</a></li>
+            <li><a class="nav-link block py-2 px-4 text-base text-gray-700 text-[16px] font-bold" href="/#planos_contratos">Preços</a></li>
+        </ul>
+    </div>
+
+    <div class="relative flex-1 h-full w-full flex items-center justify-center px-6">
+        <div class="relative bg-white shadow-2xl rounded-2xl flex flex-row w-full max-w-[1600px] max-h-[80dvh] overflow-hidden">
+        
+        
+            <div class="hidden lg:flex text-white p-8 sm:p-6 flex-col items-center w-1/3"
+                style="background: var(--alm-sec_color);">
+                <div class="w-full">
+                    <img class="h-[48px]" src="/images/estoq_gov_logo_white.svg" alt="">
+                </div>
+                <div class="my-auto">
+                    <div class="typewriter text-white flex items-center flex-col">
+                        <div class="text-4xl text-center w-full" id="tw-text" aria-live="polite"></div><span class="cursor"
+                            aria-hidden="true"></span>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Coluna Direita (Formulário) -->
+            <div class="p-4 box-border flex flex-col h-full overflow-y-scroll gap-4 lg:w-2/3 w-full max-h-[80dvh]">
+                <h2 class="text-3xl md:text-4xl text-[var(--alm-sec_color)] font-bold">Formulário de Contato</h2>
+                <form id="cadastro-form" class="flex flex-col gap-4 h-fit">
+        
+                    <!-- Campo: Selecione o Plano -->
+                    <div>
+                        <label for="plano" class="block text-sm font-medium text-gray-700 mb-1">Selecione o Plano *</label>
+                        <select id="plano" name="plano" required
+                            class="custom-select w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-gray-700 bg-white">
+                            <option value="1">Órgãos de Pequeno Porte - (Essencial)</option>
+                            <option value="2">Órgãos de Médio Porte - (Avançado)</option>
+                            <option value="3">Órgãos de Grande Porte - (Premium)</option>
+                            <option value="4">Órgãos Federais/Estaduais/Metrópoles - (Elite)</option>
+                        </select>
+                    </div>
+        
+                    <!-- Campo: Nome Completo -->
+                    <div>
+                        <label for="nome" class="block text-sm font-medium text-gray-700 mb-1">Nome Completo *</label>
+                        <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent">
+                    </div>
+        
+                    <!-- Campo: E-mail -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">E-mail *</label>
+                        <input type="email" id="email" name="email" placeholder="exemplo@dominio.com" required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent">
+                    </div>
+        
+                    <!-- Campo: Celular -->
+                    <div>
+                        <label for="celular" class="block text-sm font-medium text-gray-700 mb-1">Celular *</label>
+                        <input type="tel" id="celular" name="celular" placeholder="(00) 00000-0000" required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent">
+                    </div>
+        
+                    <!-- Campo: Cargo -->
+                    <div>
+                        <label for="cargo" class="block text-sm font-medium text-gray-700 mb-1">Cargo</label>
+                        <input type="text" id="cargo" name="cargo" placeholder="Seu cargo"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent">
+                    </div>
+        
+                    <!-- Campo: Órgão -->
+                    <div>
+                        <label for="orgao" class="block text-sm font-medium text-gray-700 mb-1">Órgão</label>
+                        <input type="text" id="orgao" name="orgao" placeholder="Nome do órgão público"
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent">
+                    </div>
+        
+                    <!-- Campo: CNPJ -->
+                    <div>
+                        <label for="cnpj" class="block text-sm font-medium text-gray-700 mb-1">CNPJ *</label>
+                        <input type="text" id="cnpj" name="cnpj" placeholder="00.000.000/0000-00" required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent">
+                    </div>
+        
+                    <!-- Campo: Soube De Nós -->
+                    <div>
+                        <label for="soube" class="block text-sm font-medium text-gray-700 mb-1">Como soube de nós?</label>
+                        <select id="soube" name="soube"
+                            class="custom-select w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-gray-700 bg-white">
+                            <option disabled selected value="">Selecione...</option>
+                            <option value="Evento">Evento</option>
+                            <option value="Facebook">Facebook</option>
+                            <option value="Google">Google</option>
+                            <option value="Indicação">Indicação</option>
+                            <option value="Instagram">Instagram</option>
+                            <option value="Vi em outro cliente">Vi em outro cliente</option>
+                            <option value="YouTube">YouTube</option>
+                        </select>
+                    </div>
+        
+                    <!-- Campo: Detalhe opcional quando necessário -->
+                    <div id="soube-detalhe-wrapper" style="display:none;">
+                        <label for="soube_detalhe" class="block text-sm font-medium text-gray-700 mb-1">Por favor, informe mais
+                            detalhes</label>
+                        <input type="text" id="soube_detalhe" name="soube_detalhe"
+                            placeholder="Ex: nome do evento, quem indicou, nome do cliente" disabled
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent">
+                    </div>
+        
+                    <!-- Linha com Estado e Município -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Campo: Estado -->
+                        <div>
+                            <label for="estado" class="block text-sm font-medium text-gray-700 mb-1">Estado *</label>
+                            <select id="estado" name="estado" required
+                                class="custom-select w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-gray-700 bg-white">
+                                <option disabled selected value="">Selecione o estado</option>
+                            </select>
+                        </div>
+                        <!-- Campo: Município -->
+                        <div>
+                            <label for="municipio" class="block text-sm font-medium text-gray-700 mb-1">Município *</label>
+                            <select id="municipio" name="municipio" required disabled
+                                class="custom-select w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-gray-700 bg-white disabled:bg-gray-100">
+                                <option disabled selected value="">Selecione o município</option>
+                            </select>
+                        </div>
+                    </div>
+        
+        
+                    <!-- Botão de Envio -->
+                    <div>
+                        <button type="submit"
+                            class="w-full text-white font-bold py-3 px-4 rounded-lg hover:bg-opacity-90 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 mt-4"
+                            style="background: var(--alm-sec_color);">
+                            Enviar Cadastro
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script>
+        // Encapsula a lógica em DOMContentLoaded para garantir que os elementos existam
+        document.addEventListener('DOMContentLoaded', () => {
+            const estadoSelect = document.getElementById('estado');
+            const municipioSelect = document.getElementById('municipio');
+            const celularInput = document.getElementById('celular');
+            const cnpjInput = document.getElementById('cnpj');
+            const soubeSelect = document.getElementById('soube');
+            const soubeDetalheWrapper = document.getElementById('soube-detalhe-wrapper');
+            const soubeDetalheInput = document.getElementById('soube_detalhe');
+            const form = document.getElementById('cadastro-form');
+            const successMessage = document.getElementById('success-message');
+
+            municipioSelect.disabled = true; // garantir estado inicial
+
+            async function loadEstados() {
+                estadoSelect.innerHTML = '<option disabled selected value="">Carregando estados...</option>';
+                try {
+                    const res = await fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome');
+                    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                    const estados = await res.json();
+                    estadoSelect.innerHTML = '<option disabled selected value="">Selecione o estado</option>';
+                    for (const estado of estados) {
+                        // usar id para buscar municípios e exibir nome para o usuário
+                        const opt = document.createElement('option');
+                        opt.value = estado.id;
+                        opt.textContent = `${estado.nome} (${estado.sigla})`;
+                        estadoSelect.appendChild(opt);
+                    }
+                } catch (err) {
+                    console.error('Erro ao carregar estados:', err);
+                    estadoSelect.innerHTML = '<option disabled selected value="">Não foi possível carregar os estados</option>';
+                }
+            }
+
+            async function loadMunicipios(estadoId) {
+                municipioSelect.disabled = true;
+                municipioSelect.innerHTML = '<option disabled selected value="">Carregando municípios...</option>';
+                try {
+                    const res = await fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${estadoId}/municipios`);
+                    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                    const municipios = await res.json();
+                    municipioSelect.innerHTML = '<option disabled selected value="">Selecione o município</option>';
+                    for (const municipio of municipios) {
+                        const opt = document.createElement('option');
+                        opt.value = municipio.id; // id é melhor para processamento posterior
+                        opt.textContent = municipio.nome;
+                        municipioSelect.appendChild(opt);
+                    }
+                    municipioSelect.disabled = false;
+                } catch (err) {
+                    console.error('Erro ao carregar municípios:', err);
+                    municipioSelect.innerHTML = '<option disabled selected value="">Não foi possível carregar os municípios</option>';
+                    municipioSelect.disabled = true;
+                }
+            }
+
+            // Iniciar carregamento de estados (usa selects nativos estilizados com Tailwind)
+            loadEstados();
+
+            // Ao mudar o estado, carregar municípios
+            estadoSelect.addEventListener('change', () => {
+                const estadoId = estadoSelect.value;
+                if (!estadoId) {
+                    municipioSelect.innerHTML = '<option disabled selected value="">Selecione o município</option>';
+                    municipioSelect.disabled = true;
+                    return;
+                }
+                loadMunicipios(estadoId);
+            });
+
+            // Máscara para Celular: (00) 00000-0000
+            celularInput.addEventListener('input', (e) => {
+                let value = e.target.value.replace(/\D/g, '');
+                value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
+                value = value.replace(/(\d)(\d{4})$/, '$1-$2');
+                e.target.value = value;
+            });
+
+            // Máscara para CNPJ: 00.000.000/0000-00
+            cnpjInput.addEventListener('input', (e) => {
+                let value = e.target.value.replace(/\D/g, '');
+                value = value.replace(/^(\d{2})(\d)/, '$1.$2');
+                value = value.replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3');
+                value = value.replace(/\.(\d{3})(\d)/, '.$1/$2');
+                value = value.replace(/(\d{4})(\d)/, '$1-$2');
+                e.target.value = value;
+            });
+
+            // Lógica para o campo condicional 'soube de nós'
+            function updateSoubeDetail() {
+                if (!soubeSelect) return;
+                const v = soubeSelect.value;
+                const needDetail = ['Evento', 'Indicação', 'Vi em outro cliente'];
+                if (needDetail.includes(v)) {
+                    if (soubeDetalheWrapper) soubeDetalheWrapper.style.display = '';
+                    if (soubeDetalheInput) {
+                        soubeDetalheInput.disabled = false;
+                        soubeDetalheInput.required = true;
+                    }
+                } else {
+                    if (soubeDetalheWrapper) soubeDetalheWrapper.style.display = 'none';
+                    if (soubeDetalheInput) {
+                        soubeDetalheInput.disabled = true;
+                        soubeDetalheInput.required = false;
+                        soubeDetalheInput.value = '';
+                    }
+                }
+            }
+
+            if (soubeSelect) {
+                // inicializar estado
+                updateSoubeDetail();
+                soubeSelect.addEventListener('change', updateSoubeDetail);
+            }
+
+            // Manipular envio do formulário
+            form.addEventListener('submit', (e) => {
+                e.preventDefault(); // Impede o recarregamento da página
+
+                // validação do campo condicional
+                const soubeVal = soubeSelect ? soubeSelect.value : '';
+                const needDetail = ['Evento', 'Indicação', 'Vi em outro cliente'];
+                if (needDetail.includes(soubeVal)) {
+                    if (!soubeDetalheInput || !soubeDetalheInput.value.trim()) {
+                        alert('Por favor informe mais detalhes em "Como soube de nós".');
+                        if (soubeDetalheInput) soubeDetalheInput.focus();
+                        return;
+                    }
+                }
+
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
+                console.log('Dados do formulário:', data);
+
+                // Exibir mensagem de sucesso (se existir)
+                if (successMessage) successMessage.classList.remove('opacity-0', 'pointer-events-none');
+
+                // Opcional: resetar formulário e esconder mensagem após alguns segundos
+                setTimeout(() => {
+                    if (successMessage) successMessage.classList.add('opacity-0', 'pointer-events-none');
+                    form.reset();
+                    municipioSelect.innerHTML = '<option disabled selected value="">Selecione o município</option>';
+                    municipioSelect.disabled = true;
+                    // resetar campo condicional
+                    updateSoubeDetail();
+                }, 4000);
+            });
+
+            /* ---------- Custom select dropdown (substitui aparência padrão) ---------- */
+            function buildCustomSelect(select) {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'custom-select-wrapper';
+                select.parentNode.insertBefore(wrapper, select);
+                wrapper.appendChild(select);
+
+                // Display customizado
+                const display = document.createElement('div');
+                display.className = 'custom-select-display';
+                const displayText = document.createElement('span');
+                const caret = document.createElement('div');
+                caret.className = 'custom-select-caret';
+                display.appendChild(displayText);
+                display.appendChild(caret);
+                wrapper.appendChild(display);
+
+                const dropdown = document.createElement('div');
+                dropdown.className = 'custom-select-dropdown hidden';
+                dropdown.style.display = 'none';
+                wrapper.appendChild(dropdown);
+
+                function updateDisplay() {
+                    const selected = select.options[select.selectedIndex];
+                    displayText.textContent = selected ? selected.textContent : 'Selecione...';
+                    wrapper.classList.toggle('disabled', select.disabled);
+                }
+
+                function render() {
+                    dropdown.innerHTML = '';
+                    Array.from(select.options).forEach(opt => {
+                        const item = document.createElement('div');
+                        item.className = 'custom-select-item';
+                        item.textContent = opt.textContent;
+                        item.dataset.value = opt.value;
+                        if (opt.disabled) item.classList.add('disabled');
+                        if (opt.selected) item.classList.add('active');
+                        dropdown.appendChild(item);
+
+                        item.addEventListener('click', () => {
+                            if (opt.disabled) return;
+                            select.value = opt.value;
+                            select.dispatchEvent(new Event('change', { bubbles: true }));
+                            updateDisplay();
+                            close();
+                        });
+                    });
+                    updateDisplay();
+                }
+
+                function open() {
+                    if (select.disabled) return;
+                    
+                    // Detectar espaço disponível na tela
+                    const rect = wrapper.getBoundingClientRect();
+                    const viewportHeight = window.innerHeight;
+                    const spaceBelow = viewportHeight - rect.bottom;
+                    const spaceAbove = rect.top;
+                    const dropdownHeight = 220; // max-height do dropdown
+                    
+                    // Determinar se deve abrir acima ou abaixo
+                    const shouldOpenAbove = spaceBelow < dropdownHeight && spaceAbove > spaceBelow;
+                    
+                    dropdown.classList.toggle('dropdown-above', shouldOpenAbove);
+                    dropdown.style.display = '';
+                    dropdown.classList.remove('hidden');
+                    wrapper.classList.add('open');
+                }
+
+                function close() {
+                    dropdown.style.display = 'none';
+                    dropdown.classList.add('hidden');
+                    dropdown.classList.remove('dropdown-above');
+                    wrapper.classList.remove('open');
+                }
+
+                // abrir/fechar ao clicar no display
+                display.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (select.disabled) return;
+                    if (dropdown.style.display === 'none' || dropdown.classList.contains('hidden')) open();
+                    else close();
+                });
+
+                // permitir interação através do display
+                display.style.pointerEvents = 'auto';
+
+                // fechar ao clicar fora
+                document.addEventListener('click', (e) => {
+                    if (!wrapper.contains(e.target)) close();
+                });
+
+                // re-render quando options mudarem (dinâmico)
+                const mo = new MutationObserver(() => {
+                    render();
+                });
+                mo.observe(select, { childList: true, subtree: false, attributes: true, attributeFilter: ['disabled'] });
+
+                // re-render inicial
+                render();
+
+                // quando o select mudar por script, atualizar destaque e display
+                select.addEventListener('change', () => {
+                    Array.from(dropdown.children).forEach(child => {
+                        child.classList.toggle('active', child.dataset.value == select.value);
+                    });
+                    updateDisplay();
+                });
+            }
+
+            // Se houver parâmetro 'option' na URL, selecionar o plano correspondente
+            (function preselectPlanoFromQuery(){
+                try {
+                    const params = new URLSearchParams(window.location.search);
+                    const option = params.get('option');
+                    if (option) {
+                        const planoSelect = document.getElementById('plano');
+                        if (planoSelect) {
+                            // procurar option com value igual ao parâmetro
+                            const opt = Array.from(planoSelect.options).find(o => o.value === option || o.textContent.includes(`(${option})`));
+                            if (opt) {
+                                planoSelect.value = opt.value;
+                            }
+                        }
+                    }
+                } catch (err) {
+                    console.warn('Erro ao pré-selecionar plano pela query:', err);
+                }
+            })();
+
+            // montar custom selects para todos com a classe
+            document.querySelectorAll('select.custom-select').forEach(s => buildCustomSelect(s));
+
+            /* ---------- TypeWriter effect ---------- */
+            class TypeWriter {
+                constructor({messages, element, typingSpeed = 40, pauseDuration = 1200, resumeDelay = 600}){
+                    this.messages = messages;
+                    this.element = element;
+                    this.typingSpeed = typingSpeed;
+                    this.pauseDuration = pauseDuration;
+                    this.resumeDelay = resumeDelay;
+
+                    this.messageIndex = 0;
+                    this.charIndex = 0;
+                    this.currentMessage = '';
+                    this.typingInterval = null;
+                    this.pauseTimeout = null;
+                }
+
+                typeWriter() {
+                    if (this.charIndex < this.messages[this.messageIndex].message.length) {
+                        this.currentMessage += this.messages[this.messageIndex].message.charAt(this.charIndex);
+                        this.charIndex++;
+                        this._render();
+                        this.typingInterval = setTimeout(() => this.typeWriter(), this.typingSpeed);
+                    } else {
+                        this.pauseTimeout = setTimeout(() => {
+                            this.charIndex = 0;
+                            this.currentMessage = '';
+                            this.messageIndex = (this.messageIndex + 1) % this.messages.length;
+                            this.typingInterval = setTimeout(() => this.typeWriter(), this.resumeDelay);
+                        }, this.pauseDuration);
+                    }
+                }
+
+                _render(){
+                    if (!this.element) return;
+                    this.element.textContent = this.currentMessage;
+                }
+
+                start(){
+                    this.typeWriter();
+                }
+
+                stop(){
+                    clearTimeout(this.typingInterval);
+                    clearTimeout(this.pauseTimeout);
+                }
+            }
+
+            const messages = [
+                { id: 1, message: "Transforme a maneira como você gerencia seus estoques com EstoqGOV." },
+                { id: 2, message: "O controle preciso de estoque começa aqui." },
+                { id: 3, message: "Maximize a eficiência do seu almoxarifado com nossa tecnologia." },
+                { id: 4, message: "Cada item no seu devido lugar, sempre." },
+                { id: 5, message: "A gestão de estoque inteligente que você merece." },
+                { id: 6, message: "Sua solução completa para um estoque impecável." },
+                { id: 7, message: "Transformando dados de estoque em decisões estratégicas." },
+                { id: 8, message: "Onde eficiência e controle de estoque se encontram." },
+                { id: 9, message: "Gestão de estoque sem complicações, resultados excepcionais." },
+                { id: 10, message: "O futuro da gestão de estoques em suas mãos." },
+                { id: 11, message: "Controle e eficiência em cada movimento de estoque." },
+                { id: 12, message: "Facilitando a gestão do seu almoxarifado, um item de cada vez." },
+                { id: 13, message: "Tecnologia avançada para uma gestão de estoque precisa." },
+                { id: 14, message: "Transforme a complexidade do seu estoque em simplicidade." },
+                { id: 15, message: "Controle absoluto do seu inventário, sempre." },
+                { id: 16, message: "Otimização de estoque que se traduz em eficiência." },
+                { id: 17, message: "A solução definitiva para a gestão de almoxarifados." },
+                { id: 18, message: "Transformando a gestão de estoque com inovação." },
+                { id: 19, message: "Cada entrada e saída de estoque, perfeitamente controlada." },
+                { id: 20, message: "Gestão de estoque eficiente para resultados superiores." },
+                { id: 21, message: "Tecnologia de ponta para uma gestão de estoque impecável." },
+                { id: 22, message: "A excelência na gestão de estoques começa aqui." },
+                { id: 23, message: "Seu estoque sob controle, sua eficiência maximizada." },
+                { id: 24, message: "Controle de estoque em tempo real, decisões mais acertadas." },
+                { id: 25, message: "Transforme sua gestão de estoque com precisão digital." },
+                { id: 26, message: "O parceiro ideal para a eficiência do seu almoxarifado." },
+                { id: 27, message: "Inovação e tecnologia para uma gestão de estoque perfeita." },
+                { id: 28, message: "A solução completa para o controle do seu inventário." },
+                { id: 29, message: "Gestão de estoque simplificada, resultados amplificados." },
+                { id: 30, message: "Eficiência em cada detalhe da gestão de estoque." },
+                { id: 31, message: "Controle de estoque robusto e eficiente." },
+                { id: 32, message: "Sua gestão de estoque transformada com tecnologia." },
+                { id: 33, message: "Maximize o potencial do seu estoque com EstoqGOV." },
+                { id: 34, message: "A revolução no controle de estoques começa aqui." },
+                { id: 35, message: "Inovação e precisão para o seu controle de estoque." },
+                { id: 36, message: "Seu estoque organizado, sua operação otimizada." },
+                { id: 37, message: "Gestão de estoque inteligente e eficiente." },
+                { id: 38, message: "A tecnologia que transforma a gestão do seu almoxarifado." },
+                { id: 39, message: "Controle de estoque sem erros, eficiência garantida." },
+                { id: 40, message: "Simplicidade e precisão na gestão de estoques." },
+                { id: 41, message: "A excelência no gerenciamento de inventários." },
+                { id: 42, message: "Transforme a gestão do seu almoxarifado com nossa plataforma." },
+                { id: 43, message: "O futuro do controle de estoque, hoje." },
+                { id: 44, message: "Eficiência e precisão em cada movimento de estoque." },
+                { id: 45, message: "Sua gestão de estoque otimizada com tecnologia." },
+                { id: 46, message: "Controle de estoque avançado, simplicidade operacional." },
+                { id: 47, message: "A tecnologia que redefine a gestão de estoques." },
+                { id: 48, message: "Solução inovadora para a gestão do seu almoxarifado." },
+                { id: 49, message: "Gestão de estoque precisa e eficiente com EstoqGOV." },
+                { id: 50, message: "Transforme seu inventário com controle e eficiência." },
+                { id: 51, message: "Tecnologia de última geração para a gestão de estoques." },
+                { id: 52, message: "Cada item sob controle, sua operação otimizada." }
+            ];
+
+            const twElement = document.getElementById('tw-text');
+            const tw = new TypeWriter({messages, element: twElement, typingSpeed: 24, pauseDuration: 1400, resumeDelay: 800});
+            tw.start();
+
+            /* ---------- Simple sidenav (vanilla) for this page (improved) ---------- */
+            function initSidenav() {
+                // create or find backdrop element (use Tailwind utility classes for quick styling)
+                let backdrop = document.querySelector('.sidenav-backdrop');
+                if (!backdrop) {
+                    backdrop = document.createElement('div');
+                    backdrop.className = 'sidenav-backdrop fixed inset-0 bg-black/50 z-40 opacity-0 transition-opacity pointer-events-none';
+                    document.body.appendChild(backdrop);
+                }
+
+                const sidenav = document.getElementById('mobile-demo');
+                const triggers = document.querySelectorAll('.sidenav-trigger');
+
+                // Ensure sidenav has expected Tailwind transform classes for initial hidden state
+                if (sidenav) {
+                    sidenav.classList.add('transition-transform', 'duration-200');
+                    // keep -translate-x-full if not already present
+                    if (!sidenav.classList.contains('-translate-x-full') && !sidenav.classList.contains('translate-x-0')) {
+                        sidenav.classList.add('-translate-x-full');
+                    }
+                }
+
+                function open() {
+                    if (!sidenav) return;
+                    // remove hidden translation and apply visible translation
+                    sidenav.classList.remove('-translate-x-full');
+                    sidenav.classList.add('translate-x-0');
+                    // keep legacy class for CSS fallback
+                    sidenav.classList.add('open');
+
+                    // backdrop visible
+                    backdrop.classList.remove('opacity-0', 'pointer-events-none');
+                    backdrop.classList.add('opacity-100');
+                    backdrop.classList.add('visible');
+
+                    // prevent body scroll
+                    document.body.style.overflow = 'hidden';
+                }
+
+                function close() {
+                    if (!sidenav) return;
+                    sidenav.classList.remove('translate-x-0');
+                    sidenav.classList.add('-translate-x-full');
+                    sidenav.classList.remove('open');
+
+                    backdrop.classList.remove('opacity-100', 'visible');
+                    backdrop.classList.add('opacity-0', 'pointer-events-none');
+
+                    document.body.style.overflow = '';
+                }
+
+                // attach click + keyboard handlers to triggers
+                triggers.forEach(t => {
+                    t.addEventListener('click', (ev) => { ev.preventDefault(); open(); });
+                    t.addEventListener('keydown', (ev) => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); open(); } });
+                });
+
+                // close on backdrop click
+                backdrop.addEventListener('click', close);
+
+                // close on ESC
+                document.addEventListener('keydown', (ev) => { if (ev.key === 'Escape') close(); });
+
+                // close when a link inside sidenav is clicked
+                if (sidenav) {
+                    sidenav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => close()));
+                }
+
+                // responsive: ensure sidenav closed when switching to desktop
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth >= 992) close();
+                });
+            }
+
+            // init sidenav
+            initSidenav();
+        });
+    </script>
+</body>
+
+</html>
