@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Inscrição NutriGov</title>
+    <!-- Incluindo Tailwind CSS -->
+
+    <link rel="shortcut icon" href="/images/fav_icon.png" />
+
+    <link rel="base" href="https://www.estoqgov.com" />
+    <link rel="canonical" href="https://www.estoqgov.com" />
+
+    <link rel="stylesheet" href="/styles/tailwind.css">
+
+
+    <!-- Incluindo a fonte Nunito do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen p-4">
+
+    <!-- Container Principal -->
+    <div class="w-full max-w-6xl mx-auto bg-white shadow-2xl rounded-2xl grid lg:grid-cols-2 relative overflow-hidden">
+
+        <!-- Mensagem de Sucesso (inicialmente oculta) -->
+        <div id="success-message"
+            class="absolute inset-0 bg-green-500 bg-opacity-90 flex items-center justify-center opacity-0 pointer-events-none z-10">
+            <div class="text-center text-white">
+                <h2 class="text-3xl font-bold mb-2">Cadastro Enviado!</h2>
+                <p>Obrigado! Entraremos em contato em breve.</p>
+            </div>
+        </div>
+
+        <!-- Coluna Esquerda (Informativa) -->
+        <div
+            class="bg-[#1e3932] text-white p-8 sm:p-12 flex flex-col justify-between rounded-t-2xl lg:rounded-l-2xl lg:rounded-tr-none">
+            <div>
+                <h1 class="text-2xl font-bold">NutriGOV</h1>
+            </div>
+            <div class="my-auto">
+                <h2 class="text-4xl font-bold leading-tight text-yellow-300">
+                    Maximize a eficiência do seu almoxarifado com nossa tecnologia.
+                </h2>
+            </div>
+            <!-- Elemento vazio para manter o layout consistente com flexbox -->
+            <div></div>
+        </div>
+
+        <!-- Coluna Direita (Formulário) -->
+        <div class="p-8 sm:p-12 border-4 border-yellow-400 rounded-b-2xl lg:rounded-r-2xl lg:rounded-bl-none">
+            <form id="cadastro-form" class="space-y-4">
+
+                <!-- Campo: Selecione o Plano -->
+                <div>
+                    <label for="plano" class="block text-sm font-medium text-gray-700 mb-1">Selecione o Plano *</label>
+                    <select id="plano" name="plano" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-gray-700 bg-white">
+                        <option>Órgãos Pequeno Porte - Essencial</option>
+                        <option>Órgãos Médio Porte - Avançado</option>
+                        <option>Órgãos Grande Porte - Premium</option>
+                    </select>
+                </div>
+
+                <!-- Campo: Nome Completo -->
+                <div>
+                    <label for="nome" class="block text-sm font-medium text-gray-700 mb-1">Nome Completo *</label>
+                    <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent">
+                </div>
+
+                <!-- Campo: E-mail -->
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">E-mail *</label>
+                    <input type="email" id="email" name="email" placeholder="exemplo@dominio.com" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent">
+                </div>
+
+                <!-- Campo: Celular -->
+                <div>
+                    <label for="celular" class="block text-sm font-medium text-gray-700 mb-1">Celular *</label>
+                    <input type="tel" id="celular" name="celular" placeholder="(00) 00000-0000" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent">
+                </div>
+
+                <!-- Campo: Cargo -->
+                <div>
+                    <label for="cargo" class="block text-sm font-medium text-gray-700 mb-1">Cargo</label>
+                    <input type="text" id="cargo" name="cargo" placeholder="Seu cargo"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent">
+                </div>
+
+                <!-- Campo: Órgão -->
+                <div>
+                    <label for="orgao" class="block text-sm font-medium text-gray-700 mb-1">Órgão</label>
+                    <input type="text" id="orgao" name="orgao" placeholder="Nome do órgão público"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent">
+                </div>
+
+                <!-- Campo: CNPJ -->
+                <div>
+                    <label for="cnpj" class="block text-sm font-medium text-gray-700 mb-1">CNPJ *</label>
+                    <input type="text" id="cnpj" name="cnpj" placeholder="00.000.000/0000-00" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent">
+                </div>
+
+                <!-- Linha com Estado e Município -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Campo: Estado -->
+                    <div>
+                        <label for="estado" class="block text-sm font-medium text-gray-700 mb-1">Estado *</label>
+                        <select id="estado" name="estado" required
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-gray-700 bg-white">
+                            <option disabled selected value="">Selecione o estado</option>
+                        </select>
+                    </div>
+                    <!-- Campo: Município -->
+                    <div>
+                        <label for="municipio" class="block text-sm font-medium text-gray-700 mb-1">Município *</label>
+                        <select id="municipio" name="municipio" required disabled
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent text-gray-700 bg-white disabled:bg-gray-100">
+                            <option disabled selected value="">Selecione o município</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Botão de Envio -->
+                <div>
+                    <button type="submit"
+                        class="w-full bg-[#1e3932] text-white font-bold py-3 px-4 rounded-lg hover:bg-opacity-90 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 mt-4">
+                        Enviar Cadastro
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const estadoSelect = document.getElementById('estado');
+        const municipioSelect = document.getElementById('municipio');
+        const celularInput = document.getElementById('celular');
+        const cnpjInput = document.getElementById('cnpj');
+        const form = document.getElementById('cadastro-form');
+        const successMessage = document.getElementById('success-message');
+
+        // Carregar estados da API do IBGE
+        fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome')
+            .then(res => res.json())
+            .then(estados => {
+                for (const estado of estados) {
+                    estadoSelect.innerHTML += `<option value="${estado.id}">${estado.nome}</option>`;
+                }
+            });
+
+        // Carregar municípios ao selecionar um estado
+        estadoSelect.addEventListener('change', () => {
+            const estadoId = estadoSelect.value;
+            if (!estadoId) return;
+
+            municipioSelect.disabled = true;
+            municipioSelect.innerHTML = '<option>Carregando...</option>';
+
+            fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${estadoId}/municipios`)
+                .then(res => res.json())
+                .then(municipios => {
+                    municipioSelect.innerHTML = '<option disabled selected value="">Selecione o município</option>';
+                    for (const municipio of municipios) {
+                        municipioSelect.innerHTML += `<option value="${municipio.nome}">${municipio.nome}</option>`;
+                    }
+                    municipioSelect.disabled = false;
+                });
+        });
+
+        // Máscara para Celular: (00) 00000-0000
+        celularInput.addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\D/g, '');
+            value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
+            value = value.replace(/(\d)(\d{4})$/, '$1-$2');
+            e.target.value = value;
+        });
+
+        // Máscara para CNPJ: 00.000.000/0000-00
+        cnpjInput.addEventListener('input', (e) => {
+            let value = e.target.value.replace(/\D/g, '');
+            value = value.replace(/^(\d{2})(\d)/, '$1.$2');
+            value = value.replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3');
+            value = value.replace(/\.(\d{3})(\d)/, '.$1/$2');
+            value = value.replace(/(\d{4})(\d)/, '$1-$2');
+            e.target.value = value;
+        });
+
+        // Manipular envio do formulário
+        form.addEventListener('submit', (e) => {
+            e.preventDefault(); // Impede o recarregamento da página
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            console.log('Dados do formulário:', data);
+
+            // Exibir mensagem de sucesso
+            successMessage.classList.remove('opacity-0', 'pointer-events-none');
+
+            // Opcional: resetar formulário e esconder mensagem após alguns segundos
+            setTimeout(() => {
+                successMessage.classList.add('opacity-0', 'pointer-events-none');
+                form.reset();
+                municipioSelect.innerHTML = '<option disabled selected value="">Selecione o município</option>';
+                municipioSelect.disabled = true;
+            }, 4000);
+        });
+
+    </script>
+</body>
+
+</html>
