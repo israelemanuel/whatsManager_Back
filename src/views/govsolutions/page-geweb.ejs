@@ -299,7 +299,6 @@
                     <li><a href="#modulos" class="font-bold text-[var(--primary-text)]">Vantagens</a></li>
                     <li><a href="#recursos" class="font-bold text-[var(--primary-text)]">Recursos</a></li>
                     <li><a href="#plans" class="font-bold text-[var(--primary-text)]">Planos</a></li>
-                    <li><a href="#representantes" class="font-bold text-[var(--primary-text)]">Representantes</a></li>
                     <li><a href="#perguntas" class="font-bold text-[var(--primary-text)]">Perguntas</a></li>
 
                     <li><a target="_blank"
@@ -345,9 +344,6 @@
                 </li>
                 <li><a href="#plans"
                         class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Planos</a>
-                </li>
-                <li><a href="#representantes"
-                        class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Representantes</a>
                 </li>
                 <li><a href="#perguntas"
                         class="nav-link-mobile block py-3 px-2 font-bold text-[var(--primary-text)]">Perguntas</a>
@@ -505,7 +501,7 @@
                     o próximo semestre está aberta. Não perca a chance de sair na frente.</p>
                 <div
                     class="mt-10 w-fit bg-[var(--primary-text)] text-white rounded-2xl min-h-[56px] flex items-center justify-center animate-bounce duration-300 px-6">
-                    <a href="#representantes" class="upddercase font-bold">
+                    <a href="#perguntas" class="upddercase font-bold">
                         Fale com um Especialista Agora
                     </a>
                 </div>
@@ -608,60 +604,6 @@
             </div>
         </article>
 
-        <!-- Seção Representantes -->
-        <article id="representantes" class="py-12 md:py-24">
-            <div class="container mx-auto px-4">
-                <div class="text-center max-w-3xl mx-auto">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mt-1">Fale com um Especialista na Sua
-                        Região</h2>
-                </div>
-                <div class="w-full mx-auto mt-12 bg-white p-8 rounded-3xl shadow-xl">
-                    <p class="text-[var(--primary-text)] mb-6 text-center">Nossos representantes estão aptos a capacitar
-                        sua equipe
-                        para se tornarem autônomos no uso de nossos sistemas.</p>
-                    <div class="w-full">
-                        <label for="estado-select"
-                            class="block text-sm font-medium text-[var(--primary-text)] mb-2">Selecione seu
-                            estado</label>
-
-                        <!-- Dropdown Customizado -->
-                        <div class="custom-select" id="estado-custom-select">
-                            <button type="button" class="custom-select-button" id="estado-select-button">
-                                <span id="estado-selected-text">Pará</span>
-                                <span class="custom-select-icon">
-                                    <svg class="w-5 h-5 text-[var(--primary-text)]" fill="none" stroke="currentColor"
-                                        viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19 9l-7 7-7-7"></path>
-                                    </svg>
-                                </span>
-                            </button>
-
-                            <div class="custom-select-dropdown" id="estado-dropdown">
-                                <button type="button" class="custom-select-option" data-value="ceara">Ceará</button>
-                                <button type="button" class="custom-select-option"
-                                    data-value="maranhao">Maranhão</button>
-                                <button type="button" class="custom-select-option selected"
-                                    data-value="para">Pará</button>
-                                <button type="button" class="custom-select-option" data-value="minasgerais">Minas
-                                    Gerais</button>
-                                <button type="button" class="custom-select-option" data-value="riograndedosul">Rio
-                                    Grande do Sul</button>
-                                <button type="button" class="custom-select-option" data-value="santacatarina">Santa
-                                    Catarina</button>
-                                <button type="button" class="custom-select-option"
-                                    data-value="tocantins">Tocantins</button>
-                            </div>
-                        </div>
-
-                        <!-- Input hidden para manter compatibilidade -->
-                        <input type="hidden" id="estado-select" value="para">
-                    </div>
-                    <div id="rev-grid" class="relative mt-8 grid grid-cols-1 md:grid-cols-2 gap-6"></div>
-                </div>
-            </div>
-        </article>
-
         <!-- Seção Planos -->
         <article id="plans" class="py-12 md:py-24">
             <div class="container mx-auto md:px-4">
@@ -711,10 +653,10 @@
                                 <span class="text-[var(--primary-text)]">Suporte Remoto básico</span>
                             </li>
                         </ul>
-                        <button
-                            class="w-full bg-[var(--primary-text)] text-white font-bold py-3 px-6 rounded-xl hover:bg-gray-700 transition-colors">
-                            Começar Agora
-                        </button>
+                        <a href="/geweb-form?option=1"
+                            class="w-full bg-[var(--primary-text)] text-white font-bold py-3 px-6 rounded-xl hover:bg-gray-700 transition-colors block text-center">
+                            Contratar
+                        </a>
                         <div class="mt-4 text-sm text-gray-600 text-center">
                             <p>Adicional por Entidade: R$ 200/ano</p>
                             <p>Adicional por Departamento: R$ 50/ano</p>
@@ -770,10 +712,10 @@
                                 <span class="text-[var(--primary-text)]">Suporte Remoto com SLA por gravidade</span>
                             </li>
                         </ul>
-                        <button
-                            class="w-full bg-[var(--primary-text)] text-white font-bold py-3 px-6 rounded-xl hover:bg-gray-700 transition-colors">
-                            Começar Agora
-                        </button>
+                        <a href="/geweb-form?option=2"
+                            class="w-full bg-[var(--primary-text)] text-white font-bold py-3 px-6 rounded-xl hover:bg-gray-700 transition-colors block text-center">
+                            Contratar
+                        </a>
                         <div class="mt-4 text-sm text-gray-600 text-center">
                             <p>Adicional por Entidade: R$ 350/ano</p>
                             <p>Adicional por Departamento: R$ 70/ano</p>
@@ -829,10 +771,10 @@
                                 <span class="text-[var(--primary-text)]">Consultoria personalizada</span>
                             </li>
                         </ul>
-                        <button
-                            class="w-full bg-[var(--primary-text)] text-white font-bold py-3 px-6 rounded-xl hover:bg-gray-700 transition-colors">
-                            Começar Agora
-                        </button>
+                        <a href="/geweb-form?option=3"
+                            class="w-full bg-[var(--primary-text)] text-white font-bold py-3 px-6 rounded-xl hover:bg-gray-700 transition-colors block text-center">
+                            Contratar
+                        </a>
                         <div class="mt-4 text-sm text-gray-600 text-center">
                             <p>Sem custos adicionais</p>
                         </div>
@@ -885,10 +827,10 @@
                                             <span class="text-[var(--primary-text)]">Suporte Básico</span>
                                         </li>
                                     </ul>
-                                    <button
-                                        class="w-full bg-[var(--primary-text)] text-white font-bold py-3 px-4 rounded-xl hover:bg-gray-700 transition-colors text-sm">
-                                        Começar Agora
-                                    </button>
+                                    <a href="/geweb-form?option=1"
+                                        class="w-full bg-[var(--primary-text)] text-white font-bold py-3 px-4 rounded-xl hover:bg-gray-700 transition-colors text-sm block text-center">
+                                        Contratar
+                                    </a>
                                     <div class="mt-3 text-xs text-gray-600 text-center">
                                         <p>+ R$ 200/entidade | + R$ 50/depto</p>
                                     </div>
@@ -937,10 +879,10 @@
                                             <span class="text-[var(--primary-text)]">Suporte com SLA</span>
                                         </li>
                                     </ul>
-                                    <button
-                                        class="w-full bg-[var(--primary-text)] text-white font-bold py-3 px-4 rounded-xl hover:bg-gray-700 transition-colors text-sm">
-                                        Começar Agora
-                                    </button>
+                                    <a href="/geweb-form?option=2"
+                                        class="w-full bg-[var(--primary-text)] text-white font-bold py-3 px-4 rounded-xl hover:bg-gray-700 transition-colors text-sm block text-center">
+                                        Contratar
+                                    </a>
                                     <div class="mt-3 text-xs text-gray-600 text-center">
                                         <p>+ R$ 350/entidade | + R$ 70/depto</p>
                                     </div>
@@ -990,10 +932,10 @@
                                             <span class="text-[var(--primary-text)]">Consultoria Personalizada</span>
                                         </li>
                                     </ul>
-                                    <button
-                                        class="w-full bg-[var(--primary-text)] text-white font-bold py-3 px-4 rounded-xl hover:bg-gray-700 transition-colors text-sm">
-                                        Começar Agora
-                                    </button>
+                                    <a href="/geweb-form?option=3"
+                                        class="w-full bg-[var(--primary-text)] text-white font-bold py-3 px-4 rounded-xl hover:bg-gray-700 transition-colors text-sm block text-center">
+                                        Contratar
+                                    </a>
                                     <div class="mt-3 text-xs text-gray-600 text-center">
                                         <p>Sem custos adicionais</p>
                                     </div>
@@ -1045,9 +987,8 @@
                                 suporte técnico?</span><span
                                 class="material-symbols-outlined transition-transform duration-300">expand_more</span></button>
                         <div class="accordion-body max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-                            <p class="p-5 pt-0 text-[var(--primary-text)]">Oferecemos suporte técnico contínuo através
-                                de nossos
-                                representantes locais, com atendimento por telefone, e-mail e chat.</p>
+                            <p class="p-5 pt-0 text-[var(--primary-text)]">Oferecemos suporte técnico contínuo
+                                com atendimento por telefone, e-mail e chat.</p>
                         </div>
                     </div>
                 </div>
@@ -1075,7 +1016,6 @@
                         <li><a href="#recursos" class="hover:underline">Recursos</a></li>
                         <li><a href="#plans" class="hover:underline">Planos</a></li>
                         <li><a href="#sistemas_integrados" class="hover:underline">Ecossistema</a></li>
-                        <li><a href="#representantes" class="hover:underline">Representantes</a></li>
                         <li><a target="_blank"
                                 class="px-4 py-2 rounded-[8px] bg-[#4273b8] text-white font-bold uppercase cursor-pointer"
                                 href="https://gestorescolarweb.com.br" class="hover:underline">LOGIN</a></li>
@@ -1643,119 +1583,7 @@
             }, { passive: true });
 
 
-            // --- LÓGICA DOS REPRESENTANTES ---
-            const revData = {
-                para: [{ nome: 'GOV PA Soluções', cidade: 'Belém', fone: '(91) 3222-0000', email: 'contato@govpa.com.br' }, { nome: 'Norte Gestão', cidade: 'Santarém', fone: '(93) 3522-1111', email: 'contato@nortegestao.com.br' }],
-                maranhao: [{ nome: 'MA Gestão Pública', cidade: 'São Luís', fone: '(98) 3232-2222', email: 'contato@magestao.com.br' }],
-                ceara: [{ nome: 'CE Soluções', cidade: 'Fortaleza', fone: '(85) 3434-3333', email: 'contato@cesolucoes.com.br' }],
-                minasgerais: [{ nome: 'Minas Soluções Gov', cidade: 'Belo Horizonte', fone: '(31) 3333-4444', email: 'contato@minasgov.com.br' }],
-                riograndedosul: [{ nome: 'Sul Gestão Pública', cidade: 'Porto Alegre', fone: '(51) 3456-7890', email: 'contato@sulgestao.com.br' }],
-                santacatarina: [{ nome: 'SC Gov Systems', cidade: 'Florianópolis', fone: '(48) 3210-9876', email: 'contato@scgov.com.br' }],
-                tocantins: [{ nome: 'Tocantins Soluções', cidade: 'Palmas', fone: '(63) 3215-1234', email: 'contato@tosolucoes.com.br' }]
-            };
 
-            // --- LÓGICA DO DROPDOWN CUSTOMIZADO ---
-            const selectEstado = document.getElementById('estado-select');
-            const customSelect = document.getElementById('estado-custom-select');
-            const selectButton = document.getElementById('estado-select-button');
-            const selectedText = document.getElementById('estado-selected-text');
-            const dropdown = document.getElementById('estado-dropdown');
-            const options = dropdown.querySelectorAll('.custom-select-option');
-            const revGrid = document.getElementById('rev-grid');
-
-            // Função para fechar dropdown ao clicar fora
-            function closeDropdown() {
-                customSelect.classList.remove('open');
-            }
-
-            // Abrir/fechar dropdown
-            selectButton.addEventListener('click', (e) => {
-                e.stopPropagation();
-                customSelect.classList.toggle('open');
-            });
-
-            // Fechar dropdown ao clicar fora
-            document.addEventListener('click', closeDropdown);
-
-            // Prevenir fechamento ao clicar no dropdown
-            dropdown.addEventListener('click', (e) => {
-                e.stopPropagation();
-            });
-
-            // Lógica das opções
-            options.forEach(option => {
-                option.addEventListener('click', () => {
-                    // Remover seleção anterior
-                    options.forEach(opt => opt.classList.remove('selected'));
-
-                    // Selecionar nova opção
-                    option.classList.add('selected');
-
-                    // Atualizar texto e valor
-                    const value = option.dataset.value;
-                    const text = option.textContent;
-
-                    selectedText.textContent = text;
-                    selectEstado.value = value;
-
-                    // Fechar dropdown
-                    customSelect.classList.remove('open');
-
-                    // Disparar evento de mudança
-                    mostrarConce(value);
-                });
-            });
-
-            function mostrarConce(estado) {
-                if (!revGrid) return;
-                // Limpar grid
-                revGrid.innerHTML = '';
-
-                const representantes = (estado && revData[estado]) ? revData[estado] : [];
-
-                if (!Array.isArray(representantes) || representantes.length === 0) {
-                    const p = document.createElement('p');
-                    p.className = 'text-[var(--primary-text)] md:col-span-2 text-center';
-                    p.textContent = 'Nenhum representante encontrado.';
-                    revGrid.appendChild(p);
-                    return;
-                }
-
-                representantes.forEach(rep => {
-                    const card = document.createElement('div');
-                    card.className = 'border border-gray-200 rounded-2xl p-4 bg-white hover:shadow-md transition-shadow';
-
-                    const h4 = document.createElement('h4');
-                    h4.className = 'font-bold text-lg text-[var(--primary-text)]';
-                    h4.textContent = rep.nome || '—';
-
-                    const cidade = document.createElement('p');
-                    cidade.className = 'text-sm text-[var(--primary-text)] mt-1';
-                    cidade.textContent = rep.cidade || '';
-
-                    const fone = document.createElement('p');
-                    fone.className = 'text-sm text-[var(--primary-text)] mt-2';
-                    fone.innerHTML = '<strong>Fone:</strong> ' + (rep.fone || '—');
-
-                    const email = document.createElement('p');
-                    email.className = 'text-sm text-[var(--primary-text)]';
-                    email.innerHTML = '<strong>Email:</strong> ' + (rep.email || '—');
-
-                    card.appendChild(h4);
-                    card.appendChild(cidade);
-                    card.appendChild(fone);
-                    card.appendChild(email);
-
-                    revGrid.appendChild(card);
-                });
-            }
-
-            // Inicializar com valor padrão (proteção caso selectEstado não exista)
-            if (selectEstado && selectEstado.value) {
-                mostrarConce(selectEstado.value);
-            } else {
-                mostrarConce('para');
-            }
 
             // --- DADOS DOS RECURSOS ---
             const featureData = {

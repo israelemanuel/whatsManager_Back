@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover, shrink-to-fit=no">
+    <!-- Navegação e Progresso -->
+    <!-- <div class="mt-8 flex items-center justify-between">
+        <div class="flex items-center gap-4">
+            <button type="button" id="prev-btn"
+                class="bg-gray-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors duration-300 items-center gap-2 hidden">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Voltar
+            </button>
+            <button type="button" id="next-btn"
+                class="bg-[var(--primary-blue)] text-white font-bold py-2 px-5 rounded-lg hover:bg-[var(--secondary-blue)] hover:text-[var(--primary-text)] transition-colors duration-300 flex items-center gap-2">
+                OK
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </button>
+            <span class="text-sm">pressione <strong>Enter ↵</strong></span>
+        </div>
+    </div> -->
+    <title>Formulário de Inscrição GEWEB - Plataforma de Gestão Escolar</title>
+    <!-- Incluindo Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Incluindo a fonte Nunito do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #4273b8;
+            --secondary-blue: #acc8ea;
+            --tertiary-blue: #0d79fd;
+            --light-blue: #f7fbff;
+            --primary-text: #3e4b67;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue), var(--light-blue));
+            min-height: 100vh;
+        }
+
+        /* Estilos para o Select Customizado */
+        .custom-select-options {
+            transition: all 0.2s ease-in-out;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .custom-select-options::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .custom-select-options::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .custom-select-options::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+
+        .custom-select-options::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Estilos para o scroll do resumo */
+        .summary-container::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .summary-container::-webkit-scrollbar-track {
+            background: transparent;
+            border-radius: 10px;
+            margin-top: 32px;
+            margin-bottom: 32px;
+        }
+
+        .summary-container::-webkit-scrollbar-thumb {
+            background: #ffffff;
+            border-radius: 10px;
+        }
+
+        .summary-container::-webkit-scrollbar-thumb:hover {
+            background: #f0f0f0;
+        }
+
+        /* Estilos para o formulário conversacional */
+        .form-step {
+            transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+        }
+
+        .form-step.hidden-step {
+            opacity: 0;
+            transform: translateY(20px);
+            position: absolute;
+            pointer-events: none;
+        }
+
+        #progress-bar-inner {
+            transition: width 0.4s ease-in-out;
+        }
+
+        #success-message {
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .invalid-field {
+            border-color: #dc2626 !important;
+            /* red-600 */
+            --tw-ring-color: #dc2626 !important;
+        }
+
+        .shake {
+            animation: shake 0.5s;
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            10%,
+            30%,
+            50%,
+            70%,
+            90% {
+                transform: translateX(-5px);
+            }
+
+            20%,
+            40%,
+            60%,
+            80% {
+                transform: translateX(5px);
+            }
+        }
+    </style>
+</head>
+
+<body class="flex items-center justify-center min-h-screen p-4 text-white">
+
+    <div class="w-full max-w-2xl mx-auto relative">
+        <!-- Mensagem de Sucesso -->
+        <div id="success-message"
+            class="absolute inset-0 bg-[var(--light-blue)] flex items-center justify-center opacity-0 pointer-events-none z-20 rounded-2xl">
+            <div class="text-center text-[var(--primary-blue)] p-4">
+                <h2 class="text-4xl font-bold mb-4">Cadastro Enviado!</h2>
+                <p class="text-lg text-[var(--primary-text)]">Obrigado! Entraremos em contato em breve.</p>
+            </div>
+        </div>
+
+        <!-- Container do Formulário -->
+        <form id="cadastro-form" class="relative h-64">
+            <!-- Os passos do formulário serão injetados aqui pelo JS -->
+        </form>
+
+        <!-- Navegação e Progresso -->
+        <div class="mt-8 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <button type="button" id="prev-btn"
+                    class="bg-gray-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors duration-300 items-center gap-2 hidden">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                        </path>
+                    </svg>
+                    Voltar
+                </button>
+                <button type="button" id="next-btn"
+                    class="bg-[var(--primary-blue)] text-white font-bold py-2 px-5 rounded-lg hover:bg-[var(--secondary-blue)] hover:text-[var(--primary-text)] transition-colors duration-300 flex items-center gap-2">
+                    OK
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </button>
+                <span class="text-sm">pressione <strong>Enter ↵</strong></span>
+            </div>
+            <div id="progress-indicator" class="flex items-center gap-2 text-lg">
+                <span id="current-step-span">1</span>
+                <span>/</span>
+                <span id="total-steps-span"></span>
+            </div>
+        </div>
+        <div class="w-full bg-gray-300 rounded-full h-2 mt-4">
+            <div id="progress-bar-inner" class="bg-[var(--primary-blue)] h-2 rounded-full" style="width: 0%;"></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('cadastro-form');
+            const successMessage = document.getElementById('success-message');
+            const nextBtn = document.getElementById('next-btn');
+            const currentStepSpan = document.getElementById('current-step-span');
+            const totalStepsSpan = document.getElementById('total-steps-span');
+            const progressBar = document.getElementById('progress-bar-inner');
+
+            // --- FUNÇÃO PARA OBTER PARÂMETROS DA URL ---
+            function getURLParameter(name) {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(name);
+            }
+
+            // --- MAPEAR OPÇÕES DA URL PARA NOMES DOS PLANOS ---
+            const planOptions = {
+                '1': 'Básico - Redes Pequenas (até 10 entidades)',
+                '2': 'Médio - Redes Médias (até 30 entidades)', 
+                '3': 'Avançado - Redes Grandes (ilimitadas)'
+            };
+
+            // Obter opção da URL
+            const selectedOption = getURLParameter('option');
+            let preSelectedPlan = null;
+
+            // Verificar se a opção é válida e definir plano pré-selecionado
+            if (selectedOption && planOptions[selectedOption]) {
+                preSelectedPlan = planOptions[selectedOption];
+                console.log('Plano pré-selecionado da URL:', preSelectedPlan);
+            }
+
+            const formStepsData = [
+                { id: 'plano', label: 'Primeiro, selecione o melhor plano GEWEB para você.', type: 'select', options: ['Básico - Redes Pequenas (até 10 entidades)', 'Médio - Redes Médias (até 30 entidades)', 'Avançado - Redes Grandes (ilimitadas)'], placeholder: 'Clique para escolher um plano', required: true, preSelected: preSelectedPlan },
+                { id: 'nome', label: 'Qual é o seu nome completo?', type: 'text', placeholder: 'Digite seu nome aqui', required: true },
+                { id: 'email', label: 'E o seu melhor e-mail?', type: 'email', placeholder: 'nome@exemplo.com', required: true },
+                { id: 'celular', label: 'Qual o seu número de celular?', type: 'tel', placeholder: '(00) 00000-0000', required: true },
+                { id: 'cargo', label: 'Qual é o seu cargo na área educacional?', type: 'text', placeholder: 'Ex: Secretário(a) de Educação, Coordenador(a), etc. (opcional)', required: false },
+                { id: 'orgao', label: 'Em qual rede de ensino você trabalha?', type: 'text', placeholder: 'Ex: Secretaria Municipal de Educação de... (opcional)', required: false },
+                { id: 'cnpj', label: 'Informe o CNPJ da rede de ensino.', type: 'text', placeholder: '00.000.000/0000-00', required: true },
+                { id: 'soube', label: 'Como você ficou sabendo do GEWEB?', type: 'select', options: ['Evento', 'Facebook', 'Google', 'Indicação', 'Instagram', 'Vi em outro cliente', 'YouTube'], placeholder: 'Selecione uma opção', required: false },
+                { id: 'soube_detalhe', label: 'Por favor, informe mais detalhes sobre como conheceu o GEWEB.', type: 'text', placeholder: 'Ex: nome do evento, quem indicou, nome do cliente', required: true, conditional: true },
+                { id: 'estado', label: 'Em qual estado ele fica localizado?', type: 'select-api-estado', placeholder: 'Carregando estados...', required: true },
+                { id: 'municipio', label: 'E em qual município?', type: 'select-api-municipio', placeholder: 'Primeiro selecione o estado', required: true },
+                { id: 'final', label: 'Confirme seus dados antes de enviar:', type: 'summary' }
+            ];
+
+            let currentStep = 0;
+            totalStepsSpan.textContent = formStepsData.length;
+
+            function createStepElement(stepData, index) {
+                const stepDiv = document.createElement('div');
+                stepDiv.className = `form-step absolute inset-0 flex flex-col justify-center items-center text-center ${index === 0 ? '' : 'hidden-step'}`;
+                stepDiv.dataset.step = index;
+
+                let fieldHtml = '';
+                const commonInputClasses = 'w-full max-w-md mt-4 text-xl bg-transparent border-b-2 border-gray-300 focus:border-[var(--primary-blue)] text-white placeholder-gray-300 text-center focus:outline-none transition py-2';
+
+                switch (stepData.type) {
+                    case 'select':
+                    case 'select-api-estado':
+                    case 'select-api-municipio':
+                        fieldHtml = `
+                            <div class="custom-select-wrapper relative ${commonInputClasses} border-none" data-select-id="${stepData.id}">
+                                <select id="${stepData.id}" name="${stepData.id}" ${stepData.required ? 'required' : ''} class="hidden"></select>
+                            </div>`;
+                        break;
+                    case 'summary':
+                        fieldHtml = `<div id="summary-container" class="mt-4 w-full max-w-2xl"></div>`;
+                        break;
+                    case 'final':
+                        fieldHtml = `<p class="mt-4 text-[var(--secondary-blue)]">Clique em "Enviar" para finalizar.</p>`;
+                        break;
+                    default:
+                        fieldHtml = `<input type="${stepData.type}" id="${stepData.id}" name="${stepData.id}" placeholder="${stepData.placeholder}" ${stepData.required ? 'required' : ''} class="${commonInputClasses}">`;
+                }
+
+                stepDiv.innerHTML = `<label for="${stepData.id}" class="text-3xl font-semibold">${stepData.label}</label>${fieldHtml}`;
+                return stepDiv;
+            }
+
+            formStepsData.forEach((step, index) => {
+                form.appendChild(createStepElement(step, index));
+            });
+
+            // Re-seleciona os elementos após criação
+            const steps = Array.from(document.querySelectorAll('.form-step'));
+
+            // Inicializar custom selects após criação dos elementos
+            console.log('Total de wrappers encontrados:', document.querySelectorAll('.custom-select-wrapper').length);
+
+            document.querySelectorAll('.custom-select-wrapper').forEach(wrapper => {
+                const selectId = wrapper.dataset.selectId;
+                const nativeSelect = wrapper.querySelector('select');
+                const stepData = formStepsData.find(s => s.id === selectId);
+
+                console.log('Inicializando:', selectId, 'tipo:', stepData?.type);
+
+                // Primeiro, adicionar as opções ao select nativo (apenas para selects estáticos)
+                if (stepData && stepData.type === 'select') {
+                    stepData.options.forEach(opt => {
+                        nativeSelect.innerHTML += `<option value="${opt}">${opt}</option>`;
+                    });
+                }
+
+                // SEMPRE configurar o select customizado (para TODOS os tipos)
+                setupCustomSelect(wrapper);
+                console.log('setupCustomSelect executado para:', selectId);
+
+                // Disparar evento para popular opções visuais (apenas para selects estáticos)
+                if (stepData && stepData.type === 'select') {
+                    nativeSelect.dispatchEvent(new Event('options-updated'));
+                }
+
+                // Inicializar APIs para estados APENAS
+                if (stepData && stepData.type === 'select-api-estado') {
+                    fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome')
+                        .then(res => res.json())
+                        .then(estados => {
+                            estados.forEach(estado => {
+                                nativeSelect.innerHTML += `<option value="${estado.id}">${estado.nome}</option>`;
+                            });
+                            nativeSelect.dispatchEvent(new Event('options-updated'));
+                        })
+                        .catch(error => {
+                            console.error('Erro ao carregar estados:', error);
+                            nativeSelect.innerHTML += `<option value="">Erro ao carregar estados</option>`;
+                            nativeSelect.dispatchEvent(new Event('options-updated'));
+                        });
+
+                    // Listener para mudança de estado
+                    nativeSelect.addEventListener('change', () => {
+                        const estadoId = nativeSelect.value || nativeSelect.getAttribute('data-selected-value');
+                        console.log('CHANGE EVENT - Estado selecionado:', estadoId);
+
+                        const municipioWrapper = document.querySelector('[data-select-id="municipio"]');
+                        const municipioSelect = municipioWrapper?.querySelector('select');
+
+                        console.log('Município wrapper encontrado:', !!municipioWrapper);
+                        console.log('Município select encontrado:', !!municipioSelect);
+
+                        if (!municipioWrapper || !municipioSelect || !estadoId) {
+                            console.log('SAINDO - faltam elementos ou estado');
+                            return;
+                        }
+
+                        // Limpar opções anteriores
+                        municipioSelect.innerHTML = '';
+                        console.log('Select de município limpo');
+
+                        // Buscar e adicionar municípios EXATAMENTE como funciona nos estados
+                        fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${estadoId}/municipios`)
+                            .then(res => res.json())
+                            .then(municipios => {
+                                console.log('Municípios recebidos:', municipios.length);
+                                municipios.forEach(municipio => {
+                                    municipioSelect.innerHTML += `<option value="${municipio.nome}">${municipio.nome}</option>`;
+                                });
+                                console.log('Opções adicionadas ao select:', municipioSelect.options.length);
+                                
+                                // FORÇAR atualização das opções visuais do município
+                                const municipioOptionsContainer = municipioWrapper.querySelector('.custom-select-options');
+                                if (municipioOptionsContainer) {
+                                    municipioOptionsContainer.innerHTML = '';
+                                    console.log('Container de opções do município limpo');
+                                    
+                                    // Criar opções visuais manualmente
+                                    for (const option of municipioSelect.options) {
+                                        if (option.disabled) continue;
+                                        const optionEl = document.createElement('div');
+                                        optionEl.textContent = option.textContent;
+                                        optionEl.dataset.value = option.value;
+                                        optionEl.classList.add('px-4', 'py-2', 'cursor-pointer', 'hover:bg-[var(--secondary-blue)]', 'hover:text-white');
+                                        municipioOptionsContainer.appendChild(optionEl);
+                                    }
+                                    console.log('Opções visuais do município criadas:', municipioOptionsContainer.children.length);
+                                }
+                                
+                                // MESMA LÓGICA DOS ESTADOS: disparar options-updated
+                                municipioSelect.dispatchEvent(new Event('options-updated'));
+                                console.log('Evento options-updated disparado para município');
+                            })
+                            .catch(error => {
+                                console.error('Erro ao carregar municípios:', error);
+                                municipioSelect.innerHTML += `<option value="">Erro ao carregar municípios</option>`;
+                                municipioSelect.dispatchEvent(new Event('options-updated'));
+                            });
+                    });
+                }
+            });
+
+            const prevBtn = document.getElementById('prev-btn');
+
+            function showStep(stepIndex) {
+                steps.forEach((step, index) => {
+                    step.classList.toggle('hidden-step', index !== stepIndex);
+                });
+
+                const activeStepEl = steps[stepIndex];
+                const input = activeStepEl.querySelector('input, .custom-select-trigger');
+                if (input) setTimeout(() => input.focus(), 400);
+
+                currentStep = stepIndex;
+                currentStepSpan.textContent = stepIndex + 1;
+                progressBar.style.width = `${((stepIndex + 1) / formStepsData.length) * 100}%`;
+
+                // Controlar visibilidade do botão voltar
+                if (stepIndex > 0) {
+                    prevBtn.classList.remove('hidden');
+                    prevBtn.classList.add('flex');
+                } else {
+                    prevBtn.classList.add('hidden');
+                    prevBtn.classList.remove('flex');
+                }
+
+                // Mudar botão no passo final/resumo
+                if (formStepsData[stepIndex].type === 'summary') {
+                    generateSummary();
+                    // Não alterar o botão - ele ficará dentro do resumo
+                    nextBtn.style.display = 'none'; // Ocultar botão externo
+                } else if (formStepsData[stepIndex].type === 'final') {
+                    nextBtn.innerHTML = 'Enviar';
+                    nextBtn.className = 'bg-green-600 text-white font-bold py-2 px-5 rounded-lg hover:bg-green-700 transition-colors duration-300 flex items-center gap-2';
+                    nextBtn.style.display = 'flex'; // Mostrar botão externo
+                } else {
+                    nextBtn.innerHTML = 'OK <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>';
+                    nextBtn.className = 'bg-[var(--primary-blue)] text-white font-bold py-2 px-5 rounded-lg hover:bg-[var(--secondary-blue)] hover:text-[var(--primary-text)] transition-colors duration-300 flex items-center gap-2';
+                    nextBtn.style.display = 'flex'; // Mostrar botão externo
+                }
+            }
+
+            // Variável global para armazenar valores selecionados
+            const selectedValues = {};
+
+            function validateStep() {
+                const activeStepEl = steps[currentStep];
+                const stepData = formStepsData[currentStep];
+
+                console.log('Validando step:', stepData.id, 'required:', stepData.required);
+
+                // Para campos condicionais, verificar se realmente é necessário
+                if (stepData.conditional && stepData.id === 'soube_detalhe') {
+                    const soubeValue = document.getElementById('soube')?.value;
+                    const needDetail = ['Evento', 'Indicação', 'Vi em outro cliente'];
+
+                    // Se não precisa de detalhes, considerar válido automaticamente
+                    if (!needDetail.includes(soubeValue)) {
+                        return true;
+                    }
+                }
+
+                // Se não é um campo obrigatório, considerar válido
+                if (!stepData.required) return true;
+
+                // Para selects customizados, verificar o select nativo oculto
+                let field = activeStepEl.querySelector(`#${stepData.id}`);
+
+                // Se não encontrou, tentar buscar qualquer campo obrigatório
+                if (!field) {
+                    field = activeStepEl.querySelector('[required]');
+                }
+
+                console.log('Campo encontrado:', field?.id, 'valor:', field?.value);
+                console.log('Valor backup (data-selected-value):', field?.getAttribute('data-selected-value'));
+                console.log('Valor global armazenado:', selectedValues[stepData.id]);
+                console.log('Timestamp da validação:', Date.now());
+
+                if (!field) return true;
+
+                // Verificar valor principal, backup no campo, ou global
+                let fieldValue = field.value ||
+                    field.getAttribute('data-selected-value') ||
+                    selectedValues[stepData.id] ||
+                    '';
+                let isValid = fieldValue && fieldValue.trim() !== '';
+                if (field.type === 'email') isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fieldValue);
+
+                console.log('Valor usado na validação:', fieldValue);
+                console.log('Campo válido:', isValid);
+
+                if (!isValid) {
+                    // Para selects customizados, aplicar shake no wrapper visual
+                    const elToShake = field.closest('.custom-select-wrapper') || field;
+                    elToShake.classList.add('shake', 'invalid-field');
+                    setTimeout(() => elToShake.classList.remove('shake'), 500);
+                } else {
+                    // Remover classes de erro
+                    const elToClear = field.closest('.custom-select-wrapper') || field;
+                    elToClear.classList.remove('invalid-field');
+                }
+                return isValid;
+            }
+
+            function handleNext() {
+                if (formStepsData[currentStep].type === 'summary' || formStepsData[currentStep].type === 'final') {
+                    form.dispatchEvent(new Event('submit', { cancelable: true }));
+                    return;
+                }
+
+                if (validateStep()) {
+                    // Verificar se precisamos pular o próximo passo (campo condicional)
+                    let nextStepIndex = currentStep + 1;
+
+                    // Se o próximo passo for o campo de detalhes "soube_detalhe"
+                    if (nextStepIndex < formStepsData.length && formStepsData[nextStepIndex].id === 'soube_detalhe') {
+                        const soubeValue = document.getElementById('soube')?.value;
+                        const needDetail = ['Evento', 'Indicação', 'Vi em outro cliente'];
+
+                        // Se a resposta não requer detalhes, pular este passo
+                        if (!needDetail.includes(soubeValue)) {
+                            nextStepIndex++;
+                        }
+                    }
+
+                    if (nextStepIndex < steps.length) {
+                        showStep(nextStepIndex);
+                    }
+                }
+            }
+
+            nextBtn.addEventListener('click', handleNext);
+            prevBtn.addEventListener('click', () => {
+                if (currentStep > 0) {
+                    // Verificar se precisamos pular o passo anterior (campo condicional)
+                    let prevStepIndex = currentStep - 1;
+
+                    // Se estamos voltando do estado e o passo anterior é soube_detalhe
+                    if (prevStepIndex >= 0 && formStepsData[prevStepIndex].id === 'soube_detalhe') {
+                        const soubeValue = document.getElementById('soube')?.value || selectedValues['soube'];
+                        const needDetail = ['Evento', 'Indicação', 'Vi em outro cliente'];
+
+                        // Se não precisa de detalhes, pular este passo ao voltar
+                        if (!needDetail.includes(soubeValue)) {
+                            prevStepIndex--;
+                        }
+                    }
+
+                    if (prevStepIndex >= 0) {
+                        showStep(prevStepIndex);
+                    }
+                }
+            });
+
+            form.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    handleNext();
+                }
+            });
+
+            // --- FUNÇÃO PARA GERAR RESUMO EDITÁVEL ---
+            function generateSummary() {
+                const summaryContainer = document.getElementById('summary-container');
+                if (!summaryContainer) return;
+
+                // Coletar todos os valores do formulário
+                const summaryData = [];
+
+                formStepsData.forEach(stepData => {
+                    if (stepData.type === 'summary' || stepData.type === 'final') return;
+
+                    let value = '';
+                    let displayValue = '';
+                    const field = document.getElementById(stepData.id);
+
+                    if (field) {
+                        value = field.value || field.getAttribute('data-selected-value') || selectedValues[stepData.id] || '';
+                    } else {
+                        value = selectedValues[stepData.id] || '';
+                    }
+
+                    // Para campos condicionais, verificar se devem ser mostrados
+                    if (stepData.conditional && stepData.id === 'soube_detalhe') {
+                        const soubeValue = selectedValues['soube'];
+                        const needDetail = ['Evento', 'Indicação', 'Vi em outro cliente'];
+                        if (!needDetail.includes(soubeValue)) {
+                            return; // Não mostrar este campo no resumo
+                        }
+                    }
+
+                    // Só adicionar campos que têm valor ou são obrigatórios
+                    if (value || stepData.required) {
+                        displayValue = value || '(não informado)';
+
+                        // Para estados, converter ID para nome
+                        if (stepData.id === 'estado' && value) {
+                            const estadoOption = document.querySelector(`#estado option[value="${value}"]`);
+                            displayValue = estadoOption ? estadoOption.textContent : value;
+                        }
+
+                        summaryData.push({
+                            id: stepData.id,
+                            label: stepData.label.replace('?', '').replace('Primeiro, selecione o melhor plano GEWEB para você.', 'Plano selecionado'),
+                            value: value,
+                            displayValue: displayValue,
+                            type: stepData.type,
+                            required: stepData.required
+                        });
+                    }
+                });
+
+                // Gerar HTML do resumo
+                let summaryHtml = `
+                    <div class="summary-container bg-black/20 backdrop-blur-sm rounded-lg p-6 text-left max-h-[80dvh] rounded-[32px] text-[var(--primary-text)] overflow-y-scroll overflow-x-hidden">
+                        <h3 class="text-xl font-bold mb-4 text-center text-white">Resumo dos seus dados:</h3>
+                        <div class="space-y-3">
+                `;
+
+                summaryData.forEach(item => {
+                    const isEmptyRequired = item.required && (!item.value || item.value.trim() === '');
+                    const textColor = isEmptyRequired ? 'text-red-300' : 'text-white';
+                    const bgColor = isEmptyRequired ? 'bg-red-500/20' : 'bg-white/5';
+
+                    summaryHtml += `
+                        <div class="flex justify-between items-center p-3 rounded-2xl ${bgColor} hover:bg-white/10 transition-colors cursor-pointer" 
+                             onclick="editField('${item.id}')">
+                            <div class="flex-1">
+                                <span class="text-sm text-gray-300 block">${item.label}</span>
+                                <span class="${textColor} font-medium" id="summary-${item.id}">${item.displayValue}</span>
+                            </div>
+                            <div class="text-gray-400 hover:text-white transition-colors">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                summaryHtml += `
+                        </div>
+                        <div class="mt-6 text-center">
+                            <p class="text-sm text-white mb-4">Clique em qualquer campo para editar</p>
+                            <button onclick="submitForm()" class="bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 transition-colors duration-300 w-full">
+                                Enviar Cadastro
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+                summaryContainer.innerHTML = summaryHtml;
+            }
+
+            // --- FUNÇÃO PARA EDITAR CAMPOS DO RESUMO ---
+            window.editField = function (fieldId) {
+                // Encontrar o índice do step para este campo
+                const stepIndex = formStepsData.findIndex(step => step.id === fieldId);
+                if (stepIndex !== -1) {
+                    showStep(stepIndex);
+                }
+            }
+
+            // --- FUNÇÃO PARA ENVIAR FORMULÁRIO ---
+            window.submitForm = function() {
+                form.dispatchEvent(new Event('submit', { cancelable: true }));
+            }
+
+            // --- LÓGICA DO SELECT CUSTOMIZADO ---
+            function setupCustomSelect(wrapper) {
+                const selectId = wrapper.dataset.selectId;
+                const nativeSelect = wrapper.querySelector('select');
+                const stepData = formStepsData.find(s => s.id === selectId);
+                let placeholderText = stepData?.placeholder || `Selecione uma opção`;
+
+                wrapper.innerHTML += `
+                    <div class="custom-select-trigger w-full flex justify-between items-center cursor-pointer">
+                        <span class="text-gray-300">${placeholderText}</span>
+                        <svg class="h-5 w-5 text-gray-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+                    </div>
+                    <div class="custom-select-options absolute w-full bg-white text-[var(--primary-text)] text-left border border-[var(--tertiary-blue)] rounded-lg shadow-lg z-20 hidden mt-2"></div>`;
+
+                const trigger = wrapper.querySelector('.custom-select-trigger');
+                const optionsContainer = wrapper.querySelector('.custom-select-options');
+                const selectedTextSpan = trigger.querySelector('span');
+
+                function populateOptions() {
+                    optionsContainer.innerHTML = '';
+                    console.log('populateOptions chamada para:', selectId, 'Total opções no select nativo:', nativeSelect.options.length);
+                    for (const option of nativeSelect.options) {
+                        if (option.disabled) continue;
+                        console.log('Criando opção:', option.textContent, 'valor:', option.value);
+                        const optionEl = document.createElement('div');
+                        optionEl.textContent = option.textContent;
+                        optionEl.dataset.value = option.value;
+                        optionEl.classList.add('px-4', 'py-2', 'cursor-pointer', 'hover:bg-[var(--secondary-blue)]', 'hover:text-white');
+                        optionsContainer.appendChild(optionEl);
+                    }
+                    console.log('Opções visuais criadas para', selectId, ':', optionsContainer.children.length);
+
+                    // Aplicar pré-seleção baseada na URL (apenas para o campo plano)
+                    if (selectId === 'plano' && stepData && stepData.preSelected) {
+                        console.log('Aplicando pré-seleção para plano:', stepData.preSelected);
+                        
+                        // Encontrar a opção correspondente
+                        const preSelectedOption = Array.from(optionsContainer.children).find(opt => 
+                            opt.textContent === stepData.preSelected
+                        );
+                        
+                        if (preSelectedOption) {
+                            // Atualizar interface visual
+                            selectedTextSpan.textContent = stepData.preSelected;
+                            selectedTextSpan.classList.remove('text-gray-300');
+                            selectedTextSpan.classList.add('text-white');
+                            
+                            // Definir valor no select nativo
+                            nativeSelect.value = stepData.preSelected;
+                            nativeSelect.setAttribute('data-selected-value', stepData.preSelected);
+                            
+                            // Armazenar valor globalmente
+                            selectedValues[selectId] = stepData.preSelected;
+                            
+                            console.log('Plano pré-selecionado aplicado com sucesso:', stepData.preSelected);
+                        } else {
+                            console.log('Opção pré-selecionada não encontrada:', stepData.preSelected);
+                        }
+                    }
+                }
+
+                function openDropdown() {
+                    const triggerRect = trigger.getBoundingClientRect();
+                    const spaceBelow = window.innerHeight - triggerRect.bottom;
+                    optionsContainer.classList.remove('top-full', 'bottom-full', 'mt-1', 'mb-1');
+                    if (spaceBelow < 210 && triggerRect.top > 210) {
+                        optionsContainer.classList.add('bottom-full', 'mb-1');
+                    } else {
+                        optionsContainer.classList.add('top-full', 'mt-1');
+                    }
+                    optionsContainer.classList.remove('hidden');
+                }
+
+                trigger.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    if (optionsContainer.classList.contains('hidden')) {
+                        openDropdown();
+                    } else {
+                        optionsContainer.classList.add('hidden');
+                    }
+                });
+
+                optionsContainer.addEventListener('click', (e) => {
+                    if (e.target.dataset.value) {
+                        console.log('Opção clicada:', e.target.textContent, 'valor:', e.target.dataset.value);
+                        selectedTextSpan.textContent = e.target.textContent;
+                        selectedTextSpan.classList.remove('text-gray-300');
+                        selectedTextSpan.classList.add('text-white');
+
+                        // Definir valor no select nativo E armazenar em data attribute para backup
+                        nativeSelect.value = e.target.dataset.value;
+                        nativeSelect.setAttribute('data-selected-value', e.target.dataset.value);
+
+                        // Armazenar valor globalmente como backup final
+                        selectedValues[selectId] = e.target.dataset.value;
+
+                        console.log('Valor definido no select nativo:', nativeSelect.value);
+                        console.log('ID do select nativo:', nativeSelect.id);
+                        console.log('Backup definido:', nativeSelect.getAttribute('data-selected-value'));
+                        console.log('Valor global armazenado:', selectedValues[selectId]);
+
+                        // FORÇAR o evento change IMEDIATAMENTE para estados
+                        if (selectId === 'estado') {
+                            console.log('DISPARANDO CHANGE PARA ESTADO');
+                            nativeSelect.dispatchEvent(new Event('change'));
+                        }
+
+                        // Verificar se o valor está realmente definido antes de disparar eventos
+                        setTimeout(() => {
+                            console.log('Valor após timeout:', nativeSelect.value);
+                            console.log('Backup após timeout:', nativeSelect.getAttribute('data-selected-value'));
+                            if (selectId !== 'estado') {
+                                nativeSelect.dispatchEvent(new Event('change'));
+                            }
+                        }, 10);
+
+                        optionsContainer.classList.add('hidden');
+
+                        // Para o campo "soube", verificar se precisa de detalhes antes de avançar
+                        if (selectId === 'soube') {
+                            const needDetail = ['Evento', 'Indicação', 'Vi em outro cliente'];
+                            if (needDetail.includes(e.target.dataset.value)) {
+                                // Se precisa de detalhes, avançar normalmente para o próximo passo
+                                setTimeout(handleNext, 200);
+                            } else {
+                                // Se não precisa de detalhes, avançar mas pulando o campo de detalhes
+                                setTimeout(handleNext, 200);
+                            }
+                        } else if (selectId === 'plano') {
+                            // Para o campo plano, avançar automaticamente
+                            setTimeout(handleNext, 200);
+                        }
+                        // Para estado e município, não avançar automaticamente - deixar o usuário confirmar
+                    }
+                });
+                nativeSelect.addEventListener('options-updated', populateOptions);
+            }
+
+            // --- MÁSCARAS ---
+
+            ['celular', 'cnpj'].forEach(id => {
+                const input = document.getElementById(id);
+                if (!input) return;
+                input.addEventListener('input', (e) => {
+                    let v = e.target.value.replace(/\D/g, '');
+                    if (id === 'celular') v = v.slice(0, 11).replace(/^(\d{2})(\d)/g, '($1) $2').replace(/(\d{5})(\d{4})$/, '$1-$2');
+                    else v = v.slice(0, 14).replace(/^(\d{2})(\d)/, '$1.$2').replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3').replace(/\.(\d{3})(\d)/, '.$1/$2').replace(/(\d{4})(\d)/, '$1-$2');
+                    e.target.value = v;
+                });
+            });
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                // Validação condicional para o campo "soube_detalhe"
+                const soubeValue = document.getElementById('soube')?.value || selectedValues['soube'];
+                const soubeDetalheValue = document.getElementById('soube_detalhe')?.value;
+                const needDetail = ['Evento', 'Indicação', 'Vi em outro cliente'];
+
+                if (needDetail.includes(soubeValue) && (!soubeDetalheValue || !soubeDetalheValue.trim())) {
+                    alert('Por favor, informe mais detalhes sobre como conheceu o GEWEB.');
+                    // Voltar para o passo do campo de detalhes
+                    const detalheStepIndex = formStepsData.findIndex(step => step.id === 'soube_detalhe');
+                    if (detalheStepIndex !== -1) {
+                        showStep(detalheStepIndex);
+                        return;
+                    }
+                }
+
+                // Criar FormData com valores globais também
+                const formData = new FormData(form);
+
+                // Adicionar valores dos selects customizados que podem ter sido perdidos
+                Object.keys(selectedValues).forEach(key => {
+                    if (selectedValues[key] && !formData.get(key)) {
+                        formData.set(key, selectedValues[key]);
+                    }
+                });
+
+                console.log('Dados do formulário:', Object.fromEntries(formData.entries()));
+                console.log('Valores globais armazenados:', selectedValues);
+                successMessage.classList.remove('opacity-0', 'pointer-events-none');
+                
+                // Redirecionar após 3 segundos para a página /geweb
+                setTimeout(() => {
+                    window.location.href = '/geweb';
+                }, 3000);
+            });
+
+            showStep(0); // Inicia o formulário
+        });
+    </script>
+</body>
+
+</html>
